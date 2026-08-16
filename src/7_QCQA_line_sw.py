@@ -316,6 +316,9 @@ class LDPValidator:
                 f.write("---\n\n") 
                 f.write(f"### 🧭 Province: {res['NAME_1']} ({res['HASC_1']})\n\n")
                 
+                # Moved LDP Definition block with dynamic TH.XX LDP header
+                f.write(f"> **{res['HASC_1']} LDP :**\n> `{res['LDP_Def']}`\n\n")
+                
                 f.write(f"| P1 | {p1_str} | P2 | {p2_str} |\n")
                 f.write("|:---|:---|:---|:---|\n")
                 f.write(f"| MSL | {msl_val} | HAE | {hae_val} |\n")
@@ -323,9 +326,8 @@ class LDPValidator:
                 f.write(f"| P1_LDP_CSF | {csf1_ppm:+.1f} ppm{flag1} | P2_LDP_CSF | {csf2_ppm:+.1f} ppm{flag2} |\n")
                 f.write(f"| P1_{u_zone_label}_CSF | {utm_csf1_ppm:+.1f} ppm | P2_{u_zone_label}_CSF | {utm_csf2_ppm:+.1f} ppm |\n\n")
                 
-                f.write(f"> **LDP Definition:**\n> `{res['LDP_Def']}`\n\n")
-                
-                f.write("| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |\n")
+                # Corrected header line
+                f.write("| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |\n")
                 f.write("|:---:|:---:|:---:|:---:|:---:|:---:|\n")
                 f.write(f"| {res['diff_L1']:+.3f} | *0.000 | {res['diff_L3']:+.3f} | {res['diff_L4']:+.3f} | {res['diff_L5']:+.3f} | {diff_l6_str} |\n\n")
 
@@ -334,13 +336,13 @@ def generate_line_descriptions(out_dir):
     """Generate and save the line descriptions lookup table."""
     line_descriptions = {
         'Line': ['L1', 'L2', 'L3', 'L4', 'L5', 'L6'],
-        'LineDescr': [
-            'on ellipsoid surface',
-            'on ellipsoid surface , HSF applied (Ground)', 
-            'on UTM grid',
-            'on UTM grid , PSF applied',
-            'on UTM grid , PSF&HSF (CSF) applied',
-            'on LDP grid'
+        'Line Description': [
+            'on the ellipsoid surface',
+            'on the ground surface , (HSF applied)', 
+            'on the UTM grid',
+            'on the UTM grid (PSF applied)',
+            'on the UTM grid (CSF applied)',
+            'on the LDP grid'
         ]
     }
     df = pd.DataFrame(line_descriptions)

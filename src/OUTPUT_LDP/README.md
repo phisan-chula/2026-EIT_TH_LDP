@@ -4,18 +4,21 @@ This report provides a comparative analysis of distances calculated across vario
 
 ## --- Distance Definitions ---
 
-| Line   | LineDescr                                   |
-|:-------|:--------------------------------------------|
-| L1     | on ellipsoid surface                        |
-| L2     | on ellipsoid surface , HSF applied (Ground) |
-| L3     | on UTM grid                                 |
-| L4     | on UTM grid , PSF applied                   |
-| L5     | on UTM grid , PSF&HSF (CSF) applied         |
-| L6     | on LDP grid                                 |
+| Line   | Line Description                      |
+|:-------|:--------------------------------------|
+| L1     | on the ellipsoid surface              |
+| L2     | on the ground surface , (HSF applied) |
+| L3     | on the UTM grid                       |
+| L4     | on the UTM grid (PSF applied)         |
+| L5     | on the UTM grid (CSF applied)         |
+| L6     | on the LDP grid                       |
 
 ---
 
 ### 🧭 Province: Amnat Charoen (TH.AC)
+
+> **TH.AC LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=104.75000000 +k_0=1.000016 +x_0=50000 +y_0=-1610000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (15.908945085, 104.730609023) | P2 | (15.917981953, 104.730609023) |
 |:---|:---|:---|:---|
@@ -24,16 +27,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -9.8 ppm | P2_LDP_CSF | -9.4 ppm |
 | P1_U48_CSF | -415.5 ppm | P2_U48_CSF | -415.2 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=104.75000000 +k_0=1.000016 +x_0=50000 +y_0=-1610000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.026 | *0.000 | -0.415 | -0.026 | -0.000 | -0.010 |
 
 ---
 
 ### 🧭 Province: Ang Thong (TH.AT)
+
+> **TH.AT LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=100.35000000 +k_0=0.999997 +x_0=50000 +y_0=-1470000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (14.618255615, 100.353729586) | P2 | (14.627293523, 100.353729586) |
 |:---|:---|:---|:---|
@@ -42,16 +45,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +1.0 ppm | P2_LDP_CSF | +1.1 ppm |
 | P1_U47_CSF | -133.1 ppm | P2_U47_CSF | -133.0 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=100.35000000 +k_0=0.999997 +x_0=50000 +y_0=-1470000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | +0.004 | *0.000 | -0.133 | +0.004 | -0.000 | +0.001 |
 
 ---
 
 ### 🧭 Province: Bueng Kan (TH.BK)
+
+> **TH.BK LDP :**
+> `+proj=lcc +lat_1=18.15000000 +lat_0=18.15000000 +lon_0=103.71666667 +k_0=1.000022 +x_0=150000 +y_0=50000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (18.107055664, 103.704676551) | P2 | (18.116090584, 103.704676551) |
 |:---|:---|:---|:---|
@@ -60,16 +63,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -0.2 ppm | P2_LDP_CSF | -1.6 ppm |
 | P1_U48_CSF | -190.3 ppm | P2_U48_CSF | -191.6 ppm |
 
-> **LDP Definition:**
-> `+proj=lcc +lat_1=18.15000000 +lat_0=18.15000000 +lon_0=103.71666667 +k_0=1.000022 +x_0=150000 +y_0=50000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.023 | *0.000 | -0.191 | -0.023 | -0.000 | -0.001 |
 
 ---
 
 ### 🧭 Province: Buri Ram (TH.BR)
+
+> **TH.BR LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=102.96666667 +k_0=1.000012 +x_0=250000 +y_0=-910000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (14.961830616, 103.065677419) | P2 | (14.970868255, 103.065677419) |
 |:---|:---|:---|:---|
@@ -78,16 +81,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -7.9 ppm | P2_LDP_CSF | -7.2 ppm |
 | P1_U48_CSF | +114.0 ppm | P2_U48_CSF | +114.6 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=102.96666667 +k_0=1.000012 +x_0=250000 +y_0=-910000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.021 | *0.000 | +0.114 | -0.021 | -0.000 | -0.008 |
 
 ---
 
 ### 🧭 Province: Chon Buri (TH.CB)
+
+> **TH.CB LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=101.20000000 +k_0=0.999997 +x_0=40000 +y_0=-900000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (13.096534500, 101.226437609) | P2 | (13.105573529, 101.226437609) |
 |:---|:---|:---|:---|
@@ -96,16 +99,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -14.6 ppm | P2_LDP_CSF | -14.5 ppm |
 | P1_U47_CSF | +309.2 ppm | P2_U47_CSF | +309.2 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=101.20000000 +k_0=0.999997 +x_0=40000 +y_0=-900000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.012 | *0.000 | +0.309 | -0.012 | -0.000 | -0.015 |
 
 ---
 
 ### 🧭 Province: Chachoengsao (TH.CC)
+
+> **TH.CC LDP :**
+> `+proj=lcc +lat_1=13.60000000 +lat_0=13.60000000 +lon_0=101.43333333 +k_0=0.999996 +x_0=500000 +y_0=50000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (13.576500894, 101.564268898) | P2 | (13.585539581, 101.564268898) |
 |:---|:---|:---|:---|
@@ -114,16 +117,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -5.1 ppm | P2_LDP_CSF | -5.8 ppm |
 | P1_U47_CSF | +551.5 ppm | P2_U47_CSF | +550.8 ppm |
 
-> **LDP Definition:**
-> `+proj=lcc +lat_1=13.60000000 +lat_0=13.60000000 +lon_0=101.43333333 +k_0=0.999996 +x_0=500000 +y_0=50000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.002 | *0.000 | +0.551 | -0.002 | -0.000 | -0.005 |
 
 ---
 
 ### 🧭 Province: Chiang Mai Central (TH.CM_C)
+
+> **TH.CM_C LDP :**
+> `+proj=lcc +lat_1=18.70000000 +lat_0=18.70000000 +lon_0=98.65000000 +k_0=1.000043 +x_0=500000 +y_0=500000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (18.783956386, 98.996828708) | P2 | (18.792990662, 98.996828708) |
 |:---|:---|:---|:---|
@@ -132,16 +135,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +1.9 ppm | P2_LDP_CSF | +2.0 ppm |
 | P1_U47_CSF | -442.2 ppm | P2_U47_CSF | -442.3 ppm |
 
-> **LDP Definition:**
-> `+proj=lcc +lat_1=18.70000000 +lat_0=18.70000000 +lon_0=98.65000000 +k_0=1.000043 +x_0=500000 +y_0=500000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.042 | *0.000 | -0.442 | -0.042 | -0.000 | +0.002 |
 
 ---
 
 ### 🧭 Province: Chiang Mai North (TH.CM_N)
+
+> **TH.CM_N LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=99.01666667 +k_0=1.000063 +x_0=500000 +y_0=-1700000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (19.571161271, 98.919901123) | P2 | (19.580194773, 98.919901123) |
 |:---|:---|:---|:---|
@@ -150,16 +153,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -8.9 ppm | P2_LDP_CSF | -18.4 ppm |
 | P1_U47_CSF | -472.2 ppm | P2_U47_CSF | -481.7 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=99.01666667 +k_0=1.000063 +x_0=500000 +y_0=-1700000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.078 | *0.000 | -0.477 | -0.078 | -0.000 | -0.014 |
 
 ---
 
 ### 🧭 Province: Chiang Mai South (TH.CM_S)
+
+> **TH.CM_S LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=98.43333333 +k_0=1.000139 +x_0=50000 +y_0=-1500000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (17.777851105, 98.327666178) | P2 | (17.786886331, 98.327666178) |
 |:---|:---|:---|:---|
@@ -168,16 +171,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -20.5 ppm ❗ | P2_LDP_CSF | +2.6 ppm |
 | P1_U47_CSF | -498.2 ppm | P2_U47_CSF | -475.1 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=98.43333333 +k_0=1.000139 +x_0=50000 +y_0=-1500000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.149 | *0.000 | -0.487 | -0.149 | -0.000 | -0.009 |
 
 ---
 
 ### 🧭 Province: Chai Nat (TH.CN)
+
+> **TH.CN LDP :**
+> `+proj=lcc +lat_1=15.13333333 +lat_0=15.13333333 +lon_0=100.03333333 +k_0=0.999999 +x_0=150000 +y_0=50000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (15.159755708, 100.038590182) | P2 | (15.168793189, 100.038590182) |
 |:---|:---|:---|:---|
@@ -186,16 +189,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +1.9 ppm | P2_LDP_CSF | +2.0 ppm |
 | P1_U47_CSF | -243.2 ppm | P2_U47_CSF | -243.3 ppm |
 
-> **LDP Definition:**
-> `+proj=lcc +lat_1=15.13333333 +lat_0=15.13333333 +lon_0=100.03333333 +k_0=0.999999 +x_0=150000 +y_0=50000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | +0.003 | *0.000 | -0.243 | +0.003 | -0.000 | +0.002 |
 
 ---
 
 ### 🧭 Province: Chumphon (TH.CP)
+
+> **TH.CP LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=99.06666667 +k_0=1.000003 +x_0=50000 +y_0=-600000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (10.495293501, 99.182428377) | P2 | (10.504334180, 99.182428377) |
 |:---|:---|:---|:---|
@@ -204,16 +207,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +8.6 ppm | P2_LDP_CSF | +8.6 ppm |
 | P1_U47_CSF | -391.4 ppm | P2_U47_CSF | -391.5 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=99.06666667 +k_0=1.000003 +x_0=50000 +y_0=-600000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | +0.004 | *0.000 | -0.391 | +0.004 | -0.000 | +0.009 |
 
 ---
 
 ### 🧭 Province: Chiang Rai (TH.CR)
+
+> **TH.CR LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=99.86666667 +k_0=1.000051 +x_0=250000 +y_0=-1450000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (19.730527000, 99.884747529) | P2 | (19.739560342, 99.884747529) |
 |:---|:---|:---|:---|
@@ -222,16 +225,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -10.0 ppm | P2_LDP_CSF | -17.3 ppm |
 | P1_U47_CSF | -354.8 ppm | P2_U47_CSF | -362.1 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=99.86666667 +k_0=1.000051 +x_0=250000 +y_0=-1450000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.065 | *0.000 | -0.358 | -0.065 | -0.000 | -0.014 |
 
 ---
 
 ### 🧭 Province: Chanthaburi (TH.CT)
+
+> **TH.CT LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=102.13333333 +k_0=1.000006 +x_0=50000 +y_0=-900000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (12.606762681, 102.109444341) | P2 | (12.615802047, 102.109444341) |
 |:---|:---|:---|:---|
@@ -240,16 +243,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +8.7 ppm | P2_LDP_CSF | +8.1 ppm |
 | P1_U48_CSF | +823.0 ppm | P2_U48_CSF | +822.4 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=102.13333333 +k_0=1.000006 +x_0=50000 +y_0=-900000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | +0.002 | *0.000 | +0.823 | +0.002 | -0.000 | +0.008 |
 
 ---
 
 ### 🧭 Province: Chaiyaphum (TH.CY)
+
+> **TH.CY LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=101.81666667 +k_0=1.000017 +x_0=250000 +y_0=-1070000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (16.021924973, 101.842337611) | P2 | (16.030961746, 101.842337611) |
 |:---|:---|:---|:---|
@@ -258,16 +261,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -15.3 ppm | P2_LDP_CSF | -15.5 ppm |
 | P1_U47_CSF | +712.0 ppm | P2_U47_CSF | +711.6 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=101.81666667 +k_0=1.000017 +x_0=250000 +y_0=-1070000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.033 | *0.000 | +0.712 | -0.033 | -0.000 | -0.015 |
 
 ---
 
 ### 🧭 Province: GreaterBKK (TH.GBKK)
+
+> **TH.GBKK LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=100.60000000 +k_0=0.999989 +x_0=50000 +y_0=-1380000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (13.808650971, 100.630963241) | P2 | (13.817689489, 100.630963241) |
 |:---|:---|:---|:---|
@@ -276,16 +279,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -6.4 ppm | P2_LDP_CSF | -6.5 ppm |
 | P1_U47_CSF | -11.1 ppm | P2_U47_CSF | -11.2 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=100.60000000 +k_0=0.999989 +x_0=50000 +y_0=-1380000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | +0.004 | *0.000 | -0.011 | +0.004 | -0.000 | -0.006 |
 
 ---
 
 ### 🧭 Province: Khon Kaen (TH.KK)
+
+> **TH.KK LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=102.58333333 +k_0=1.000010 +x_0=250000 +y_0=-1050000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (16.359140397, 102.679125790) | P2 | (16.368176884, 102.679125790) |
 |:---|:---|:---|:---|
@@ -294,16 +297,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -10.7 ppm | P2_LDP_CSF | -10.1 ppm |
 | P1_U48_CSF | +338.2 ppm | P2_U48_CSF | +338.7 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=102.58333333 +k_0=1.000010 +x_0=250000 +y_0=-1050000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.022 | *0.000 | +0.338 | -0.022 | -0.000 | -0.010 |
 
 ---
 
 ### 🧭 Province: Kalasin (TH.KL)
+
+> **TH.KL LDP :**
+> `+proj=lcc +lat_1=16.61666667 +lat_0=16.61666667 +lon_0=103.61666667 +k_0=1.000010 +x_0=750000 +y_0=250000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (16.639864923, 103.685787417) | P2 | (16.648901168, 103.685787417) |
 |:---|:---|:---|:---|
@@ -312,16 +315,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -16.0 ppm | P2_LDP_CSF | -17.6 ppm |
 | P1_U48_CSF | -183.1 ppm | P2_U48_CSF | -184.9 ppm |
 
-> **LDP Definition:**
-> `+proj=lcc +lat_1=16.61666667 +lat_0=16.61666667 +lon_0=103.61666667 +k_0=1.000010 +x_0=750000 +y_0=250000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.027 | *0.000 | -0.184 | -0.027 | -0.000 | -0.017 |
 
 ---
 
 ### 🧭 Province: Kanchanaburi North (TH.KN_N)
+
+> **TH.KN_N LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=98.76666667 +k_0=1.000013 +x_0=250000 +y_0=-890000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (14.742796524, 98.631634064) | P2 | (14.751834335, 98.631634064) |
 |:---|:---|:---|:---|
@@ -330,16 +333,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +5.6 ppm | P2_LDP_CSF | +8.8 ppm |
 | P1_U47_CSF | -390.6 ppm | P2_U47_CSF | -387.3 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=98.76666667 +k_0=1.000013 +x_0=250000 +y_0=-890000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.008 | *0.000 | -0.389 | -0.008 | -0.000 | +0.007 |
 
 ---
 
 ### 🧭 Province: Kanchanaburi South (TH.KN_S)
+
+> **TH.KN_S LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=99.45000000 +k_0=0.999995 +x_0=250000 +y_0=-800000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (14.285061837, 99.440797329) | P2 | (14.294100000, 99.440797329) |
 |:---|:---|:---|:---|
@@ -348,16 +351,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -15.1 ppm | P2_LDP_CSF | -16.6 ppm |
 | P1_U47_CSF | -382.2 ppm | P2_U47_CSF | -383.6 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=99.45000000 +k_0=0.999995 +x_0=250000 +y_0=-800000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.011 | *0.000 | -0.383 | -0.011 | -0.000 | -0.016 |
 
 ---
 
 ### 🧭 Province: Kamphaeng Phet (TH.KP)
+
+> **TH.KP LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=99.53333333 +k_0=0.999994 +x_0=250000 +y_0=-1050000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (16.382061005, 99.511344260) | P2 | (16.391097473, 99.511344260) |
 |:---|:---|:---|:---|
@@ -366,16 +369,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -14.4 ppm | P2_LDP_CSF | -12.2 ppm |
 | P1_U47_CSF | -371.6 ppm | P2_U47_CSF | -369.4 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=99.53333333 +k_0=0.999994 +x_0=250000 +y_0=-1050000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.007 | *0.000 | -0.371 | -0.007 | -0.000 | -0.013 |
 
 ---
 
 ### 🧭 Province: Krabi (TH.KR)
+
+> **TH.KR LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=99.01666667 +k_0=1.000000 +x_0=50000 +y_0=-400000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (8.166850764, 99.021201992) | P2 | (8.175892624, 99.021201992) |
 |:---|:---|:---|:---|
@@ -384,16 +387,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -4.8 ppm | P2_LDP_CSF | -12.5 ppm |
 | P1_U47_CSF | -404.7 ppm | P2_U47_CSF | -412.4 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=99.01666667 +k_0=1.000000 +x_0=50000 +y_0=-400000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.009 | *0.000 | -0.409 | -0.009 | -0.000 | -0.009 |
 
 ---
 
 ### 🧭 Province: Lop Buri (TH.LB)
+
+> **TH.LB LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=100.90000000 +k_0=0.999990 +x_0=250000 +y_0=-930000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (14.814306985, 100.646482240) | P2 | (14.823344740, 100.646482240) |
 |:---|:---|:---|:---|
@@ -402,16 +405,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +1.4 ppm | P2_LDP_CSF | +1.2 ppm |
 | P1_U47_CSF | -9.6 ppm | P2_U47_CSF | -9.7 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=100.90000000 +k_0=0.999990 +x_0=250000 +y_0=-930000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | +0.002 | *0.000 | -0.010 | +0.002 | -0.000 | +0.001 |
 
 ---
 
 ### 🧭 Province: Loei (TH.LE)
+
+> **TH.LE LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=101.63333333 +k_0=1.000033 +x_0=250000 +y_0=-1170000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (17.484251500, 101.644848339) | P2 | (17.493286995, 101.644848339) |
 |:---|:---|:---|:---|
@@ -420,16 +423,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -6.9 ppm | P2_LDP_CSF | -5.7 ppm |
 | P1_U47_CSF | +535.6 ppm | P2_U47_CSF | +536.7 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=101.63333333 +k_0=1.000033 +x_0=250000 +y_0=-1170000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.039 | *0.000 | +0.536 | -0.039 | -0.000 | -0.006 |
 
 ---
 
 ### 🧭 Province: Lampang North (TH.LG_N)
+
+> **TH.LG_N LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=99.70000000 +k_0=1.000045 +x_0=50000 +y_0=-1600000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (18.950120867, 99.664755489) | P2 | (18.959154982, 99.664755489) |
 |:---|:---|:---|:---|
@@ -438,16 +441,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -11.3 ppm | P2_LDP_CSF | -8.5 ppm |
 | P1_U47_CSF | -395.9 ppm | P2_U47_CSF | -393.1 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=99.70000000 +k_0=1.000045 +x_0=50000 +y_0=-1600000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.055 | *0.000 | -0.395 | -0.055 | -0.000 | -0.010 |
 
 ---
 
 ### 🧭 Province: Lampang South (TH.LG_S)
+
+> **TH.LG_S LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=99.40000000 +k_0=1.000027 +x_0=500000 +y_0=-1500000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (17.940085501, 99.312005600) | P2 | (17.949120576, 99.312005600) |
 |:---|:---|:---|:---|
@@ -456,16 +459,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -2.7 ppm | P2_LDP_CSF | -8.9 ppm |
 | P1_U47_CSF | -417.2 ppm | P2_U47_CSF | -423.5 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=99.40000000 +k_0=1.000027 +x_0=500000 +y_0=-1500000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.034 | *0.000 | -0.420 | -0.034 | -0.000 | -0.006 |
 
 ---
 
 ### 🧭 Province: Lamphun (TH.LN)
+
+> **TH.LN LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=98.95000000 +k_0=1.000052 +x_0=50000 +y_0=-1500000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (18.572154410, 99.016480438) | P2 | (18.581188890, 99.016480438) |
 |:---|:---|:---|:---|
@@ -474,16 +477,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +12.5 ppm | P2_LDP_CSF | +12.6 ppm |
 | P1_U47_CSF | -440.1 ppm | P2_U47_CSF | -439.9 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=98.95000000 +k_0=1.000052 +x_0=50000 +y_0=-1500000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.040 | *0.000 | -0.440 | -0.040 | -0.000 | +0.013 |
 
 ---
 
 ### 🧭 Province: Mukdahan North (TH.MD_N)
+
+> **TH.MD_N LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=104.35000000 +k_0=1.000030 +x_0=50000 +y_0=-1690000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (16.586237947, 104.414155530) | P2 | (16.595274239, 104.414155530) |
 |:---|:---|:---|:---|
@@ -492,16 +495,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +7.1 ppm | P2_LDP_CSF | +6.4 ppm |
 | P1_U48_CSF | -375.1 ppm | P2_U48_CSF | -375.9 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=104.35000000 +k_0=1.000030 +x_0=50000 +y_0=-1690000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.024 | *0.000 | -0.376 | -0.024 | -0.000 | +0.007 |
 
 ---
 
 ### 🧭 Province: Mukdahan South (TH.MD_S)
+
+> **TH.MD_S LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=104.66666667 +k_0=1.000025 +x_0=50000 +y_0=-1680000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (16.505025864, 104.602207551) | P2 | (16.514062226, 104.602207551) |
 |:---|:---|:---|:---|
@@ -510,16 +513,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +0.9 ppm | P2_LDP_CSF | +2.4 ppm |
 | P1_U48_CSF | -402.4 ppm | P2_U48_CSF | -400.9 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=104.66666667 +k_0=1.000025 +x_0=50000 +y_0=-1680000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.024 | *0.000 | -0.402 | -0.024 | -0.000 | +0.002 |
 
 ---
 
 ### 🧭 Province: Mae Hong Son North (TH.MH_N)
+
+> **TH.MH_N LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=98.15000000 +k_0=1.000041 +x_0=500000 +y_0=-1600000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (19.299814291, 97.967296424) | P2 | (19.308848063, 97.967296424) |
 |:---|:---|:---|:---|
@@ -528,16 +531,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +12.0 ppm | P2_LDP_CSF | +12.1 ppm |
 | P1_U47_CSF | -288.1 ppm | P2_U47_CSF | -288.0 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=98.15000000 +k_0=1.000041 +x_0=500000 +y_0=-1600000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.034 | *0.000 | -0.288 | -0.034 | -0.000 | +0.012 |
 
 ---
 
 ### 🧭 Province: Mae Hong Son South (TH.MH_S)
+
+> **TH.MH_S LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=97.88333333 +k_0=1.000038 +x_0=260000 +y_0=-1250000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (18.153975488, 97.919078600) | P2 | (18.163010364, 97.919078600) |
 |:---|:---|:---|:---|
@@ -546,16 +549,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +12.7 ppm | P2_LDP_CSF | +11.0 ppm |
 | P1_U47_CSF | -263.9 ppm | P2_U47_CSF | -265.5 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=97.88333333 +k_0=1.000038 +x_0=260000 +y_0=-1250000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.026 | *0.000 | -0.265 | -0.026 | -0.000 | +0.012 |
 
 ---
 
 ### 🧭 Province: Maha Sarakham (TH.MS)
+
+> **TH.MS LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=103.16666667 +k_0=1.000014 +x_0=50000 +y_0=-1270000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (16.023321152, 103.180173421) | P2 | (16.032357924, 103.180173421) |
 |:---|:---|:---|:---|
@@ -564,16 +567,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -9.6 ppm | P2_LDP_CSF | -8.5 ppm |
 | P1_U48_CSF | +45.3 ppm | P2_U48_CSF | +46.3 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=103.16666667 +k_0=1.000014 +x_0=50000 +y_0=-1270000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.023 | *0.000 | +0.046 | -0.023 | -0.000 | -0.009 |
 
 ---
 
 ### 🧭 Province: Nan (TH.NA)
+
+> **TH.NA LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=100.83333333 +k_0=1.000042 +x_0=250000 +y_0=-1330000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (18.821559906, 100.795544322) | P2 | (18.830594146, 100.795544322) |
 |:---|:---|:---|:---|
@@ -582,16 +585,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +11.5 ppm | P2_LDP_CSF | +12.8 ppm |
 | P1_U47_CSF | +11.9 ppm | P2_U47_CSF | +13.1 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=100.83333333 +k_0=1.000042 +x_0=250000 +y_0=-1330000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.030 | *0.000 | +0.013 | -0.030 | -0.000 | +0.012 |
 
 ---
 
 ### 🧭 Province: Nong Bua Lam Phu (TH.NB)
+
+> **TH.NB LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=102.30000000 +k_0=1.000030 +x_0=50000 +y_0=-1410000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (17.221394540, 102.308051529) | P2 | (17.230430271, 102.308051529) |
 |:---|:---|:---|:---|
@@ -600,16 +603,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -0.9 ppm | P2_LDP_CSF | -0.6 ppm |
 | P1_U48_CSF | +582.7 ppm | P2_U48_CSF | +582.8 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=102.30000000 +k_0=1.000030 +x_0=50000 +y_0=-1410000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.031 | *0.000 | +0.583 | -0.031 | -0.000 | -0.001 |
 
 ---
 
 ### 🧭 Province: Nakhon Phanom (TH.NF)
+
+> **TH.NF LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=104.43333333 +k_0=1.000012 +x_0=50000 +y_0=-1400000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (17.404781457, 104.601900645) | P2 | (17.413817024, 104.601900645) |
 |:---|:---|:---|:---|
@@ -618,16 +621,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -8.0 ppm | P2_LDP_CSF | -8.9 ppm |
 | P1_U48_CSF | -401.9 ppm | P2_U48_CSF | -402.8 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=104.43333333 +k_0=1.000012 +x_0=50000 +y_0=-1400000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.024 | *0.000 | -0.402 | -0.024 | -0.000 | -0.008 |
 
 ---
 
 ### 🧭 Province: Nong Khai (TH.NK)
+
+> **TH.NK LDP :**
+> `+proj=lcc +lat_1=17.93333333 +lat_0=17.93333333 +lon_0=102.83333333 +k_0=1.000019 +x_0=500000 +y_0=50000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (17.946799278, 103.121630574) | P2 | (17.955834348, 103.121630574) |
 |:---|:---|:---|:---|
@@ -636,16 +639,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -2.3 ppm | P2_LDP_CSF | -3.7 ppm |
 | P1_U48_CSF | +68.0 ppm | P2_U48_CSF | +66.5 ppm |
 
-> **LDP Definition:**
-> `+proj=lcc +lat_1=17.93333333 +lat_0=17.93333333 +lon_0=102.83333333 +k_0=1.000019 +x_0=500000 +y_0=50000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.022 | *0.000 | +0.067 | -0.022 | -0.000 | -0.003 |
 
 ---
 
 ### 🧭 Province: Nakhon Nayok (TH.NN)
+
+> **TH.NN LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=101.16666667 +k_0=1.000003 +x_0=50000 +y_0=-1420000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (14.235105515, 101.163736727) | P2 | (14.244143715, 101.163736727) |
 |:---|:---|:---|:---|
@@ -654,16 +657,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +6.6 ppm | P2_LDP_CSF | +6.4 ppm |
 | P1_U47_CSF | +277.9 ppm | P2_U47_CSF | +277.6 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=101.16666667 +k_0=1.000003 +x_0=50000 +y_0=-1420000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | +0.003 | *0.000 | +0.278 | +0.003 | -0.000 | +0.006 |
 
 ---
 
 ### 🧭 Province: Nakhon Pathom (TH.NP)
+
+> **TH.NP LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=100.10000000 +k_0=0.999993 +x_0=50000 +y_0=-1390000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (13.927530290, 100.097617915) | P2 | (13.936568720, 100.097617915) |
 |:---|:---|:---|:---|
@@ -672,16 +675,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -2.6 ppm | P2_LDP_CSF | -2.5 ppm |
 | P1_U47_CSF | -221.7 ppm | P2_U47_CSF | -221.6 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=100.10000000 +k_0=0.999993 +x_0=50000 +y_0=-1390000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | +0.004 | *0.000 | -0.222 | +0.004 | -0.000 | -0.003 |
 
 ---
 
 ### 🧭 Province: Nakhon Ratchasima North (TH.NR_N)
+
+> **TH.NR_N LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=102.50000000 +k_0=1.000013 +x_0=250000 +y_0=-950000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (15.303785324, 102.544819760) | P2 | (15.312822689, 102.544819760) |
 |:---|:---|:---|:---|
@@ -690,16 +693,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -6.0 ppm | P2_LDP_CSF | -6.0 ppm |
 | P1_U48_CSF | +440.4 ppm | P2_U48_CSF | +440.4 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=102.50000000 +k_0=1.000013 +x_0=250000 +y_0=-950000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.019 | *0.000 | +0.440 | -0.019 | -0.000 | -0.006 |
 
 ---
 
 ### 🧭 Province: Nakhon Ratchasima South (TH.NR_S)
+
+> **TH.NR_S LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=101.91666667 +k_0=1.000019 +x_0=250000 +y_0=-890000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (14.791004659, 101.897458214) | P2 | (14.800042432, 101.897458214) |
 |:---|:---|:---|:---|
@@ -708,16 +711,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -13.9 ppm | P2_LDP_CSF | -13.4 ppm |
 | P1_U47_CSF | +770.5 ppm | P2_U47_CSF | +770.9 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=101.91666667 +k_0=1.000019 +x_0=250000 +y_0=-890000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.033 | *0.000 | +0.771 | -0.033 | -0.000 | -0.014 |
 
 ---
 
 ### 🧭 Province: Nakhon Sawan (TH.NS)
+
+> **TH.NS LDP :**
+> `+proj=lcc +lat_1=15.68333333 +lat_0=15.68333333 +lon_0=100.15000000 +k_0=0.999998 +x_0=280000 +y_0=750000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (15.625284519, 100.382240797) | P2 | (15.634321622, 100.382240797) |
 |:---|:---|:---|:---|
@@ -726,16 +729,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -0.7 ppm | P2_LDP_CSF | -0.7 ppm |
 | P1_U47_CSF | -127.6 ppm | P2_U47_CSF | -127.5 ppm |
 
-> **LDP Definition:**
-> `+proj=lcc +lat_1=15.68333333 +lat_0=15.68333333 +lon_0=100.15000000 +k_0=0.999998 +x_0=280000 +y_0=750000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | +0.001 | *0.000 | -0.128 | +0.001 | -0.000 | -0.001 |
 
 ---
 
 ### 🧭 Province: Nakhon Si Thammarat (TH.NT)
+
+> **TH.NT LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=99.78333333 +k_0=0.999987 +x_0=250000 +y_0=-190000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (8.435683051, 99.965222277) | P2 | (8.444724790, 99.965222277) |
 |:---|:---|:---|:---|
@@ -744,16 +747,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -5.7 ppm | P2_LDP_CSF | -5.5 ppm |
 | P1_U47_CSF | -257.9 ppm | P2_U47_CSF | -257.7 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=99.78333333 +k_0=0.999987 +x_0=250000 +y_0=-190000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | +0.002 | *0.000 | -0.258 | +0.002 | -0.000 | -0.006 |
 
 ---
 
 ### 🧭 Province: Narathiwat (TH.NW)
+
+> **TH.NW LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=101.71666667 +k_0=0.999999 +x_0=50000 +y_0=-530000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (6.186444998, 101.731835753) | P2 | (6.195487637, 101.731835753) |
 |:---|:---|:---|:---|
@@ -762,16 +765,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -5.3 ppm | P2_LDP_CSF | -4.5 ppm |
 | P1_U47_CSF | +727.2 ppm | P2_U47_CSF | +728.0 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=101.71666667 +k_0=0.999999 +x_0=50000 +y_0=-530000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.004 | *0.000 | +0.728 | -0.004 | -0.000 | -0.005 |
 
 ---
 
 ### 🧭 Province: Phra Nakhon Si Ayutthaya (TH.PA)
+
+> **TH.PA LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=100.53333333 +k_0=0.999989 +x_0=50000 +y_0=-1440000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (14.391656398, 100.537043980) | P2 | (14.400694480, 100.537043980) |
 |:---|:---|:---|:---|
@@ -780,16 +783,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -6.8 ppm | P2_LDP_CSF | -6.8 ppm |
 | P1_U47_CSF | -56.1 ppm | P2_U47_CSF | -56.2 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=100.53333333 +k_0=0.999989 +x_0=50000 +y_0=-1440000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | +0.004 | *0.000 | -0.056 | +0.004 | -0.000 | -0.007 |
 
 ---
 
 ### 🧭 Province: Prachin Buri (TH.PB)
+
+> **TH.PB LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=101.65000000 +k_0=0.999988 +x_0=250000 +y_0=-800000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (14.021255970, 101.574246969) | P2 | (14.030294331, 101.574246969) |
 |:---|:---|:---|:---|
@@ -798,16 +801,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -9.6 ppm | P2_LDP_CSF | -9.3 ppm |
 | P1_U47_CSF | +558.0 ppm | P2_U47_CSF | +558.2 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=101.65000000 +k_0=0.999988 +x_0=250000 +y_0=-800000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | +0.002 | *0.000 | +0.558 | +0.002 | -0.000 | -0.009 |
 
 ---
 
 ### 🧭 Province: Phichit (TH.PC)
+
+> **TH.PC LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=100.35000000 +k_0=0.999992 +x_0=50000 +y_0=-1650000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (16.278190613, 100.346709714) | P2 | (16.287227170, 100.346709714) |
 |:---|:---|:---|:---|
@@ -816,16 +819,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -7.9 ppm | P2_LDP_CSF | -8.0 ppm |
 | P1_U47_CSF | -143.9 ppm | P2_U47_CSF | -144.0 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=100.35000000 +k_0=0.999992 +x_0=50000 +y_0=-1650000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | +0.000 | *0.000 | -0.144 | +0.000 | -0.000 | -0.008 |
 
 ---
 
 ### 🧭 Province: Phetchaburi (TH.PE)
+
+> **TH.PE LDP :**
+> `+proj=lcc +lat_1=12.95000000 +lat_0=12.95000000 +lon_0=99.61666667 +k_0=0.999992 +x_0=750000 +y_0=250000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (12.941589833, 99.602542845) | P2 | (12.950628970, 99.602542845) |
 |:---|:---|:---|:---|
@@ -834,16 +837,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -18.0 ppm | P2_LDP_CSF | -18.0 ppm |
 | P1_U47_CSF | -357.2 ppm | P2_U47_CSF | -357.2 ppm |
 
-> **LDP Definition:**
-> `+proj=lcc +lat_1=12.95000000 +lat_0=12.95000000 +lon_0=99.61666667 +k_0=0.999992 +x_0=750000 +y_0=250000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.010 | *0.000 | -0.357 | -0.010 | -0.000 | -0.018 |
 
 ---
 
 ### 🧭 Province: Phangnga (TH.PG)
+
+> **TH.PG LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=98.41666667 +k_0=1.000004 +x_0=50000 +y_0=-450000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (8.739158500, 98.418793197) | P2 | (8.748200096, 98.418793197) |
 |:---|:---|:---|:---|
@@ -852,16 +855,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +6.0 ppm | P2_LDP_CSF | +6.6 ppm |
 | P1_U47_CSF | -347.4 ppm | P2_U47_CSF | -346.9 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=98.41666667 +k_0=1.000004 +x_0=50000 +y_0=-450000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | +0.002 | *0.000 | -0.347 | +0.002 | -0.000 | +0.006 |
 
 ---
 
 ### 🧭 Province: Phetchabun (TH.PH)
+
+> **TH.PH LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=101.15000000 +k_0=1.000011 +x_0=250000 +y_0=-1050000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (16.415922956, 101.154151924) | P2 | (16.424959395, 101.154151924) |
 |:---|:---|:---|:---|
@@ -870,16 +873,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -2.6 ppm | P2_LDP_CSF | -2.8 ppm |
 | P1_U47_CSF | +240.9 ppm | P2_U47_CSF | +240.6 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=101.15000000 +k_0=1.000011 +x_0=250000 +y_0=-1050000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.014 | *0.000 | +0.241 | -0.014 | -0.000 | -0.003 |
 
 ---
 
 ### 🧭 Province: Pattani (TH.PI)
+
+> **TH.PI LDP :**
+> `+proj=lcc +lat_1=6.73333333 +lat_0=6.73333333 +lon_0=101.35000000 +k_0=0.999998 +x_0=150000 +y_0=50000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (6.750622035, 101.321823708) | P2 | (6.759664473, 101.321823708) |
 |:---|:---|:---|:---|
@@ -888,16 +891,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -1.6 ppm | P2_LDP_CSF | -1.7 ppm |
 | P1_U47_CSF | +415.7 ppm | P2_U47_CSF | +415.5 ppm |
 
-> **LDP Definition:**
-> `+proj=lcc +lat_1=6.73333333 +lat_0=6.73333333 +lon_0=101.35000000 +k_0=0.999998 +x_0=150000 +y_0=50000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | +0.000 | *0.000 | +0.416 | +0.000 | -0.000 | -0.002 |
 
 ---
 
 ### 🧭 Province: Prachuap Khiri Khan (TH.PK)
+
+> **TH.PK LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=99.63333333 +k_0=0.999998 +x_0=60000 +y_0=-800000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (11.803724729, 99.724467640) | P2 | (11.812764621, 99.724467640) |
 |:---|:---|:---|:---|
@@ -906,16 +909,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -5.2 ppm | P2_LDP_CSF | -6.0 ppm |
 | P1_U47_CSF | -327.4 ppm | P2_U47_CSF | -328.1 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=99.63333333 +k_0=0.999998 +x_0=60000 +y_0=-800000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.005 | *0.000 | -0.328 | -0.005 | -0.000 | -0.006 |
 
 ---
 
 ### 🧭 Province: Phatthalung (TH.PL)
+
+> **TH.PL LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=100.06666667 +k_0=0.999997 +x_0=50000 +y_0=-680000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (7.491511107, 100.051674890) | P2 | (7.500553256, 100.051674890) |
 |:---|:---|:---|:---|
@@ -924,16 +927,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -3.7 ppm | P2_LDP_CSF | -3.0 ppm |
 | P1_U47_CSF | -234.1 ppm | P2_U47_CSF | -233.4 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=100.06666667 +k_0=0.999997 +x_0=50000 +y_0=-680000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.000 | *0.000 | -0.234 | -0.000 | -0.000 | -0.003 |
 
 ---
 
 ### 🧭 Province: Phrae (TH.PR)
+
+> **TH.PR LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=100.06666667 +k_0=1.000012 +x_0=250000 +y_0=-1270000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (18.268705369, 100.171446005) | P2 | (18.277740137, 100.171446005) |
 |:---|:---|:---|:---|
@@ -942,16 +945,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -6.7 ppm | P2_LDP_CSF | -6.7 ppm |
 | P1_U47_CSF | -230.6 ppm | P2_U47_CSF | -230.6 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=100.06666667 +k_0=1.000012 +x_0=250000 +y_0=-1270000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.020 | *0.000 | -0.231 | -0.020 | -0.000 | -0.007 |
 
 ---
 
 ### 🧭 Province: Phitsanulok East (TH.PS_E)
+
+> **TH.PS_E LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=100.78333333 +k_0=1.000033 +x_0=50000 +y_0=-1400000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (17.107554666, 100.837540724) | P2 | (17.116590499, 100.837540724) |
 |:---|:---|:---|:---|
@@ -960,16 +963,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +7.1 ppm | P2_LDP_CSF | +6.1 ppm |
 | P1_U47_CSF | +46.3 ppm | P2_U47_CSF | +45.3 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=100.78333333 +k_0=1.000033 +x_0=50000 +y_0=-1400000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.027 | *0.000 | +0.046 | -0.027 | -0.000 | +0.007 |
 
 ---
 
 ### 🧭 Province: Phitsanulok West (TH.PS_W)
+
+> **TH.PS_W LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=100.40000000 +k_0=0.999991 +x_0=250000 +y_0=-1100000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (16.848569870, 100.396154288) | P2 | (16.857605932, 100.396154288) |
 |:---|:---|:---|:---|
@@ -978,16 +981,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -12.3 ppm | P2_LDP_CSF | -11.3 ppm |
 | P1_U47_CSF | -129.7 ppm | P2_U47_CSF | -128.8 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=100.40000000 +k_0=0.999991 +x_0=250000 +y_0=-1100000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.003 | *0.000 | -0.129 | -0.003 | -0.000 | -0.012 |
 
 ---
 
 ### 🧭 Province: Pathum Thani (TH.PT)
+
+> **TH.PT LDP :**
+> `+proj=lcc +lat_1=14.06666667 +lat_0=14.06666667 +lon_0=100.68333333 +k_0=0.999992 +x_0=60000 +y_0=150000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (14.093935682, 100.628758039) | P2 | (14.102973989, 100.628758039) |
 |:---|:---|:---|:---|
@@ -996,16 +999,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -3.6 ppm | P2_LDP_CSF | -3.4 ppm |
 | P1_U47_CSF | -13.3 ppm | P2_U47_CSF | -13.2 ppm |
 
-> **LDP Definition:**
-> `+proj=lcc +lat_1=14.06666667 +lat_0=14.06666667 +lon_0=100.68333333 +k_0=0.999992 +x_0=60000 +y_0=150000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | +0.004 | *0.000 | -0.013 | +0.004 | -0.000 | -0.004 |
 
 ---
 
 ### 🧭 Province: Phuket (TH.PU)
+
+> **TH.PU LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=98.35000000 +k_0=1.000005 +x_0=50000 +y_0=-730000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (7.978985549, 98.335485439) | P2 | (7.988027492, 98.335485439) |
 |:---|:---|:---|:---|
@@ -1014,16 +1017,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +5.4 ppm | P2_LDP_CSF | +6.7 ppm |
 | P1_U47_CSF | -333.2 ppm | P2_U47_CSF | -332.0 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=98.35000000 +k_0=1.000005 +x_0=50000 +y_0=-730000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | +0.001 | *0.000 | -0.333 | +0.001 | -0.000 | +0.006 |
 
 ---
 
 ### 🧭 Province: Phayao (TH.PY)
+
+> **TH.PY LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=100.18333333 +k_0=1.000053 +x_0=250000 +y_0=-1380000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (19.268545868, 100.156080284) | P2 | (19.277579670, 100.156080284) |
 |:---|:---|:---|:---|
@@ -1032,16 +1035,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -15.9 ppm | P2_LDP_CSF | -15.4 ppm |
 | P1_U47_CSF | -286.5 ppm | P2_U47_CSF | -286.0 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=100.18333333 +k_0=1.000053 +x_0=250000 +y_0=-1380000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.069 | *0.000 | -0.286 | -0.069 | -0.000 | -0.016 |
 
 ---
 
 ### 🧭 Province: Roi Et (TH.RE)
+
+> **TH.RE LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=103.81666667 +k_0=1.000005 +x_0=250000 +y_0=-1260000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (15.937200922, 103.759346063) | P2 | (15.946237767, 103.759346063) |
 |:---|:---|:---|:---|
@@ -1050,16 +1053,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -12.2 ppm | P2_LDP_CSF | -12.1 ppm |
 | P1_U48_CSF | -199.6 ppm | P2_U48_CSF | -199.6 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=103.81666667 +k_0=1.000005 +x_0=250000 +y_0=-1260000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.018 | *0.000 | -0.200 | -0.018 | -0.000 | -0.012 |
 
 ---
 
 ### 🧭 Province: Ranong (TH.RN)
+
+> **TH.RN LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=98.70000000 +k_0=1.000003 +x_0=50000 +y_0=-600000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (9.953233290, 98.624537606) | P2 | (9.962274269, 98.624537606) |
 |:---|:---|:---|:---|
@@ -1068,16 +1071,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +7.7 ppm | P2_LDP_CSF | +7.9 ppm |
 | P1_U47_CSF | -375.1 ppm | P2_U47_CSF | -374.9 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=98.70000000 +k_0=1.000003 +x_0=50000 +y_0=-600000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | +0.004 | *0.000 | -0.375 | +0.004 | -0.000 | +0.008 |
 
 ---
 
 ### 🧭 Province: Ratchaburi (TH.RT)
+
+> **TH.RT LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=99.58333333 +k_0=0.999992 +x_0=50000 +y_0=-1350000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (13.547914982, 99.616983170) | P2 | (13.556953690, 99.616983170) |
 |:---|:---|:---|:---|
@@ -1086,16 +1089,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -14.9 ppm | P2_LDP_CSF | -15.4 ppm |
 | P1_U47_CSF | -351.9 ppm | P2_U47_CSF | -352.5 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=99.58333333 +k_0=0.999992 +x_0=50000 +y_0=-1350000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.007 | *0.000 | -0.352 | -0.007 | -0.000 | -0.015 |
 
 ---
 
 ### 🧭 Province: Rayong (TH.RY)
+
+> **TH.RY LDP :**
+> `+proj=lcc +lat_1=12.85000000 +lat_0=12.85000000 +lon_0=101.43333333 +k_0=1.000002 +x_0=150000 +y_0=50000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (12.872940065, 101.448631025) | P2 | (12.881979249, 101.448631025) |
 |:---|:---|:---|:---|
@@ -1104,16 +1107,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -11.5 ppm | P2_LDP_CSF | -7.9 ppm |
 | P1_U47_CSF | +460.1 ppm | P2_U47_CSF | +463.5 ppm |
 
-> **LDP Definition:**
-> `+proj=lcc +lat_1=12.85000000 +lat_0=12.85000000 +lon_0=101.43333333 +k_0=1.000002 +x_0=150000 +y_0=50000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.012 | *0.000 | +0.462 | -0.012 | -0.000 | -0.010 |
 
 ---
 
 ### 🧭 Province: Satun (TH.SA)
+
+> **TH.SA LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=99.96666667 +k_0=1.000004 +x_0=50000 +y_0=-600000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (6.767661096, 100.027373959) | P2 | (6.776703527, 100.027373959) |
 |:---|:---|:---|:---|
@@ -1122,16 +1125,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +4.6 ppm | P2_LDP_CSF | +4.2 ppm |
 | P1_U47_CSF | -240.4 ppm | P2_U47_CSF | -240.8 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=99.96666667 +k_0=1.000004 +x_0=50000 +y_0=-600000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.000 | *0.000 | -0.241 | -0.000 | -0.000 | +0.004 |
 
 ---
 
 ### 🧭 Province: Sing Buri (TH.SB)
+
+> **TH.SB LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=100.35000000 +k_0=0.999995 +x_0=50000 +y_0=-1500000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (14.910660267, 100.309235214) | P2 | (14.919697946, 100.309235214) |
 |:---|:---|:---|:---|
@@ -1140,16 +1143,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -1.4 ppm | P2_LDP_CSF | -1.4 ppm |
 | P1_U47_CSF | -151.4 ppm | P2_U47_CSF | -151.4 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=100.35000000 +k_0=0.999995 +x_0=50000 +y_0=-1500000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | +0.003 | *0.000 | -0.151 | +0.003 | -0.000 | -0.001 |
 
 ---
 
 ### 🧭 Province: Songkhla (TH.SG)
+
+> **TH.SG LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=100.55000000 +k_0=0.999991 +x_0=250000 +y_0=-30000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (7.113058567, 100.366106732) | P2 | (7.122100868, 100.366106732) |
 |:---|:---|:---|:---|
@@ -1158,16 +1161,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -4.4 ppm | P2_LDP_CSF | -3.9 ppm |
 | P1_U47_CSF | -118.8 ppm | P2_U47_CSF | -118.4 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=100.55000000 +k_0=0.999991 +x_0=250000 +y_0=-30000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.000 | *0.000 | -0.119 | -0.000 | -0.000 | -0.004 |
 
 ---
 
 ### 🧭 Province: Suphan Buri (TH.SH)
+
+> **TH.SH LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=99.90000000 +k_0=0.999996 +x_0=250000 +y_0=-850000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (14.569625378, 100.013734080) | P2 | (14.578663323, 100.013734080) |
 |:---|:---|:---|:---|
@@ -1176,16 +1179,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +1.8 ppm | P2_LDP_CSF | +1.8 ppm |
 | P1_U47_CSF | -248.5 ppm | P2_U47_CSF | -248.6 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=99.90000000 +k_0=0.999996 +x_0=250000 +y_0=-850000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | +0.004 | *0.000 | -0.249 | +0.004 | -0.000 | +0.002 |
 
 ---
 
 ### 🧭 Province: Si Sa Ket (TH.SI)
+
+> **TH.SI LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=104.36666667 +k_0=1.000008 +x_0=250000 +y_0=-900000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (14.954740525, 104.327978702) | P2 | (14.963778169, 104.327978702) |
 |:---|:---|:---|:---|
@@ -1194,16 +1197,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -8.7 ppm | P2_LDP_CSF | -8.6 ppm |
 | P1_U48_CSF | -352.3 ppm | P2_U48_CSF | -352.2 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=104.36666667 +k_0=1.000008 +x_0=250000 +y_0=-900000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.017 | *0.000 | -0.352 | -0.017 | -0.000 | -0.009 |
 
 ---
 
 ### 🧭 Province: Sa Kaeo (TH.SK)
+
+> **TH.SK LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=102.31666667 +k_0=0.999999 +x_0=250000 +y_0=-770000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (13.715636731, 102.277016591) | P2 | (13.724675317, 102.277016591) |
 |:---|:---|:---|:---|
@@ -1212,16 +1215,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -10.0 ppm | P2_LDP_CSF | -9.9 ppm |
 | P1_U48_CSF | +663.9 ppm | P2_U48_CSF | +663.9 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=102.31666667 +k_0=0.999999 +x_0=250000 +y_0=-770000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.009 | *0.000 | +0.664 | -0.009 | -0.000 | -0.010 |
 
 ---
 
 ### 🧭 Province: Samut Songkhram (TH.SM)
+
+> **TH.SM LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=99.95000000 +k_0=0.999995 +x_0=25000 +y_0=-1405000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (13.379564762, 99.927180533) | P2 | (13.388603591, 99.927180533) |
 |:---|:---|:---|:---|
@@ -1230,16 +1233,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -0.8 ppm | P2_LDP_CSF | -0.9 ppm |
 | P1_U47_CSF | -271.2 ppm | P2_U47_CSF | -271.3 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=99.95000000 +k_0=0.999995 +x_0=25000 +y_0=-1405000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | +0.004 | *0.000 | -0.271 | +0.004 | -0.000 | -0.001 |
 
 ---
 
 ### 🧭 Province: Sakon Nakhon (TH.SN)
+
+> **TH.SN LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=103.83333333 +k_0=1.000008 +x_0=250000 +y_0=-1170000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (17.429465294, 103.661092071) | P2 | (17.438500838, 103.661092071) |
 |:---|:---|:---|:---|
@@ -1248,16 +1251,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -9.0 ppm | P2_LDP_CSF | -9.7 ppm |
 | P1_U48_CSF | -171.2 ppm | P2_U48_CSF | -171.8 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=103.83333333 +k_0=1.000008 +x_0=250000 +y_0=-1170000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.021 | *0.000 | -0.171 | -0.021 | -0.000 | -0.009 |
 
 ---
 
 ### 🧭 Province: Sukhothai (TH.SO)
+
+> **TH.SO LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=99.71666667 +k_0=0.999999 +x_0=50000 +y_0=-1400000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (17.250304222, 99.710406054) | P2 | (17.259339928, 99.710406054) |
 |:---|:---|:---|:---|
@@ -1266,16 +1269,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -4.9 ppm | P2_LDP_CSF | -11.0 ppm |
 | P1_U47_CSF | -333.4 ppm | P2_U47_CSF | -339.5 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=99.71666667 +k_0=0.999999 +x_0=50000 +y_0=-1400000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.007 | *0.000 | -0.336 | -0.007 | -0.000 | -0.008 |
 
 ---
 
 ### 🧭 Province: Saraburi (TH.SR)
+
+> **TH.SR LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=101.01666667 +k_0=0.999997 +x_0=50000 +y_0=-1470000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (14.643711092, 100.901249118) | P2 | (14.652748979, 100.901249118) |
 |:---|:---|:---|:---|
@@ -1284,16 +1287,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -2.7 ppm | P2_LDP_CSF | -3.5 ppm |
 | P1_U47_CSF | +117.0 ppm | P2_U47_CSF | +116.2 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=101.01666667 +k_0=0.999997 +x_0=50000 +y_0=-1470000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.002 | *0.000 | +0.117 | -0.002 | -0.000 | -0.003 |
 
 ---
 
 ### 🧭 Province: Samut Sakhon (TH.SS)
+
+> **TH.SS LDP :**
+> `+proj=lcc +lat_1=13.56666667 +lat_0=13.56666667 +lon_0=100.21666667 +k_0=0.999995 +x_0=150000 +y_0=50000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (13.579111100, 100.212851977) | P2 | (13.588149785, 100.212851977) |
 |:---|:---|:---|:---|
@@ -1302,16 +1305,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -0.4 ppm | P2_LDP_CSF | -0.3 ppm |
 | P1_U47_CSF | -182.4 ppm | P2_U47_CSF | -182.4 ppm |
 
-> **LDP Definition:**
-> `+proj=lcc +lat_1=13.56666667 +lat_0=13.56666667 +lon_0=100.21666667 +k_0=0.999995 +x_0=150000 +y_0=50000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | +0.005 | *0.000 | -0.182 | +0.005 | -0.000 | -0.000 |
 
 ---
 
 ### 🧭 Province: Surat Thani North (TH.ST_N)
+
+> **TH.ST_N LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=98.85000000 +k_0=0.999996 +x_0=250000 +y_0=-250000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (9.421544825, 99.188978954) | P2 | (9.430586084, 99.188978954) |
 |:---|:---|:---|:---|
@@ -1320,16 +1323,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +15.5 ppm | P2_LDP_CSF | +15.6 ppm |
 | P1_U47_CSF | -392.3 ppm | P2_U47_CSF | -392.2 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=98.85000000 +k_0=0.999996 +x_0=250000 +y_0=-250000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | +0.002 | *0.000 | -0.392 | +0.002 | -0.000 | +0.016 |
 
 ---
 
 ### 🧭 Province: Surat Thani South (TH.ST_S)
+
+> **TH.ST_S LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=99.30000000 +k_0=0.999992 +x_0=50000 +y_0=-500000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (9.115851252, 99.330908113) | P2 | (9.124892665, 99.330908113) |
 |:---|:---|:---|:---|
@@ -1338,16 +1341,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -4.7 ppm | P2_LDP_CSF | -4.7 ppm |
 | P1_U47_CSF | -380.5 ppm | P2_U47_CSF | -380.4 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=99.30000000 +k_0=0.999992 +x_0=50000 +y_0=-500000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | +0.003 | *0.000 | -0.380 | +0.003 | -0.000 | -0.005 |
 
 ---
 
 ### 🧭 Province: Surin (TH.SU)
+
+> **TH.SU LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=103.66666667 +k_0=1.000010 +x_0=250000 +y_0=-900000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (14.905311584, 103.670337042) | P2 | (14.914349267, 103.670337042) |
 |:---|:---|:---|:---|
@@ -1356,16 +1359,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -9.5 ppm | P2_LDP_CSF | -9.9 ppm |
 | P1_U48_CSF | -166.5 ppm | P2_U48_CSF | -166.9 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=103.66666667 +k_0=1.000010 +x_0=250000 +y_0=-900000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.020 | *0.000 | -0.167 | -0.020 | -0.000 | -0.010 |
 
 ---
 
 ### 🧭 Province: Trang (TH.TG)
+
+> **TH.TG LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=99.60000000 +k_0=0.999999 +x_0=50000 +y_0=-300000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (7.541000000, 99.578476235) | P2 | (7.550042129, 99.578476235) |
 |:---|:---|:---|:---|
@@ -1374,16 +1377,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +1.4 ppm | P2_LDP_CSF | +1.4 ppm |
 | P1_U47_CSF | -347.2 ppm | P2_U47_CSF | -347.3 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=99.60000000 +k_0=0.999999 +x_0=50000 +y_0=-300000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | +0.002 | *0.000 | -0.347 | +0.002 | -0.000 | +0.001 |
 
 ---
 
 ### 🧭 Province: Tak Central (TH.TK_C)
+
+> **TH.TK_C LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=98.51666667 +k_0=1.000032 +x_0=250000 +y_0=-1150000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (16.720524767, 98.578137689) | P2 | (16.729560942, 98.578137689) |
 |:---|:---|:---|:---|
@@ -1392,16 +1395,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +5.1 ppm | P2_LDP_CSF | +3.6 ppm |
 | P1_U47_CSF | -402.5 ppm | P2_U47_CSF | -404.0 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=98.51666667 +k_0=1.000032 +x_0=250000 +y_0=-1150000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.028 | *0.000 | -0.403 | -0.028 | -0.000 | +0.004 |
 
 ---
 
 ### 🧭 Province: Tak North (TH.TK_N)
+
+> **TH.TK_N LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=99.00000000 +k_0=1.000010 +x_0=50000 +y_0=-1400000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (17.146814348, 99.084563927) | P2 | (17.155850146, 99.084563927) |
 |:---|:---|:---|:---|
@@ -1410,16 +1413,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -3.5 ppm | P2_LDP_CSF | -3.7 ppm |
 | P1_U47_CSF | -413.5 ppm | P2_U47_CSF | -413.7 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=99.00000000 +k_0=1.000010 +x_0=50000 +y_0=-1400000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.015 | *0.000 | -0.414 | -0.015 | -0.000 | -0.004 |
 
 ---
 
 ### 🧭 Province: Tak South (TH.TK_S)
+
+> **TH.TK_S LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=98.88333333 +k_0=1.000084 +x_0=50000 +y_0=-1200000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (16.019067192, 98.863633651) | P2 | (16.028103969, 98.863633651) |
 |:---|:---|:---|:---|
@@ -1428,16 +1431,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +16.9 ppm | P2_LDP_CSF | +10.9 ppm |
 | P1_U47_CSF | -464.5 ppm | P2_U47_CSF | -470.5 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=98.88333333 +k_0=1.000084 +x_0=50000 +y_0=-1200000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.070 | *0.000 | -0.467 | -0.070 | -0.000 | +0.014 |
 
 ---
 
 ### 🧭 Province: Trat (TH.TT)
+
+> **TH.TT LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=102.53333333 +k_0=0.999997 +x_0=40000 +y_0=-800000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (12.202349092, 102.419377769) | P2 | (12.211388727, 102.419377769) |
 |:---|:---|:---|:---|
@@ -1446,16 +1449,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -2.9 ppm | P2_LDP_CSF | -2.0 ppm |
 | P1_U48_CSF | +573.8 ppm | P2_U48_CSF | +574.7 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=102.53333333 +k_0=0.999997 +x_0=40000 +y_0=-800000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.001 | *0.000 | +0.574 | -0.001 | -0.000 | -0.002 |
 
 ---
 
 ### 🧭 Province: Uttaradit Central (TH.UD_C)
+
+> **TH.UD_C LDP :**
+> `+proj=lcc +lat_1=17.83333333 +lat_0=17.83333333 +lon_0=100.65000000 +k_0=1.000023 +x_0=160000 +y_0=50000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (17.837711335, 100.589207480) | P2 | (17.846746505, 100.589207480) |
 |:---|:---|:---|:---|
@@ -1464,16 +1467,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +4.3 ppm | P2_LDP_CSF | +5.8 ppm |
 | P1_U47_CSF | -68.1 ppm | P2_U47_CSF | -66.6 ppm |
 
-> **LDP Definition:**
-> `+proj=lcc +lat_1=17.83333333 +lat_0=17.83333333 +lon_0=100.65000000 +k_0=1.000023 +x_0=160000 +y_0=50000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.018 | *0.000 | -0.067 | -0.018 | -0.000 | +0.005 |
 
 ---
 
 ### 🧭 Province: Uttaradit East (TH.UD_E)
+
+> **TH.UD_E LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=101.06666667 +k_0=1.000070 +x_0=50000 +y_0=-1860000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (18.139229775, 101.088126375) | P2 | (18.148264665, 101.088126375) |
 |:---|:---|:---|:---|
@@ -1482,16 +1485,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +8.3 ppm | P2_LDP_CSF | +1.9 ppm |
 | P1_U47_CSF | +141.6 ppm | P2_U47_CSF | +135.2 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=101.06666667 +k_0=1.000070 +x_0=50000 +y_0=-1860000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.065 | *0.000 | +0.138 | -0.065 | -0.000 | +0.005 |
 
 ---
 
 ### 🧭 Province: Uttaradit West (TH.UD_W)
+
+> **TH.UD_W LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=100.18333333 +k_0=1.000013 +x_0=140000 +y_0=-1890000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (17.510281563, 100.224775705) | P2 | (17.519317034, 100.224775705) |
 |:---|:---|:---|:---|
@@ -1500,16 +1503,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +5.6 ppm | P2_LDP_CSF | +4.8 ppm |
 | P1_U47_CSF | -198.6 ppm | P2_U47_CSF | -199.4 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=100.18333333 +k_0=1.000013 +x_0=140000 +y_0=-1890000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.008 | *0.000 | -0.199 | -0.008 | -0.000 | +0.005 |
 
 ---
 
 ### 🧭 Province: Udon Thani (TH.UN)
+
+> **TH.UN LDP :**
+> `+proj=lcc +lat_1=17.43333333 +lat_0=17.43333333 +lon_0=102.86666667 +k_0=1.000009 +x_0=750000 +y_0=250000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (17.441490168, 102.834075366) | P2 | (17.450525701, 102.834075366) |
 |:---|:---|:---|:---|
@@ -1518,16 +1521,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -13.3 ppm | P2_LDP_CSF | -13.1 ppm |
 | P1_U48_CSF | +232.1 ppm | P2_U48_CSF | +232.1 ppm |
 
-> **LDP Definition:**
-> `+proj=lcc +lat_1=17.43333333 +lat_0=17.43333333 +lon_0=102.86666667 +k_0=1.000009 +x_0=750000 +y_0=250000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.022 | *0.000 | +0.232 | -0.022 | -0.000 | -0.013 |
 
 ---
 
 ### 🧭 Province: Ubon Ratchathani North (TH.UR_N)
+
+> **TH.UR_N LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=105.25000000 +k_0=1.000012 +x_0=50000 +y_0=-1580000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (15.611293801, 105.035368542) | P2 | (15.620330916, 105.035368542) |
 |:---|:---|:---|:---|
@@ -1536,16 +1539,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +0.5 ppm | P2_LDP_CSF | +1.0 ppm |
 | P1_U48_CSF | -417.9 ppm | P2_U48_CSF | -417.4 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=105.25000000 +k_0=1.000012 +x_0=50000 +y_0=-1580000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.018 | *0.000 | -0.418 | -0.018 | -0.000 | +0.001 |
 
 ---
 
 ### 🧭 Province: Ubon Ratchathani South (TH.UR_S)
+
+> **TH.UR_S LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=105.05000000 +k_0=1.000008 +x_0=250000 +y_0=-910000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (14.948395253, 105.120822527) | P2 | (14.957432902, 105.120822527) |
 |:---|:---|:---|:---|
@@ -1554,16 +1557,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -8.0 ppm | P2_LDP_CSF | -11.7 ppm |
 | P1_U48_CSF | -414.6 ppm | P2_U48_CSF | -418.3 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=105.05000000 +k_0=1.000008 +x_0=250000 +y_0=-910000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.019 | *0.000 | -0.416 | -0.019 | -0.000 | -0.010 |
 
 ---
 
 ### 🧭 Province: Uthai Thani (TH.UT)
+
+> **TH.UT LDP :**
+> `+proj=lcc +lat_1=15.35000000 +lat_0=15.35000000 +lon_0=99.48333333 +k_0=1.000010 +x_0=500000 +y_0=50000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (15.366869450, 99.560988889) | P2 | (15.375906764, 99.560988889) |
 |:---|:---|:---|:---|
@@ -1572,16 +1575,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -2.8 ppm | P2_LDP_CSF | -3.1 ppm |
 | P1_U47_CSF | -368.0 ppm | P2_U47_CSF | -368.4 ppm |
 
-> **LDP Definition:**
-> `+proj=lcc +lat_1=15.35000000 +lat_0=15.35000000 +lon_0=99.48333333 +k_0=1.000010 +x_0=500000 +y_0=50000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.013 | *0.000 | -0.368 | -0.013 | -0.000 | -0.003 |
 
 ---
 
 ### 🧭 Province: Yala (TH.YL)
+
+> **TH.YL LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=101.23333333 +k_0=1.000008 +x_0=50000 +y_0=-200000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (6.478152420, 101.263328201) | P2 | (6.487194957, 101.263328201) |
 |:---|:---|:---|:---|
@@ -1590,16 +1593,16 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | +5.3 ppm | P2_LDP_CSF | +6.3 ppm |
 | P1_U47_CSF | +372.8 ppm | P2_U47_CSF | +373.7 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=101.23333333 +k_0=1.000008 +x_0=50000 +y_0=-200000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.002 | *0.000 | +0.373 | -0.002 | -0.000 | +0.006 |
 
 ---
 
 ### 🧭 Province: Yasothon (TH.YS)
+
+> **TH.YS LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=104.35000000 +k_0=1.000013 +x_0=290000 +y_0=-1000000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (15.818015099, 104.275452490) | P2 | (15.827052043, 104.275452490) |
 |:---|:---|:---|:---|
@@ -1608,10 +1611,7 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP_CSF | -5.5 ppm | P2_LDP_CSF | -4.8 ppm |
 | P1_U48_CSF | -344.8 ppm | P2_U48_CSF | -344.1 ppm |
 
-> **LDP Definition:**
-> `+proj=tmerc +lat_0=0.0 +lon_0=104.35000000 +k_0=1.000013 +x_0=290000 +y_0=-1000000 +ellps=WGS84 +units=m +no_defs +type=crs`
-
-| ΔL1 | ΔL2 | ΔL3 | ΔL4 | ΔL5 | ΔL6 |
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | -0.019 | *0.000 | -0.344 | -0.019 | -0.000 | -0.005 |
 
