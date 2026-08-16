@@ -36,7 +36,16 @@ def read_gadm_data(csv_path: Path) -> pd.DataFrame:
 
 def parse_single_log(log_path: Path, hasc: str) -> Dict[str, Any]:
     """Parses a single pipeline log file for MSL stats, JSONL metadata, and Sample counts."""
-    row_data = {"HASC_1": hasc, "MSL_min_mean_max": None, "Samples": None}
+    # Initialize all potential target columns to ensure they are never "lost"
+    row_data = {
+        "HASC_1": hasc, 
+        "MSL_min_mean_max": None, 
+        "Samples": None,
+        "POP_Coverage(%)": None,
+        "EW_km": None,
+        "NS_km": None,
+        "area_sqkm": None
+    }
     
     try:
         with log_path.open('r', encoding='utf-8') as f:
@@ -52,13 +61,32 @@ def parse_single_log(log_path: Path, hasc: str) -> Dict[str, Any]:
                 # Extract LDP and Coverage metadata
                 elif line.startswith('{"meta": "LDP_Definition"') or line.startswith('{"meta": "Coverage_Analysis"'):
                     try:
-                        row_data.update(json.loads(line))
+                        data = json.loads(line)
+                        # Normalize keys if the JSON outputs them slightly differently than TARGET_COLUMNS
+                        if "POP_Coverage" in data and "POP_Coverage(%)" not in data:
+                            data["POP_Coverage(%)"] = data["POP_Coverage"]
+                        if "EW" in data and "EW_km" not in data:
+                            data["EW_km"] = data["EW"]
+                        if "NS" in data and "NS_km" not in data:
+                            data["NS_km"] = data["NS"]
+                            
+                        row_data.update(data)
                     except json.JSONDecodeError:
                         logging.warning(f"Failed to parse JSON in {log_path.name}")
                         
                 # Extract Samples from the data table row
                 elif line.startswith(hasc):
                     parts = line.split()
+                    
+                    # Try to capture tail-end metrics just in case they print here instead of JSON
+                    if len(parts) >= 6:
+                        try:
+                            if pd.isna(row_data.get("NS_km")): row_data["NS_km"] = parts[-1]
+                            if pd.isna(row_data.get("EW_km")): row_data["EW_km"] = parts[-2]
+                            if pd.isna(row_data.get("area_sqkm")): row_data["area_sqkm"] = parts[-3]
+                        except Exception:
+                            pass
+
                     if len(parts) >= 4:
                         try:
                             # Parse integer and reformat with thousand comma
@@ -151,7 +179,9 @@ def export_summary_files(df: pd.DataFrame, csv_path: Path, readme_path: Path) ->
 
     # Sort ascending FIRST so that both the CSV and README are ordered correctly
     if "POP_Coverage(%)" in df_out.columns:
-        df_out["POP_Coverage(%)"] = pd.to_numeric(df_out["POP_Coverage(%)"], errors='coerce')
+        # Strip any accidental '%' string characters so pd.to_numeric doesn't turn them into NaNs
+        clean_pop = df_out["POP_Coverage(%)"].astype(str).str.replace('%', '', regex=False)
+        df_out["POP_Coverage(%)"] = pd.to_numeric(clean_pop, errors='coerce')
         df_out = df_out.sort_values(by="POP_Coverage(%)", ascending=False)
 
     # 1. Export standard CSV (Natively sorted, no HTML, no emojis)
