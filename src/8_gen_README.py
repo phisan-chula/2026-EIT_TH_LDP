@@ -62,7 +62,6 @@ def parse_single_log(log_path: Path, hasc: str) -> Dict[str, Any]:
                 elif line.startswith('{"meta": "LDP_Definition"') or line.startswith('{"meta": "Coverage_Analysis"'):
                     try:
                         data = json.loads(line)
-                        # Normalize keys if the JSON outputs them slightly differently than TARGET_COLUMNS
                         if "POP_Coverage" in data and "POP_Coverage(%)" not in data:
                             data["POP_Coverage(%)"] = data["POP_Coverage"]
                         if "EW" in data and "EW_km" not in data:
@@ -78,7 +77,6 @@ def parse_single_log(log_path: Path, hasc: str) -> Dict[str, Any]:
                 elif line.startswith(hasc):
                     parts = line.split()
                     
-                    # Try to capture tail-end metrics just in case they print here instead of JSON
                     if len(parts) >= 6:
                         try:
                             if pd.isna(row_data.get("NS_km")): row_data["NS_km"] = parts[-1]
@@ -89,7 +87,6 @@ def parse_single_log(log_path: Path, hasc: str) -> Dict[str, Any]:
 
                     if len(parts) >= 4:
                         try:
-                            # Parse integer and reformat with thousand comma
                             samples_val = int(parts[3].replace(',', ''))
                             row_data["Samples"] = f"{samples_val:,}"
                         except ValueError:
@@ -152,7 +149,6 @@ def format_coverage_link(row) -> str:
     hasc_safe = str(hasc).replace('.', '_')
     pdf_url = f"https://github.com/phisan-chula/2026-EIT_TH_LDP/blob/main/src/OUTPUT_LDP/{hasc_safe}/{hasc_safe}_OnePage.pdf"
     
-    # Emoji stays outside, number is wrapped in the anchor tag
     link = f"<a href='{pdf_url}' target='_blank'>{num_val}</a>"
     return f"{emoji} {link}".strip()
 
@@ -164,7 +160,6 @@ def format_hasc_anchor(row) -> str:
     if pd.isna(hasc) or pd.isna(name):
         return str(hasc)
         
-    # Match the GitHub markdown slug generation for: "### 🧭 Province: {NAME_1} ({HASC_1})"
     name_clean = str(name).lower().replace(' ', '-')
     hasc_clean = str(hasc).lower().replace('.', '')
     slug = f"-province-{name_clean}-{hasc_clean}"
@@ -177,40 +172,41 @@ def export_summary_files(df: pd.DataFrame, csv_path: Path, readme_path: Path) ->
     available_cols = [col for col in TARGET_COLUMNS if col in df.columns]
     df_out = df[available_cols].copy()
 
-    # Sort ascending FIRST so that both the CSV and README are ordered correctly
     if "POP_Coverage(%)" in df_out.columns:
-        # Strip any accidental '%' string characters so pd.to_numeric doesn't turn them into NaNs
         clean_pop = df_out["POP_Coverage(%)"].astype(str).str.replace('%', '', regex=False)
         df_out["POP_Coverage(%)"] = pd.to_numeric(clean_pop, errors='coerce')
         df_out = df_out.sort_values(by="POP_Coverage(%)", ascending=False)
 
-    # 1. Export standard CSV (Natively sorted, no HTML, no emojis)
     csv_path.parent.mkdir(parents=True, exist_ok=True)
     df_out.to_csv(csv_path, index=False)
     logging.info(f"Saved CSV: {csv_path}")
 
-    # 2. Format and Export README.md
     df_md = df_out.copy()
 
-    # Step A: Format Coverage with PDF Link (must happen before we alter HASC_1)
     if "POP_Coverage(%)" in df_md.columns and "HASC_1" in df_md.columns:
         df_md["POP_Coverage(%)"] = df_md.apply(format_coverage_link, axis=1)
 
-    # Step B: Format HASC_1 as the Anchor Link
     if "HASC_1" in df_md.columns and "NAME_1" in df_md.columns:
         df_md["HASC_1"] = df_md.apply(format_hasc_anchor, axis=1)
 
+    # 3-Column Banner Update
     readme_banner = """<div align="center">
 
-# Thailand Low Distortion Map Coordinate System (TH-LDP)
-
-<img src="Publication/SMST_logo.jpg" alt="SMST Logo" width="120"/>
-
-### **Release Candidate 1 (RC-1, Aug 2026)**
-
-<img src="Publication/APCP_logo.jpg" alt="APAC Logo" width="120"/>
-
-*A collaborative initiative by **SMST** & **APAC***
+<table width="100%">
+  <tr>
+    <td align="center" width="15%">
+      <img src="Publication/SMST_logo.jpg" alt="SMST Logo" width="120"/>
+    </td>
+    <td align="center" width="70%">
+      <h2>Thailand Low Distortion Map Coordinate System (TH-LDP)</h2>
+      <h4><b>Release Candidate 1 (RC-1, Aug 2026)</b></h4>
+      <i>A collaborative initiative by <b>SMST</b> & <b>APAC</b></i>
+    </td>
+    <td align="center" width="15%">
+      <img src="Publication/APCP_logo.jpg" alt="APAC Logo" width="120"/>
+    </td>
+  </tr>
+</table>
 
 </div>
 

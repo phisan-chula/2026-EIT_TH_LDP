@@ -1,14 +1,20 @@
 <div align="center">
 
-# Thailand Low Distortion Map Coordinate System (TH-LDP)
-
-<img src="Publication/SMST_logo.jpg" alt="SMST Logo" width="120"/>
-
-### **Release Candidate 1 (RC-1, Aug 2026)**
-
-<img src="Publication/APCP_logo.jpg" alt="APAC Logo" width="120"/>
-
-*A collaborative initiative by **SMST** & **APAC***
+<table width="100%">
+  <tr>
+    <td align="center" width="15%">
+      <img src="Publication/SMST_logo.jpg" alt="SMST Logo" width="120"/>
+    </td>
+    <td align="center" width="70%">
+      <h2>Thailand Low Distortion Map Coordinate System (TH-LDP)</h2>
+      <h4><b>Release Candidate 1 (RC-1, Aug 2026)</b></h4>
+      <i>A collaborative initiative by <b>SMST</b> & <b>APAC</b></i>
+    </td>
+    <td align="center" width="15%">
+      <img src="Publication/APCP_logo.jpg" alt="APAC Logo" width="120"/>
+    </td>
+  </tr>
+</table>
 
 </div>
 
