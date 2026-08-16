@@ -1,0 +1,42 @@
+{
+  "configuration": {
+    "population_grid": "DATA/tha_pop_2025_CN_100m_R2025A_v1.tif",
+    "gadm": "OUTPUT_PROV/gadm41_THA.gpkg",
+    "province": "TH.SB",
+    "output_dir": "OUTPUT_POP2025",
+    "gadm_layer": null,
+    "overwrite": true,
+    "all_touched": false,
+    "write_pdf": true,
+    "max_plot_dimension": 1800,
+    "pdf_dpi": 200
+  },
+  "result": {
+    "province_code": "TH.SB",
+    "province_name": "Sing Buri",
+    "gadm_layer": "ADM_ADM_1",
+    "statistics": {
+      "total_population": 162070.20001816234,
+      "valid_cell_count": 52970,
+      "occupied_cell_count": 51816,
+      "zero_cell_count": 1154,
+      "minimum_cell_value": 0.0,
+      "maximum_cell_value": 65.45314025878906,
+      "mean_cell_value": 3.059660185353263,
+      "median_cell_value": 1.0001630187034607,
+      "standard_deviation": 5.200198215467201,
+      "raster_width": 369,
+      "raster_height": 476,
+      "pixel_size_x": 0.00083333333,
+      "pixel_size_y": 0.00083333333,
+      "raster_crs": "EPSG:4326"
+    },
+    "outputs": {
+      "boundary_gpkg": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_SB/TH_SB_boundary.gpkg",
+      "clipped_grid": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_SB/TH_SB_population_2025_100m.tif",
+      "report_pdf": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_SB/TH_SB_population_2025_100m.pdf",
+      "summary_csv": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_SB/TH_SB_population_2025_summary.csv",
+      "summary_json": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_SB/TH_SB_population_2025_summary.json"
+    }
+  }
+}

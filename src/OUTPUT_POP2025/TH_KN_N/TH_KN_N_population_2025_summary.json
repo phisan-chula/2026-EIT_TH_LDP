@@ -1,0 +1,42 @@
+{
+  "configuration": {
+    "population_grid": "DATA/tha_pop_2025_CN_100m_R2025A_v1.tif",
+    "gadm": "OUTPUT_PROV/gadm41_THA.gpkg",
+    "province": "TH.KN_N",
+    "output_dir": "OUTPUT_POP2025",
+    "gadm_layer": null,
+    "overwrite": true,
+    "all_touched": false,
+    "write_pdf": true,
+    "max_plot_dimension": 1800,
+    "pdf_dpi": 200
+  },
+  "result": {
+    "province_code": "TH.KN_N",
+    "province_name": "Kanchanaburi North",
+    "gadm_layer": "ADM_ADM_1",
+    "statistics": {
+      "total_population": 106883.49831426337,
+      "valid_cell_count": 74914,
+      "occupied_cell_count": 73820,
+      "zero_cell_count": 1094,
+      "minimum_cell_value": 0.0,
+      "maximum_cell_value": 95.96500396728516,
+      "mean_cell_value": 1.4267493167400402,
+      "median_cell_value": 0.7893339991569519,
+      "standard_deviation": 3.317252805171371,
+      "raster_width": 1410,
+      "raster_height": 1831,
+      "pixel_size_x": 0.00083333333,
+      "pixel_size_y": 0.00083333333,
+      "raster_crs": "EPSG:4326"
+    },
+    "outputs": {
+      "boundary_gpkg": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_KN_N/TH_KN_N_boundary.gpkg",
+      "clipped_grid": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_KN_N/TH_KN_N_population_2025_100m.tif",
+      "report_pdf": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_KN_N/TH_KN_N_population_2025_100m.pdf",
+      "summary_csv": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_KN_N/TH_KN_N_population_2025_summary.csv",
+      "summary_json": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_KN_N/TH_KN_N_population_2025_summary.json"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "configuration": {
+    "population_grid": "DATA/tha_pop_2025_CN_100m_R2025A_v1.tif",
+    "gadm": "OUTPUT_PROV/gadm41_THA.gpkg",
+    "province": "TH.PA",
+    "output_dir": "OUTPUT_POP2025",
+    "gadm_layer": null,
+    "overwrite": true,
+    "all_touched": false,
+    "write_pdf": true,
+    "max_plot_dimension": 1800,
+    "pdf_dpi": 200
+  },
+  "result": {
+    "province_code": "TH.PA",
+    "province_name": "Phra Nakhon Si Ayutthaya",
+    "gadm_layer": "ADM_ADM_1",
+    "statistics": {
+      "total_population": 1035140.2234799442,
+      "valid_cell_count": 186681,
+      "occupied_cell_count": 179898,
+      "zero_cell_count": 6783,
+      "minimum_cell_value": 0.0,
+      "maximum_cell_value": 162.55825805664062,
+      "mean_cell_value": 5.544968280006771,
+      "median_cell_value": 1.5271480083465576,
+      "standard_deviation": 10.995852350546159,
+      "raster_width": 700,
+      "raster_height": 677,
+      "pixel_size_x": 0.00083333333,
+      "pixel_size_y": 0.00083333333,
+      "raster_crs": "EPSG:4326"
+    },
+    "outputs": {
+      "boundary_gpkg": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_PA/TH_PA_boundary.gpkg",
+      "clipped_grid": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_PA/TH_PA_population_2025_100m.tif",
+      "report_pdf": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_PA/TH_PA_population_2025_100m.pdf",
+      "summary_csv": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_PA/TH_PA_population_2025_summary.csv",
+      "summary_json": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_PA/TH_PA_population_2025_summary.json"
+    }
+  }
+}

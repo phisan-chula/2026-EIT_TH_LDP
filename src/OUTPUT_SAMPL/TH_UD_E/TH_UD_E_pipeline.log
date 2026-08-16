@@ -1,0 +1,119 @@
+======================================================================
+Processing province: TH.UD_E
+Started: 2026-08-16T12:08:15+07:00
+======================================================================
+--> [TH.UD_E] Step 1: 1_fabdem_province.py
+[1/5] Read GADM and select HASC_1=TH.UD_E
+[2/5] Save province and clip FABDEM
+[3/5] Generate contours every 100 m with GDAL 3.10.3
+[4/5] Calculate statistics and write PDF
+[5/5] Write DataFrame summaries
+
+Completed successfully.
+ HASC_1         NAME_1  contours                                                                                      PDF
+TH.UD_E Uttaradit East       786 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_UD_E/TH_UD_E_fabdem_contours.pdf
+--> [TH.UD_E] Step 2: 2_popu2025_grid.py
+[1/4] Select GADM province HASC_1=TH.UD_E
+[2/4] Save boundary and cut population grid
+[3/4] Calculate population-grid statistics
+[4/4] Write population-grid PDF and summaries
+
+Completed successfully.
+ HASC_1         NAME_1  population_sum                                                                                           grid
+TH.UD_E Uttaradit East    11278.434207 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_UD_E/TH_UD_E_population_2025_100m.tif
+--> [TH.UD_E] Step 3: 3_generate_sample.py
+[1/4] Select GADM province HASC_1=TH.UD_E
+ -> [READ] Loading Vector Dataset: OUTPUT_PROV/gadm41_THA.gpkg (Layer: 'ADM_ADM_1')
+[2/4] Generate 1000.0m grid points
+ -> Auto-detected EPSG:32647 for province.
+ -> Generated 1,705 bounding box points.
+ -> Clipping points to province boundary...
+ -> Computing 7-digit Geohashes...
+[3/4] Extracting Raster Values (FABDEM MSL & POP2025)...
+ -> [READ] Opening Raster File: OUTPUT_FABDEM/TH_UD_E/TH_UD_E_fabdem.tif
+ -> [READ] Opening Raster File for Area Sum: OUTPUT_POP2025/TH_UD_E/TH_UD_E_population_2025_100m.tif
+ -> Converting geometries to Lng/Lat (EPSG:4326)...
+[4/4] Save GeoPackage Data...
+ -> [WRITE] Saving Vector File: /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_SAMPL/TH_UD_E/TH_UD_E_SAMPL.gpkg (Layer: 'samples')
+
+[5/5] Comparing POP2025 with DOPA Registration Population...
+
+Completed successfully.
+ HASC_1  Grid (m)       CRS  Samples             Output POP2025 DOPA_Pop     Diff
+TH.UD_E    1000.0 EPSG:4326      915 TH_UD_E_SAMPL.gpkg  11,061  433,275 -422,214
+--> [TH.UD_E] Step 4: 4_analyse_ldp.py
+LDP                                               [TM, 101:04]
+FALSE_EN                                     [50000, -1860000]
+PP_MSL                                                     480
+GPKG         [OUTPUT_SAMPL/TH_UD_E/TH_UD_E_SAMPL.gpkg, samp...
+OFFSET_PP         [0.0, default hPP from average topo or pnts]
+dtype: object
+ -> OUTLIER FILTER: Dropped 19 points.
+ -> Dropped MSL values: [551, 461, 953, 928, 570, 596, 956, 955, 1028, 1001, 1046, 839, 977, 936, 928, 914, 921, 661, 500]
+ -> Using user-defined PP_MSL: 480.000m
+==================================== LDP TM ====================================
+@ Centroid @     <lng=101°04′>    <lat=18°09′>
+Offset Projection Plane = +0.0 m. <default hPP from average topo or pnts>
+Designed Project Plane : hPP=+446.80 m. / MSL=+480.00 m. tied to k0 = 1.000070
+Points CSF min/mean/max [ppm] : -78.4 / -13.2 / +20.8
+Points MSL min/mean/max [m.]  : +348.0 / +565.5 / +977.0
+|      |      LDP_E |       LDP_N |
+|:-----|-----------:|------------:|
+| min  | 34,456.704 | 120,749.073 |
+| max  | 62,440.503 | 172,683.371 |
+| diff | 27,983.799 |  51,934.298 |
+{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=0.0 +lon_0=101.06666667 +k_0=1.000070 +x_0=50000 +y_0=-1860000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=0.0 +lon_0=101°04′ +k_0=1.000070 +x_0=50000 +y_0=-1860000 +ellps=WGS84 +units=m +no_defs +type=crs"}
+Writing definition GPKG : OUTPUT_LDP/TH_UD_E/TH_UD_E_LDP.gpkg ...
+ -> THINNING: Snapping points to 2 decimal grid for visualization...
+ -> THINNING: Plot points reduced from 896 to 779.
+Writing definition plot : OUTPUT_LDP/TH_UD_E/TH_UD_E_LDP.svg...
+{"meta": "Coverage_Analysis", "Province": "TH.UD_E", "Total_Pts": 915, "Valid_Pts": 591, "Pt_Coverage(%)": 64.59, "Total_POP": 11060.7866, "Valid_POP": 10723.3095, "POP_Coverage(%)": 96.95, "CSF_Lower_ppm": -20.0, "CSF_Mean_ppm": -0.3, "CSF_Upper_ppm": 19.7}
+--> [TH.UD_E] Step 5: 5_plot_PP_PctPopu.py
+[TH.UD_E] Starting ProcessPoolExecutor with 16 offsets to compute (Mean MSL: 565.55 m)...
+[TH.UD_E] OFFSET_PP [-200.00] computed successfully.
+[TH.UD_E] OFFSET_PP [-180.00] computed successfully.
+[TH.UD_E] OFFSET_PP [-160.00] computed successfully.
+[TH.UD_E] OFFSET_PP [-140.00] computed successfully.
+[TH.UD_E] OFFSET_PP [-120.00] computed successfully.
+[TH.UD_E] OFFSET_PP [-100.00] computed successfully.
+[TH.UD_E] OFFSET_PP [-80.00] computed successfully.
+[TH.UD_E] OFFSET_PP [-60.00] computed successfully.
+[TH.UD_E] OFFSET_PP [-40.00] computed successfully.
+[TH.UD_E] OFFSET_PP [-20.00] computed successfully.
+[TH.UD_E] OFFSET_PP [0.00] computed successfully.
+[TH.UD_E] OFFSET_PP [20.00] computed successfully.
+[TH.UD_E] OFFSET_PP [40.00] computed successfully.
+[TH.UD_E] OFFSET_PP [60.00] computed successfully.
+[TH.UD_E] OFFSET_PP [80.00] computed successfully.
+[TH.UD_E] OFFSET_PP [100.00] computed successfully.
+
+==================================== LDP Population Coverage Analysis: TH.UD_E ====================================
+|   MSL_PP |   HAE_PP | Province   |   Total_Pts |   Valid_Pts |   Pt_Coverage(%) |   Total_POP |   Valid_POP |   POP_Coverage(%) |   CSF_Lower_ppm |   CSF_Mean_ppm |   CSF_Upper_ppm |
+|---------:|---------:|:-----------|------------:|------------:|-----------------:|------------:|------------:|------------------:|----------------:|---------------:|----------------:|
+|  +365.55 |  +332.35 | TH.UD_E    |         915 |         349 |            38.14 |      11,061 |       8,862 |             80.12 |           -19.9 |          -11.6 |            +2.8 |
+|  +385.55 |  +352.35 | TH.UD_E    |         915 |         411 |            44.92 |      11,061 |       9,392 |             84.91 |           -20.0 |          -10.1 |            +5.8 |
+|  +405.55 |  +372.35 | TH.UD_E    |         915 |         461 |            50.38 |      11,061 |       9,926 |             89.74 |           -19.8 |           -7.4 |            +9.8 |
+|  +425.55 |  +392.35 | TH.UD_E    |         915 |         504 |            55.08 |      11,061 |      10,122 |             91.52 |           -20.0 |           -5.6 |           +12.8 |
+|  +445.55 |  +412.35 | TH.UD_E    |         915 |         543 |            59.34 |      11,061 |      10,277 |             92.92 |           -20.0 |           -3.7 |           +15.8 |
+|  +465.55 |  +432.35 | TH.UD_E    |         915 |         572 |            62.51 |      11,061 |      10,422 |             94.22 |           -19.9 |           -1.6 |           +18.8 |
+|  +485.55 |  +452.35 | TH.UD_E    |         915 |         603 |            65.90 |      11,061 |      10,525 |             95.15 |           -20.0 |           +0.1 |           +19.8 |
+|  +505.55 |  +472.35 | TH.UD_E    |         915 |         618 |            67.54 |      11,061 |      10,104 |             91.35 |           -19.9 |           +1.6 |           +19.9 |
+|  +525.55 |  +492.35 | TH.UD_E    |         915 |         626 |            68.42 |      11,061 |       9,474 |             85.65 |           -20.0 |           +2.8 |           +19.9 |
+|  +545.55 |  +512.35 | TH.UD_E    |         915 |         616 |            67.32 |      11,061 |       7,084 |             64.05 |           -19.9 |           +3.2 |           +19.9 |
+|  +565.55 |  +532.35 | TH.UD_E    |         915 |         562 |            61.42 |      11,061 |       5,175 |             46.79 |           -19.8 |           +3.7 |           +20.0 |
+|  +585.55 |  +552.35 | TH.UD_E    |         915 |         506 |            55.30 |      11,061 |       3,654 |             33.04 |           -20.0 |           +3.7 |           +19.9 |
+|  +605.55 |  +572.35 | TH.UD_E    |         915 |         460 |            50.27 |      11,061 |       2,577 |             23.30 |           -19.6 |           +3.8 |           +19.9 |
+|  +625.55 |  +592.35 | TH.UD_E    |         915 |         423 |            46.23 |      11,061 |       1,990 |             17.99 |           -19.9 |           +3.4 |           +19.9 |
+|  +645.55 |  +612.35 | TH.UD_E    |         915 |         387 |            42.30 |      11,061 |       1,553 |             14.04 |           -19.8 |           +3.1 |           +20.0 |
+|  +665.55 |  +632.35 | TH.UD_E    |         915 |         363 |            39.67 |      11,061 |       1,069 |              9.67 |           -19.7 |           +3.4 |           +20.0 |
+==========================================================================================================================
+
+ -> Plot saved successfully to: OUTPUT_LDP/TH_UD_E/TH_UD_E_Plot_PP_Popu.svg
+
+--> [TH.UD_E] Step 6: 6_LDP_OnePage.py
+Processing province: TH_UD_E
+[+] TH_UD_E: One-Page Report generated successfully.
+======================================================================
+Completed province: TH.UD_E
+Finished: 2026-08-16T12:10:13+07:00
+======================================================================

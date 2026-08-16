@@ -1,0 +1,119 @@
+======================================================================
+Processing province: TH.UR_S
+Started: 2026-08-16T12:10:13+07:00
+======================================================================
+--> [TH.UR_S] Step 1: 1_fabdem_province.py
+[1/5] Read GADM and select HASC_1=TH.UR_S
+[2/5] Save province and clip FABDEM
+[3/5] Generate contours every 100 m with GDAL 3.10.3
+[4/5] Calculate statistics and write PDF
+[5/5] Write DataFrame summaries
+
+Completed successfully.
+ HASC_1                 NAME_1  contours                                                                                      PDF
+TH.UR_S Ubon Ratchathani South       876 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_UR_S/TH_UR_S_fabdem_contours.pdf
+--> [TH.UR_S] Step 2: 2_popu2025_grid.py
+[1/4] Select GADM province HASC_1=TH.UR_S
+[2/4] Save boundary and cut population grid
+[3/4] Calculate population-grid statistics
+[4/4] Write population-grid PDF and summaries
+
+Completed successfully.
+ HASC_1                 NAME_1  population_sum                                                                                           grid
+TH.UR_S Ubon Ratchathani South    1274934.2235 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_UR_S/TH_UR_S_population_2025_100m.tif
+--> [TH.UR_S] Step 3: 3_generate_sample.py
+[1/4] Select GADM province HASC_1=TH.UR_S
+ -> [READ] Loading Vector Dataset: OUTPUT_PROV/gadm41_THA.gpkg (Layer: 'ADM_ADM_1')
+[2/4] Generate 1000.0m grid points
+ -> Auto-detected EPSG:32648 for province.
+ -> Generated 22,576 bounding box points.
+ -> Clipping points to province boundary...
+ -> Computing 7-digit Geohashes...
+[3/4] Extracting Raster Values (FABDEM MSL & POP2025)...
+ -> [READ] Opening Raster File: OUTPUT_FABDEM/TH_UR_S/TH_UR_S_fabdem.tif
+ -> [READ] Opening Raster File for Area Sum: OUTPUT_POP2025/TH_UR_S/TH_UR_S_population_2025_100m.tif
+ -> Converting geometries to Lng/Lat (EPSG:4326)...
+[4/4] Save GeoPackage Data...
+ -> [WRITE] Saving Vector File: /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_SAMPL/TH_UR_S/TH_UR_S_SAMPL.gpkg (Layer: 'samples')
+
+[5/5] Comparing POP2025 with DOPA Registration Population...
+
+Completed successfully.
+ HASC_1  Grid (m)       CRS  Samples             Output   POP2025  DOPA_Pop     Diff
+TH.UR_S    1000.0 EPSG:4326    10807 TH_UR_S_SAMPL.gpkg 1,262,430 1,865,501 -603,071
+--> [TH.UR_S] Step 4: 4_analyse_ldp.py
+LDP                                               [TM, 105:03]
+FALSE_EN                                     [250000, -910000]
+PP_MSL                                                      70
+GPKG         [OUTPUT_SAMPL/TH_UR_S/TH_UR_S_SAMPL.gpkg, samp...
+OFFSET_PP         [0.0, default hPP from average topo or pnts]
+dtype: object
+ -> OUTLIER FILTER: Dropped 220 points.
+ -> Dropped MSL values: [-9999, -9999, -9999, 202, 187, 170, 150, 149, 153, 143, 149, 149, 120, 118, 111, 133, 140, 141, 113, 122, 136, 137, 138, 133, 133, 132, 129, 119, 137, 135, 137, 133, 124, 130, 110, 126, 133, 135, 115, 115, 134, 682, 410, 712, 671, 726, 704, 417, 314, 710, 275, 204, 206, 195, 699, 199, 200, 185, 193, 207, 192, 190, 187, 201, 190, 703, 576, 497, 504, 502, 484, 685, 239, 211, 196, 192, 479, 515, 486, 219, 204, 204, 235, 202, 203, 211, 232, 196, 220, 228, 242, 214, 211, 241, 231, 232, 220, 248, 189, 252, 284, 387, 322, 406, 415, 309, 427, 403, 308, 518, 542, 209, 216, 209, 213, 199, 216, 197, 147, 482, 303, 486, 522, 301, 426, 491, 472, 512, 483, 492, 335, 316, 254, 282, 270, 281, 472, 436, 389, 446, 354, 226, 210, 163, 447, 334, 212, 210, 342, 207, 233, 237, 187, 201, 160, 165, 160, 181, 178, 166, 601, 586, 561, 169, 142, 145, 148, 639, 630, 544, 581, 613, 534, 549, 570, 164, 173, 172, 151, 140, 346, 376, 256, 270, 186, 280, 156, 150, 105, 105, 108, 106, 106, 106, 169, 177, 176, 259, 175, 180, 262, 239, 246, 156, 160, 104, 104, 105, 106, 105, 136, 133, 106, 106, 136, 144, 128, 139, 128, 138]
+ -> Using user-defined PP_MSL: 70.000m
+==================================== LDP TM ====================================
+@ Centroid @     <lng=105°03′>    <lat=14°59′>
+Offset Projection Plane = +0.0 m. <default hPP from average topo or pnts>
+Designed Project Plane : hPP=+50.51 m. / MSL=+70.00 m. tied to k0 = 1.000008
+Points CSF min/mean/max [ppm] : -99.0 / -4.4 / +57.2
+Points MSL min/mean/max [m.]  : +104.0 / +166.5 / +703.0
+|      |       LDP_E |       LDP_N |
+|:-----|------------:|------------:|
+| min  | 177,606.386 | 661,639.874 |
+| max  | 308,648.004 | 824,717.828 |
+| diff | 131,041.618 | 163,077.954 |
+{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=0.0 +lon_0=105.05000000 +k_0=1.000008 +x_0=250000 +y_0=-910000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=0.0 +lon_0=105°03′ +k_0=1.000008 +x_0=250000 +y_0=-910000 +ellps=WGS84 +units=m +no_defs +type=crs"}
+Writing definition GPKG : OUTPUT_LDP/TH_UR_S/TH_UR_S_LDP.gpkg ...
+ -> THINNING: Snapping points to 2 decimal grid for visualization...
+ -> THINNING: Plot points reduced from 10587 to 8987.
+Writing definition plot : OUTPUT_LDP/TH_UR_S/TH_UR_S_LDP.svg...
+{"meta": "Coverage_Analysis", "Province": "TH.UR_S", "Total_Pts": 10807, "Valid_Pts": 9115, "Pt_Coverage(%)": 84.34, "Total_POP": 1262429.8221, "Valid_POP": 1174158.4867999998, "POP_Coverage(%)": 93.01, "CSF_Lower_ppm": -20.0, "CSF_Mean_ppm": -3.6, "CSF_Upper_ppm": 20.0}
+--> [TH.UR_S] Step 5: 5_plot_PP_PctPopu.py
+[TH.UR_S] Starting ProcessPoolExecutor with 16 offsets to compute (Mean MSL: 166.49 m)...
+[TH.UR_S] OFFSET_PP [-200.00] computed successfully.
+[TH.UR_S] OFFSET_PP [-180.00] computed successfully.
+[TH.UR_S] OFFSET_PP [-160.00] computed successfully.
+[TH.UR_S] OFFSET_PP [-140.00] computed successfully.
+[TH.UR_S] OFFSET_PP [-120.00] computed successfully.
+[TH.UR_S] OFFSET_PP [-100.00] computed successfully.
+[TH.UR_S] OFFSET_PP [-80.00] computed successfully.
+[TH.UR_S] OFFSET_PP [-60.00] computed successfully.
+[TH.UR_S] OFFSET_PP [-40.00] computed successfully.
+[TH.UR_S] OFFSET_PP [-20.00] computed successfully.
+[TH.UR_S] OFFSET_PP [0.00] computed successfully.
+[TH.UR_S] OFFSET_PP [20.00] computed successfully.
+[TH.UR_S] OFFSET_PP [40.00] computed successfully.
+[TH.UR_S] OFFSET_PP [60.00] computed successfully.
+[TH.UR_S] OFFSET_PP [80.00] computed successfully.
+[TH.UR_S] OFFSET_PP [100.00] computed successfully.
+
+==================================== LDP Population Coverage Analysis: TH.UR_S ====================================
+|   MSL_PP |   HAE_PP | Province   |   Total_Pts |   Valid_Pts |   Pt_Coverage(%) |   Total_POP |   Valid_POP |   POP_Coverage(%) |   CSF_Lower_ppm |   CSF_Mean_ppm |   CSF_Upper_ppm |
+|---------:|---------:|:-----------|------------:|------------:|-----------------:|------------:|------------:|------------------:|----------------:|---------------:|----------------:|
+|   -33.51 |   -53.00 | TH.UR_S    |       10807 |        4304 |            39.83 |   1,262,430 |     645,063 |             51.10 |           -20.0 |           -9.5 |           +19.9 |
+|   -13.51 |   -33.00 | TH.UR_S    |       10807 |        5329 |            49.31 |   1,262,430 |     815,378 |             64.59 |           -20.0 |           -9.4 |           +19.9 |
+|    +6.49 |   -13.00 | TH.UR_S    |       10807 |        7457 |            69.00 |   1,262,430 |   1,014,780 |             80.38 |           -20.0 |          -10.2 |           +19.9 |
+|   +26.49 |    +7.00 | TH.UR_S    |       10807 |        8625 |            79.81 |   1,262,430 |   1,126,019 |             89.19 |           -20.0 |           -9.1 |           +19.9 |
+|   +46.49 |   +27.00 | TH.UR_S    |       10807 |        8936 |            82.69 |   1,262,430 |   1,155,953 |             91.57 |           -20.0 |           -6.8 |           +20.0 |
+|   +66.49 |   +47.00 | TH.UR_S    |       10807 |        9108 |            84.28 |   1,262,430 |   1,175,268 |             93.10 |           -20.0 |           -4.4 |           +20.0 |
+|   +86.49 |   +67.00 | TH.UR_S    |       10807 |        9095 |            84.16 |   1,262,430 |   1,168,561 |             92.56 |           -20.0 |           -1.1 |           +20.0 |
+|  +106.49 |   +87.00 | TH.UR_S    |       10807 |        8975 |            83.05 |   1,262,430 |   1,156,198 |             91.59 |           -19.8 |           +1.4 |           +20.0 |
+|  +126.49 |  +107.00 | TH.UR_S    |       10807 |        8780 |            81.24 |   1,262,430 |   1,135,996 |             89.98 |           -20.0 |           +3.9 |           +20.0 |
+|  +146.49 |  +127.00 | TH.UR_S    |       10807 |        8351 |            77.27 |   1,262,430 |   1,094,252 |             86.68 |           -19.9 |           +6.0 |           +20.0 |
+|  +166.49 |  +147.00 | TH.UR_S    |       10807 |        7712 |            71.36 |   1,262,430 |   1,035,502 |             82.02 |           -20.0 |           +7.9 |           +20.0 |
+|  +186.49 |  +167.00 | TH.UR_S    |       10807 |        7084 |            65.55 |   1,262,430 |     969,870 |             76.83 |           -20.0 |           +9.7 |           +20.0 |
+|  +206.49 |  +187.00 | TH.UR_S    |       10807 |        6364 |            58.89 |   1,262,430 |     854,938 |             67.72 |           -19.9 |          +11.4 |           +20.0 |
+|  +226.49 |  +207.00 | TH.UR_S    |       10807 |        5312 |            49.15 |   1,262,430 |     505,980 |             40.08 |           -20.0 |          +13.6 |           +20.0 |
+|  +246.49 |  +227.00 | TH.UR_S    |       10807 |        3896 |            36.05 |   1,262,430 |     341,676 |             27.06 |           -19.8 |          +14.4 |           +20.0 |
+|  +266.49 |  +247.00 | TH.UR_S    |       10807 |        1866 |            17.27 |   1,262,430 |     136,070 |             10.78 |           -19.8 |          +12.0 |           +20.0 |
+==========================================================================================================================
+
+ -> Plot saved successfully to: OUTPUT_LDP/TH_UR_S/TH_UR_S_Plot_PP_Popu.svg
+
+--> [TH.UR_S] Step 6: 6_LDP_OnePage.py
+Processing province: TH_UR_S
+[+] TH_UR_S: One-Page Report generated successfully.
+======================================================================
+Completed province: TH.UR_S
+Finished: 2026-08-16T12:14:45+07:00
+======================================================================

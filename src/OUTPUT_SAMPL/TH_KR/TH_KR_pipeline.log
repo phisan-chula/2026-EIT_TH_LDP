@@ -1,0 +1,120 @@
+======================================================================
+Processing province: TH.KR
+Started: 2026-08-16T11:48:09+07:00
+======================================================================
+--> [TH.KR] Step 1: 1_fabdem_province.py
+[1/5] Read GADM and select HASC_1=TH.KR
+[2/5] Save province and clip FABDEM
+[3/5] Generate contours every 100 m with GDAL 3.10.3
+[4/5] Calculate statistics and write PDF
+[5/5] Write DataFrame summaries
+
+Completed successfully.
+HASC_1 NAME_1  contours                                                                                  PDF
+ TH.KR  Krabi      2545 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_KR/TH_KR_fabdem_contours.pdf
+--> [TH.KR] Step 2: 2_popu2025_grid.py
+[1/4] Select GADM province HASC_1=TH.KR
+[2/4] Save boundary and cut population grid
+[3/4] Calculate population-grid statistics
+[4/4] Write population-grid PDF and summaries
+
+Completed successfully.
+HASC_1 NAME_1  population_sum                                                                                       grid
+ TH.KR  Krabi   328527.734878 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_KR/TH_KR_population_2025_100m.tif
+--> [TH.KR] Step 3: 3_generate_sample.py
+[1/4] Select GADM province HASC_1=TH.KR
+ -> [READ] Loading Vector Dataset: OUTPUT_PROV/gadm41_THA.gpkg (Layer: 'ADM_ADM_1')
+[2/4] Generate 1000.0m grid points
+ -> Auto-detected EPSG:32647 for province.
+ -> Generated 10,146 bounding box points.
+ -> Clipping points to province boundary...
+ -> Computing 7-digit Geohashes...
+[3/4] Extracting Raster Values (FABDEM MSL & POP2025)...
+ -> [READ] Opening Raster File: OUTPUT_FABDEM/TH_KR/TH_KR_fabdem.tif
+ -> [READ] Opening Raster File for Area Sum: OUTPUT_POP2025/TH_KR/TH_KR_population_2025_100m.tif
+ -> Converting geometries to Lng/Lat (EPSG:4326)...
+[4/4] Save GeoPackage Data...
+ -> [WRITE] Saving Vector File: /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_SAMPL/TH_KR/TH_KR_SAMPL.gpkg (Layer: 'samples')
+
+[5/5] Comparing POP2025 with DOPA Registration Population...
+
+Completed successfully.
+HASC_1  Grid (m)       CRS  Samples           Output POP2025 DOPA_Pop     Diff
+ TH.KR    1000.0 EPSG:4326     4426 TH_KR_SAMPL.gpkg 322,291  484,796 -162,505
+--> [TH.KR] Step 4: 4_analyse_ldp.py
+LDP                                             [TM, 99:01]
+FALSE_EN                                               AUTO
+PP_MSL                                                   20
+GPKG         [OUTPUT_SAMPL/TH_KR/TH_KR_SAMPL.gpkg, samples]
+OFFSET_PP      [0.0, default hPP from average topo or pnts]
+dtype: object
+ -> OUTLIER FILTER: Dropped 94 points.
+ -> Dropped MSL values: [-9999, -9999, -9999, -9999, -9999, 71, 41, 71, 21, 92, 479, 308, 73, 47, 66, 81, 60, 47, 50, 64, 45, 96, 63, 120, 115, 722, 739, 752, 725, 697, 995, 871, 873, 1246, 819, 707, 662, 951, 1026, 147, 105, 116, 60, 101, 136, 93, 153, 146, 124, 134, 96, 144, 159, 111, 26, 27, 439, 229, 191, 242, 203, 354, 430, 326, 311, 448, 300, 428, 30, 36, 35, 39, 41, 365, 66, 233, 233, 66, 205, 177, 102, 109, 122, 289, 263, 101, 86, 175, 153, 252, 225, 223, 136, 155]
+ -> Using user-defined PP_MSL: 20.000m
+ -> AUTO detected FALSE_EN: E: 50000, N: -400000
+==================================== LDP TM ====================================
+@ Centroid @     <lng=99°01′>    <lat=08°11′>
+Offset Projection Plane = +0.0 m. <default hPP from average topo or pnts>
+Designed Project Plane : hPP=-2.39 m. / MSL=+20.00 m. tied to k0 = 1.000000
+Points CSF min/mean/max [ppm] : -93.1 / -2.0 / +25.6
+Points MSL min/mean/max [m.]  : +0.0 / +71.3 / +621.0
+|      |      LDP_E |       LDP_N |
+|:-----|-----------:|------------:|
+| min  |  7,147.514 | 447,337.885 |
+| max  | 93,180.603 | 558,384.621 |
+| diff | 86,033.089 | 111,046.737 |
+{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=0.0 +lon_0=99.01666667 +k_0=1.000000 +x_0=50000 +y_0=-400000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=0.0 +lon_0=99°01′ +k_0=1.000000 +x_0=50000 +y_0=-400000 +ellps=WGS84 +units=m +no_defs +type=crs"}
+Writing definition GPKG : OUTPUT_LDP/TH_KR/TH_KR_LDP.gpkg ...
+ -> THINNING: Snapping points to 2 decimal grid for visualization...
+ -> THINNING: Plot points reduced from 4332 to 3597.
+Writing definition plot : OUTPUT_LDP/TH_KR/TH_KR_LDP.svg...
+{"meta": "Coverage_Analysis", "Province": "TH.KR", "Total_Pts": 4426, "Valid_Pts": 4009, "Pt_Coverage(%)": 90.58, "Total_POP": 322291.38639999996, "Valid_POP": 317379.4309, "POP_Coverage(%)": 98.48, "CSF_Lower_ppm": -19.9, "CSF_Mean_ppm": 0.2, "CSF_Upper_ppm": 20.0}
+--> [TH.KR] Step 5: 5_plot_PP_PctPopu.py
+[TH.KR] Starting ProcessPoolExecutor with 16 offsets to compute (Mean MSL: 71.31 m)...
+[TH.KR] OFFSET_PP [-200.00] computed successfully.
+[TH.KR] OFFSET_PP [-180.00] computed successfully.
+[TH.KR] OFFSET_PP [-160.00] computed successfully.
+[TH.KR] OFFSET_PP [-140.00] computed successfully.
+[TH.KR] OFFSET_PP [-120.00] computed successfully.
+[TH.KR] OFFSET_PP [-100.00] computed successfully.
+[TH.KR] OFFSET_PP [-80.00] computed successfully.
+[TH.KR] OFFSET_PP [-60.00] computed successfully.
+[TH.KR] OFFSET_PP [-40.00] computed successfully.
+[TH.KR] OFFSET_PP [-20.00] computed successfully.
+[TH.KR] OFFSET_PP [0.00] computed successfully.
+[TH.KR] OFFSET_PP [20.00] computed successfully.
+[TH.KR] OFFSET_PP [40.00] computed successfully.
+[TH.KR] OFFSET_PP [60.00] computed successfully.
+[TH.KR] OFFSET_PP [80.00] computed successfully.
+[TH.KR] OFFSET_PP [100.00] computed successfully.
+
+==================================== LDP Population Coverage Analysis: TH.KR ====================================
+|   MSL_PP |   HAE_PP | Province   |   Total_Pts |   Valid_Pts |   Pt_Coverage(%) |   Total_POP |   Valid_POP |   POP_Coverage(%) |   CSF_Lower_ppm |   CSF_Mean_ppm |   CSF_Upper_ppm |
+|---------:|---------:|:-----------|------------:|------------:|-----------------:|------------:|------------:|------------------:|----------------:|---------------:|----------------:|
+|  -128.69 |  -151.08 | TH.KR      |        4426 |        1246 |            28.15 |     322,291 |     124,990 |             38.78 |           -20.0 |          -14.8 |            +1.6 |
+|  -108.69 |  -131.08 | TH.KR      |        4426 |        2004 |            45.28 |     322,291 |     206,911 |             64.20 |           -20.0 |          -14.3 |            +4.6 |
+|   -88.69 |  -111.08 | TH.KR      |        4426 |        2756 |            62.27 |     322,291 |     262,994 |             81.60 |           -20.0 |          -12.4 |            +8.6 |
+|   -68.69 |   -91.08 | TH.KR      |        4426 |        3219 |            72.73 |     322,291 |     289,349 |             89.78 |           -20.0 |          -10.7 |           +11.6 |
+|   -48.69 |   -71.08 | TH.KR      |        4426 |        3591 |            81.13 |     322,291 |     306,399 |             95.07 |           -20.0 |           -8.8 |           +14.6 |
+|   -28.69 |   -51.08 | TH.KR      |        4426 |        3813 |            86.15 |     322,291 |     314,028 |             97.44 |           -19.9 |           -6.5 |           +17.6 |
+|    -8.69 |   -31.08 | TH.KR      |        4426 |        3922 |            88.61 |     322,291 |     316,533 |             98.21 |           -20.0 |           -4.0 |           +19.1 |
+|   +11.31 |   -11.08 | TH.KR      |        4426 |        3992 |            90.19 |     322,291 |     317,807 |             98.61 |           -20.0 |           -1.5 |           +19.9 |
+|   +31.31 |    +8.92 | TH.KR      |        4426 |        3996 |            90.28 |     322,291 |     315,659 |             97.94 |           -19.8 |           +1.0 |           +19.9 |
+|   +51.31 |   +28.92 | TH.KR      |        4426 |        3973 |            89.77 |     322,291 |     309,739 |             96.11 |           -19.9 |           +4.3 |           +20.0 |
+|   +71.31 |   +48.92 | TH.KR      |        4426 |        3896 |            88.03 |     322,291 |     301,200 |             93.46 |           -20.0 |           +6.7 |           +20.0 |
+|   +91.31 |   +68.92 | TH.KR      |        4426 |        3683 |            83.21 |     322,291 |     278,226 |             86.33 |           -19.8 |           +8.7 |           +20.0 |
+|  +111.31 |   +88.92 | TH.KR      |        4426 |        3350 |            75.69 |     322,291 |     240,465 |             74.61 |           -19.9 |          +10.6 |           +20.0 |
+|  +131.31 |  +108.92 | TH.KR      |        4426 |        2689 |            60.75 |     322,291 |     165,868 |             51.47 |           -20.0 |          +11.4 |           +20.0 |
+|  +151.31 |  +128.92 | TH.KR      |        4426 |        2016 |            45.55 |     322,291 |      94,513 |             29.33 |           -19.6 |          +11.7 |           +20.0 |
+|  +171.31 |  +148.92 | TH.KR      |        4426 |        1497 |            33.82 |     322,291 |      57,123 |             17.72 |           -19.7 |          +12.0 |           +20.0 |
+==========================================================================================================================
+
+ -> Plot saved successfully to: OUTPUT_LDP/TH_KR/TH_KR_Plot_PP_Popu.svg
+
+--> [TH.KR] Step 6: 6_LDP_OnePage.py
+Processing province: TH_KR
+[+] TH_KR: One-Page Report generated successfully.
+======================================================================
+Completed province: TH.KR
+Finished: 2026-08-16T11:53:08+07:00
+======================================================================

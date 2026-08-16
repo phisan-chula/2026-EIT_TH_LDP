@@ -1,0 +1,125 @@
+======================================================================
+Processing province: TH.PY
+Started: 2026-08-16T12:01:37+07:00
+======================================================================
+--> [TH.PY] Step 1: 1_fabdem_province.py
+[1/5] Read GADM and select HASC_1=TH.PY
+[2/5] Save province and clip FABDEM
+[3/5] Generate contours every 100 m with GDAL 3.10.3
+[4/5] Calculate statistics and write PDF
+[5/5] Write DataFrame summaries
+
+Completed successfully.
+HASC_1 NAME_1  contours                                                                                  PDF
+ TH.PY Phayao      3637 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_PY/TH_PY_fabdem_contours.pdf
+--> [TH.PY] Step 2: 2_popu2025_grid.py
+[1/4] Select GADM province HASC_1=TH.PY
+[2/4] Save boundary and cut population grid
+[3/4] Calculate population-grid statistics
+[4/4] Write population-grid PDF and summaries
+
+Completed successfully.
+HASC_1 NAME_1  population_sum                                                                                       grid
+ TH.PY Phayao    326934.67955 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_PY/TH_PY_population_2025_100m.tif
+--> [TH.PY] Step 3: 3_generate_sample.py
+[1/4] Select GADM province HASC_1=TH.PY
+ -> [READ] Loading Vector Dataset: OUTPUT_PROV/gadm41_THA.gpkg (Layer: 'ADM_ADM_1')
+[2/4] Generate 1000.0m grid points
+ -> Auto-detected EPSG:32647 for province.
+ -> Generated 10,920 bounding box points.
+ -> Clipping points to province boundary...
+ -> Computing 7-digit Geohashes...
+[3/4] Extracting Raster Values (FABDEM MSL & POP2025)...
+ -> [READ] Opening Raster File: OUTPUT_FABDEM/TH_PY/TH_PY_fabdem.tif
+ -> [READ] Opening Raster File for Area Sum: OUTPUT_POP2025/TH_PY/TH_PY_population_2025_100m.tif
+ -> Converting geometries to Lng/Lat (EPSG:4326)...
+[4/4] Save GeoPackage Data...
+ -> [WRITE] Saving Vector File: /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_SAMPL/TH_PY/TH_PY_SAMPL.gpkg (Layer: 'samples')
+
+[5/5] Comparing POP2025 with DOPA Registration Population...
+
+Completed successfully.
+HASC_1  Grid (m)       CRS  Samples           Output POP2025 DOPA_Pop     Diff
+ TH.PY    1000.0 EPSG:4326     6111 TH_PY_SAMPL.gpkg 326,938  451,964 -125,026
+--> [TH.PY] Step 4: 4_analyse_ldp.py
+LDP                                            [TM, 100:11]
+FALSE_EN                                 [250000, -1380000]
+PP_MSL                                                  370
+POPU_PLOT                                    [600, 250, 20]
+GPKG         [OUTPUT_SAMPL/TH_PY/TH_PY_SAMPL.gpkg, samples]
+OFFSET_PP      [0.0, default hPP from average topo or pnts]
+dtype: object
+ -> OUTLIER FILTER: Dropped 123 points.
+ -> Dropped MSL values: [616, 586, 609, 587, 1415, 1435, 1441, 817, 939, 720, 512, 482, 515, 479, 1278, 1274, 1273, 534, 516, 498, 534, 513, 527, 542, 767, 745, 717, 665, 602, 519, 1194, 500, 435, 762, 831, 414, 443, 435, 462, 412, 545, 417, 451, 533, 528, 417, 420, 514, 666, 651, 524, 448, 474, 432, 401, 417, 566, 481, 424, 566, 587, 426, 261, 453, 471, 262, 567, 721, 733, 758, 745, 697, 818, 710, 826, 688, 755, 702, 1155, 728, 1194, 1282, 421, 395, 1557, 1550, 376, 366, 1121, 406, 412, 421, 744, 936, 839, 837, 854, 793, 408, 1594, 1585, 1562, 1594, 1595, 1581, 813, 501, 442, 498, 469, 437, 460, 461, 456, 871, 1008, 949, 1295, 485, 1456, 981, 956, 1018]
+ -> Using user-defined PP_MSL: 370.000m
+==================================== LDP TM ====================================
+@ Centroid @     <lng=100°11′>    <lat=19°14′>
+Offset Projection Plane = +0.0 m. <default hPP from average topo or pnts>
+Designed Project Plane : hPP=+334.04 m. / MSL=+370.00 m. tied to k0 = 1.000053
+Points CSF min/mean/max [ppm] : -167.6 / -17.8 / +20.0
+Points MSL min/mean/max [m.]  : +249.0 / +530.7 / +1543.0
+|      |       LDP_E |       LDP_N |
+|:-----|------------:|------------:|
+| min  | 198,700.761 | 701,425.492 |
+| max  | 298,548.013 | 801,388.775 |
+| diff |  99,847.252 |  99,963.284 |
+{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=0.0 +lon_0=100.18333333 +k_0=1.000053 +x_0=250000 +y_0=-1380000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=0.0 +lon_0=100°11′ +k_0=1.000053 +x_0=250000 +y_0=-1380000 +ellps=WGS84 +units=m +no_defs +type=crs"}
+Writing definition GPKG : OUTPUT_LDP/TH_PY/TH_PY_LDP.gpkg ...
+ -> THINNING: Snapping points to 2 decimal grid for visualization...
+ -> THINNING: Plot points reduced from 5988 to 5167.
+Writing definition plot : OUTPUT_LDP/TH_PY/TH_PY_LDP.svg...
+{"meta": "Coverage_Analysis", "Province": "TH.PY", "Total_Pts": 6111, "Valid_Pts": 3957, "Pt_Coverage(%)": 64.75, "Total_POP": 326937.7657, "Valid_POP": 319791.0547, "POP_Coverage(%)": 97.81, "CSF_Lower_ppm": -20.0, "CSF_Mean_ppm": -0.4, "CSF_Upper_ppm": 20.0}
+--> [TH.PY] Step 5: 5_plot_PP_PctPopu.py
+[TH.PY] POPU_PLOT found in TOML. Overriding MSL bounds: Upper=600.0, Lower=250.0, Step=20.0
+[TH.PY] Starting ProcessPoolExecutor with 18 offsets to compute (Mean MSL: 530.67 m)...
+[TH.PY] OFFSET_PP [-280.67] computed successfully.
+[TH.PY] OFFSET_PP [-260.67] computed successfully.
+[TH.PY] OFFSET_PP [-240.67] computed successfully.
+[TH.PY] OFFSET_PP [-220.67] computed successfully.
+[TH.PY] OFFSET_PP [-200.67] computed successfully.
+[TH.PY] OFFSET_PP [-180.67] computed successfully.
+[TH.PY] OFFSET_PP [-160.67] computed successfully.
+[TH.PY] OFFSET_PP [-140.67] computed successfully.
+[TH.PY] OFFSET_PP [-120.67] computed successfully.
+[TH.PY] OFFSET_PP [-100.67] computed successfully.
+[TH.PY] OFFSET_PP [-80.67] computed successfully.
+[TH.PY] OFFSET_PP [-60.67] computed successfully.
+[TH.PY] OFFSET_PP [-40.67] computed successfully.
+[TH.PY] OFFSET_PP [-20.67] computed successfully.
+[TH.PY] OFFSET_PP [-0.67] computed successfully.
+[TH.PY] OFFSET_PP [19.33] computed successfully.
+[TH.PY] OFFSET_PP [39.33] computed successfully.
+[TH.PY] OFFSET_PP [59.33] computed successfully.
+
+==================================== LDP Population Coverage Analysis: TH.PY ====================================
+|   MSL_PP |   HAE_PP | Province   |   Total_Pts |   Valid_Pts |   Pt_Coverage(%) |   Total_POP |   Valid_POP |   POP_Coverage(%) |   CSF_Lower_ppm |   CSF_Mean_ppm |   CSF_Upper_ppm |
+|---------:|---------:|:-----------|------------:|------------:|-----------------:|------------:|------------:|------------------:|----------------:|---------------:|----------------:|
+|  +250.00 |  +214.04 | TH.PY      |        6111 |        2118 |            34.66 |     326,938 |     213,278 |             65.24 |           -20.0 |          -12.6 |            +1.0 |
+|  +270.00 |  +234.04 | TH.PY      |        6111 |        2638 |            43.17 |     326,938 |     267,219 |             81.73 |           -20.0 |          -11.3 |            +4.0 |
+|  +290.00 |  +254.04 | TH.PY      |        6111 |        3003 |            49.14 |     326,938 |     296,127 |             90.58 |           -20.0 |           -9.5 |            +7.0 |
+|  +310.00 |  +274.04 | TH.PY      |        6111 |        3282 |            53.71 |     326,938 |     309,958 |             94.81 |           -20.0 |           -7.5 |           +10.0 |
+|  +330.00 |  +294.04 | TH.PY      |        6111 |        3523 |            57.65 |     326,938 |     314,947 |             96.33 |           -20.0 |           -5.5 |           +13.0 |
+|  +350.00 |  +314.04 | TH.PY      |        6111 |        3739 |            61.18 |     326,938 |     317,710 |             97.18 |           -20.0 |           -3.4 |           +16.0 |
+|  +370.00 |  +334.04 | TH.PY      |        6111 |        3957 |            64.75 |     326,938 |     319,791 |             97.81 |           -20.0 |           -0.4 |           +20.0 |
+|  +390.00 |  +354.04 | TH.PY      |        6111 |        4047 |            66.22 |     326,938 |     312,984 |             95.73 |           -19.9 |           +1.5 |           +20.0 |
+|  +410.00 |  +374.04 | TH.PY      |        6111 |        4013 |            65.67 |     326,938 |     294,886 |             90.20 |           -20.0 |           +2.8 |           +20.0 |
+|  +430.00 |  +394.04 | TH.PY      |        6111 |        3835 |            62.76 |     326,938 |     253,712 |             77.60 |           -19.9 |           +3.8 |           +20.0 |
+|  +450.00 |  +414.04 | TH.PY      |        6111 |        3718 |            60.84 |     326,938 |     227,367 |             69.54 |           -20.0 |           +4.8 |           +20.0 |
+|  +470.00 |  +434.04 | TH.PY      |        6111 |        3584 |            58.65 |     326,938 |     193,945 |             59.32 |           -20.0 |           +5.8 |           +20.0 |
+|  +490.00 |  +454.04 | TH.PY      |        6111 |        3301 |            54.02 |     326,938 |     152,345 |             46.60 |           -20.0 |           +6.1 |           +20.0 |
+|  +510.00 |  +474.04 | TH.PY      |        6111 |        2631 |            43.05 |     326,938 |      83,026 |             25.40 |           -20.0 |           +5.0 |           +20.0 |
+|  +530.00 |  +494.04 | TH.PY      |        6111 |        2258 |            36.95 |     326,938 |      43,676 |             13.36 |           -20.0 |           +4.0 |           +20.0 |
+|  +550.00 |  +514.04 | TH.PY      |        6111 |        2002 |            32.76 |     326,938 |      22,651 |              6.93 |           -19.9 |           +3.5 |           +20.0 |
+|  +570.00 |  +534.04 | TH.PY      |        6111 |        1845 |            30.19 |     326,938 |      13,026 |              3.98 |           -20.0 |           +3.4 |           +20.0 |
+|  +590.00 |  +554.04 | TH.PY      |        6111 |        1666 |            27.26 |     326,938 |       8,868 |              2.71 |           -20.0 |           +3.1 |           +20.0 |
+==========================================================================================================================
+
+ -> Plot saved successfully to: OUTPUT_LDP/TH_PY/TH_PY_Plot_PP_Popu.svg
+
+--> [TH.PY] Step 6: 6_LDP_OnePage.py
+Processing province: TH_PY
+[+] TH_PY: One-Page Report generated successfully.
+======================================================================
+Completed province: TH.PY
+Finished: 2026-08-16T12:07:21+07:00
+======================================================================

@@ -1,0 +1,42 @@
+{
+  "configuration": {
+    "population_grid": "DATA/tha_pop_2025_CN_100m_R2025A_v1.tif",
+    "gadm": "OUTPUT_PROV/gadm41_THA.gpkg",
+    "province": "TH.RT",
+    "output_dir": "OUTPUT_POP2025",
+    "gadm_layer": null,
+    "overwrite": true,
+    "all_touched": false,
+    "write_pdf": true,
+    "max_plot_dimension": 1800,
+    "pdf_dpi": 200
+  },
+  "result": {
+    "province_code": "TH.RT",
+    "province_name": "Ratchaburi",
+    "gadm_layer": "ADM_ADM_1",
+    "statistics": {
+      "total_population": 751585.3719271309,
+      "valid_cell_count": 292760,
+      "occupied_cell_count": 289365,
+      "zero_cell_count": 3395,
+      "minimum_cell_value": 0.0,
+      "maximum_cell_value": 92.46395874023438,
+      "mean_cell_value": 2.5672406473805536,
+      "median_cell_value": 0.8816989958286285,
+      "standard_deviation": 5.343713079562049,
+      "raster_width": 1085,
+      "raster_height": 961,
+      "pixel_size_x": 0.00083333333,
+      "pixel_size_y": 0.00083333333,
+      "raster_crs": "EPSG:4326"
+    },
+    "outputs": {
+      "boundary_gpkg": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_RT/TH_RT_boundary.gpkg",
+      "clipped_grid": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_RT/TH_RT_population_2025_100m.tif",
+      "report_pdf": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_RT/TH_RT_population_2025_100m.pdf",
+      "summary_csv": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_RT/TH_RT_population_2025_summary.csv",
+      "summary_json": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_RT/TH_RT_population_2025_summary.json"
+    }
+  }
+}

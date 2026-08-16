@@ -1,0 +1,42 @@
+{
+  "configuration": {
+    "population_grid": "DATA/tha_pop_2025_CN_100m_R2025A_v1.tif",
+    "gadm": "OUTPUT_PROV/gadm41_THA.gpkg",
+    "province": "TH.UD_W",
+    "output_dir": "OUTPUT_POP2025",
+    "gadm_layer": null,
+    "overwrite": true,
+    "all_touched": false,
+    "write_pdf": true,
+    "max_plot_dimension": 1800,
+    "pdf_dpi": 200
+  },
+  "result": {
+    "province_code": "TH.UD_W",
+    "province_name": "Uttaradit West",
+    "gadm_layer": "ADM_ADM_1",
+    "statistics": {
+      "total_population": 298637.8864096762,
+      "valid_cell_count": 111028,
+      "occupied_cell_count": 109903,
+      "zero_cell_count": 1125,
+      "minimum_cell_value": 0.0,
+      "maximum_cell_value": 94.22176361083984,
+      "mean_cell_value": 2.68975291286591,
+      "median_cell_value": 0.8120464980602264,
+      "standard_deviation": 5.625826739658191,
+      "raster_width": 906,
+      "raster_height": 834,
+      "pixel_size_x": 0.00083333333,
+      "pixel_size_y": 0.00083333333,
+      "raster_crs": "EPSG:4326"
+    },
+    "outputs": {
+      "boundary_gpkg": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_UD_W/TH_UD_W_boundary.gpkg",
+      "clipped_grid": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_UD_W/TH_UD_W_population_2025_100m.tif",
+      "report_pdf": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_UD_W/TH_UD_W_population_2025_100m.pdf",
+      "summary_csv": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_UD_W/TH_UD_W_population_2025_summary.csv",
+      "summary_json": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_UD_W/TH_UD_W_population_2025_summary.json"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "configuration": {
+    "population_grid": "DATA/tha_pop_2025_CN_100m_R2025A_v1.tif",
+    "gadm": "OUTPUT_PROV/gadm41_THA.gpkg",
+    "province": "TH.MD_S",
+    "output_dir": "OUTPUT_POP2025",
+    "gadm_layer": null,
+    "overwrite": true,
+    "all_touched": false,
+    "write_pdf": true,
+    "max_plot_dimension": 1800,
+    "pdf_dpi": 200
+  },
+  "result": {
+    "province_code": "TH.MD_S",
+    "province_name": "Mukdahan South",
+    "gadm_layer": "ADM_ADM_1",
+    "statistics": {
+      "total_population": 264843.59144734766,
+      "valid_cell_count": 109737,
+      "occupied_cell_count": 108186,
+      "zero_cell_count": 1551,
+      "minimum_cell_value": 0.0,
+      "maximum_cell_value": 109.26306915283203,
+      "mean_cell_value": 2.413439327185431,
+      "median_cell_value": 0.8519819974899292,
+      "standard_deviation": 6.094494216502314,
+      "raster_width": 683,
+      "raster_height": 774,
+      "pixel_size_x": 0.00083333333,
+      "pixel_size_y": 0.00083333333,
+      "raster_crs": "EPSG:4326"
+    },
+    "outputs": {
+      "boundary_gpkg": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_MD_S/TH_MD_S_boundary.gpkg",
+      "clipped_grid": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_MD_S/TH_MD_S_population_2025_100m.tif",
+      "report_pdf": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_MD_S/TH_MD_S_population_2025_100m.pdf",
+      "summary_csv": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_MD_S/TH_MD_S_population_2025_summary.csv",
+      "summary_json": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_MD_S/TH_MD_S_population_2025_summary.json"
+    }
+  }
+}

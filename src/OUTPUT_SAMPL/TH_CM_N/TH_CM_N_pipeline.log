@@ -1,0 +1,156 @@
+======================================================================
+Processing province: TH.CM_N
+Started: 2026-08-16T11:46:14+07:00
+======================================================================
+--> [TH.CM_N] Step 1: 1_fabdem_province.py
+[1/5] Read GADM and select HASC_1=TH.CM_N
+[2/5] Save province and clip FABDEM
+[3/5] Generate contours every 100 m with GDAL 3.10.3
+[4/5] Calculate statistics and write PDF
+[5/5] Write DataFrame summaries
+
+Completed successfully.
+ HASC_1           NAME_1  contours                                                                                      PDF
+TH.CM_N Chiang Mai North      5304 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_CM_N/TH_CM_N_fabdem_contours.pdf
+--> [TH.CM_N] Step 2: 2_popu2025_grid.py
+[1/4] Select GADM province HASC_1=TH.CM_N
+[2/4] Save boundary and cut population grid
+[3/4] Calculate population-grid statistics
+[4/4] Write population-grid PDF and summaries
+
+Completed successfully.
+ HASC_1           NAME_1  population_sum                                                                                           grid
+TH.CM_N Chiang Mai North   445049.499406 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_CM_N/TH_CM_N_population_2025_100m.tif
+--> [TH.CM_N] Step 3: 3_generate_sample.py
+[1/4] Select GADM province HASC_1=TH.CM_N
+ -> [READ] Loading Vector Dataset: OUTPUT_PROV/gadm41_THA.gpkg (Layer: 'ADM_ADM_1')
+[2/4] Generate 1000.0m grid points
+ -> Auto-detected EPSG:32647 for province.
+ -> Generated 15,093 bounding box points.
+ -> Clipping points to province boundary...
+ -> Computing 7-digit Geohashes...
+[3/4] Extracting Raster Values (FABDEM MSL & POP2025)...
+ -> [READ] Opening Raster File: OUTPUT_FABDEM/TH_CM_N/TH_CM_N_fabdem.tif
+ -> [READ] Opening Raster File for Area Sum: OUTPUT_POP2025/TH_CM_N/TH_CM_N_population_2025_100m.tif
+ -> Converting geometries to Lng/Lat (EPSG:4326)...
+[4/4] Save GeoPackage Data...
+ -> [WRITE] Saving Vector File: /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_SAMPL/TH_CM_N/TH_CM_N_SAMPL.gpkg (Layer: 'samples')
+
+[5/5] Comparing POP2025 with DOPA Registration Population...
+
+Completed successfully.
+ HASC_1  Grid (m)       CRS  Samples             Output POP2025  DOPA_Pop       Diff
+TH.CM_N    1000.0 EPSG:4326     7678 TH_CM_N_SAMPL.gpkg 442,906 1,798,588 -1,355,682
+--> [TH.CM_N] Step 4: 4_analyse_ldp.py
+LDP                                                [TM, 99:01]
+FALSE_EN                                                  AUTO
+PP_MSL                                                     440
+POPU_PLOT                                       [850, 200, 20]
+GPKG         [OUTPUT_SAMPL/TH_CM_N/TH_CM_N_SAMPL.gpkg, samp...
+OFFSET_PP         [0.0, default hPP from average topo or pnts]
+dtype: object
+ -> OUTLIER FILTER: Dropped 155 points.
+ -> Dropped MSL values: [-9999, 1597, 1653, 1800, 1611, 1831, 449, 355, 948, 1180, 1285, 1202, 1292, 1284, 1204, 565, 531, 1319, 360, 384, 1718, 1705, 1809, 1631, 1606, 1600, 668, 674, 1661, 1130, 1127, 1885, 1976, 1875, 2045, 2102, 1892, 1831, 1219, 1190, 1565, 1693, 1670, 1455, 1600, 1651, 1327, 1661, 1688, 1576, 1476, 1474, 1049, 1460, 1477, 1408, 1504, 1806, 1733, 1754, 1761, 1316, 1299, 1133, 1721, 1635, 1401, 1523, 1446, 1474, 1402, 1375, 1461, 630, 617, 598, 599, 789, 663, 490, 446, 673, 482, 488, 453, 820, 830, 625, 810, 781, 1002, 989, 1538, 1379, 1561, 1303, 1516, 917, 1531, 1683, 1412, 1566, 1430, 645, 1524, 1436, 1165, 1153, 1125, 1164, 1114, 1154, 1044, 1086, 944, 1645, 1578, 1552, 1599, 1679, 1629, 1103, 1025, 1053, 1039, 1028, 1047, 1285, 1284, 1304, 1297, 2209, 532, 517, 1308, 546, 485, 524, 495, 954, 428, 429, 626, 1038, 1265, 1145, 1183, 521, 1107, 1236, 1077, 1038, 608, 1167, 1383]
+ -> Using user-defined PP_MSL: 440.000m
+ -> AUTO detected FALSE_EN: E: 500000, N: -1700000
+==================================== LDP TM ====================================
+@ Centroid @     <lng=99°01′>    <lat=19°31′>
+Offset Projection Plane = +0.0 m. <default hPP from average topo or pnts>
+Designed Project Plane : hPP=+401.51 m. / MSL=+440.00 m. tied to k0 = 1.000063
+Points CSF min/mean/max [ppm] : -272.2 / -50.8 / +32.5
+Points MSL min/mean/max [m.]  : +326.0 / +808.2 / +2185.0
+|      |       LDP_E |       LDP_N |
+|:-----|------------:|------------:|
+| min  | 443,226.529 | 401,970.772 |
+| max  | 557,284.276 | 527,025.629 |
+| diff | 114,057.747 | 125,054.857 |
+{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=0.0 +lon_0=99.01666667 +k_0=1.000063 +x_0=500000 +y_0=-1700000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=0.0 +lon_0=99°01′ +k_0=1.000063 +x_0=500000 +y_0=-1700000 +ellps=WGS84 +units=m +no_defs +type=crs"}
+Writing definition GPKG : OUTPUT_LDP/TH_CM_N/TH_CM_N_LDP.gpkg ...
+ -> THINNING: Snapping points to 2 decimal grid for visualization...
+ -> THINNING: Plot points reduced from 7523 to 6497.
+Writing definition plot : OUTPUT_LDP/TH_CM_N/TH_CM_N_LDP.svg...
+{"meta": "Coverage_Analysis", "Province": "TH.CM_N", "Total_Pts": 7678, "Valid_Pts": 2419, "Pt_Coverage(%)": 31.51, "Total_POP": 442906.07639999996, "Valid_POP": 354285.9963, "POP_Coverage(%)": 79.99, "CSF_Lower_ppm": -20.0, "CSF_Mean_ppm": -2.6, "CSF_Upper_ppm": 19.9}
+--> [TH.CM_N] Step 5: 5_plot_PP_PctPopu.py
+[TH.CM_N] POPU_PLOT found in TOML. Overriding MSL bounds: Upper=850.0, Lower=200.0, Step=20.0
+[TH.CM_N] Starting ProcessPoolExecutor with 33 offsets to compute (Mean MSL: 808.16 m)...
+[TH.CM_N] OFFSET_PP [-608.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-588.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-568.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-548.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-528.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-508.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-488.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-468.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-448.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-428.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-408.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-388.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-368.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-348.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-328.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-308.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-288.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-268.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-248.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-228.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-208.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-188.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-168.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-148.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-128.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-108.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-88.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-68.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-48.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-28.16] computed successfully.
+[TH.CM_N] OFFSET_PP [-8.16] computed successfully.
+[TH.CM_N] OFFSET_PP [11.84] computed successfully.
+[TH.CM_N] OFFSET_PP [31.84] computed successfully.
+
+==================================== LDP Population Coverage Analysis: TH.CM_N ====================================
+|   MSL_PP |   HAE_PP | Province   |   Total_Pts |   Valid_Pts |   Pt_Coverage(%) |   Total_POP |   Valid_POP |   POP_Coverage(%) |   CSF_Lower_ppm |   CSF_Mean_ppm |   CSF_Upper_ppm |
+|---------:|---------:|:-----------|------------:|------------:|-----------------:|------------:|------------:|------------------:|----------------:|---------------:|----------------:|
+|  +200.00 |  +161.51 | TH.CM_N    |        7678 |          44 |             0.57 |     442,906 |       8,535 |              1.93 |           -19.8 |          -15.9 |            -5.5 |
+|  +220.00 |  +181.51 | TH.CM_N    |        7678 |         181 |             2.36 |     442,906 |      47,381 |             10.70 |           -20.0 |          -16.8 |            -1.5 |
+|  +240.00 |  +201.51 | TH.CM_N    |        7678 |         281 |             3.66 |     442,906 |      61,670 |             13.92 |           -20.0 |          -15.4 |            +1.5 |
+|  +260.00 |  +221.51 | TH.CM_N    |        7678 |         417 |             5.43 |     442,906 |      81,764 |             18.46 |           -20.0 |          -14.4 |            +4.5 |
+|  +280.00 |  +241.51 | TH.CM_N    |        7678 |         606 |             7.89 |     442,906 |     118,089 |             26.66 |           -20.0 |          -13.7 |            +7.5 |
+|  +300.00 |  +261.51 | TH.CM_N    |        7678 |         863 |            11.24 |     442,906 |     162,620 |             36.72 |           -20.0 |          -13.0 |           +10.5 |
+|  +320.00 |  +281.51 | TH.CM_N    |        7678 |        1071 |            13.95 |     442,906 |     212,698 |             48.02 |           -20.0 |          -11.7 |           +13.5 |
+|  +340.00 |  +301.51 | TH.CM_N    |        7678 |        1327 |            17.28 |     442,906 |     257,507 |             58.14 |           -20.0 |          -10.5 |           +16.5 |
+|  +360.00 |  +321.51 | TH.CM_N    |        7678 |        1664 |            21.67 |     442,906 |     305,369 |             68.95 |           -20.0 |           -8.9 |           +16.8 |
+|  +380.00 |  +341.51 | TH.CM_N    |        7678 |        1877 |            24.45 |     442,906 |     327,241 |             73.88 |           -20.0 |           -7.3 |           +19.8 |
+|  +400.00 |  +361.51 | TH.CM_N    |        7678 |        2079 |            27.08 |     442,906 |     338,713 |             76.48 |           -20.0 |           -5.8 |           +20.0 |
+|  +420.00 |  +381.51 | TH.CM_N    |        7678 |        2247 |            29.27 |     442,906 |     344,582 |             77.80 |           -20.0 |           -4.2 |           +20.0 |
+|  +440.00 |  +401.51 | TH.CM_N    |        7678 |        2419 |            31.51 |     442,906 |     354,286 |             79.99 |           -20.0 |           -2.6 |           +19.9 |
+|  +460.00 |  +421.51 | TH.CM_N    |        7678 |        2568 |            33.45 |     442,906 |     348,171 |             78.61 |           -20.0 |           -1.3 |           +19.8 |
+|  +480.00 |  +441.51 | TH.CM_N    |        7678 |        2604 |            33.92 |     442,906 |     325,163 |             73.42 |           -20.0 |           -0.3 |           +19.9 |
+|  +500.00 |  +461.51 | TH.CM_N    |        7678 |        2717 |            35.39 |     442,906 |     315,191 |             71.16 |           -20.0 |           +0.9 |           +20.0 |
+|  +520.00 |  +481.51 | TH.CM_N    |        7678 |        2747 |            35.78 |     442,906 |     297,738 |             67.22 |           -20.0 |           +1.2 |           +20.0 |
+|  +540.00 |  +501.51 | TH.CM_N    |        7678 |        2713 |            35.33 |     442,906 |     256,835 |             57.99 |           -20.0 |           +1.2 |           +20.0 |
+|  +560.00 |  +521.51 | TH.CM_N    |        7678 |        2675 |            34.84 |     442,906 |     217,460 |             49.10 |           -20.0 |           +1.2 |           +20.0 |
+|  +580.00 |  +541.51 | TH.CM_N    |        7678 |        2630 |            34.25 |     442,906 |     171,063 |             38.62 |           -20.0 |           +0.9 |           +20.0 |
+|  +600.00 |  +561.51 | TH.CM_N    |        7678 |        2551 |            33.22 |     442,906 |     132,996 |             30.03 |           -20.0 |           +0.7 |           +20.0 |
+|  +620.00 |  +581.51 | TH.CM_N    |        7678 |        2472 |            32.20 |     442,906 |     106,959 |             24.15 |           -19.9 |           +0.3 |           +20.0 |
+|  +640.00 |  +601.51 | TH.CM_N    |        7678 |        2370 |            30.87 |     442,906 |      84,095 |             18.99 |           -20.0 |           +0.4 |           +19.9 |
+|  +660.00 |  +621.51 | TH.CM_N    |        7678 |        2328 |            30.32 |     442,906 |      76,033 |             17.17 |           -20.0 |           +0.8 |           +20.0 |
+|  +680.00 |  +641.51 | TH.CM_N    |        7678 |        2302 |            29.98 |     442,906 |      67,986 |             15.35 |           -20.0 |           +0.6 |           +20.0 |
+|  +700.00 |  +661.51 | TH.CM_N    |        7678 |        2269 |            29.55 |     442,906 |      60,358 |             13.63 |           -20.0 |           +0.6 |           +20.0 |
+|  +720.00 |  +681.51 | TH.CM_N    |        7678 |        2213 |            28.82 |     442,906 |      55,669 |             12.57 |           -20.0 |           +1.3 |           +20.0 |
+|  +740.00 |  +701.51 | TH.CM_N    |        7678 |        2184 |            28.44 |     442,906 |      49,292 |             11.13 |           -20.0 |           +1.7 |           +20.0 |
+|  +760.00 |  +721.51 | TH.CM_N    |        7678 |        2113 |            27.52 |     442,906 |      41,714 |              9.42 |           -20.0 |           +1.8 |           +19.9 |
+|  +780.00 |  +741.51 | TH.CM_N    |        7678 |        2028 |            26.41 |     442,906 |      36,336 |              8.20 |           -20.0 |           +1.8 |           +20.0 |
+|  +800.00 |  +761.51 | TH.CM_N    |        7678 |        1945 |            25.33 |     442,906 |      33,700 |              7.61 |           -20.0 |           +1.9 |           +20.0 |
+|  +820.00 |  +781.51 | TH.CM_N    |        7678 |        1872 |            24.38 |     442,906 |      29,838 |              6.74 |           -20.0 |           +1.8 |           +20.0 |
+|  +840.00 |  +801.51 | TH.CM_N    |        7678 |        1792 |            23.34 |     442,906 |      26,549 |              5.99 |           -20.0 |           +1.5 |           +20.0 |
+==========================================================================================================================
+
+ -> Plot saved successfully to: OUTPUT_LDP/TH_CM_N/TH_CM_N_Plot_PP_Popu.svg
+
+--> [TH.CM_N] Step 6: 6_LDP_OnePage.py
+Processing province: TH_CM_N
+[+] TH_CM_N: One-Page Report generated successfully.
+======================================================================
+Completed province: TH.CM_N
+Finished: 2026-08-16T11:54:02+07:00
+======================================================================

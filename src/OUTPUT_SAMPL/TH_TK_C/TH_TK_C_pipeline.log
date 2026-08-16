@@ -1,0 +1,141 @@
+======================================================================
+Processing province: TH.TK_C
+Started: 2026-08-16T12:07:27+07:00
+======================================================================
+--> [TH.TK_C] Step 1: 1_fabdem_province.py
+[1/5] Read GADM and select HASC_1=TH.TK_C
+[2/5] Save province and clip FABDEM
+[3/5] Generate contours every 100 m with GDAL 3.10.3
+[4/5] Calculate statistics and write PDF
+[5/5] Write DataFrame summaries
+
+Completed successfully.
+ HASC_1      NAME_1  contours                                                                                      PDF
+TH.TK_C Tak Central      5529 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_TK_C/TH_TK_C_fabdem_contours.pdf
+--> [TH.TK_C] Step 2: 2_popu2025_grid.py
+[1/4] Select GADM province HASC_1=TH.TK_C
+[2/4] Save boundary and cut population grid
+[3/4] Calculate population-grid statistics
+[4/4] Write population-grid PDF and summaries
+
+Completed successfully.
+ HASC_1      NAME_1  population_sum                                                                                           grid
+TH.TK_C Tak Central   299165.302164 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_TK_C/TH_TK_C_population_2025_100m.tif
+--> [TH.TK_C] Step 3: 3_generate_sample.py
+[1/4] Select GADM province HASC_1=TH.TK_C
+ -> [READ] Loading Vector Dataset: OUTPUT_PROV/gadm41_THA.gpkg (Layer: 'ADM_ADM_1')
+[2/4] Generate 1000.0m grid points
+ -> Auto-detected EPSG:32647 for province.
+ -> Generated 25,060 bounding box points.
+ -> Clipping points to province boundary...
+ -> Computing 7-digit Geohashes...
+[3/4] Extracting Raster Values (FABDEM MSL & POP2025)...
+ -> [READ] Opening Raster File: OUTPUT_FABDEM/TH_TK_C/TH_TK_C_fabdem.tif
+ -> [READ] Opening Raster File for Area Sum: OUTPUT_POP2025/TH_TK_C/TH_TK_C_population_2025_100m.tif
+ -> Converting geometries to Lng/Lat (EPSG:4326)...
+[4/4] Save GeoPackage Data...
+ -> [WRITE] Saving Vector File: /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_SAMPL/TH_TK_C/TH_TK_C_SAMPL.gpkg (Layer: 'samples')
+
+[5/5] Comparing POP2025 with DOPA Registration Population...
+
+Completed successfully.
+ HASC_1  Grid (m)       CRS  Samples             Output POP2025 DOPA_Pop     Diff
+TH.TK_C    1000.0 EPSG:4326     6195 TH_TK_C_SAMPL.gpkg 293,529  704,494 -410,965
+--> [TH.TK_C] Step 4: 4_analyse_ldp.py
+LDP                                                [TM, 98:31]
+FALSE_EN                                    [250000, -1150000]
+PP_MSL                                                     240
+POPU_PLOT                                       [600, 100, 20]
+GPKG         [OUTPUT_SAMPL/TH_TK_C/TH_TK_C_SAMPL.gpkg, samp...
+OFFSET_PP         [0.0, default hPP from average topo or pnts]
+dtype: object
+ -> OUTLIER FILTER: Dropped 125 points.
+ -> Dropped MSL values: [-9999, 645, 534, 132, 105, 436, 370, 708, 583, 689, 473, 705, 411, 368, 117, 1402, 108, 1482, 1261, 1276, 1170, 1357, 1332, 1297, 1686, 1316, 637, 844, 1638, 753, 1195, 1200, 1017, 216, 214, 376, 372, 347, 239, 504, 920, 895, 1025, 1027, 1001, 1006, 1107, 1018, 941, 974, 814, 1033, 940, 807, 887, 1047, 423, 909, 1001, 989, 1026, 687, 713, 735, 799, 820, 397, 395, 1366, 250, 250, 236, 263, 266, 334, 299, 191, 232, 264, 232, 264, 250, 245, 152, 151, 150, 775, 776, 799, 742, 706, 707, 244, 712, 233, 239, 233, 212, 239, 255, 1376, 1348, 1513, 1345, 1000, 1338, 1228, 1233, 1299, 1309, 1399, 1246, 1522, 1612, 76, 740, 66, 65, 721, 212, 118, 144, 104, 452, 454]
+ -> Using user-defined PP_MSL: 240.000m
+==================================== LDP TM ====================================
+@ Centroid @     <lng=98°31′>    <lat=17°01′>
+Offset Projection Plane = +0.0 m. <default hPP from average topo or pnts>
+Designed Project Plane : hPP=+201.63 m. / MSL=+240.00 m. tied to k0 = 1.000032
+Points CSF min/mean/max [ppm] : -190.1 / -37.5 / +100.2
+Points MSL min/mean/max [m.]  : +83.0 / +566.3 / +1588.0
+|      |       LDP_E |       LDP_N |
+|:-----|------------:|------------:|
+| min  | 170,205.268 | 649,762.868 |
+| max  | 304,609.216 | 825,635.077 |
+| diff | 134,403.948 | 175,872.209 |
+{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=0.0 +lon_0=98.51666667 +k_0=1.000032 +x_0=250000 +y_0=-1150000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=0.0 +lon_0=98°31′ +k_0=1.000032 +x_0=250000 +y_0=-1150000 +ellps=WGS84 +units=m +no_defs +type=crs"}
+Writing definition GPKG : OUTPUT_LDP/TH_TK_C/TH_TK_C_LDP.gpkg ...
+ -> THINNING: Snapping points to 2 decimal grid for visualization...
+ -> THINNING: Plot points reduced from 6070 to 5197.
+Writing definition plot : OUTPUT_LDP/TH_TK_C/TH_TK_C_LDP.svg...
+{"meta": "Coverage_Analysis", "Province": "TH.TK_C", "Total_Pts": 6195, "Valid_Pts": 1866, "Pt_Coverage(%)": 30.12, "Total_POP": 293529.2775, "Valid_POP": 186548.2597, "POP_Coverage(%)": 63.55, "CSF_Lower_ppm": -20.0, "CSF_Mean_ppm": -0.2, "CSF_Upper_ppm": 19.8}
+--> [TH.TK_C] Step 5: 5_plot_PP_PctPopu.py
+[TH.TK_C] POPU_PLOT found in TOML. Overriding MSL bounds: Upper=600.0, Lower=100.0, Step=20.0
+[TH.TK_C] Starting ProcessPoolExecutor with 26 offsets to compute (Mean MSL: 566.33 m)...
+[TH.TK_C] OFFSET_PP [-466.33] computed successfully.
+[TH.TK_C] OFFSET_PP [-446.33] computed successfully.
+[TH.TK_C] OFFSET_PP [-426.33] computed successfully.
+[TH.TK_C] OFFSET_PP [-406.33] computed successfully.
+[TH.TK_C] OFFSET_PP [-386.33] computed successfully.
+[TH.TK_C] OFFSET_PP [-366.33] computed successfully.
+[TH.TK_C] OFFSET_PP [-346.33] computed successfully.
+[TH.TK_C] OFFSET_PP [-326.33] computed successfully.
+[TH.TK_C] OFFSET_PP [-306.33] computed successfully.
+[TH.TK_C] OFFSET_PP [-286.33] computed successfully.
+[TH.TK_C] OFFSET_PP [-266.33] computed successfully.
+[TH.TK_C] OFFSET_PP [-246.33] computed successfully.
+[TH.TK_C] OFFSET_PP [-226.33] computed successfully.
+[TH.TK_C] OFFSET_PP [-206.33] computed successfully.
+[TH.TK_C] OFFSET_PP [-186.33] computed successfully.
+[TH.TK_C] OFFSET_PP [-166.33] computed successfully.
+[TH.TK_C] OFFSET_PP [-146.33] computed successfully.
+[TH.TK_C] OFFSET_PP [-126.33] computed successfully.
+[TH.TK_C] OFFSET_PP [-106.33] computed successfully.
+[TH.TK_C] OFFSET_PP [-86.33] computed successfully.
+[TH.TK_C] OFFSET_PP [-66.33] computed successfully.
+[TH.TK_C] OFFSET_PP [-46.33] computed successfully.
+[TH.TK_C] OFFSET_PP [-26.33] computed successfully.
+[TH.TK_C] OFFSET_PP [-6.33] computed successfully.
+[TH.TK_C] OFFSET_PP [13.67] computed successfully.
+[TH.TK_C] OFFSET_PP [33.67] computed successfully.
+
+==================================== LDP Population Coverage Analysis: TH.TK_C ====================================
+|   MSL_PP |   HAE_PP | Province   |   Total_Pts |   Valid_Pts |   Pt_Coverage(%) |   Total_POP |   Valid_POP |   POP_Coverage(%) |   CSF_Lower_ppm |   CSF_Mean_ppm |   CSF_Upper_ppm |
+|---------:|---------:|:-----------|------------:|------------:|-----------------:|------------:|------------:|------------------:|----------------:|---------------:|----------------:|
+|  +100.00 |   +61.63 | TH.TK_C    |        6195 |        1199 |            19.35 |     293,529 |     164,297 |             55.97 |           -20.0 |           -9.2 |           +19.9 |
+|  +120.00 |   +81.63 | TH.TK_C    |        6195 |        1328 |            21.44 |     293,529 |     173,629 |             59.15 |           -20.0 |           -8.0 |           +20.0 |
+|  +140.00 |  +101.63 | TH.TK_C    |        6195 |        1457 |            23.52 |     293,529 |     179,910 |             61.29 |           -19.9 |           -7.0 |           +20.0 |
+|  +160.00 |  +121.63 | TH.TK_C    |        6195 |        1574 |            25.41 |     293,529 |     183,573 |             62.54 |           -20.0 |           -5.7 |           +19.8 |
+|  +180.00 |  +141.63 | TH.TK_C    |        6195 |        1643 |            26.52 |     293,529 |     184,962 |             63.01 |           -20.0 |           -4.3 |           +19.9 |
+|  +200.00 |  +161.63 | TH.TK_C    |        6195 |        1718 |            27.73 |     293,529 |     180,653 |             61.55 |           -20.0 |           -2.9 |           +20.0 |
+|  +220.00 |  +181.63 | TH.TK_C    |        6195 |        1801 |            29.07 |     293,529 |     182,850 |             62.29 |           -19.9 |           -1.2 |           +20.0 |
+|  +240.00 |  +201.63 | TH.TK_C    |        6195 |        1866 |            30.12 |     293,529 |     186,548 |             63.55 |           -20.0 |           -0.2 |           +19.8 |
+|  +260.00 |  +221.63 | TH.TK_C    |        6195 |        1924 |            31.06 |     293,529 |     185,418 |             63.17 |           -20.0 |           +0.8 |           +19.9 |
+|  +280.00 |  +241.63 | TH.TK_C    |        6195 |        2013 |            32.49 |     293,529 |     185,826 |             63.31 |           -20.0 |           +1.6 |           +20.0 |
+|  +300.00 |  +261.63 | TH.TK_C    |        6195 |        2083 |            33.62 |     293,529 |     186,764 |             63.63 |           -20.0 |           +2.6 |           +20.0 |
+|  +320.00 |  +281.63 | TH.TK_C    |        6195 |        2033 |            32.82 |     293,529 |     171,564 |             58.45 |           -20.0 |           +2.5 |           +19.9 |
+|  +340.00 |  +301.63 | TH.TK_C    |        6195 |        1876 |            30.28 |     293,529 |     101,582 |             34.61 |           -20.0 |           +1.3 |           +20.0 |
+|  +360.00 |  +321.63 | TH.TK_C    |        6195 |        1766 |            28.51 |     293,529 |      51,956 |             17.70 |           -20.0 |           -0.2 |           +20.0 |
+|  +380.00 |  +341.63 | TH.TK_C    |        6195 |        1757 |            28.36 |     293,529 |      46,506 |             15.84 |           -20.0 |           -0.6 |           +20.0 |
+|  +400.00 |  +361.63 | TH.TK_C    |        6195 |        1752 |            28.28 |     293,529 |      45,522 |             15.51 |           -20.0 |           -0.9 |           +20.0 |
+|  +420.00 |  +381.63 | TH.TK_C    |        6195 |        1757 |            28.36 |     293,529 |      45,669 |             15.56 |           -20.0 |           -1.0 |           +20.0 |
+|  +440.00 |  +401.63 | TH.TK_C    |        6195 |        1775 |            28.65 |     293,529 |      46,462 |             15.83 |           -20.0 |           -0.8 |           +20.0 |
+|  +460.00 |  +421.63 | TH.TK_C    |        6195 |        1823 |            29.43 |     293,529 |      49,618 |             16.90 |           -20.0 |           -0.5 |           +20.0 |
+|  +480.00 |  +441.63 | TH.TK_C    |        6195 |        1836 |            29.64 |     293,529 |      48,616 |             16.56 |           -19.9 |           -0.2 |           +20.0 |
+|  +500.00 |  +461.63 | TH.TK_C    |        6195 |        1852 |            29.90 |     293,529 |      43,031 |             14.66 |           -20.0 |           +0.1 |           +20.0 |
+|  +520.00 |  +481.63 | TH.TK_C    |        6195 |        1852 |            29.90 |     293,529 |      43,006 |             14.65 |           -19.9 |           +0.3 |           +20.0 |
+|  +540.00 |  +501.63 | TH.TK_C    |        6195 |        1836 |            29.64 |     293,529 |      42,697 |             14.55 |           -20.0 |           +0.3 |           +20.0 |
+|  +560.00 |  +521.63 | TH.TK_C    |        6195 |        1837 |            29.65 |     293,529 |      41,275 |             14.06 |           -20.0 |           +0.4 |           +20.0 |
+|  +580.00 |  +541.63 | TH.TK_C    |        6195 |        1807 |            29.17 |     293,529 |      44,400 |             15.13 |           -20.0 |           +0.3 |           +20.0 |
+|  +600.00 |  +561.63 | TH.TK_C    |        6195 |        1791 |            28.91 |     293,529 |      43,746 |             14.90 |           -20.0 |           +0.6 |           +20.0 |
+==========================================================================================================================
+
+ -> Plot saved successfully to: OUTPUT_LDP/TH_TK_C/TH_TK_C_Plot_PP_Popu.svg
+
+--> [TH.TK_C] Step 6: 6_LDP_OnePage.py
+Processing province: TH_TK_C
+[+] TH_TK_C: One-Page Report generated successfully.
+======================================================================
+Completed province: TH.TK_C
+Finished: 2026-08-16T12:13:11+07:00
+======================================================================
