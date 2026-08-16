@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LDP Coordinate Transformer</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #10b981;
+            --bg-base: #f8fafc;
+            --bg-surface: #ffffff;
+            --bg-input: #f1f5f9;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --font-ui: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            --font-mono: 'Fira Code', 'Consolas', monospace;
+        }
+
+        body { font-family: var(--font-ui); background-color: var(--bg-base); color: var(--text-main); margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
+        h2, h3 { margin: 0; }
+
+        .app-header { background-color: var(--bg-surface); padding: 20px 40px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 30px; }
+        .app-header h2 { font-size: 1.5rem; color: var(--primary); }
+
+        .main-content { display: flex; flex-wrap: wrap; gap: 24px; padding: 0 40px 30px; max-width: 1600px; margin: 0 auto; width: 100%; box-sizing: border-box; }
+        .panel { flex: 1; min-width: 350px; display: flex; flex-direction: column; background-color: var(--bg-surface); padding: 24px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid var(--border); }
+        .panel-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--bg-base); padding-bottom: 12px; margin-bottom: 16px; }
+        .panel-header h3 { font-size: 1.1rem; color: var(--text-muted); font-weight: 600; }
+
+        textarea { width: 100%; height: 350px; font-family: var(--font-mono); padding: 16px; font-size: 14px; line-height: 1.5; background-color: var(--bg-input); color: var(--text-main); border: 1px solid var(--border); border-radius: 8px; box-sizing: border-box; white-space: pre; overflow-wrap: normal; overflow-x: scroll; resize: vertical; transition: border-color 0.2s, box-shadow 0.2s; }
+        textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); background-color: var(--bg-surface); }
+
+        .btn { padding: 14px 32px; font-size: 16px; font-weight: 600; cursor: pointer; background-color: var(--primary); color: white; border: none; border-radius: 8px; transition: all 0.2s ease-in-out; }
+        .btn:hover:not(:disabled) { background-color: var(--primary-hover); transform: translateY(-1px); }
+        .btn:disabled { background-color: var(--text-muted); cursor: not-allowed; opacity: 0.7; }
+        .btn-small { padding: 6px 12px; font-size: 12px; background-color: var(--bg-input); color: var(--text-main); border: 1px solid var(--border); box-shadow: none; }
+        .btn-small:hover { background-color: var(--border); color: var(--text-main); transform: none; }
+        .action-area { text-align: center; padding-bottom: 40px; width: 100%; }
+    </style>
+</head>
+<body>
+
+    <header class="app-header">
+        <h2>🌐 Multi-CRS to LDP Transformer</h2>
+    </header>
+    
+    <main class="main-content">
+        <!-- Input Section -->
+        <section class="panel">
+            <div class="panel-header">
+                <h3>Input Data (Mixed EPSG Support)</h3>
+            </div>
+            <textarea id="inputText" aria-label="Input coordinates data" spellcheck="false">
+#==========================================================
+# Province: GreaterBKK (TH.GBKK)
++proj=tmerc +lat_0=0.0 +lon_0=100.60000000 +k_0=0.999989 +x_0=50000 +y_0=-1380000 +ellps=WGS84 +units=m +no_defs +type=crs
+#==========================================================
+# Name, EPSG, Easting/Lat, Northing/Lng, MSL
+VICT_MONU  4326   13.7648586090, 100.5382701536  15.0
+SRI_AYUTH  4326   13.7577811421, 100.5343170066  18.0
+SIAM_SQ    4326   13.7461636137, 100.5308190440  30.0
+Y3_MITR    4326   13.7330382718, 100.5286751673  20.5
+#
+VICT_MONU  32647   666304.344, 1522252.366   -17.0
+SRI_AYUTH  32647   665881.862, 1521466.670   -20.0
+SIAM_SQ    32647   665511.766, 1520179.039   -32.0
+Y3_MITR    32647   665289.125, 1518725.540   -22.5</textarea>
+        </section>
+        
+        <!-- Output Section -->
+        <section class="panel">
+            <div class="panel-header">
+                <h3>Output (LDP East/North/MSL/CSF_ppm)</h3>
+                <button id="copyBtn" class="btn btn-small" onclick="copyOutput()" title="Copy to clipboard">📋 Copy</button>
+            </div>
+            <textarea id="outputText" aria-label="Transformed coordinates output" readonly spellcheck="false" placeholder="Transformed coordinates will appear here..."></textarea>
+        </section>
+
+        <!-- Action Section -->
+        <div class="action-area">
+            <button id="transformBtn" class="btn" onclick="transformCoordinates()">Transform Coordinates</button>
+        </div>
+    </main>
+
+    <script>
+        async function transformCoordinates() {
+            const inputEl = document.getElementById('inputText');
+            const outputEl = document.getElementById('outputText');
+            const submitBtn = document.getElementById('transformBtn');
+            const copyBtn = document.getElementById('copyBtn');
+            
+            const rawData = inputEl.value.trim();
+
+            if (!rawData) {
+                outputEl.value = "Please enter coordinate data.";
+                return;
+            }
+
+            setUIState(submitBtn, outputEl, true, "Processing...");
+            copyBtn.innerText = "📋 Copy"; 
+
+            try {
+                const response = await fetch('/transform', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text: rawData })
+                });
+
+                if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+
+                const data = await response.json();
+                outputEl.value = data.result;
+
+            } catch (error) {
+                console.error("Transformation Error:", error);
+                outputEl.value = `Error connecting to backend:\n${error.message}`;
+            } finally {
+                setUIState(submitBtn, null, false, "Transform Coordinates");
+            }
+        }
+
+        function setUIState(button, outputBox, isProcessing, buttonText) {
+            button.disabled = isProcessing;
+            button.innerText = buttonText;
+            if (outputBox && isProcessing) {
+                outputBox.value = "Processing request, please wait...";
+            }
+        }
+
+        async function copyOutput() {
+            const outputText = document.getElementById('outputText').value;
+            const copyBtn = document.getElementById('copyBtn');
+            
+            if (!outputText || outputText.startsWith("Processing")) return;
+
+            try {
+                await navigator.clipboard.writeText(outputText);
+                copyBtn.innerText = "✅ Copied!";
+                setTimeout(() => { copyBtn.innerText = "📋 Copy"; }, 2000);
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                copyBtn.innerText = "❌ Error";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,623 @@
+["TH.AC"]
+LDP = ["TM", "104:45"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_AC/TH_AC_SAMPL.gpkg", "samples"]
+
+["TH.AT"]
+LDP = ["TM", "100:21"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_AT/TH_AT_SAMPL.gpkg", "samples"]
+
+["TH.BK"]
+LDP = ["LCC", "18:09"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_BK/TH_BK_SAMPL.gpkg", "samples"]
+
+["TH.BR"]
+LDP = ["TM", "102:58"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_BR/TH_BR_SAMPL.gpkg", "samples"]
+
+["TH.CB"]
+LDP = ["TM", "101:12"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_CB/TH_CB_SAMPL.gpkg", "samples"]
+
+["TH.CC"]
+LDP = ["LCC", "13:36"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_CC/TH_CC_SAMPL.gpkg", "samples"]
+
+["TH.CM_C"]
+LDP = ["LCC", "18:43"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_CM_C/TH_CM_C_SAMPL.gpkg", "samples"]
+
+["TH.CM_N"]
+LDP = ["TM", "99:01"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_CM_N/TH_CM_N_SAMPL.gpkg", "samples"]
+
+["TH.CM_S"]
+LDP = ["TM", "98:26"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_CM_S/TH_CM_S_SAMPL.gpkg", "samples"]
+
+["TH.CN"]
+LDP = ["LCC", "15:08"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_CN/TH_CN_SAMPL.gpkg", "samples"]
+
+["TH.CP"]
+LDP = ["TM", "99:04"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_CP/TH_CP_SAMPL.gpkg", "samples"]
+
+["TH.CR"]
+LDP = ["TM", "99:52"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_CR/TH_CR_SAMPL.gpkg", "samples"]
+
+["TH.CT"]
+LDP = ["TM", "102:08"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_CT/TH_CT_SAMPL.gpkg", "samples"]
+
+["TH.CY"]
+LDP = ["TM", "101:49"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_CY/TH_CY_SAMPL.gpkg", "samples"]
+
+["TH.GBKK"]
+LDP = ["TM", "100:36"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_GBKK/TH_GBKK_SAMPL.gpkg", "samples"]
+
+["TH.KK"]
+LDP = ["TM", "102:35"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_KK/TH_KK_SAMPL.gpkg", "samples"]
+
+["TH.KL"]
+LDP = ["LCC", "16:38"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_KL/TH_KL_SAMPL.gpkg", "samples"]
+
+["TH.KN_N"]
+LDP = ["TM", "98:46"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_KN_N/TH_KN_N_SAMPL.gpkg", "samples"]
+
+["TH.KN_S"]
+LDP = ["TM", "99:27"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_KN_S/TH_KN_S_SAMPL.gpkg", "samples"]
+
+["TH.KP"]
+LDP = ["TM", "99:32"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_KP/TH_KP_SAMPL.gpkg", "samples"]
+
+["TH.KR"]
+LDP = ["TM", "99:01"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_KR/TH_KR_SAMPL.gpkg", "samples"]
+
+["TH.LB"]
+LDP = ["TM", "100:54"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_LB/TH_LB_SAMPL.gpkg", "samples"]
+
+["TH.LE"]
+LDP = ["TM", "101:38"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_LE/TH_LE_SAMPL.gpkg", "samples"]
+
+["TH.LG_N"]
+LDP = ["TM", "99:42"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_LG_N/TH_LG_N_SAMPL.gpkg", "samples"]
+
+["TH.LG_S"]
+LDP = ["TM", "99:24"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_LG_S/TH_LG_S_SAMPL.gpkg", "samples"]
+
+["TH.LN"]
+LDP = ["TM", "98:57"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_LN/TH_LN_SAMPL.gpkg", "samples"]
+
+["TH.MD_N"]
+LDP = ["TM", "104:21"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_MD_N/TH_MD_N_SAMPL.gpkg", "samples"]
+
+["TH.MD_S"]
+LDP = ["TM", "104:40"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_MD_S/TH_MD_S_SAMPL.gpkg", "samples"]
+
+["TH.MH_N"]
+LDP = ["TM", "98:09"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_MH_N/TH_MH_N_SAMPL.gpkg", "samples"]
+
+["TH.MH_S"]
+LDP = ["TM", "97:53"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_MH_S/TH_MH_S_SAMPL.gpkg", "samples"]
+
+["TH.MS"]
+LDP = ["TM", "103:10"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_MS/TH_MS_SAMPL.gpkg", "samples"]
+
+["TH.NA"]
+LDP = ["TM", "100:50"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_NA/TH_NA_SAMPL.gpkg", "samples"]
+
+["TH.NB"]
+LDP = ["TM", "102:18"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_NB/TH_NB_SAMPL.gpkg", "samples"]
+
+["TH.NF"]
+LDP = ["TM", "104:26"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_NF/TH_NF_SAMPL.gpkg", "samples"]
+
+["TH.NK"]
+LDP = ["LCC", "17:56"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_NK/TH_NK_SAMPL.gpkg", "samples"]
+
+["TH.NN"]
+LDP = ["TM", "101:10"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_NN/TH_NN_SAMPL.gpkg", "samples"]
+
+["TH.NP"]
+LDP = ["TM", "100:06"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_NP/TH_NP_SAMPL.gpkg", "samples"]
+
+["TH.NR_N"]
+LDP = ["TM", "102:30"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_NR_N/TH_NR_N_SAMPL.gpkg", "samples"]
+
+["TH.NR_S"]
+LDP = ["TM", "101:55"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_NR_S/TH_NR_S_SAMPL.gpkg", "samples"]
+
+["TH.NS"]
+LDP = ["LCC", "15:41"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_NS/TH_NS_SAMPL.gpkg", "samples"]
+
+["TH.NT"]
+LDP = ["TM", "99:47"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_NT/TH_NT_SAMPL.gpkg", "samples"]
+
+["TH.NW"]
+LDP = ["TM", "101:43"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_NW/TH_NW_SAMPL.gpkg", "samples"]
+
+["TH.PA"]
+LDP = ["TM", "100:32"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_PA/TH_PA_SAMPL.gpkg", "samples"]
+
+["TH.PB"]
+LDP = ["TM", "101:39"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_PB/TH_PB_SAMPL.gpkg", "samples"]
+
+["TH.PC"]
+LDP = ["TM", "100:21"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_PC/TH_PC_SAMPL.gpkg", "samples"]
+
+["TH.PE"]
+LDP = ["LCC", "12:57"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_PE/TH_PE_SAMPL.gpkg", "samples"]
+
+["TH.PG"]
+LDP = ["TM", "98:25"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_PG/TH_PG_SAMPL.gpkg", "samples"]
+
+["TH.PH"]
+LDP = ["TM", "101:09"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_PH/TH_PH_SAMPL.gpkg", "samples"]
+
+["TH.PI"]
+LDP = ["LCC", "6:44"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_PI/TH_PI_SAMPL.gpkg", "samples"]
+
+["TH.PK"]
+LDP = ["TM", "99:38"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_PK/TH_PK_SAMPL.gpkg", "samples"]
+
+["TH.PL"]
+LDP = ["TM", "100:04"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_PL/TH_PL_SAMPL.gpkg", "samples"]
+
+["TH.PR"]
+LDP = ["TM", "100:04"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_PR/TH_PR_SAMPL.gpkg", "samples"]
+
+["TH.PS_E"]
+LDP = ["TM", "100:47"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_PS_E/TH_PS_E_SAMPL.gpkg", "samples"]
+
+["TH.PS_W"]
+LDP = ["TM", "100:24"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_PS_W/TH_PS_W_SAMPL.gpkg", "samples"]
+
+["TH.PT"]
+LDP = ["LCC", "14:04"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_PT/TH_PT_SAMPL.gpkg", "samples"]
+
+["TH.PU"]
+LDP = ["TM", "98:21"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_PU/TH_PU_SAMPL.gpkg", "samples"]
+
+["TH.PY"]
+LDP = ["TM", "100:11"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_PY/TH_PY_SAMPL.gpkg", "samples"]
+
+["TH.RE"]
+LDP = ["TM", "103:49"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_RE/TH_RE_SAMPL.gpkg", "samples"]
+
+["TH.RN"]
+LDP = ["TM", "98:42"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_RN/TH_RN_SAMPL.gpkg", "samples"]
+
+["TH.RT"]
+LDP = ["TM", "99:35"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_RT/TH_RT_SAMPL.gpkg", "samples"]
+
+["TH.RY"]
+LDP = ["LCC", "12:51"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_RY/TH_RY_SAMPL.gpkg", "samples"]
+
+["TH.SA"]
+LDP = ["TM", "99:58"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_SA/TH_SA_SAMPL.gpkg", "samples"]
+
+["TH.SB"]
+LDP = ["TM", "100:21"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_SB/TH_SB_SAMPL.gpkg", "samples"]
+
+["TH.SG"]
+LDP = ["TM", "100:33"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_SG/TH_SG_SAMPL.gpkg", "samples"]
+
+["TH.SH"]
+LDP = ["TM", "99:54"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_SH/TH_SH_SAMPL.gpkg", "samples"]
+
+["TH.SI"]
+LDP = ["TM", "104:22"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_SI/TH_SI_SAMPL.gpkg", "samples"]
+
+["TH.SK"]
+LDP = ["TM", "102:19"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_SK/TH_SK_SAMPL.gpkg", "samples"]
+
+["TH.SM"]
+LDP = ["TM", "99:57"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_SM/TH_SM_SAMPL.gpkg", "samples"]
+
+["TH.SN"]
+LDP = ["TM", "103:50"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_SN/TH_SN_SAMPL.gpkg", "samples"]
+
+["TH.SO"]
+LDP = ["TM", "99:43"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_SO/TH_SO_SAMPL.gpkg", "samples"]
+
+["TH.SR"]
+LDP = ["TM", "101:01"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_SR/TH_SR_SAMPL.gpkg", "samples"]
+
+["TH.SS"]
+LDP = ["LCC", "13:34"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_SS/TH_SS_SAMPL.gpkg", "samples"]
+
+["TH.ST_N"]
+LDP = ["TM", "98:51"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_ST_N/TH_ST_N_SAMPL.gpkg", "samples"]
+
+["TH.ST_S"]
+LDP = ["TM", "99:18"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_ST_S/TH_ST_S_SAMPL.gpkg", "samples"]
+
+["TH.SU"]
+LDP = ["TM", "103:40"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_SU/TH_SU_SAMPL.gpkg", "samples"]
+
+["TH.TG"]
+LDP = ["TM", "99:36"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_TG/TH_TG_SAMPL.gpkg", "samples"]
+
+["TH.TK_C"]
+LDP = ["TM", "98:31"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_TK_C/TH_TK_C_SAMPL.gpkg", "samples"]
+
+["TH.TK_N"]
+LDP = ["TM", "99:00"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_TK_N/TH_TK_N_SAMPL.gpkg", "samples"]
+
+["TH.TK_S"]
+LDP = ["TM", "98:53"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_TK_S/TH_TK_S_SAMPL.gpkg", "samples"]
+
+["TH.TT"]
+LDP = ["TM", "102:32"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_TT/TH_TT_SAMPL.gpkg", "samples"]
+
+["TH.UD_C"]
+LDP = ["LCC", "17:50"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_UD_C/TH_UD_C_SAMPL.gpkg", "samples"]
+
+["TH.UD_E"]
+LDP = ["TM", "101:04"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_UD_E/TH_UD_E_SAMPL.gpkg", "samples"]
+
+["TH.UD_W"]
+LDP = ["TM", "100:11"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_UD_W/TH_UD_W_SAMPL.gpkg", "samples"]
+
+["TH.UN"]
+LDP = ["LCC", "17:25"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_UN/TH_UN_SAMPL.gpkg", "samples"]
+
+["TH.UR_N"]
+LDP = ["TM", "105:15"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_UR_N/TH_UR_N_SAMPL.gpkg", "samples"]
+
+["TH.UR_S"]
+LDP = ["TM", "105:03"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_UR_S/TH_UR_S_SAMPL.gpkg", "samples"]
+
+["TH.UT"]
+LDP = ["LCC", "15:21"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_UT/TH_UT_SAMPL.gpkg", "samples"]
+
+["TH.YL"]
+LDP = ["TM", "101:14"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_YL/TH_YL_SAMPL.gpkg", "samples"]
+
+["TH.YS"]
+LDP = ["TM", "104:21"]
+FALSE_EN = "AUTO"    # [-10000, +2000000]
+PP_MSL = "AUTO"      #  255
+#POPU_PLOT = [ max_msl, min_msl, msl_interval ]
+GPKG = ["OUTPUT_SAMPL/TH_YS/TH_YS_SAMPL.gpkg", "samples"]
+

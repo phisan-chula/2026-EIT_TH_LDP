@@ -1,0 +1,119 @@
+======================================================================
+Processing province: TH.AT
+Started: 2026-08-16T11:05:16+07:00
+======================================================================
+--> [TH.AT] Step 1: 1_fabdem_province.py
+[1/5] Read GADM and select HASC_1=TH.AT
+[2/5] Save province and clip FABDEM
+[3/5] Generate contours every 100 m with GDAL 3.10.3
+[4/5] Calculate statistics and write PDF
+[5/5] Write DataFrame summaries
+
+Completed successfully.
+HASC_1    NAME_1  contours                                                                                  PDF
+ TH.AT Ang Thong         2 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_AT/TH_AT_fabdem_contours.pdf
+--> [TH.AT] Step 2: 2_popu2025_grid.py
+[1/4] Select GADM province HASC_1=TH.AT
+[2/4] Save boundary and cut population grid
+[3/4] Calculate population-grid statistics
+[4/4] Write population-grid PDF and summaries
+
+Completed successfully.
+HASC_1    NAME_1  population_sum                                                                                       grid
+ TH.AT Ang Thong   226466.060347 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_AT/TH_AT_population_2025_100m.tif
+--> [TH.AT] Step 3: 3_generate_sample.py
+[1/4] Select GADM province HASC_1=TH.AT
+ -> [READ] Loading Vector Dataset: OUTPUT_PROV/gadm41_THA.gpkg (Layer: 'ADM_ADM_1')
+[2/4] Generate 1000.0m grid points
+ -> Auto-detected EPSG:32647 for province.
+ -> Generated 1,554 bounding box points.
+ -> Clipping points to province boundary...
+ -> Computing 7-digit Geohashes...
+[3/4] Extracting Raster Values (FABDEM MSL & POP2025)...
+ -> [READ] Opening Raster File: OUTPUT_FABDEM/TH_AT/TH_AT_fabdem.tif
+ -> [READ] Opening Raster File for Area Sum: OUTPUT_POP2025/TH_AT/TH_AT_population_2025_100m.tif
+ -> Converting geometries to Lng/Lat (EPSG:4326)...
+[4/4] Save GeoPackage Data...
+ -> [WRITE] Saving Vector File: /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_SAMPL/TH_AT/TH_AT_SAMPL.gpkg (Layer: 'samples')
+
+[5/5] Comparing POP2025 with DOPA Registration Population...
+
+Completed successfully.
+HASC_1  Grid (m)       CRS  Samples           Output POP2025 DOPA_Pop    Diff
+ TH.AT    1000.0 EPSG:4326      952 TH_AT_SAMPL.gpkg 222,308  266,923 -44,615
+--> [TH.AT] Step 4: 4_analyse_ldp.py
+LDP                                            [TM, 100:21]
+FALSE_EN                                  [50000, -1470000]
+PP_MSL                                                   10
+GPKG         [OUTPUT_SAMPL/TH_AT/TH_AT_SAMPL.gpkg, samples]
+OFFSET_PP      [0.0, default hPP from average topo or pnts]
+dtype: object
+ -> OUTLIER FILTER: Dropped 20 points.
+ -> Dropped MSL values: [3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 12, 0, 1, 8, 3, 4, 11, 11, 10]
+ -> Using user-defined PP_MSL: 10.000m
+==================================== LDP TM ====================================
+@ Centroid @     <lng=100°21′>    <lat=14°37′>
+Offset Projection Plane = +0.0 m. <default hPP from average topo or pnts>
+Designed Project Plane : hPP=-21.91 m. / MSL=+10.00 m. tied to k0 = 0.999997
+Points CSF min/mean/max [ppm] : +0.7 / +2.0 / +5.0
+Points MSL min/mean/max [m.]  : +2.0 / +6.1 / +11.0
+|      |      LDP_E |       LDP_N |
+|:-----|-----------:|------------:|
+| min  | 33,557.597 | 127,138.994 |
+| max  | 67,638.857 | 166,280.384 |
+| diff | 34,081.260 |  39,141.390 |
+{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=0.0 +lon_0=100.35000000 +k_0=0.999997 +x_0=50000 +y_0=-1470000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=0.0 +lon_0=100°21′ +k_0=0.999997 +x_0=50000 +y_0=-1470000 +ellps=WGS84 +units=m +no_defs +type=crs"}
+Writing definition GPKG : OUTPUT_LDP/TH_AT/TH_AT_LDP.gpkg ...
+ -> THINNING: Snapping points to 2 decimal grid for visualization...
+ -> THINNING: Plot points reduced from 932 to 779.
+Writing definition plot : OUTPUT_LDP/TH_AT/TH_AT_LDP.svg...
+{"meta": "Coverage_Analysis", "Province": "TH.AT", "Total_Pts": 952, "Valid_Pts": 932, "Pt_Coverage(%)": 97.9, "Total_POP": 222307.68600000002, "Valid_POP": 218737.7343, "POP_Coverage(%)": 98.39, "CSF_Lower_ppm": 0.7, "CSF_Mean_ppm": 2.0, "CSF_Upper_ppm": 5.0}
+--> [TH.AT] Step 5: 5_plot_PP_PctPopu.py
+[TH.AT] Starting ProcessPoolExecutor with 16 offsets to compute (Mean MSL: 6.13 m)...
+[TH.AT] OFFSET_PP [-200.00] computed successfully.
+[TH.AT] OFFSET_PP [-180.00] computed successfully.
+[TH.AT] OFFSET_PP [-160.00] computed successfully.
+[TH.AT] OFFSET_PP [-140.00] computed successfully.
+[TH.AT] OFFSET_PP [-120.00] computed successfully.
+[TH.AT] OFFSET_PP [-100.00] computed successfully.
+[TH.AT] OFFSET_PP [-80.00] computed successfully.
+[TH.AT] OFFSET_PP [-60.00] computed successfully.
+[TH.AT] OFFSET_PP [-40.00] computed successfully.
+[TH.AT] OFFSET_PP [-20.00] computed successfully.
+[TH.AT] OFFSET_PP [0.00] computed successfully.
+[TH.AT] OFFSET_PP [20.00] computed successfully.
+[TH.AT] OFFSET_PP [40.00] computed successfully.
+[TH.AT] OFFSET_PP [60.00] computed successfully.
+[TH.AT] OFFSET_PP [80.00] computed successfully.
+[TH.AT] OFFSET_PP [100.00] computed successfully.
+
+==================================== LDP Population Coverage Analysis: TH.AT ====================================
+|   MSL_PP |   HAE_PP | Province   |   Total_Pts |   Valid_Pts |   Pt_Coverage(%) |   Total_POP |   Valid_POP |   POP_Coverage(%) |   CSF_Lower_ppm |   CSF_Mean_ppm |   CSF_Upper_ppm |
+|---------:|---------:|:-----------|------------:|------------:|-----------------:|------------:|------------:|------------------:|----------------:|---------------:|----------------:|
+|  -193.87 |  -225.78 | TH.AT      |         952 |           0 |             0.00 |     222,308 |           0 |              0.00 |            +0.0 |           +0.0 |            +0.0 |
+|  -173.87 |  -205.78 | TH.AT      |         952 |           0 |             0.00 |     222,308 |           0 |              0.00 |            +0.0 |           +0.0 |            +0.0 |
+|  -153.87 |  -185.78 | TH.AT      |         952 |           0 |             0.00 |     222,308 |           0 |              0.00 |            +0.0 |           +0.0 |            +0.0 |
+|  -133.87 |  -165.78 | TH.AT      |         952 |         160 |            16.81 |     222,308 |      26,848 |             12.08 |           -20.0 |          -19.4 |           -18.0 |
+|  -113.87 |  -145.78 | TH.AT      |         952 |         932 |            97.90 |     222,308 |     218,738 |             98.39 |           -19.3 |          -18.0 |           -15.0 |
+|   -93.87 |  -125.78 | TH.AT      |         952 |         932 |            97.90 |     222,308 |     218,738 |             98.39 |           -16.3 |          -15.0 |           -12.0 |
+|   -73.87 |  -105.78 | TH.AT      |         952 |         932 |            97.90 |     222,308 |     218,738 |             98.39 |           -13.3 |          -12.0 |            -9.0 |
+|   -53.87 |   -85.78 | TH.AT      |         952 |         932 |            97.90 |     222,308 |     218,738 |             98.39 |            -9.3 |           -8.0 |            -5.0 |
+|   -33.87 |   -65.78 | TH.AT      |         952 |         932 |            97.90 |     222,308 |     218,738 |             98.39 |            -6.3 |           -5.0 |            -2.0 |
+|   -13.87 |   -45.78 | TH.AT      |         952 |         932 |            97.90 |     222,308 |     218,738 |             98.39 |            -3.3 |           -2.0 |            +1.0 |
+|    +6.13 |   -25.78 | TH.AT      |         952 |         932 |            97.90 |     222,308 |     218,738 |             98.39 |            -0.3 |           +1.0 |            +4.0 |
+|   +26.13 |    -5.78 | TH.AT      |         952 |         932 |            97.90 |     222,308 |     218,738 |             98.39 |            +2.7 |           +4.0 |            +7.0 |
+|   +46.13 |   +14.22 | TH.AT      |         952 |         932 |            97.90 |     222,308 |     218,738 |             98.39 |            +5.7 |           +7.0 |           +10.0 |
+|   +66.13 |   +34.22 | TH.AT      |         952 |         932 |            97.90 |     222,308 |     218,738 |             98.39 |            +8.7 |          +10.0 |           +13.0 |
+|   +86.13 |   +54.22 | TH.AT      |         952 |         932 |            97.90 |     222,308 |     218,738 |             98.39 |           +12.7 |          +14.0 |           +17.0 |
+|  +106.13 |   +74.22 | TH.AT      |         952 |         931 |            97.79 |     222,308 |     218,737 |             98.39 |           +15.7 |          +17.0 |           +19.7 |
+==========================================================================================================================
+
+ -> Plot saved successfully to: OUTPUT_LDP/TH_AT/TH_AT_Plot_PP_Popu.svg
+
+--> [TH.AT] Step 6: 6_LDP_OnePage.py
+Processing province: TH_AT
+[+] TH_AT: One-Page Report generated successfully.
+======================================================================
+Completed province: TH.AT
+Finished: 2026-08-16T11:05:28+07:00
+======================================================================

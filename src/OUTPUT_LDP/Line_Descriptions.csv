@@ -1,0 +1,7 @@
+Line,LineDescr
+L1,on ellipsoid surface
+L2,"on ellipsoid surface , HSF applied (Ground)"
+L3,on UTM grid
+L4,"on UTM grid , PSF applied"
+L5,"on UTM grid , PSF&HSF (CSF) applied"
+L6,on LDP grid
