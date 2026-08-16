@@ -94,12 +94,16 @@ class LDPValidator:
             raise ValueError(f"DEM sampling failed: {e}")
 
     def _calc_utm_parameters(self, lon1, lat1, lon2, lat2):
-        """Calculate UTM grid distance, average PSF, and individual PSFs."""
+        """Calculate UTM grid distance, average PSF, individual PSFs, and the EPSG zone."""
         utm_crs_info = pyproj.database.query_utm_crs_info(
             datum_name="WGS 84", 
             area_of_interest=pyproj.aoi.AreaOfInterest(lon1, lat1, lon1, lat1)
         )[0]
         utm_proj = pyproj.CRS.from_epsg(utm_crs_info.code)
+        
+        # Extract the trailing 2 digits from the EPSG code (e.g., 32647 -> "47")
+        utm_zone_number = str(utm_crs_info.code)[-2:]
+        
         transformer_utm = pyproj.Transformer.from_crs("EPSG:4326", utm_proj, always_xy=True)
         
         utm1_e, utm1_n = transformer_utm.transform(lon1, lat1)
@@ -111,7 +115,7 @@ class LDPValidator:
         psf2 = utm_proj_obj.get_factors(lon2, lat2).meridional_scale
         psf_avg = (psf1 + psf2) / 2.0
         
-        return L3_UTM, psf_avg, psf1, psf2
+        return L3_UTM, psf_avg, psf1, psf2, utm_zone_number
 
     def _calc_ldp_parameters(self, hasc_safe, lon1, lat1, lon2, lat2):
         """Calculate LDP grid distance, point scale factors, definition, and coordinates."""
@@ -197,7 +201,7 @@ class LDPValidator:
         L2 = L1 / HSF
         
         # 5. UTM Distance & Point Scale Factor
-        L3, PSF_avg, PSF1, PSF2 = self._calc_utm_parameters(lon1, lat1, lon2, lat2)
+        L3, PSF_avg, PSF1, PSF2, utm_zone = self._calc_utm_parameters(lon1, lat1, lon2, lat2)
         
         # 6. UTM Combined Scale Factor (for comparison only)
         L4 = L3 / PSF_avg
@@ -226,6 +230,7 @@ class LDPValidator:
             'N_Undulation': N_avg,
             'h_Ellipsoidal': h_avg,
             'HSF': HSF,
+            'UTM_Zone': utm_zone,
             'UTM_PSF': PSF_avg,
             'UTM_CSF': UTM_CSF_avg,
             'UTM_CSF1': UTM_CSF1,
@@ -305,6 +310,9 @@ class LDPValidator:
                 utm_csf1_ppm = (res['UTM_CSF1'] - 1.0) * 1_000_000
                 utm_csf2_ppm = (res['UTM_CSF2'] - 1.0) * 1_000_000
                 
+                # Dynamic UTM header generation based on detected zone
+                u_zone_label = f"U{res.get('UTM_Zone', 'TM')}"
+                
                 f.write("---\n\n") 
                 f.write(f"### 🧭 Province: {res['NAME_1']} ({res['HASC_1']})\n\n")
                 
@@ -313,7 +321,7 @@ class LDPValidator:
                 f.write(f"| MSL | {msl_val} | HAE | {hae_val} |\n")
                 f.write(f"| P1_LDP | {p1_ldp_str} | P2_LDP | {p2_ldp_str} |\n")
                 f.write(f"| P1_LDP_CSF | {csf1_ppm:+.1f} ppm{flag1} | P2_LDP_CSF | {csf2_ppm:+.1f} ppm{flag2} |\n")
-                f.write(f"| P1_UTM_CSF | {utm_csf1_ppm:+.1f} ppm | P2_UTM_CSF | {utm_csf2_ppm:+.1f} ppm |\n\n")
+                f.write(f"| P1_{u_zone_label}_CSF | {utm_csf1_ppm:+.1f} ppm | P2_{u_zone_label}_CSF | {utm_csf2_ppm:+.1f} ppm |\n\n")
                 
                 f.write(f"> **LDP Definition:**\n> `{res['LDP_Def']}`\n\n")
                 
