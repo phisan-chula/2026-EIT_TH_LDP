@@ -1,0 +1,37 @@
+{
+  "configuration": {
+    "fabdem": "/home/phisan/GeoData/FABDEM_TH/FABDEM_Thailand.vrt",
+    "gadm": "OUTPUT_PROV/gadm41_THA.gpkg",
+    "province": "TH.YS",
+    "interval": 100.0,
+    "contour_base": 0.0,
+    "output_dir": "OUTPUT_FABDEM",
+    "gadm_layer": null,
+    "overwrite": true,
+    "all_touched": false,
+    "max_plot_dimension": 1800,
+    "max_plot_contours": 12000,
+    "pdf_dpi": 200
+  },
+  "result": {
+    "province_code": "TH.YS",
+    "province_name": "Yasothon",
+    "gadm_layer": "ADM_ADM_1",
+    "contour_count": 359,
+    "raster_statistics": {
+      "minimum_m": 115.0,
+      "maximum_m": 470.7099914550781,
+      "mean_m": 148.79713439941406,
+      "standard_deviation_m": 26.522655487060547,
+      "valid_cell_count": 4478382
+    },
+    "outputs": {
+      "boundary_gpkg": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_YS/TH_YS_boundary.gpkg",
+      "clipped_dem": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_YS/TH_YS_fabdem.tif",
+      "contours_gpkg": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_YS/TH_YS_contours_100m.gpkg",
+      "report_pdf": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_YS/TH_YS_fabdem_contours.pdf",
+      "summary_csv": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_YS/TH_YS_summary.csv",
+      "summary_json": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_YS/TH_YS_summary.json"
+    }
+  }
+}

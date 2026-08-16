@@ -10,7 +10,7 @@ from typing import Dict, Any
 # ==========================================
 logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 
-# Updated target columns to match the requested order
+# Target columns for final output
 TARGET_COLUMNS = [
     "ISO_1", "HASC_1", "NAME_1", "POP_Coverage(%)", "Samples", 
     "LDP", "CM_CP", "area_sqkm", "EW_km", "NS_km"
@@ -21,7 +21,7 @@ PATHS = {
     "logs_dir": Path("OUTPUT_SAMPL"),
     "sqlite_db": Path("OUTPUT_LDP/LDP_Province.sqlite"),
     "out_csv": Path("OUTPUT_LDP/ProvinceLDP.csv"),
-    "readme": Path("README.md")
+    "readme": Path("../README.md")
 }
 
 # ==========================================
@@ -65,7 +65,6 @@ def parse_single_log(log_path: Path, hasc: str) -> Dict[str, Any]:
                             samples_val = int(parts[3].replace(',', ''))
                             row_data["Samples"] = f"{samples_val:,}"
                         except ValueError:
-                            # Fallback if parsing fails
                             row_data["Samples"] = parts[3]
                         
     except Exception as e:
@@ -78,7 +77,6 @@ def parse_all_pipeline_logs(hasc_series: pd.Series, base_dir: Path) -> pd.DataFr
     parsed_data = []
 
     for hasc in hasc_series:
-        # Normalize folder name format (e.g., "TH.AC" -> "TH_AC")
         folder_name = hasc.replace('.', '_')
         log_path = base_dir / folder_name / f"{folder_name}_pipeline.log"
         
@@ -94,7 +92,6 @@ def parse_all_pipeline_logs(hasc_series: pd.Series, base_dir: Path) -> pd.DataFr
 def export_sqlite(df: pd.DataFrame, output_path: Path) -> None:
     """Writes the merged DataFrame to a standard SQLite database."""
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    
     try:
         with sqlite3.connect(output_path) as conn:
             df.to_sql("LDP_Province", conn, if_exists="replace", index=False)
@@ -102,13 +99,12 @@ def export_sqlite(df: pd.DataFrame, output_path: Path) -> None:
     except Exception as e:
         logging.error(f"Failed to save SQLite database: {e}")
 
-def highlight_low_coverage(val: Any) -> str:
-    """Formats coverage percentage with colored emojis based on thresholds:
-    - 0-70%: 🔴 Red
-    - 70-80%: 🟡 Yellow
-    - 80-100%: 🟢 Green
-    """
-    if pd.isna(val):
+def format_coverage_link(row) -> str:
+    """Formats coverage percentage linking to PDF, keeping the emoji outside the HTML tag."""
+    val = row['POP_Coverage(%)']
+    hasc = row['HASC_1']
+    
+    if pd.isna(val) or pd.isna(hasc):
         return str(val)
     
     try:
@@ -117,13 +113,36 @@ def highlight_low_coverage(val: Any) -> str:
         return str(val)
         
     if 0 <= num_val < 70:
-        return f'🔴 {num_val}'
+        emoji = '🔴'
     elif 70 <= num_val < 80:
-        return f'🟡 {num_val}'
+        emoji = '🟡'
     elif 80 <= num_val <= 100:
-        return f'🟢 {num_val}'
+        emoji = '🟢'
+    else:
+        emoji = ''
         
-    return str(num_val)
+    hasc_safe = str(hasc).replace('.', '_')
+    pdf_url = f"https://github.com/phisan-chula/2026-EIT_TH_LDP/blob/main/src/OUTPUT_LDP/{hasc_safe}/{hasc_safe}_OnePage.pdf"
+    
+    # Emoji stays outside, number is wrapped in the anchor tag
+    link = f"<a href='{pdf_url}' target='_blank'>{num_val}</a>"
+    return f"{emoji} {link}".strip()
+
+def format_hasc_anchor(row) -> str:
+    """Creates a GitHub anchor link pointing to the QAQC Test Line section."""
+    hasc = row['HASC_1']
+    name = row['NAME_1']
+    
+    if pd.isna(hasc) or pd.isna(name):
+        return str(hasc)
+        
+    # Match the GitHub markdown slug generation for: "### 🧭 Province: {NAME_1} ({HASC_1})"
+    name_clean = str(name).lower().replace(' ', '-')
+    hasc_clean = str(hasc).lower().replace('.', '')
+    slug = f"-province-{name_clean}-{hasc_clean}"
+    
+    url = f"https://github.com/phisan-chula/2026-EIT_TH_LDP/tree/main/src/OUTPUT_LDP#{slug}"
+    return f"<a href='{url}' target='_blank'>{hasc}</a>"
 
 def export_summary_files(df: pd.DataFrame, csv_path: Path, readme_path: Path) -> None:
     """Exports sorted raw CSV and a GitHub-flavored Markdown README with banner and links."""
@@ -143,15 +162,13 @@ def export_summary_files(df: pd.DataFrame, csv_path: Path, readme_path: Path) ->
     # 2. Format and Export README.md
     df_md = df_out.copy()
 
-    if "POP_Coverage(%)" in df_md.columns:
-        # Apply the emoji warning for the Markdown table only
-        df_md["POP_Coverage(%)"] = df_md["POP_Coverage(%)"].apply(highlight_low_coverage)
-        
-    # Convert HASC_1 to HTML hyperlink opening in new tab for README
-    if "HASC_1" in df_md.columns:
-        df_md["HASC_1"] = df_md["HASC_1"].apply(
-            lambda x: f"<a href='OUTPUT_LDP/{str(x).replace('.', '_')}/{str(x).replace('.', '_')}_OnePage.pdf' target='_blank'>{x}</a>" if pd.notna(x) else x
-        )
+    # Step A: Format Coverage with PDF Link (must happen before we alter HASC_1)
+    if "POP_Coverage(%)" in df_md.columns and "HASC_1" in df_md.columns:
+        df_md["POP_Coverage(%)"] = df_md.apply(format_coverage_link, axis=1)
+
+    # Step B: Format HASC_1 as the Anchor Link
+    if "HASC_1" in df_md.columns and "NAME_1" in df_md.columns:
+        df_md["HASC_1"] = df_md.apply(format_hasc_anchor, axis=1)
 
     readme_banner = """<div align="center">
 
@@ -193,22 +210,18 @@ def export_summary_files(df: pd.DataFrame, csv_path: Path, readme_path: Path) ->
 def main():
     logging.info("Starting log parsing pipeline...")
 
-    # Step 1: Read reference
     logging.info(f"Reading GADM reference data from {PATHS['gadm_csv']}...")
     df_gadm = read_gadm_data(PATHS['gadm_csv'])
 
-    # Steps 2-4: Parse logs
     logging.info("Parsing pipeline logs for metadata and stats...")
     df_logs = parse_all_pipeline_logs(df_gadm['HASC_1'], PATHS['logs_dir'])
 
-    # Merge data
     if not df_logs.empty:
         df_merged = pd.merge(df_gadm, df_logs, on="HASC_1", how="left")
     else:
         logging.warning("No log data extracted. Proceeding with base GADM data only.")
         df_merged = df_gadm.copy()
 
-    # Steps 5-6: Exports
     export_sqlite(df_merged, PATHS['sqlite_db'])
     export_summary_files(df_merged, PATHS['out_csv'], PATHS['readme'])
     

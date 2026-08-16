@@ -1,0 +1,37 @@
+{
+  "configuration": {
+    "fabdem": "/home/phisan/GeoData/FABDEM_TH/FABDEM_Thailand.vrt",
+    "gadm": "OUTPUT_PROV/gadm41_THA.gpkg",
+    "province": "TH.SR",
+    "interval": 100.0,
+    "contour_base": 0.0,
+    "output_dir": "OUTPUT_FABDEM",
+    "gadm_layer": null,
+    "overwrite": true,
+    "all_touched": false,
+    "max_plot_dimension": 1800,
+    "max_plot_contours": 12000,
+    "pdf_dpi": 200
+  },
+  "result": {
+    "province_code": "TH.SR",
+    "province_name": "Saraburi",
+    "gadm_layer": "ADM_ADM_1",
+    "contour_count": 1596,
+    "raster_statistics": {
+      "minimum_m": -20.709999084472656,
+      "maximum_m": 1015.0700073242188,
+      "mean_m": 130.43063354492188,
+      "standard_deviation_m": 157.72193908691406,
+      "valid_cell_count": 3874147
+    },
+    "outputs": {
+      "boundary_gpkg": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_SR/TH_SR_boundary.gpkg",
+      "clipped_dem": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_SR/TH_SR_fabdem.tif",
+      "contours_gpkg": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_SR/TH_SR_contours_100m.gpkg",
+      "report_pdf": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_SR/TH_SR_fabdem_contours.pdf",
+      "summary_csv": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_SR/TH_SR_summary.csv",
+      "summary_json": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_SR/TH_SR_summary.json"
+    }
+  }
+}

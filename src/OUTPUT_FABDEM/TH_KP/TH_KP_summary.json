@@ -1,0 +1,37 @@
+{
+  "configuration": {
+    "fabdem": "/home/phisan/GeoData/FABDEM_TH/FABDEM_Thailand.vrt",
+    "gadm": "OUTPUT_PROV/gadm41_THA.gpkg",
+    "province": "TH.KP",
+    "interval": 100.0,
+    "contour_base": 0.0,
+    "output_dir": "OUTPUT_FABDEM",
+    "gadm_layer": null,
+    "overwrite": true,
+    "all_touched": false,
+    "max_plot_dimension": 1800,
+    "max_plot_contours": 12000,
+    "pdf_dpi": 200
+  },
+  "result": {
+    "province_code": "TH.KP",
+    "province_name": "Kamphaeng Phet",
+    "gadm_layer": "ADM_ADM_1",
+    "contour_count": 2102,
+    "raster_statistics": {
+      "minimum_m": 38.5,
+      "maximum_m": 1914.8900146484375,
+      "mean_m": 194.9043731689453,
+      "standard_deviation_m": 274.01605224609375,
+      "valid_cell_count": 9463050
+    },
+    "outputs": {
+      "boundary_gpkg": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_KP/TH_KP_boundary.gpkg",
+      "clipped_dem": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_KP/TH_KP_fabdem.tif",
+      "contours_gpkg": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_KP/TH_KP_contours_100m.gpkg",
+      "report_pdf": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_KP/TH_KP_fabdem_contours.pdf",
+      "summary_csv": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_KP/TH_KP_summary.csv",
+      "summary_json": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_KP/TH_KP_summary.json"
+    }
+  }
+}

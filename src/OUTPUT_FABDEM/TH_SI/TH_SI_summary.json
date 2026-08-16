@@ -1,0 +1,37 @@
+{
+  "configuration": {
+    "fabdem": "/home/phisan/GeoData/FABDEM_TH/FABDEM_Thailand.vrt",
+    "gadm": "OUTPUT_PROV/gadm41_THA.gpkg",
+    "province": "TH.SI",
+    "interval": 100.0,
+    "contour_base": 0.0,
+    "output_dir": "OUTPUT_FABDEM",
+    "gadm_layer": null,
+    "overwrite": true,
+    "all_touched": false,
+    "max_plot_dimension": 1800,
+    "max_plot_contours": 12000,
+    "pdf_dpi": 200
+  },
+  "result": {
+    "province_code": "TH.SI",
+    "province_name": "Si Sa Ket",
+    "gadm_layer": "ADM_ADM_1",
+    "contour_count": 579,
+    "raster_statistics": {
+      "minimum_m": 109.0,
+      "maximum_m": 669.6400146484375,
+      "mean_m": 169.91432189941406,
+      "standard_deviation_m": 84.26066589355469,
+      "valid_cell_count": 9632847
+    },
+    "outputs": {
+      "boundary_gpkg": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_SI/TH_SI_boundary.gpkg",
+      "clipped_dem": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_SI/TH_SI_fabdem.tif",
+      "contours_gpkg": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_SI/TH_SI_contours_100m.gpkg",
+      "report_pdf": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_SI/TH_SI_fabdem_contours.pdf",
+      "summary_csv": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_SI/TH_SI_summary.csv",
+      "summary_json": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_SI/TH_SI_summary.json"
+    }
+  }
+}

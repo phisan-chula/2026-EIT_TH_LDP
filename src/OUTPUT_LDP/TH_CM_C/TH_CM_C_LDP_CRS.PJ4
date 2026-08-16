@@ -1,0 +1,1 @@
++proj=lcc +lat_1=18.70000000 +lat_0=18.70000000 +lon_0=98.65000000 +k_0=1.000043 +x_0=500000 +y_0=500000 +ellps=WGS84 +units=m +no_defs +type=crs

@@ -1,0 +1,37 @@
+{
+  "configuration": {
+    "fabdem": "/home/phisan/GeoData/FABDEM_TH/FABDEM_Thailand.vrt",
+    "gadm": "OUTPUT_PROV/gadm41_THA.gpkg",
+    "province": "TH.CR",
+    "interval": 100.0,
+    "contour_base": 0.0,
+    "output_dir": "OUTPUT_FABDEM",
+    "gadm_layer": null,
+    "overwrite": true,
+    "all_touched": false,
+    "max_plot_dimension": 1800,
+    "max_plot_contours": 12000,
+    "pdf_dpi": 200
+  },
+  "result": {
+    "province_code": "TH.CR",
+    "province_name": "Chiang Rai",
+    "gadm_layer": "ADM_ADM_1",
+    "contour_count": 7777,
+    "raster_statistics": {
+      "minimum_m": 336.0,
+      "maximum_m": 2018.949951171875,
+      "mean_m": 600.666015625,
+      "standard_deviation_m": 253.96066284179688,
+      "valid_cell_count": 12937238
+    },
+    "outputs": {
+      "boundary_gpkg": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_CR/TH_CR_boundary.gpkg",
+      "clipped_dem": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_CR/TH_CR_fabdem.tif",
+      "contours_gpkg": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_CR/TH_CR_contours_100m.gpkg",
+      "report_pdf": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_CR/TH_CR_fabdem_contours.pdf",
+      "summary_csv": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_CR/TH_CR_summary.csv",
+      "summary_json": "/mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_CR/TH_CR_summary.json"
+    }
+  }
+}

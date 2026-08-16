@@ -1,0 +1,1 @@
++proj=tmerc +lat_0=0.0 +lon_0=98.95000000 +k_0=1.000052 +x_0=50000 +y_0=-1500000 +ellps=WGS84 +units=m +no_defs +type=crs
