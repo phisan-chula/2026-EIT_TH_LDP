@@ -20,7 +20,7 @@
 
 ---
 
-## Provincial LDP: Aggregate Population Coverage Within the ±20 ppm Limit
+## TH-LDP: Population Coverage Within the ±20 ppm Limit
 
 *(Table is sorted by population coverage. Performance indicators: 🟢 80-100%, 🟡 70-80%, 🔴 <70%)*
 
