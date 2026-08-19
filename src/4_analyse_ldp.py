@@ -327,6 +327,9 @@ class LDP_Design:
         # Save WKT locally inside province output directory
         with open( self.RESULT / f'{self.STEM}_CRS.WKT', 'w' ) as f:
             f.write( WKT+'\n' )
+        # Save PROJ string inside province output directory
+        with open( self.RESULT / f'{self.STEM}_CRS.PJ4', 'w' ) as f:
+            f.write( LDP_DEF + '\n' )
             
         if self.DATA.LDP[0]=='TM':
             cm_sp = LineString( [ [ parm['lon_0'], self.dfPP.lat.min() ],

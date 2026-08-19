@@ -1,6 +1,6 @@
 ======================================================================
 Processing province: TH.UD_E
-Started: 2026-08-16T12:08:15+07:00
+Started: 2026-08-19T17:04:13+07:00
 ======================================================================
 --> [TH.UD_E] Step 1: 1_fabdem_province.py
 [1/5] Read GADM and select HASC_1=TH.UD_E
@@ -24,11 +24,11 @@ TH.UD_E Uttaradit East    11278.434207 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OU
 --> [TH.UD_E] Step 3: 3_generate_sample.py
 [1/4] Select GADM province HASC_1=TH.UD_E
  -> [READ] Loading Vector Dataset: OUTPUT_PROV/gadm41_THA.gpkg (Layer: 'ADM_ADM_1')
-[2/4] Generate 1000.0m grid points
+[2/4] Generate 500.0m grid points
  -> Auto-detected EPSG:32647 for province.
- -> Generated 1,705 bounding box points.
+ -> Generated 6,588 bounding box points.
  -> Clipping points to province boundary...
- -> Computing 7-digit Geohashes...
+ -> Computing 8-digit Geohashes...
 [3/4] Extracting Raster Values (FABDEM MSL & POP2025)...
  -> [READ] Opening Raster File: OUTPUT_FABDEM/TH_UD_E/TH_UD_E_fabdem.tif
  -> [READ] Opening Raster File for Area Sum: OUTPUT_POP2025/TH_UD_E/TH_UD_E_population_2025_100m.tif
@@ -40,7 +40,7 @@ TH.UD_E Uttaradit East    11278.434207 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OU
 
 Completed successfully.
  HASC_1  Grid (m)       CRS  Samples             Output POP2025 DOPA_Pop     Diff
-TH.UD_E    1000.0 EPSG:4326      915 TH_UD_E_SAMPL.gpkg  11,061  433,275 -422,214
+TH.UD_E     500.0 EPSG:4326     3646 TH_UD_E_SAMPL.gpkg  11,079  433,275 -422,196
 --> [TH.UD_E] Step 4: 4_analyse_ldp.py
 LDP                                               [TM, 101:04]
 FALSE_EN                                     [50000, -1860000]
@@ -48,28 +48,28 @@ PP_MSL                                                     480
 GPKG         [OUTPUT_SAMPL/TH_UD_E/TH_UD_E_SAMPL.gpkg, samp...
 OFFSET_PP         [0.0, default hPP from average topo or pnts]
 dtype: object
- -> OUTLIER FILTER: Dropped 19 points.
- -> Dropped MSL values: [551, 461, 953, 928, 570, 596, 956, 955, 1028, 1001, 1046, 839, 977, 936, 928, 914, 921, 661, 500]
+ -> OUTLIER FILTER: Dropped 74 points.
+ -> Dropped MSL values: [-9999, 494, 559, 556, 869, 869, 991, 927, 881, 899, 518, 533, 551, 589, 437, 434, 546, 621, 503, 571, 456, 398, 544, 733, 999, 953, 632, 563, 621, 596, 817, 803, 841, 812, 818, 853, 1046, 669, 676, 780, 390, 345, 570, 650, 994, 839, 1090, 1001, 1038, 1018, 1109, 1016, 984, 714, 994, 349, 352, 351, 735, 811, 839, 864, 813, 857, 831, 855, 652, 970, 977, 1030, 650, 908, 783, 566]
  -> Using user-defined PP_MSL: 480.000m
 ==================================== LDP TM ====================================
 @ Centroid @     <lng=101°04′>    <lat=18°09′>
 Offset Projection Plane = +0.0 m. <default hPP from average topo or pnts>
-Designed Project Plane : hPP=+446.80 m. / MSL=+480.00 m. tied to k0 = 1.000070
-Points CSF min/mean/max [ppm] : -78.4 / -13.2 / +20.8
-Points MSL min/mean/max [m.]  : +348.0 / +565.5 / +977.0
+Designed Project Plane : hPP=+446.81 m. / MSL=+480.00 m. tied to k0 = 1.000070
+Points CSF min/mean/max [ppm] : -85.2 / -13.3 / +20.8
+Points MSL min/mean/max [m.]  : +348.0 / +566.0 / +1032.0
 |      |      LDP_E |       LDP_N |
 |:-----|-----------:|------------:|
-| min  | 34,456.704 | 120,749.073 |
-| max  | 62,440.503 | 172,683.371 |
-| diff | 27,983.799 |  51,934.298 |
+| min  | 34,451.063 | 120,254.702 |
+| max  | 62,940.377 | 172,683.371 |
+| diff | 28,489.314 |  52,428.669 |
 {"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=0.0 +lon_0=101.06666667 +k_0=1.000070 +x_0=50000 +y_0=-1860000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=0.0 +lon_0=101°04′ +k_0=1.000070 +x_0=50000 +y_0=-1860000 +ellps=WGS84 +units=m +no_defs +type=crs"}
 Writing definition GPKG : OUTPUT_LDP/TH_UD_E/TH_UD_E_LDP.gpkg ...
  -> THINNING: Snapping points to 2 decimal grid for visualization...
- -> THINNING: Plot points reduced from 896 to 779.
+ -> THINNING: Plot points reduced from 3572 to 823.
 Writing definition plot : OUTPUT_LDP/TH_UD_E/TH_UD_E_LDP.svg...
-{"meta": "Coverage_Analysis", "Province": "TH.UD_E", "Total_Pts": 915, "Valid_Pts": 591, "Pt_Coverage(%)": 64.59, "Total_POP": 11060.7866, "Valid_POP": 10723.3095, "POP_Coverage(%)": 96.95, "CSF_Lower_ppm": -20.0, "CSF_Mean_ppm": -0.3, "CSF_Upper_ppm": 19.7}
+{"meta": "Coverage_Analysis", "Province": "TH.UD_E", "Total_Pts": 3646, "Valid_Pts": 2374, "Pt_Coverage(%)": 65.11, "Total_POP": 11078.776399999999, "Valid_POP": 10835.725699999999, "POP_Coverage(%)": 97.81, "CSF_Lower_ppm": -20.0, "CSF_Mean_ppm": -0.4, "CSF_Upper_ppm": 19.9}
 --> [TH.UD_E] Step 5: 5_plot_PP_PctPopu.py
-[TH.UD_E] Starting ProcessPoolExecutor with 16 offsets to compute (Mean MSL: 565.55 m)...
+[TH.UD_E] Starting ProcessPoolExecutor with 16 offsets to compute (Mean MSL: 566.01 m)...
 [TH.UD_E] OFFSET_PP [-200.00] computed successfully.
 [TH.UD_E] OFFSET_PP [-180.00] computed successfully.
 [TH.UD_E] OFFSET_PP [-160.00] computed successfully.
@@ -90,22 +90,22 @@ Writing definition plot : OUTPUT_LDP/TH_UD_E/TH_UD_E_LDP.svg...
 ==================================== LDP Population Coverage Analysis: TH.UD_E ====================================
 |   MSL_PP |   HAE_PP | Province   |   Total_Pts |   Valid_Pts |   Pt_Coverage(%) |   Total_POP |   Valid_POP |   POP_Coverage(%) |   CSF_Lower_ppm |   CSF_Mean_ppm |   CSF_Upper_ppm |
 |---------:|---------:|:-----------|------------:|------------:|-----------------:|------------:|------------:|------------------:|----------------:|---------------:|----------------:|
-|  +365.55 |  +332.35 | TH.UD_E    |         915 |         349 |            38.14 |      11,061 |       8,862 |             80.12 |           -19.9 |          -11.6 |            +2.8 |
-|  +385.55 |  +352.35 | TH.UD_E    |         915 |         411 |            44.92 |      11,061 |       9,392 |             84.91 |           -20.0 |          -10.1 |            +5.8 |
-|  +405.55 |  +372.35 | TH.UD_E    |         915 |         461 |            50.38 |      11,061 |       9,926 |             89.74 |           -19.8 |           -7.4 |            +9.8 |
-|  +425.55 |  +392.35 | TH.UD_E    |         915 |         504 |            55.08 |      11,061 |      10,122 |             91.52 |           -20.0 |           -5.6 |           +12.8 |
-|  +445.55 |  +412.35 | TH.UD_E    |         915 |         543 |            59.34 |      11,061 |      10,277 |             92.92 |           -20.0 |           -3.7 |           +15.8 |
-|  +465.55 |  +432.35 | TH.UD_E    |         915 |         572 |            62.51 |      11,061 |      10,422 |             94.22 |           -19.9 |           -1.6 |           +18.8 |
-|  +485.55 |  +452.35 | TH.UD_E    |         915 |         603 |            65.90 |      11,061 |      10,525 |             95.15 |           -20.0 |           +0.1 |           +19.8 |
-|  +505.55 |  +472.35 | TH.UD_E    |         915 |         618 |            67.54 |      11,061 |      10,104 |             91.35 |           -19.9 |           +1.6 |           +19.9 |
-|  +525.55 |  +492.35 | TH.UD_E    |         915 |         626 |            68.42 |      11,061 |       9,474 |             85.65 |           -20.0 |           +2.8 |           +19.9 |
-|  +545.55 |  +512.35 | TH.UD_E    |         915 |         616 |            67.32 |      11,061 |       7,084 |             64.05 |           -19.9 |           +3.2 |           +19.9 |
-|  +565.55 |  +532.35 | TH.UD_E    |         915 |         562 |            61.42 |      11,061 |       5,175 |             46.79 |           -19.8 |           +3.7 |           +20.0 |
-|  +585.55 |  +552.35 | TH.UD_E    |         915 |         506 |            55.30 |      11,061 |       3,654 |             33.04 |           -20.0 |           +3.7 |           +19.9 |
-|  +605.55 |  +572.35 | TH.UD_E    |         915 |         460 |            50.27 |      11,061 |       2,577 |             23.30 |           -19.6 |           +3.8 |           +19.9 |
-|  +625.55 |  +592.35 | TH.UD_E    |         915 |         423 |            46.23 |      11,061 |       1,990 |             17.99 |           -19.9 |           +3.4 |           +19.9 |
-|  +645.55 |  +612.35 | TH.UD_E    |         915 |         387 |            42.30 |      11,061 |       1,553 |             14.04 |           -19.8 |           +3.1 |           +20.0 |
-|  +665.55 |  +632.35 | TH.UD_E    |         915 |         363 |            39.67 |      11,061 |       1,069 |              9.67 |           -19.7 |           +3.4 |           +20.0 |
+|  +366.01 |  +332.81 | TH.UD_E    |        3646 |        1375 |            37.71 |      11,079 |       9,168 |             82.75 |           -20.0 |          -11.4 |            +2.8 |
+|  +386.01 |  +352.81 | TH.UD_E    |        3646 |        1597 |            43.80 |      11,079 |       9,813 |             88.58 |           -20.0 |           -9.8 |            +5.8 |
+|  +406.01 |  +372.81 | TH.UD_E    |        3646 |        1843 |            50.55 |      11,079 |      10,221 |             92.26 |           -20.0 |           -7.4 |            +9.8 |
+|  +426.01 |  +392.81 | TH.UD_E    |        3646 |        2011 |            55.16 |      11,079 |      10,356 |             93.47 |           -20.0 |           -5.6 |           +12.8 |
+|  +446.01 |  +412.81 | TH.UD_E    |        3646 |        2166 |            59.41 |      11,079 |      10,559 |             95.31 |           -20.0 |           -3.7 |           +15.8 |
+|  +466.01 |  +432.81 | TH.UD_E    |        3646 |        2293 |            62.89 |      11,079 |      10,657 |             96.20 |           -19.9 |           -1.7 |           +18.8 |
+|  +486.01 |  +452.81 | TH.UD_E    |        3646 |        2413 |            66.18 |      11,079 |      10,649 |             96.12 |           -20.0 |           +0.0 |           +19.8 |
+|  +506.01 |  +472.81 | TH.UD_E    |        3646 |        2466 |            67.64 |      11,079 |      10,031 |             90.54 |           -20.0 |           +1.5 |           +19.9 |
+|  +526.01 |  +492.81 | TH.UD_E    |        3646 |        2499 |            68.54 |      11,079 |       9,300 |             83.95 |           -20.0 |           +2.6 |           +20.0 |
+|  +546.01 |  +512.81 | TH.UD_E    |        3646 |        2420 |            66.37 |      11,079 |       6,948 |             62.71 |           -20.0 |           +3.4 |           +20.0 |
+|  +566.01 |  +532.81 | TH.UD_E    |        3646 |        2227 |            61.08 |      11,079 |       4,954 |             44.72 |           -20.0 |           +3.7 |           +20.0 |
+|  +586.01 |  +552.81 | TH.UD_E    |        3646 |        2029 |            55.65 |      11,079 |       3,375 |             30.47 |           -20.0 |           +3.6 |           +20.0 |
+|  +606.01 |  +572.81 | TH.UD_E    |        3646 |        1866 |            51.18 |      11,079 |       2,449 |             22.10 |           -20.0 |           +3.5 |           +20.0 |
+|  +626.01 |  +592.81 | TH.UD_E    |        3646 |        1721 |            47.20 |      11,079 |       1,701 |             15.36 |           -19.9 |           +3.5 |           +20.0 |
+|  +646.01 |  +612.81 | TH.UD_E    |        3646 |        1579 |            43.31 |      11,079 |       1,169 |             10.56 |           -19.9 |           +3.6 |           +20.0 |
+|  +666.01 |  +632.81 | TH.UD_E    |        3646 |        1433 |            39.30 |      11,079 |         841 |              7.59 |           -19.9 |           +3.7 |           +20.0 |
 ==========================================================================================================================
 
  -> Plot saved successfully to: OUTPUT_LDP/TH_UD_E/TH_UD_E_Plot_PP_Popu.svg
@@ -115,5 +115,5 @@ Processing province: TH_UD_E
 [+] TH_UD_E: One-Page Report generated successfully.
 ======================================================================
 Completed province: TH.UD_E
-Finished: 2026-08-16T12:10:13+07:00
+Finished: 2026-08-19T17:08:32+07:00
 ======================================================================

@@ -10,7 +10,7 @@ if layers:
     layer = layers[0]
     
     # Expression to find all Chiang Mai districts (TH.CM.XX)
-    expression = "HASC_2 LIKE 'TH.CM.%'"
+    expression = "HASC_2 LIKE 'TH.MH.%'"
     request = layer.getFeatures(QgsFeatureRequest().setFilterExpression(expression))
     
     district_codes = []

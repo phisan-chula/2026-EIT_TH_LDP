@@ -306,13 +306,13 @@ This report provides a comparative analysis of distances calculated across vario
 ### <a id="-thkl--wkt---proj4"></a>🧭 Kalasin <span style="float: right;">📄 [WKT](https://github.com/phisan-chula/2026-EIT_TH_LDP/blob/main/src/OUTPUT_LDP/TH_KL/TH_KL_LDP_CRS.WKT) &emsp; 🌐 [PROJ4](https://github.com/phisan-chula/2026-EIT_TH_LDP/blob/main/src/OUTPUT_LDP/TH_KL/TH_KL_LDP_CRS.PJ4)</span>
 
 > **TH.KL LDP :**
-> `+proj=lcc +lat_1=16.61666667 +lat_0=16.61666667 +lon_0=103.61666667 +k_0=1.000010 +x_0=750000 +y_0=250000 +ellps=WGS84 +units=m +no_defs +type=crs`
+> `+proj=lcc +lat_1=16.63333333 +lat_0=16.63333333 +lon_0=103.61666667 +k_0=1.000010 +x_0=750000 +y_0=250000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (16.639864923, 103.685787417) | P2 | (16.648901168, 103.685787417) |
 |:---|:---|:---|:---|
 | MSL | 198 | HAE | 171 |
-| P1_LDP | (757374.367, 252568.538) | P2_LDP | (757374.022, 253568.549) |
-| P1_LDP_CSF | -16.0 ppm | P2_LDP_CSF | -17.6 ppm |
+| P1_LDP | (757374.367, 250724.101) | P2_LDP | (757374.021, 251724.111) |
+| P1_LDP_CSF | -16.1 ppm | P2_LDP_CSF | -17.8 ppm |
 | P1_U48_CSF | -183.1 ppm | P2_U48_CSF | -184.9 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
@@ -519,39 +519,57 @@ This report provides a comparative analysis of distances calculated across vario
 
 ---
 
+### <a id="-thmh_c--wkt---proj4"></a>🧭 Mae Hong Son Central <span style="float: right;">📄 [WKT](https://github.com/phisan-chula/2026-EIT_TH_LDP/blob/main/src/OUTPUT_LDP/TH_MH_C/TH_MH_C_LDP_CRS.WKT) &emsp; 🌐 [PROJ4](https://github.com/phisan-chula/2026-EIT_TH_LDP/blob/main/src/OUTPUT_LDP/TH_MH_C/TH_MH_C_LDP_CRS.PJ4)</span>
+
+> **TH.MH_C LDP :**
+> `+proj=tmerc +lat_0=0.0 +lon_0=97.96666667 +k_0=1.000042 +x_0=50000 +y_0=-1600000 +ellps=WGS84 +units=m +no_defs +type=crs`
+
+| P1 | (18.955200196, 97.941795391) | P2 | (18.964234306, 97.941795391) |
+|:---|:---|:---|:---|
+| MSL | 493 | HAE | 453 |
+| P1_LDP | (47380.443, 496797.394) | P2_LDP | (47380.584, 497797.437) |
+| P1_LDP_CSF | -35.7 ppm ❗ | P2_LDP_CSF | -22.5 ppm ❗ |
+| P1_U47_CSF | -324.3 ppm | P2_U47_CSF | -311.1 ppm |
+
+| ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| -0.071 | *0.000 | -0.318 | -0.071 | -0.000 | -0.029 |
+
+---
+
 ### <a id="-thmh_n--wkt---proj4"></a>🧭 Mae Hong Son North <span style="float: right;">📄 [WKT](https://github.com/phisan-chula/2026-EIT_TH_LDP/blob/main/src/OUTPUT_LDP/TH_MH_N/TH_MH_N_LDP_CRS.WKT) &emsp; 🌐 [PROJ4](https://github.com/phisan-chula/2026-EIT_TH_LDP/blob/main/src/OUTPUT_LDP/TH_MH_N/TH_MH_N_LDP_CRS.PJ4)</span>
 
 > **TH.MH_N LDP :**
-> `+proj=tmerc +lat_0=0.0 +lon_0=98.15000000 +k_0=1.000041 +x_0=500000 +y_0=-1600000 +ellps=WGS84 +units=m +no_defs +type=crs`
+> `+proj=tmerc +lat_0=0.0 +lon_0=98.35000000 +k_0=1.000088 +x_0=50000 +y_0=-1900000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (19.299814291, 97.967296424) | P2 | (19.308848063, 97.967296424) |
 |:---|:---|:---|:---|
 | MSL | 254 | HAE | 213 |
-| P1_LDP | (480796.676, 534953.372) | P2_LDP | (480797.731, 535953.417) |
-| P1_LDP_CSF | +12.0 ppm | P2_LDP_CSF | +12.1 ppm |
+| P1_LDP | (9773.315, 235087.994) | P2_LDP | (9775.523, 236088.099) |
+| P1_LDP_CSF | +74.4 ppm ❗ | P2_LDP_CSF | +74.5 ppm ❗ |
 | P1_U47_CSF | -288.1 ppm | P2_U47_CSF | -288.0 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
-| -0.034 | *0.000 | -0.288 | -0.034 | -0.000 | +0.012 |
+| -0.034 | *0.000 | -0.288 | -0.034 | -0.000 | +0.074 |
 
 ---
 
 ### <a id="-thmh_s--wkt---proj4"></a>🧭 Mae Hong Son South <span style="float: right;">📄 [WKT](https://github.com/phisan-chula/2026-EIT_TH_LDP/blob/main/src/OUTPUT_LDP/TH_MH_S/TH_MH_S_LDP_CRS.WKT) &emsp; 🌐 [PROJ4](https://github.com/phisan-chula/2026-EIT_TH_LDP/blob/main/src/OUTPUT_LDP/TH_MH_S/TH_MH_S_LDP_CRS.PJ4)</span>
 
 > **TH.MH_S LDP :**
-> `+proj=tmerc +lat_0=0.0 +lon_0=97.88333333 +k_0=1.000038 +x_0=260000 +y_0=-1250000 +ellps=WGS84 +units=m +no_defs +type=crs`
+> `+proj=tmerc +lat_0=0.0 +lon_0=97.85000000 +k_0=1.000036 +x_0=50000 +y_0=-1500000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
-| P1 | (18.153975488, 97.919078600) | P2 | (18.163010364, 97.919078600) |
+| P1 | (18.114301682, 97.930188196) | P2 | (18.123336595, 97.930188196) |
 |:---|:---|:---|:---|
-| MSL | 208 | HAE | 167 |
-| P1_LDP | (263782.447, 758100.810) | P2_LDP | (263782.253, 759100.848) |
-| P1_LDP_CSF | +12.7 ppm | P2_LDP_CSF | +11.0 ppm |
-| P1_U47_CSF | -263.9 ppm | P2_U47_CSF | -265.5 ppm |
+| MSL | 194 | HAE | 154 |
+| P1_LDP | (58487.149, 503706.941) | P2_LDP | (58486.714, 504706.978) |
+| P1_LDP_CSF | +13.0 ppm | P2_LDP_CSF | +12.4 ppm |
+| P1_U47_CSF | -265.5 ppm | P2_U47_CSF | -266.1 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
-| -0.026 | *0.000 | -0.265 | -0.026 | -0.000 | +0.012 |
+| -0.024 | *0.000 | -0.266 | -0.024 | -0.000 | +0.013 |
 
 ---
 
@@ -1332,12 +1350,12 @@ This report provides a comparative analysis of distances calculated across vario
 ### <a id="-thst_s--wkt---proj4"></a>🧭 Surat Thani South <span style="float: right;">📄 [WKT](https://github.com/phisan-chula/2026-EIT_TH_LDP/blob/main/src/OUTPUT_LDP/TH_ST_S/TH_ST_S_LDP_CRS.WKT) &emsp; 🌐 [PROJ4](https://github.com/phisan-chula/2026-EIT_TH_LDP/blob/main/src/OUTPUT_LDP/TH_ST_S/TH_ST_S_LDP_CRS.PJ4)</span>
 
 > **TH.ST_S LDP :**
-> `+proj=tmerc +lat_0=0.0 +lon_0=99.30000000 +k_0=0.999992 +x_0=50000 +y_0=-500000 +ellps=WGS84 +units=m +no_defs +type=crs`
+> `+proj=tmerc +lat_0=0.0 +lon_0=99.30000000 +k_0=0.999992 +x_0=500000 +y_0=-500000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (9.115851252, 99.330908113) | P2 | (9.124892665, 99.330908113) |
 |:---|:---|:---|:---|
 | MSL | 3 | HAE | -20 |
-| P1_LDP | (53397.478, 508055.715) | P2_LDP | (53397.393, 509055.707) |
+| P1_LDP | (503397.478, 508055.715) | P2_LDP | (503397.393, 509055.707) |
 | P1_LDP_CSF | -4.7 ppm | P2_LDP_CSF | -4.7 ppm |
 | P1_U47_CSF | -380.5 ppm | P2_U47_CSF | -380.4 ppm |
 
@@ -1404,12 +1422,12 @@ This report provides a comparative analysis of distances calculated across vario
 ### <a id="-thtk_n--wkt---proj4"></a>🧭 Tak North <span style="float: right;">📄 [WKT](https://github.com/phisan-chula/2026-EIT_TH_LDP/blob/main/src/OUTPUT_LDP/TH_TK_N/TH_TK_N_LDP_CRS.WKT) &emsp; 🌐 [PROJ4](https://github.com/phisan-chula/2026-EIT_TH_LDP/blob/main/src/OUTPUT_LDP/TH_TK_N/TH_TK_N_LDP_CRS.PJ4)</span>
 
 > **TH.TK_N LDP :**
-> `+proj=tmerc +lat_0=0.0 +lon_0=99.00000000 +k_0=1.000010 +x_0=50000 +y_0=-1400000 +ellps=WGS84 +units=m +no_defs +type=crs`
+> `+proj=tmerc +lat_0=0.0 +lon_0=99.00000000 +k_0=1.000010 +x_0=500000 +y_0=-1400000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (17.146814348, 99.084563927) | P2 | (17.155850146, 99.084563927) |
 |:---|:---|:---|:---|
 | MSL | 130 | HAE | 93 |
-| P1_LDP | (58997.912, 496576.034) | P2_LDP | (58997.477, 497576.045) |
+| P1_LDP | (508997.912, 496576.034) | P2_LDP | (508997.477, 497576.045) |
 | P1_LDP_CSF | -3.5 ppm | P2_LDP_CSF | -3.7 ppm |
 | P1_U47_CSF | -413.5 ppm | P2_U47_CSF | -413.7 ppm |
 
@@ -1512,13 +1530,13 @@ This report provides a comparative analysis of distances calculated across vario
 ### <a id="-thun--wkt---proj4"></a>🧭 Udon Thani <span style="float: right;">📄 [WKT](https://github.com/phisan-chula/2026-EIT_TH_LDP/blob/main/src/OUTPUT_LDP/TH_UN/TH_UN_LDP_CRS.WKT) &emsp; 🌐 [PROJ4](https://github.com/phisan-chula/2026-EIT_TH_LDP/blob/main/src/OUTPUT_LDP/TH_UN/TH_UN_LDP_CRS.PJ4)</span>
 
 > **TH.UN LDP :**
-> `+proj=lcc +lat_1=17.43333333 +lat_0=17.43333333 +lon_0=102.86666667 +k_0=1.000009 +x_0=750000 +y_0=250000 +ellps=WGS84 +units=m +no_defs +type=crs`
+> `+proj=lcc +lat_1=17.41666667 +lat_0=17.41666667 +lon_0=102.86666667 +k_0=1.000009 +x_0=750000 +y_0=250000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
 | P1 | (17.441490168, 102.834075366) | P2 | (17.450525701, 102.834075366) |
 |:---|:---|:---|:---|
 | MSL | 171 | HAE | 141 |
-| P1_LDP | (746537.685, 250903.054) | P2_LDP | (746537.855, 251903.063) |
-| P1_LDP_CSF | -13.3 ppm | P2_LDP_CSF | -13.1 ppm |
+| P1_LDP | (746537.685, 252747.635) | P2_LDP | (746537.855, 253747.644) |
+| P1_LDP_CSF | -13.2 ppm | P2_LDP_CSF | -13.0 ppm |
 | P1_U48_CSF | +232.1 ppm | P2_U48_CSF | +232.1 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |

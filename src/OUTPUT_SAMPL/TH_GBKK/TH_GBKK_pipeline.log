@@ -1,6 +1,6 @@
 ======================================================================
 Processing province: TH.GBKK
-Started: 2026-08-16T11:46:14+07:00
+Started: 2026-08-19T15:57:09+07:00
 ======================================================================
 --> [TH.GBKK] Step 1: 1_fabdem_province.py
 [1/5] Read GADM and select HASC_1=TH.GBKK
@@ -24,11 +24,11 @@ TH.GBKK GreaterBKK    1.617017e+07 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT
 --> [TH.GBKK] Step 3: 3_generate_sample.py
 [1/4] Select GADM province HASC_1=TH.GBKK
  -> [READ] Loading Vector Dataset: OUTPUT_PROV/gadm41_THA.gpkg (Layer: 'ADM_ADM_1')
-[2/4] Generate 1000.0m grid points
+[2/4] Generate 500.0m grid points
  -> Auto-detected EPSG:32647 for province.
- -> Generated 5,850 bounding box points.
+ -> Generated 22,644 bounding box points.
  -> Clipping points to province boundary...
- -> Computing 7-digit Geohashes...
+ -> Computing 8-digit Geohashes...
 [3/4] Extracting Raster Values (FABDEM MSL & POP2025)...
  -> [READ] Opening Raster File: OUTPUT_FABDEM/TH_GBKK/TH_GBKK_fabdem.tif
  -> [READ] Opening Raster File for Area Sum: OUTPUT_POP2025/TH_GBKK/TH_GBKK_population_2025_100m.tif
@@ -41,7 +41,7 @@ TH.GBKK GreaterBKK    1.617017e+07 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT
 
 Completed successfully.
  HASC_1  Grid (m)       CRS  Samples             Output    POP2025 DOPA_Pop Diff
-TH.GBKK    1000.0 EPSG:4326     3134 TH_GBKK_SAMPL.gpkg 16,120,195        0    0
+TH.GBKK     500.0 EPSG:4326    12554 TH_GBKK_SAMPL.gpkg 16,152,571        0    0
 --> [TH.GBKK] Step 4: 4_analyse_ldp.py
 LDP                                               [TM, 100:36]
 FALSE_EN                                     [50000, -1380000]
@@ -49,28 +49,28 @@ PP_MSL                                                     -40
 GPKG         [OUTPUT_SAMPL/TH_GBKK/TH_GBKK_SAMPL.gpkg, samp...
 OFFSET_PP         [0.0, default hPP from average topo or pnts]
 dtype: object
- -> OUTLIER FILTER: Dropped 64 points.
- -> Dropped MSL values: [-9999, -2, 11, -1, 9, 5, 5, 5, 5, -4, 2, 2, 5, 4, 3, 3, 5, 8, 5, 5, 5, 6, 5, 4, 3, 3, 1, 3, 1, 0, 1, 0, 4, 0, 0, 3, 3, 3, 3, 3, -2, 3, 3, 1, 3, 3, 3, 7, -2, 0, 0, 0, 4, 4, 4, 11, 4, -10, 3, 3, 3, 5, 3, 3]
+ -> OUTLIER FILTER: Dropped 259 points.
+ -> Dropped MSL values: [-9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, 3, 2, 2, 4, 10, 0, 0, 0, 0, 2, 0, -2, -13, 1, 1, 1, 2, 2, 2, 0, 0, 3, 2, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 19, 4, 4, 3, 3, 3, 5, 5, 4, 5, 3, 4, 3, 5, 4, 4, 0, 3, 3, 3, 3, -2, -1, 1, 9, 5, 1, 6, 6, 6, -2, -2, 1, 1, 3, 3, 3, 3, 1, 1, 1, 1, 1, 5, 4, 6, 1, 1, 1, 6, 10, 4, 3, 3, 6, 9, 11, 6, 6, 2, 1, 2, 6, 2, 1, 4, 1, 1, 1, 1, 6, 4, 4, 4, 1, 2, 0, 0, 4, 0, 0, 6, 4, 1, 0, 1, 1, 1, 1, 1, 11, 5, 4, 4, 4, 1, 1, 5, 4, 16, 4, 1, 1, 1, 1, 1, 1, 5, 5, 4, 5, 5, 5, 5, 5, 1, 1, 5, -1, 1, 5, 1, 1, 4, -2, 3, -5, -6, -4, 3, 3, 3, 1, 4, 1, 1, 5, 4, 4, 3, 4, -3, 3, 3, 5, 3, 3, 11, 3, 0, 0, 3, 6, 0, 0, 0, -1, -2, 5, 4, 5, 4, -14, -1, 4, 0, 0, 4, 3, -4, 0, 4, -2, 0, 15, 0, 4, 0, 1, 4, 1, 4, 1, 1, 1, 1, 1, 1, 1, 4, 1, -1, -1, -10, -10, -10, 4, 0, 0, -2, 0, 0, 0, 3, 3, 2, -2, 1, 1, 1, 1, 4, 4, 4, 5, 4]
  -> Using user-defined PP_MSL: -40.000m
 ==================================== LDP TM ====================================
 @ Centroid @     <lng=100°36′>    <lat=13°45′>
 Offset Projection Plane = +0.0 m. <default hPP from average topo or pnts>
 Designed Project Plane : hPP=-70.22 m. / MSL=-40.00 m. tied to k0 = 0.999989
-Points CSF min/mean/max [ppm] : -7.3 / -1.9 / +12.3
-Points MSL min/mean/max [m.]  : +0.0 / +1.6 / +7.0
+Points CSF min/mean/max [ppm] : -7.5 / -1.9 / +12.1
+Points MSL min/mean/max [m.]  : +0.0 / +1.6 / +9.0
 |      |      LDP_E |       LDP_N |
 |:-----|-----------:|------------:|
-| min  | 14,196.827 | 111,841.414 |
-| max  | 88,929.085 | 182,248.870 |
-| diff | 74,732.258 |  70,407.456 |
+| min  | 14,132.785 | 111,341.473 |
+| max  | 88,925.791 | 183,242.190 |
+| diff | 74,793.006 |  71,900.717 |
 {"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=0.0 +lon_0=100.60000000 +k_0=0.999989 +x_0=50000 +y_0=-1380000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=0.0 +lon_0=100°36′ +k_0=0.999989 +x_0=50000 +y_0=-1380000 +ellps=WGS84 +units=m +no_defs +type=crs"}
 Writing definition GPKG : OUTPUT_LDP/TH_GBKK/TH_GBKK_LDP.gpkg ...
  -> THINNING: Snapping points to 2 decimal grid for visualization...
- -> THINNING: Plot points reduced from 3070 to 2576.
+ -> THINNING: Plot points reduced from 12295 to 2718.
 Writing definition plot : OUTPUT_LDP/TH_GBKK/TH_GBKK_LDP.svg...
-{"meta": "Coverage_Analysis", "Province": "TH.GBKK", "Total_Pts": 3134, "Valid_Pts": 3070, "Pt_Coverage(%)": 97.96, "Total_POP": 16120194.812700002, "Valid_POP": 15903620.7942, "POP_Coverage(%)": 98.66, "CSF_Lower_ppm": -7.3, "CSF_Mean_ppm": -1.9, "CSF_Upper_ppm": 12.3}
+{"meta": "Coverage_Analysis", "Province": "TH.GBKK", "Total_Pts": 12554, "Valid_Pts": 12295, "Pt_Coverage(%)": 97.94, "Total_POP": 16152571.3162, "Valid_POP": 15865493.8016, "POP_Coverage(%)": 98.22, "CSF_Lower_ppm": -7.5, "CSF_Mean_ppm": -1.9, "CSF_Upper_ppm": 12.1}
 --> [TH.GBKK] Step 5: 5_plot_PP_PctPopu.py
-[TH.GBKK] Starting ProcessPoolExecutor with 16 offsets to compute (Mean MSL: 1.58 m)...
+[TH.GBKK] Starting ProcessPoolExecutor with 16 offsets to compute (Mean MSL: 1.61 m)...
 [TH.GBKK] OFFSET_PP [-200.00] computed successfully.
 [TH.GBKK] OFFSET_PP [-180.00] computed successfully.
 [TH.GBKK] OFFSET_PP [-160.00] computed successfully.
@@ -91,22 +91,22 @@ Writing definition plot : OUTPUT_LDP/TH_GBKK/TH_GBKK_LDP.svg...
 ==================================== LDP Population Coverage Analysis: TH.GBKK ====================================
 |   MSL_PP |   HAE_PP | Province   |   Total_Pts |   Valid_Pts |   Pt_Coverage(%) |   Total_POP |   Valid_POP |   POP_Coverage(%) |   CSF_Lower_ppm |   CSF_Mean_ppm |   CSF_Upper_ppm |
 |---------:|---------:|:-----------|------------:|------------:|-----------------:|------------:|------------:|------------------:|----------------:|---------------:|----------------:|
-|  -198.42 |  -228.63 | TH.GBKK    |        3134 |         267 |             8.52 |  16,120,195 |      94,710 |              0.59 |           -19.8 |          -18.1 |           -12.7 |
-|  -178.42 |  -208.63 | TH.GBKK    |        3134 |         625 |            19.94 |  16,120,195 |     568,517 |              3.53 |           -20.0 |          -17.1 |            -9.7 |
-|  -158.42 |  -188.63 | TH.GBKK    |        3134 |        1087 |            34.68 |  16,120,195 |   2,040,192 |             12.66 |           -20.0 |          -16.0 |            -6.7 |
-|  -138.42 |  -168.63 | TH.GBKK    |        3134 |        1757 |            56.06 |  16,120,195 |   4,816,373 |             29.88 |           -20.0 |          -15.1 |            -3.7 |
-|  -118.42 |  -148.63 | TH.GBKK    |        3134 |        3070 |            97.96 |  16,120,195 |  15,903,621 |             98.66 |           -19.3 |          -13.9 |            +0.3 |
-|   -98.42 |  -128.63 | TH.GBKK    |        3134 |        3070 |            97.96 |  16,120,195 |  15,903,621 |             98.66 |           -16.3 |          -10.9 |            +3.3 |
-|   -78.42 |  -108.63 | TH.GBKK    |        3134 |        3070 |            97.96 |  16,120,195 |  15,903,621 |             98.66 |           -13.3 |           -7.9 |            +6.3 |
-|   -58.42 |   -88.63 | TH.GBKK    |        3134 |        3070 |            97.96 |  16,120,195 |  15,903,621 |             98.66 |           -10.3 |           -4.9 |            +9.3 |
-|   -38.42 |   -68.63 | TH.GBKK    |        3134 |        3070 |            97.96 |  16,120,195 |  15,903,621 |             98.66 |            -7.3 |           -1.9 |           +12.3 |
-|   -18.42 |   -48.63 | TH.GBKK    |        3134 |        3070 |            97.96 |  16,120,195 |  15,903,621 |             98.66 |            -4.3 |           +1.1 |           +15.3 |
-|    +1.58 |   -28.63 | TH.GBKK    |        3134 |        3070 |            97.96 |  16,120,195 |  15,903,621 |             98.66 |            -1.3 |           +4.1 |           +18.3 |
-|   +21.58 |    -8.63 | TH.GBKK    |        3134 |        3058 |            97.57 |  16,120,195 |  15,901,118 |             98.64 |            +2.7 |           +8.0 |           +19.5 |
-|   +41.58 |   +11.37 | TH.GBKK    |        3134 |        2976 |            94.96 |  16,120,195 |  15,877,567 |             98.49 |            +5.7 |          +10.8 |           +20.0 |
-|   +61.58 |   +31.37 | TH.GBKK    |        3134 |        2714 |            86.60 |  16,120,195 |  15,761,197 |             97.77 |            +8.7 |          +13.0 |           +20.0 |
-|   +81.58 |   +51.37 | TH.GBKK    |        3134 |        2293 |            73.17 |  16,120,195 |  14,994,143 |             93.01 |           +11.7 |          +15.0 |           +19.9 |
-|  +101.58 |   +71.37 | TH.GBKK    |        3134 |        1793 |            57.21 |  16,120,195 |  13,044,583 |             80.92 |           +14.7 |          +17.0 |           +20.0 |
+|  -198.39 |  -228.61 | TH.GBKK    |       12554 |        1061 |             8.45 |  16,152,571 |      98,347 |              0.61 |           -20.0 |          -18.1 |           -12.9 |
+|  -178.39 |  -208.61 | TH.GBKK    |       12554 |        2553 |            20.34 |  16,152,571 |     594,324 |              3.68 |           -20.0 |          -17.1 |            -9.9 |
+|  -158.39 |  -188.61 | TH.GBKK    |       12554 |        4399 |            35.04 |  16,152,571 |   2,040,971 |             12.64 |           -20.0 |          -16.0 |            -6.9 |
+|  -138.39 |  -168.61 | TH.GBKK    |       12554 |        7087 |            56.45 |  16,152,571 |   4,824,731 |             29.87 |           -20.0 |          -15.1 |            -3.9 |
+|  -118.39 |  -148.61 | TH.GBKK    |       12554 |       12295 |            97.94 |  16,152,571 |  15,865,494 |             98.22 |           -19.5 |          -13.9 |            +0.1 |
+|   -98.39 |  -128.61 | TH.GBKK    |       12554 |       12295 |            97.94 |  16,152,571 |  15,865,494 |             98.22 |           -16.5 |          -10.9 |            +3.1 |
+|   -78.39 |  -108.61 | TH.GBKK    |       12554 |       12295 |            97.94 |  16,152,571 |  15,865,494 |             98.22 |           -13.5 |           -7.9 |            +6.1 |
+|   -58.39 |   -88.61 | TH.GBKK    |       12554 |       12295 |            97.94 |  16,152,571 |  15,865,494 |             98.22 |           -10.5 |           -4.9 |            +9.1 |
+|   -38.39 |   -68.61 | TH.GBKK    |       12554 |       12295 |            97.94 |  16,152,571 |  15,865,494 |             98.22 |            -7.5 |           -1.9 |           +12.1 |
+|   -18.39 |   -48.61 | TH.GBKK    |       12554 |       12295 |            97.94 |  16,152,571 |  15,865,494 |             98.22 |            -4.5 |           +1.1 |           +15.1 |
+|    +1.61 |   -28.61 | TH.GBKK    |       12554 |       12295 |            97.94 |  16,152,571 |  15,865,494 |             98.22 |            -0.5 |           +5.1 |           +19.1 |
+|   +21.61 |    -8.61 | TH.GBKK    |       12554 |       12258 |            97.64 |  16,152,571 |  15,863,403 |             98.21 |            +2.5 |           +8.1 |           +19.8 |
+|   +41.61 |   +11.39 | TH.GBKK    |       12554 |       11889 |            94.70 |  16,152,571 |  15,833,519 |             98.02 |            +5.5 |          +10.7 |           +20.0 |
+|   +61.61 |   +31.39 | TH.GBKK    |       12554 |       10805 |            86.07 |  16,152,571 |  15,709,469 |             97.26 |            +8.5 |          +13.0 |           +20.0 |
+|   +81.61 |   +51.39 | TH.GBKK    |       12554 |        9211 |            73.37 |  16,152,571 |  14,967,416 |             92.66 |           +11.5 |          +15.0 |           +20.0 |
+|  +101.61 |   +71.39 | TH.GBKK    |       12554 |        7113 |            56.66 |  16,152,571 |  12,947,405 |             80.16 |           +14.5 |          +17.0 |           +20.0 |
 ==========================================================================================================================
 
  -> Plot saved successfully to: OUTPUT_LDP/TH_GBKK/TH_GBKK_Plot_PP_Popu.svg
@@ -116,5 +116,5 @@ Processing province: TH_GBKK
 [+] TH_GBKK: One-Page Report generated successfully.
 ======================================================================
 Completed province: TH.GBKK
-Finished: 2026-08-16T11:47:45+07:00
+Finished: 2026-08-19T16:00:08+07:00
 ======================================================================

@@ -1,6 +1,6 @@
 ======================================================================
 Processing province: TH.SA
-Started: 2026-08-16T12:03:29+07:00
+Started: 2026-08-19T16:45:51+07:00
 ======================================================================
 --> [TH.SA] Step 1: 1_fabdem_province.py
 [1/5] Read GADM and select HASC_1=TH.SA
@@ -24,11 +24,11 @@ HASC_1 NAME_1  population_sum                                                   
 --> [TH.SA] Step 3: 3_generate_sample.py
 [1/4] Select GADM province HASC_1=TH.SA
  -> [READ] Loading Vector Dataset: OUTPUT_PROV/gadm41_THA.gpkg (Layer: 'ADM_ADM_1')
-[2/4] Generate 1000.0m grid points
+[2/4] Generate 500.0m grid points
  -> Auto-detected EPSG:32647 for province.
- -> Generated 5,084 bounding box points.
+ -> Generated 19,926 bounding box points.
  -> Clipping points to province boundary...
- -> Computing 7-digit Geohashes...
+ -> Computing 8-digit Geohashes...
 [3/4] Extracting Raster Values (FABDEM MSL & POP2025)...
  -> [READ] Opening Raster File: OUTPUT_FABDEM/TH_SA/TH_SA_fabdem.tif
  -> [READ] Opening Raster File for Area Sum: OUTPUT_POP2025/TH_SA/TH_SA_population_2025_100m.tif
@@ -40,7 +40,7 @@ HASC_1 NAME_1  population_sum                                                   
 
 Completed successfully.
 HASC_1  Grid (m)       CRS  Samples           Output POP2025 DOPA_Pop    Diff
- TH.SA    1000.0 EPSG:4326     2433 TH_SA_SAMPL.gpkg 274,354  324,560 -50,206
+ TH.SA     500.0 EPSG:4326     9763 TH_SA_SAMPL.gpkg 275,713  324,560 -48,847
 --> [TH.SA] Step 4: 4_analyse_ldp.py
 LDP                                             [TM, 99:58]
 FALSE_EN                                   [50000, -600000]
@@ -48,28 +48,28 @@ PP_MSL                                                   40
 GPKG         [OUTPUT_SAMPL/TH_SA/TH_SA_SAMPL.gpkg, samples]
 OFFSET_PP      [0.0, default hPP from average topo or pnts]
 dtype: object
- -> OUTLIER FILTER: Dropped 50 points.
- -> Dropped MSL values: [-9999, 16, 5, 77, 318, 80, 76, 83, 78, 74, 315, 82, 57, 55, 59, 42, 63, 69, 34, 46, 77, 90, 63, 44, 123, 143, 130, 49, 116, 64, 67, 202, 41, 52, 52, 84, 246, 164, 58, 203, 105, 110, 99, 274, 58, 272, 609, 613, 569, 630]
+ -> OUTLIER FILTER: Dropped 206 points.
+ -> Dropped MSL values: [-9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, 36, 43, 30, 49, 53, 225, 246, 21, 42, 37, 32, 43, 49, 32, 164, 58, 41, 30, 108, 21, 108, 62, 33, 23, 30, 40, 28, 176, 24, 59, 203, 53, 20, 20, 176, 202, 65, 52, 35, 52, 29, 187, 30, 61, 28, 25, 252, 65, 48, 66, 18, 45, 42, 293, 65, 59, 58, 41, 27, 126, 66, 69, 55, 62, 68, 272, 90, 68, 69, 341, 58, 56, 88, 396, 239, 79, 77, 1, 13, 24, 39, 33, 409, 18, 31, 30, 39, 452, 39, 11, 17, 27, 27, 28, 24, 26, 29, 18, 500, 453, 46, 15, 44, 127, 34, 126, 97, 70, 171, 57, 140, 101, 85, 91, 154, 78, 75, 68, 726, 40, 35, 28, 21, 31, 50, 44, 34, 281, 46, 54, 27, 34, 84, 131, 30, 77, 120, 87, 121, 170, 153, 63, 39, 47, 35, 306, 320, 41, 77, 55, 342, 40, 79, 318, 54, 627, 62, 106, 344, 366, 55, 53, 56, 40, 78, 51, 73, 69, 60, 47, 321, 355, 61, 64, 56, 59, 84, 60, 65, 361, 349, 443, 425, 86, 409, 602, 415, 120, 715, 409, 638, 585, 630, 663, 597, 259]
  -> Using user-defined PP_MSL: 40.000m
 ==================================== LDP TM ====================================
 @ Centroid @     <lng=99°58′>    <lat=06°51′>
 Offset Projection Plane = +0.0 m. <default hPP from average topo or pnts>
-Designed Project Plane : hPP=+23.95 m. / MSL=+40.00 m. tied to k0 = 1.000004
-Points CSF min/mean/max [ppm] : -96.1 / -4.5 / +18.9
-Points MSL min/mean/max [m.]  : +0.0 / +87.4 / +701.0
+Designed Project Plane : hPP=+23.94 m. / MSL=+40.00 m. tied to k0 = 1.000004
+Points CSF min/mean/max [ppm] : -97.5 / -4.6 / +19.3
+Points MSL min/mean/max [m.]  : +0.0 / +88.1 / +708.0
 |      |      LDP_E |       LDP_N |
 |:-----|-----------:|------------:|
-| min  | 18,212.283 | 110,153.754 |
-| max  | 77,205.619 | 188,258.515 |
-| diff | 58,993.336 |  78,104.761 |
+| min  | 17,714.164 | 110,153.754 |
+| max  | 77,704.702 | 188,259.562 |
+| diff | 59,990.538 |  78,105.808 |
 {"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=0.0 +lon_0=99.96666667 +k_0=1.000004 +x_0=50000 +y_0=-600000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=0.0 +lon_0=99°58′ +k_0=1.000004 +x_0=50000 +y_0=-600000 +ellps=WGS84 +units=m +no_defs +type=crs"}
 Writing definition GPKG : OUTPUT_LDP/TH_SA/TH_SA_LDP.gpkg ...
  -> THINNING: Snapping points to 2 decimal grid for visualization...
- -> THINNING: Plot points reduced from 2383 to 1968.
+ -> THINNING: Plot points reduced from 9557 to 2099.
 Writing definition plot : OUTPUT_LDP/TH_SA/TH_SA_LDP.svg...
-{"meta": "Coverage_Analysis", "Province": "TH.SA", "Total_Pts": 2433, "Valid_Pts": 2008, "Pt_Coverage(%)": 82.53, "Total_POP": 274353.50950000004, "Valid_POP": 272043.1035, "POP_Coverage(%)": 99.16, "CSF_Lower_ppm": -20.0, "CSF_Mean_ppm": 3.0, "CSF_Upper_ppm": 18.9}
+{"meta": "Coverage_Analysis", "Province": "TH.SA", "Total_Pts": 9763, "Valid_Pts": 7994, "Pt_Coverage(%)": 81.88, "Total_POP": 275713.0986, "Valid_POP": 272376.9475, "POP_Coverage(%)": 98.79, "CSF_Lower_ppm": -20.0, "CSF_Mean_ppm": 3.0, "CSF_Upper_ppm": 19.3}
 --> [TH.SA] Step 5: 5_plot_PP_PctPopu.py
-[TH.SA] Starting ProcessPoolExecutor with 16 offsets to compute (Mean MSL: 87.41 m)...
+[TH.SA] Starting ProcessPoolExecutor with 16 offsets to compute (Mean MSL: 88.10 m)...
 [TH.SA] OFFSET_PP [-200.00] computed successfully.
 [TH.SA] OFFSET_PP [-180.00] computed successfully.
 [TH.SA] OFFSET_PP [-160.00] computed successfully.
@@ -90,22 +90,22 @@ Writing definition plot : OUTPUT_LDP/TH_SA/TH_SA_LDP.svg...
 ==================================== LDP Population Coverage Analysis: TH.SA ====================================
 |   MSL_PP |   HAE_PP | Province   |   Total_Pts |   Valid_Pts |   Pt_Coverage(%) |   Total_POP |   Valid_POP |   POP_Coverage(%) |   CSF_Lower_ppm |   CSF_Mean_ppm |   CSF_Upper_ppm |
 |---------:|---------:|:-----------|------------:|------------:|-----------------:|------------:|------------:|------------------:|----------------:|---------------:|----------------:|
-|  -112.59 |  -128.64 | TH.SA      |        2433 |        1028 |            42.25 |     274,354 |     198,923 |             72.51 |           -20.0 |          -15.7 |            -5.1 |
-|   -92.59 |  -108.64 | TH.SA      |        2433 |        1458 |            59.93 |     274,354 |     250,049 |             91.14 |           -20.0 |          -14.3 |            -2.1 |
-|   -72.59 |   -88.64 | TH.SA      |        2433 |        1613 |            66.30 |     274,354 |     260,602 |             94.99 |           -20.0 |          -12.0 |            +0.9 |
-|   -52.59 |   -68.64 | TH.SA      |        2433 |        1716 |            70.53 |     274,354 |     265,718 |             96.85 |           -20.0 |           -9.6 |            +3.9 |
-|   -32.59 |   -48.64 | TH.SA      |        2433 |        1792 |            73.65 |     274,354 |     268,570 |             97.89 |           -20.0 |           -7.1 |            +6.9 |
-|   -12.59 |   -28.64 | TH.SA      |        2433 |        1854 |            76.20 |     274,354 |     269,977 |             98.40 |           -20.0 |           -4.6 |            +9.9 |
-|    +7.41 |    -8.64 | TH.SA      |        2433 |        1944 |            79.90 |     274,354 |     271,556 |             98.98 |           -20.0 |           -1.4 |           +13.9 |
-|   +27.41 |   +11.36 | TH.SA      |        2433 |        1984 |            81.55 |     274,354 |     271,889 |             99.10 |           -20.0 |           +1.2 |           +16.9 |
-|   +47.41 |   +31.36 | TH.SA      |        2433 |        2026 |            83.27 |     274,354 |     272,315 |             99.26 |           -20.0 |           +3.8 |           +19.9 |
-|   +67.41 |   +51.36 | TH.SA      |        2433 |        1994 |            81.96 |     274,354 |     265,527 |             96.78 |           -19.9 |           +5.9 |           +19.9 |
-|   +87.41 |   +71.36 | TH.SA      |        2433 |        1935 |            79.53 |     274,354 |     255,823 |             93.25 |           -20.0 |           +7.9 |           +19.9 |
-|  +107.41 |   +91.36 | TH.SA      |        2433 |        1863 |            76.57 |     274,354 |     221,147 |             80.61 |           -19.9 |          +10.0 |           +20.0 |
-|  +127.41 |  +111.36 | TH.SA      |        2433 |        1465 |            60.21 |     274,354 |     130,448 |             47.55 |           -19.7 |          +11.2 |           +20.0 |
-|  +147.41 |  +131.36 | TH.SA      |        2433 |         945 |            38.84 |     274,354 |      50,972 |             18.58 |           -19.9 |           +9.3 |           +20.0 |
-|  +167.41 |  +151.36 | TH.SA      |        2433 |         660 |            27.13 |     274,354 |      19,300 |              7.03 |           -19.9 |           +6.5 |           +20.0 |
-|  +187.41 |  +171.36 | TH.SA      |        2433 |         570 |            23.43 |     274,354 |      10,957 |              3.99 |           -19.9 |           +5.5 |           +20.0 |
+|  -111.90 |  -127.96 | TH.SA      |        9763 |        4116 |            42.16 |     275,713 |     202,202 |             73.34 |           -20.0 |          -15.7 |            -4.7 |
+|   -91.90 |  -107.96 | TH.SA      |        9763 |        5816 |            59.57 |     275,713 |     252,136 |             91.45 |           -20.0 |          -14.3 |            -1.7 |
+|   -71.90 |   -87.96 | TH.SA      |        9763 |        6454 |            66.11 |     275,713 |     262,609 |             95.25 |           -20.0 |          -12.0 |            +1.3 |
+|   -51.90 |   -67.96 | TH.SA      |        9763 |        6849 |            70.15 |     275,713 |     267,706 |             97.10 |           -20.0 |           -9.6 |            +4.3 |
+|   -31.90 |   -47.96 | TH.SA      |        9763 |        7166 |            73.40 |     275,713 |     270,221 |             98.01 |           -20.0 |           -7.1 |            +7.3 |
+|   -11.90 |   -27.96 | TH.SA      |        9763 |        7480 |            76.62 |     275,713 |     271,470 |             98.46 |           -20.0 |           -3.7 |           +11.3 |
+|    +8.10 |    -7.96 | TH.SA      |        9763 |        7719 |            79.06 |     275,713 |     272,102 |             98.69 |           -20.0 |           -1.3 |           +14.3 |
+|   +28.10 |   +12.04 | TH.SA      |        9763 |        7892 |            80.84 |     275,713 |     272,282 |             98.76 |           -20.0 |           +1.3 |           +17.3 |
+|   +48.10 |   +32.04 | TH.SA      |        9763 |        8066 |            82.62 |     275,713 |     272,165 |             98.71 |           -20.0 |           +3.8 |           +19.9 |
+|   +68.10 |   +52.04 | TH.SA      |        9763 |        7991 |            81.85 |     275,713 |     265,173 |             96.18 |           -20.0 |           +5.9 |           +20.0 |
+|   +88.10 |   +72.04 | TH.SA      |        9763 |        7750 |            79.38 |     275,713 |     255,422 |             92.64 |           -20.0 |           +7.8 |           +19.9 |
+|  +108.10 |   +92.04 | TH.SA      |        9763 |        7482 |            76.64 |     275,713 |     222,547 |             80.72 |           -20.0 |           +9.8 |           +20.0 |
+|  +128.10 |  +112.04 | TH.SA      |        9763 |        5900 |            60.43 |     275,713 |     128,938 |             46.77 |           -19.9 |          +10.8 |           +20.0 |
+|  +148.10 |  +132.04 | TH.SA      |        9763 |        3913 |            40.08 |     275,713 |      48,467 |             17.58 |           -19.9 |           +9.0 |           +20.0 |
+|  +168.10 |  +152.04 | TH.SA      |        9763 |        2686 |            27.51 |     275,713 |      15,931 |              5.78 |           -20.0 |           +6.1 |           +20.0 |
+|  +188.10 |  +172.04 | TH.SA      |        9763 |        2291 |            23.47 |     275,713 |       8,046 |              2.92 |           -20.0 |           +5.2 |           +20.0 |
 ==========================================================================================================================
 
  -> Plot saved successfully to: OUTPUT_LDP/TH_SA/TH_SA_Plot_PP_Popu.svg
@@ -115,5 +115,5 @@ Processing province: TH_SA
 [+] TH_SA: One-Page Report generated successfully.
 ======================================================================
 Completed province: TH.SA
-Finished: 2026-08-16T12:06:16+07:00
+Finished: 2026-08-19T16:53:09+07:00
 ======================================================================

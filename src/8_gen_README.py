@@ -155,14 +155,13 @@ def format_coverage_link(row) -> str:
 def format_hasc_anchor(row) -> str:
     """Creates a GitHub anchor link pointing to the QAQC Test Line section."""
     hasc = row['HASC_1']
-    name = row['NAME_1']
     
-    if pd.isna(hasc) or pd.isna(name):
+    if pd.isna(hasc):
         return str(hasc)
         
-    name_clean = str(name).lower().replace(' ', '-')
+    # Generate strict HASC_1 bookmark slug
     hasc_clean = str(hasc).lower().replace('.', '')
-    slug = f"-province-{name_clean}-{hasc_clean}"
+    slug = f"-{hasc_clean}--wkt---proj4"
     
     url = f"https://github.com/phisan-chula/2026-EIT_TH_LDP/tree/main/src/OUTPUT_LDP#{slug}"
     return f"<a href='{url}' target='_blank'>{hasc}</a>"
@@ -212,7 +211,7 @@ def export_summary_files(df: pd.DataFrame, csv_path: Path, readme_path: Path) ->
 
 ---
 
-## Provincial LDP: Aggregate Population Coverage Within the ±20 ppm Limit
+## TH-LDP: Population Coverage Within the ±20 ppm Limit
 
 *(Table is sorted by population coverage. Performance indicators: 🟢 80-100%, 🟡 70-80%, 🔴 <70%)*
 

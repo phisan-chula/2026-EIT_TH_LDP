@@ -1,6 +1,6 @@
 ======================================================================
 Processing province: TH.MH_S
-Started: 2026-08-16T11:53:08+07:00
+Started: 2026-08-19T16:20:37+07:00
 ======================================================================
 --> [TH.MH_S] Step 1: 1_fabdem_province.py
 [1/5] Read GADM and select HASC_1=TH.MH_S
@@ -11,7 +11,7 @@ Started: 2026-08-16T11:53:08+07:00
 
 Completed successfully.
  HASC_1             NAME_1  contours                                                                                      PDF
-TH.MH_S Mae Hong Son South      4432 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_MH_S/TH_MH_S_fabdem_contours.pdf
+TH.MH_S Mae Hong Son South      3197 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_MH_S/TH_MH_S_fabdem_contours.pdf
 --> [TH.MH_S] Step 2: 2_popu2025_grid.py
 [1/4] Select GADM province HASC_1=TH.MH_S
 [2/4] Save boundary and cut population grid
@@ -20,15 +20,15 @@ TH.MH_S Mae Hong Son South      4432 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTP
 
 Completed successfully.
  HASC_1             NAME_1  population_sum                                                                                           grid
-TH.MH_S Mae Hong Son South    88752.873943 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_MH_S/TH_MH_S_population_2025_100m.tif
+TH.MH_S Mae Hong Son South    63668.586222 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_MH_S/TH_MH_S_population_2025_100m.tif
 --> [TH.MH_S] Step 3: 3_generate_sample.py
 [1/4] Select GADM province HASC_1=TH.MH_S
  -> [READ] Loading Vector Dataset: OUTPUT_PROV/gadm41_THA.gpkg (Layer: 'ADM_ADM_1')
-[2/4] Generate 1000.0m grid points
+[2/4] Generate 500.0m grid points
  -> Auto-detected EPSG:32647 for province.
- -> Generated 11,716 bounding box points.
+ -> Generated 43,215 bounding box points.
  -> Clipping points to province boundary...
- -> Computing 7-digit Geohashes...
+ -> Computing 8-digit Geohashes...
 [3/4] Extracting Raster Values (FABDEM MSL & POP2025)...
  -> [READ] Opening Raster File: OUTPUT_FABDEM/TH_MH_S/TH_MH_S_fabdem.tif
  -> [READ] Opening Raster File for Area Sum: OUTPUT_POP2025/TH_MH_S/TH_MH_S_population_2025_100m.tif
@@ -40,98 +40,99 @@ TH.MH_S Mae Hong Son South    88752.873943 /mnt/nvme1/Project/2026-EIT_TH_LDP/sr
 
 Completed successfully.
  HASC_1  Grid (m)       CRS  Samples             Output POP2025 DOPA_Pop     Diff
-TH.MH_S    1000.0 EPSG:4326     5411 TH_MH_S_SAMPL.gpkg  87,926  288,757 -200,831
+TH.MH_S     500.0 EPSG:4326    16060 TH_MH_S_SAMPL.gpkg  63,188  288,757 -225,569
 --> [TH.MH_S] Step 4: 4_analyse_ldp.py
-LDP                                                [TM, 97:53]
-FALSE_EN                                    [260000, -1250000]
-PP_MSL                                                     280
-POPU_PLOT                                       [650, 100, 20]
+LDP                                                [TM, 97:51]
+FALSE_EN                                                  AUTO
+PP_MSL                                                     270
+POPU_PLOT                                        [600, 50, 20]
 GPKG         [OUTPUT_SAMPL/TH_MH_S/TH_MH_S_SAMPL.gpkg, samp...
 OFFSET_PP         [0.0, default hPP from average topo or pnts]
 dtype: object
- -> OUTLIER FILTER: Dropped 112 points.
- -> Dropped MSL values: [-9999, -9999, -9999, 967, 409, 405, 404, 412, 109, 98, 68, 836, 68, 878, 956, 694, 781, 773, 780, 984, 678, 662, 741, 934, 68, 675, 606, 744, 653, 847, 802, 801, 866, 87, 87, 88, 610, 88, 772, 789, 775, 624, 652, 608, 632, 208, 1000, 966, 876, 814, 894, 1103, 1039, 1056, 1083, 1011, 1052, 988, 990, 401, 1442, 1457, 1415, 1386, 1491, 1367, 1418, 1221, 514, 717, 1140, 1144, 1181, 1133, 288, 305, 1243, 1158, 1126, 1244, 1236, 1159, 784, 1171, 1045, 741, 1244, 1245, 1093, 1081, 1159, 994, 1441, 1484, 1497, 1343, 1434, 1450, 833, 725, 735, 936, 974, 1236, 1307, 1298, 1599, 1523, 1590, 1630, 1449, 1658]
- -> Using user-defined PP_MSL: 280.000m
+ -> OUTLIER FILTER: Dropped 329 points.
+ -> Dropped MSL values: [-9999, -9999, -9999, -9999, -9999, -9999, -9999, 59, 397, 354, 377, 361, 986, 984, 1049, 977, 990, 166, 869, 849, 217, 290, 322, 333, 731, 280, 1052, 988, 1042, 1016, 719, 785, 772, 992, 1010, 990, 987, 772, 790, 224, 888, 135, 927, 981, 201, 218, 1049, 312, 924, 911, 938, 316, 709, 816, 733, 784, 769, 837, 809, 836, 325, 1243, 1216, 1244, 1209, 1236, 1310, 1251, 1212, 227, 225, 239, 587, 309, 837, 892, 878, 819, 221, 956, 984, 951, 1015, 403, 812, 813, 948, 1036, 918, 974, 963, 1113, 942, 311, 230, 820, 238, 245, 243, 225, 271, 802, 821, 992, 859, 1089, 784, 1032, 898, 823, 424, 448, 1442, 1430, 1467, 1578, 1476, 1491, 1659, 1534, 1468, 1240, 1221, 1253, 443, 467, 1203, 1175, 1108, 1109, 1170, 1133, 1181, 1185, 1017, 1016, 1016, 1244, 1223, 1225, 1093, 1102, 1245, 1194, 1077, 1163, 1156, 1098, 1081, 1159, 1063, 1075, 1071, 854, 917, 750, 1077, 1043, 746, 718, 707, 1175, 1173, 1366, 1260, 997, 1497, 1115, 1441, 1458, 1484, 1461, 1481, 1446, 1117, 833, 808, 1355, 864, 833, 860, 1179, 1350, 1361, 1434, 1421, 841, 1408, 1450, 1483, 1392, 671, 694, 220, 781, 730, 773, 745, 758, 745, 689, 678, 527, 460, 670, 656, 700, 675, 697, 744, 791, 702, 665, 576, 606, 594, 848, 947, 733, 731, 544, 612, 598, 126, 87, 862, 841, 832, 847, 617, 568, 891, 648, 677, 866, 122, 87, 120, 621, 198, 175, 191, 468, 772, 788, 482, 787, 780, 502, 789, 274, 276, 382, 180, 775, 775, 484, 731, 206, 812, 862, 796, 794, 262, 957, 797, 876, 638, 638, 668, 808, 574, 176, 289, 202, 304, 208, 424, 219, 404, 305, 780, 716, 683, 68, 741, 558, 742, 650, 669, 741, 735, 810, 876, 743, 1007, 1015, 945, 859, 934, 956, 948, 942, 998, 1066, 1031, 1093, 1013, 352, 300, 334, 1017, 981, 1045, 1000, 960, 662, 638, 362, 814, 815, 894, 956, 951, 472, 488, 1008, 1103, 1021]
+ -> Using user-defined PP_MSL: 270.000m
+ -> AUTO detected FALSE_EN: E: 50000, N: -1500000
 ==================================== LDP TM ====================================
-@ Centroid @     <lng=97°53′>    <lat=18°14′>
+@ Centroid @     <lng=97°51′>    <lat=18°09′>
 Offset Projection Plane = +0.0 m. <default hPP from average topo or pnts>
-Designed Project Plane : hPP=+239.82 m. / MSL=+280.00 m. tied to k0 = 1.000038
-Points CSF min/mean/max [ppm] : -174.3 / -47.1 / +59.8
-Points MSL min/mean/max [m.]  : +59.0 / +611.9 / +1475.0
-|      |       LDP_E |       LDP_N |
-|:-----|------------:|------------:|
-| min  | 203,821.958 | 701,631.630 |
-| max  | 302,181.324 | 814,679.008 |
-| diff |  98,359.366 | 113,047.378 |
-{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=0.0 +lon_0=97.88333333 +k_0=1.000038 +x_0=260000 +y_0=-1250000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=0.0 +lon_0=97°53′ +k_0=1.000038 +x_0=260000 +y_0=-1250000 +ellps=WGS84 +units=m +no_defs +type=crs"}
+Designed Project Plane : hPP=+229.88 m. / MSL=+270.00 m. tied to k0 = 1.000036
+Points CSF min/mean/max [ppm] : -178.6 / -43.4 / +62.9
+Points MSL min/mean/max [m.]  : +59.0 / +579.3 / +1457.0
+|      |      LDP_E |       LDP_N |
+|:-----|-----------:|------------:|
+| min  | -3,159.067 | 451,131.669 |
+| max  | 96,213.347 | 556,677.690 |
+| diff | 99,372.414 | 105,546.021 |
+{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=0.0 +lon_0=97.85000000 +k_0=1.000036 +x_0=50000 +y_0=-1500000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=0.0 +lon_0=97°51′ +k_0=1.000036 +x_0=50000 +y_0=-1500000 +ellps=WGS84 +units=m +no_defs +type=crs"}
 Writing definition GPKG : OUTPUT_LDP/TH_MH_S/TH_MH_S_LDP.gpkg ...
  -> THINNING: Snapping points to 2 decimal grid for visualization...
- -> THINNING: Plot points reduced from 5299 to 4537.
+ -> THINNING: Plot points reduced from 15731 to 3559.
 Writing definition plot : OUTPUT_LDP/TH_MH_S/TH_MH_S_LDP.svg...
-{"meta": "Coverage_Analysis", "Province": "TH.MH_S", "Total_Pts": 5411, "Valid_Pts": 1378, "Pt_Coverage(%)": 25.47, "Total_POP": 87926.35140000001, "Valid_POP": 56131.42859999999, "POP_Coverage(%)": 63.84, "CSF_Lower_ppm": -20.0, "CSF_Mean_ppm": -3.0, "CSF_Upper_ppm": 19.9}
+{"meta": "Coverage_Analysis", "Province": "TH.MH_S", "Total_Pts": 16060, "Valid_Pts": 4292, "Pt_Coverage(%)": 26.72, "Total_POP": 63187.5089, "Valid_POP": 40083.7986, "POP_Coverage(%)": 63.44, "CSF_Lower_ppm": -20.0, "CSF_Mean_ppm": -2.1, "CSF_Upper_ppm": 20.0}
 --> [TH.MH_S] Step 5: 5_plot_PP_PctPopu.py
-[TH.MH_S] POPU_PLOT found in TOML. Overriding MSL bounds: Upper=650.0, Lower=100.0, Step=20.0
-[TH.MH_S] Starting ProcessPoolExecutor with 28 offsets to compute (Mean MSL: 611.95 m)...
-[TH.MH_S] OFFSET_PP [-511.95] computed successfully.
-[TH.MH_S] OFFSET_PP [-491.95] computed successfully.
-[TH.MH_S] OFFSET_PP [-471.95] computed successfully.
-[TH.MH_S] OFFSET_PP [-451.95] computed successfully.
-[TH.MH_S] OFFSET_PP [-431.95] computed successfully.
-[TH.MH_S] OFFSET_PP [-411.95] computed successfully.
-[TH.MH_S] OFFSET_PP [-391.95] computed successfully.
-[TH.MH_S] OFFSET_PP [-371.95] computed successfully.
-[TH.MH_S] OFFSET_PP [-351.95] computed successfully.
-[TH.MH_S] OFFSET_PP [-331.95] computed successfully.
-[TH.MH_S] OFFSET_PP [-311.95] computed successfully.
-[TH.MH_S] OFFSET_PP [-291.95] computed successfully.
-[TH.MH_S] OFFSET_PP [-271.95] computed successfully.
-[TH.MH_S] OFFSET_PP [-251.95] computed successfully.
-[TH.MH_S] OFFSET_PP [-231.95] computed successfully.
-[TH.MH_S] OFFSET_PP [-211.95] computed successfully.
-[TH.MH_S] OFFSET_PP [-191.95] computed successfully.
-[TH.MH_S] OFFSET_PP [-171.95] computed successfully.
-[TH.MH_S] OFFSET_PP [-151.95] computed successfully.
-[TH.MH_S] OFFSET_PP [-131.95] computed successfully.
-[TH.MH_S] OFFSET_PP [-111.95] computed successfully.
-[TH.MH_S] OFFSET_PP [-91.95] computed successfully.
-[TH.MH_S] OFFSET_PP [-71.95] computed successfully.
-[TH.MH_S] OFFSET_PP [-51.95] computed successfully.
-[TH.MH_S] OFFSET_PP [-31.95] computed successfully.
-[TH.MH_S] OFFSET_PP [-11.95] computed successfully.
-[TH.MH_S] OFFSET_PP [8.05] computed successfully.
-[TH.MH_S] OFFSET_PP [28.05] computed successfully.
+[TH.MH_S] POPU_PLOT found in TOML. Overriding MSL bounds: Upper=600.0, Lower=50.0, Step=20.0
+[TH.MH_S] Starting ProcessPoolExecutor with 28 offsets to compute (Mean MSL: 579.25 m)...
+[TH.MH_S] OFFSET_PP [-529.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-509.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-489.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-469.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-449.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-429.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-409.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-389.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-369.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-349.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-329.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-309.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-289.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-269.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-249.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-229.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-209.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-189.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-169.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-149.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-129.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-109.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-89.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-69.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-49.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-29.25] computed successfully.
+[TH.MH_S] OFFSET_PP [-9.25] computed successfully.
+[TH.MH_S] OFFSET_PP [10.75] computed successfully.
 
 ==================================== LDP Population Coverage Analysis: TH.MH_S ====================================
 |   MSL_PP |   HAE_PP | Province   |   Total_Pts |   Valid_Pts |   Pt_Coverage(%) |   Total_POP |   Valid_POP |   POP_Coverage(%) |   CSF_Lower_ppm |   CSF_Mean_ppm |   CSF_Upper_ppm |
 |---------:|---------:|:-----------|------------:|------------:|-----------------:|------------:|------------:|------------------:|----------------:|---------------:|----------------:|
-|  +100.00 |   +59.82 | TH.MH_S    |        5411 |         407 |             7.52 |      87,926 |      28,384 |             32.28 |           -19.9 |           -8.5 |           +19.8 |
-|  +120.00 |   +79.82 | TH.MH_S    |        5411 |         516 |             9.54 |      87,926 |      34,297 |             39.01 |           -19.9 |           -8.0 |           +19.5 |
-|  +140.00 |   +99.82 | TH.MH_S    |        5411 |         615 |            11.37 |      87,926 |      38,342 |             43.61 |           -20.0 |           -7.7 |           +19.9 |
-|  +160.00 |  +119.82 | TH.MH_S    |        5411 |         711 |            13.14 |      87,926 |      42,910 |             48.80 |           -20.0 |           -7.3 |           +20.0 |
-|  +180.00 |  +139.82 | TH.MH_S    |        5411 |         809 |            14.95 |      87,926 |      44,407 |             50.50 |           -20.0 |           -6.7 |           +19.7 |
-|  +200.00 |  +159.82 | TH.MH_S    |        5411 |         916 |            16.93 |      87,926 |      47,682 |             54.23 |           -20.0 |           -6.1 |           +20.0 |
-|  +220.00 |  +179.82 | TH.MH_S    |        5411 |        1014 |            18.74 |      87,926 |      51,602 |             58.69 |           -20.0 |           -5.1 |           +19.9 |
-|  +240.00 |  +199.82 | TH.MH_S    |        5411 |        1123 |            20.75 |      87,926 |      54,063 |             61.49 |           -19.9 |           -4.5 |           +20.0 |
-|  +260.00 |  +219.82 | TH.MH_S    |        5411 |        1253 |            23.16 |      87,926 |      55,069 |             62.63 |           -20.0 |           -3.3 |           +20.0 |
-|  +280.00 |  +239.82 | TH.MH_S    |        5411 |        1378 |            25.47 |      87,926 |      56,131 |             63.84 |           -20.0 |           -3.0 |           +19.9 |
-|  +300.00 |  +259.82 | TH.MH_S    |        5411 |        1471 |            27.19 |      87,926 |      54,634 |             62.14 |           -20.0 |           -2.4 |           +19.9 |
-|  +320.00 |  +279.82 | TH.MH_S    |        5411 |        1542 |            28.50 |      87,926 |      51,849 |             58.97 |           -20.0 |           -2.2 |           +20.0 |
-|  +340.00 |  +299.82 | TH.MH_S    |        5411 |        1601 |            29.59 |      87,926 |      38,577 |             43.87 |           -20.0 |           -1.6 |           +20.0 |
-|  +360.00 |  +319.82 | TH.MH_S    |        5411 |        1680 |            31.05 |      87,926 |      30,087 |             34.22 |           -20.0 |           -1.6 |           +20.0 |
-|  +380.00 |  +339.82 | TH.MH_S    |        5411 |        1743 |            32.21 |      87,926 |      26,735 |             30.41 |           -20.0 |           -1.4 |           +19.9 |
-|  +400.00 |  +359.82 | TH.MH_S    |        5411 |        1778 |            32.86 |      87,926 |      20,057 |             22.81 |           -20.0 |           -1.1 |           +20.0 |
-|  +420.00 |  +379.82 | TH.MH_S    |        5411 |        1798 |            33.23 |      87,926 |      18,707 |             21.28 |           -20.0 |           -0.6 |           +20.0 |
-|  +440.00 |  +399.82 | TH.MH_S    |        5411 |        1815 |            33.54 |      87,926 |      15,953 |             18.14 |           -20.0 |           -0.5 |           +20.0 |
-|  +460.00 |  +419.82 | TH.MH_S    |        5411 |        1811 |            33.47 |      87,926 |      13,491 |             15.34 |           -20.0 |           +0.1 |           +20.0 |
-|  +480.00 |  +439.82 | TH.MH_S    |        5411 |        1826 |            33.75 |      87,926 |      10,523 |             11.97 |           -20.0 |           +0.3 |           +20.0 |
-|  +500.00 |  +459.82 | TH.MH_S    |        5411 |        1836 |            33.93 |      87,926 |       9,054 |             10.30 |           -20.0 |           +0.4 |           +20.0 |
-|  +520.00 |  +479.82 | TH.MH_S    |        5411 |        1839 |            33.99 |      87,926 |       8,784 |              9.99 |           -19.9 |           +0.7 |           +20.0 |
-|  +540.00 |  +499.82 | TH.MH_S    |        5411 |        1768 |            32.67 |      87,926 |       7,768 |              8.83 |           -20.0 |           +0.9 |           +20.0 |
-|  +560.00 |  +519.82 | TH.MH_S    |        5411 |        1753 |            32.40 |      87,926 |       8,050 |              9.16 |           -20.0 |           +0.9 |           +20.0 |
-|  +580.00 |  +539.82 | TH.MH_S    |        5411 |        1732 |            32.01 |      87,926 |       8,170 |              9.29 |           -20.0 |           +1.0 |           +20.0 |
-|  +600.00 |  +559.82 | TH.MH_S    |        5411 |        1729 |            31.95 |      87,926 |       8,807 |             10.02 |           -20.0 |           +0.7 |           +20.0 |
-|  +620.00 |  +579.82 | TH.MH_S    |        5411 |        1681 |            31.07 |      87,926 |       8,972 |             10.20 |           -20.0 |           +0.4 |           +20.0 |
-|  +640.00 |  +599.82 | TH.MH_S    |        5411 |        1650 |            30.49 |      87,926 |       9,607 |             10.93 |           -19.9 |           +0.3 |           +20.0 |
+|   +50.00 |    +9.88 | TH.MH_S    |       16060 |         887 |             5.52 |      63,188 |       6,445 |             10.20 |           -20.0 |           -9.5 |           +19.8 |
+|   +70.00 |   +29.88 | TH.MH_S    |       16060 |        1163 |             7.24 |      63,188 |      13,121 |             20.76 |           -19.9 |           -9.7 |           +19.6 |
+|   +90.00 |   +49.88 | TH.MH_S    |       16060 |        1455 |             9.06 |      63,188 |      27,782 |             43.97 |           -20.0 |           -9.3 |           +20.0 |
+|  +110.00 |   +69.88 | TH.MH_S    |       16060 |        1784 |            11.11 |      63,188 |      34,344 |             54.35 |           -20.0 |           -8.8 |           +19.9 |
+|  +130.00 |   +89.88 | TH.MH_S    |       16060 |        2086 |            12.99 |      63,188 |      36,811 |             58.26 |           -20.0 |           -8.0 |           +19.9 |
+|  +150.00 |  +109.88 | TH.MH_S    |       16060 |        2421 |            15.07 |      63,188 |      38,729 |             61.29 |           -20.0 |           -7.2 |           +19.9 |
+|  +170.00 |  +129.88 | TH.MH_S    |       16060 |        2731 |            17.00 |      63,188 |      39,895 |             63.14 |           -20.0 |           -6.4 |           +19.9 |
+|  +190.00 |  +149.88 | TH.MH_S    |       16060 |        3143 |            19.57 |      63,188 |      40,542 |             64.16 |           -20.0 |           -5.3 |           +20.0 |
+|  +210.00 |  +169.88 | TH.MH_S    |       16060 |        3456 |            21.52 |      63,188 |      40,785 |             64.55 |           -20.0 |           -4.5 |           +20.0 |
+|  +230.00 |  +189.88 | TH.MH_S    |       16060 |        3736 |            23.26 |      63,188 |      40,750 |             64.49 |           -20.0 |           -3.6 |           +19.9 |
+|  +250.00 |  +209.88 | TH.MH_S    |       16060 |        3995 |            24.88 |      63,188 |      40,368 |             63.89 |           -20.0 |           -2.8 |           +19.9 |
+|  +270.00 |  +229.88 | TH.MH_S    |       16060 |        4292 |            26.72 |      63,188 |      40,084 |             63.44 |           -20.0 |           -2.1 |           +20.0 |
+|  +290.00 |  +249.88 | TH.MH_S    |       16060 |        4560 |            28.39 |      63,188 |      39,726 |             62.87 |           -20.0 |           -1.6 |           +19.9 |
+|  +310.00 |  +269.88 | TH.MH_S    |       16060 |        4754 |            29.60 |      63,188 |      36,593 |             57.91 |           -20.0 |           -1.1 |           +20.0 |
+|  +330.00 |  +289.88 | TH.MH_S    |       16060 |        4935 |            30.73 |      63,188 |      24,446 |             38.69 |           -20.0 |           -1.0 |           +20.0 |
+|  +350.00 |  +309.88 | TH.MH_S    |       16060 |        5074 |            31.59 |      63,188 |      12,365 |             19.57 |           -20.0 |           -0.9 |           +20.0 |
+|  +370.00 |  +329.88 | TH.MH_S    |       16060 |        5177 |            32.24 |      63,188 |       8,476 |             13.41 |           -20.0 |           -1.1 |           +20.0 |
+|  +390.00 |  +349.88 | TH.MH_S    |       16060 |        5283 |            32.90 |      63,188 |       6,794 |             10.75 |           -20.0 |           -1.0 |           +20.0 |
+|  +410.00 |  +369.88 | TH.MH_S    |       16060 |        5326 |            33.16 |      63,188 |       5,000 |              7.91 |           -20.0 |           -0.9 |           +20.0 |
+|  +430.00 |  +389.88 | TH.MH_S    |       16060 |        5415 |            33.72 |      63,188 |       4,378 |              6.93 |           -20.0 |           -0.8 |           +20.0 |
+|  +450.00 |  +409.88 | TH.MH_S    |       16060 |        5489 |            34.18 |      63,188 |       4,248 |              6.72 |           -20.0 |           -0.6 |           +20.0 |
+|  +470.00 |  +429.88 | TH.MH_S    |       16060 |        5579 |            34.74 |      63,188 |       4,499 |              7.12 |           -20.0 |           -0.5 |           +20.0 |
+|  +490.00 |  +449.88 | TH.MH_S    |       16060 |        5629 |            35.05 |      63,188 |       4,645 |              7.35 |           -20.0 |           -0.3 |           +20.0 |
+|  +510.00 |  +469.88 | TH.MH_S    |       16060 |        5691 |            35.44 |      63,188 |       5,028 |              7.96 |           -20.0 |           -0.0 |           +20.0 |
+|  +530.00 |  +489.88 | TH.MH_S    |       16060 |        5632 |            35.07 |      63,188 |       4,986 |              7.89 |           -20.0 |           +0.3 |           +20.0 |
+|  +550.00 |  +509.88 | TH.MH_S    |       16060 |        5587 |            34.79 |      63,188 |       5,084 |              8.05 |           -20.0 |           +0.3 |           +20.0 |
+|  +570.00 |  +529.88 | TH.MH_S    |       16060 |        5591 |            34.81 |      63,188 |       5,601 |              8.86 |           -20.0 |           +0.5 |           +20.0 |
+|  +590.00 |  +549.88 | TH.MH_S    |       16060 |        5552 |            34.57 |      63,188 |       6,112 |              9.67 |           -20.0 |           +0.6 |           +20.0 |
 ==========================================================================================================================
 
  -> Plot saved successfully to: OUTPUT_LDP/TH_MH_S/TH_MH_S_Plot_PP_Popu.svg
@@ -141,5 +142,5 @@ Processing province: TH_MH_S
 [+] TH_MH_S: One-Page Report generated successfully.
 ======================================================================
 Completed province: TH.MH_S
-Finished: 2026-08-16T11:58:59+07:00
+Finished: 2026-08-19T16:34:36+07:00
 ======================================================================

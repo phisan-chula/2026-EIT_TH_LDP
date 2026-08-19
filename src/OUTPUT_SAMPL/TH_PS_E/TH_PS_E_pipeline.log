@@ -1,6 +1,6 @@
 ======================================================================
 Processing province: TH.PS_E
-Started: 2026-08-16T12:00:33+07:00
+Started: 2026-08-19T16:36:42+07:00
 ======================================================================
 --> [TH.PS_E] Step 1: 1_fabdem_province.py
 [1/5] Read GADM and select HASC_1=TH.PS_E
@@ -24,11 +24,11 @@ TH.PS_E Phitsanulok East   159059.455881 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/
 --> [TH.PS_E] Step 3: 3_generate_sample.py
 [1/4] Select GADM province HASC_1=TH.PS_E
  -> [READ] Loading Vector Dataset: OUTPUT_PROV/gadm41_THA.gpkg (Layer: 'ADM_ADM_1')
-[2/4] Generate 1000.0m grid points
+[2/4] Generate 500.0m grid points
  -> Auto-detected EPSG:32647 for province.
- -> Generated 8,667 bounding box points.
+ -> Generated 34,080 bounding box points.
  -> Clipping points to province boundary...
- -> Computing 7-digit Geohashes...
+ -> Computing 8-digit Geohashes...
 [3/4] Extracting Raster Values (FABDEM MSL & POP2025)...
  -> [READ] Opening Raster File: OUTPUT_FABDEM/TH_PS_E/TH_PS_E_fabdem.tif
  -> [READ] Opening Raster File for Area Sum: OUTPUT_POP2025/TH_PS_E/TH_PS_E_population_2025_100m.tif
@@ -40,7 +40,7 @@ TH.PS_E Phitsanulok East   159059.455881 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/
 
 Completed successfully.
  HASC_1  Grid (m)       CRS  Samples             Output POP2025 DOPA_Pop     Diff
-TH.PS_E    1000.0 EPSG:4326     3981 TH_PS_E_SAMPL.gpkg 156,419  835,480 -679,061
+TH.PS_E     500.0 EPSG:4326    15921 TH_PS_E_SAMPL.gpkg 156,800  835,480 -678,680
 --> [TH.PS_E] Step 4: 4_analyse_ldp.py
 LDP                                               [TM, 100:47]
 FALSE_EN                                                  AUTO
@@ -49,80 +49,80 @@ POPU_PLOT                                       [550, 100, 20]
 GPKG         [OUTPUT_SAMPL/TH_PS_E/TH_PS_E_SAMPL.gpkg, samp...
 OFFSET_PP         [0.0, default hPP from average topo or pnts]
 dtype: object
- -> OUTLIER FILTER: Dropped 80 points.
- -> Dropped MSL values: [148, 622, 300, 472, 507, 595, 545, 505, 775, 381, 368, 451, 339, 400, 171, 123, 130, 138, 123, 139, 1127, 124, 304, 338, 381, 108, 468, 351, 450, 388, 477, 281, 305, 305, 268, 278, 850, 391, 313, 335, 345, 521, 1093, 1050, 1042, 1038, 871, 751, 1221, 782, 937, 966, 903, 832, 308, 750, 1318, 1285, 1391, 1292, 1316, 1154, 1040, 1042, 1485, 1528, 1316, 1297, 1519, 1439, 1817, 1272, 1262, 1410, 1039, 1227, 1722, 1471, 1567, 1594]
+ -> OUTLIER FILTER: Dropped 322 points.
+ -> Dropped MSL values: [-9999, -9999, -9999, 486, 601, 576, 622, 622, 600, 632, 592, 567, 564, 552, 595, 557, 545, 229, 240, 234, 236, 232, 238, 492, 242, 521, 489, 581, 575, 229, 220, 224, 574, 330, 547, 243, 228, 242, 293, 304, 962, 281, 267, 248, 238, 278, 245, 227, 220, 229, 239, 301, 233, 243, 280, 251, 462, 446, 451, 471, 204, 221, 207, 249, 255, 238, 224, 246, 804, 786, 814, 724, 733, 794, 851, 842, 982, 951, 1016, 829, 1041, 1050, 835, 885, 1125, 1212, 1167, 1153, 715, 757, 813, 830, 836, 1431, 1478, 1380, 1416, 1682, 1721, 1677, 1522, 1537, 1424, 1508, 430, 531, 430, 348, 300, 361, 357, 360, 254, 309, 490, 472, 335, 350, 515, 538, 505, 497, 505, 775, 365, 1390, 1396, 1270, 350, 348, 369, 327, 325, 342, 303, 312, 307, 330, 263, 254, 281, 270, 253, 234, 238, 248, 290, 284, 268, 264, 349, 294, 274, 281, 252, 256, 268, 265, 253, 262, 267, 300, 256, 937, 900, 928, 966, 883, 903, 832, 651, 631, 623, 294, 853, 938, 885, 863, 971, 237, 236, 291, 248, 268, 279, 244, 249, 225, 769, 785, 850, 764, 230, 301, 871, 833, 1069, 1093, 1068, 1071, 1076, 872, 375, 458, 442, 919, 257, 277, 248, 363, 1391, 1180, 452, 1145, 1157, 941, 1098, 436, 443, 950, 948, 725, 834, 855, 1221, 755, 769, 776, 970, 681, 706, 674, 1109, 1260, 1251, 1228, 1139, 762, 751, 1485, 1006, 1039, 981, 1507, 731, 719, 1528, 1415, 839, 1065, 1096, 1092, 1067, 1065, 1142, 1728, 1754, 1817, 1102, 1159, 1734, 1974, 1722, 1116, 1150, 2038, 1954, 241, 249, 270, 225, 233, 259, 232, 244, 285, 261, 1127, 1100, 1156, 1092, 1145, 1154, 241, 240, 256, 274, 486, 495, 502, 351, 294, 444, 290, 209, 338, 304, 294, 259, 141, 211, 118, 108, 107, 108, 252, 254, 292, 276, 317, 313, 314, 277, 293, 468, 296, 315, 477, 450, 431, 933, 961]
  -> Using user-defined PP_MSL: 240.000m
  -> AUTO detected FALSE_EN: E: 50000, N: -1400000
 ==================================== LDP TM ====================================
 @ Centroid @     <lng=100°47′>    <lat=17°13′>
 Offset Projection Plane = +0.0 m. <default hPP from average topo or pnts>
 Designed Project Plane : hPP=+206.92 m. / MSL=+240.00 m. tied to k0 = 1.000033
-Points CSF min/mean/max [ppm] : -215.3 / -38.9 / +39.2
-Points MSL min/mean/max [m.]  : +124.0 / +512.7 / +1682.0
+Points CSF min/mean/max [ppm] : -218.4 / -39.3 / +39.7
+Points MSL min/mean/max [m.]  : +120.0 / +515.6 / +1675.0
 |      |      LDP_E |       LDP_N |
 |:-----|-----------:|------------:|
-| min  |  6,540.440 | 457,788.054 |
-| max  | 84,389.635 | 559,754.781 |
-| diff | 77,849.195 | 101,966.727 |
+| min  |  7,035.863 | 457,288.123 |
+| max  | 84,389.635 | 562,244.915 |
+| diff | 77,353.772 | 104,956.792 |
 {"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=0.0 +lon_0=100.78333333 +k_0=1.000033 +x_0=50000 +y_0=-1400000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=0.0 +lon_0=100°47′ +k_0=1.000033 +x_0=50000 +y_0=-1400000 +ellps=WGS84 +units=m +no_defs +type=crs"}
 Writing definition GPKG : OUTPUT_LDP/TH_PS_E/TH_PS_E_LDP.gpkg ...
  -> THINNING: Snapping points to 2 decimal grid for visualization...
- -> THINNING: Plot points reduced from 3901 to 3357.
+ -> THINNING: Plot points reduced from 15599 to 3491.
 Writing definition plot : OUTPUT_LDP/TH_PS_E/TH_PS_E_LDP.svg...
-{"meta": "Coverage_Analysis", "Province": "TH.PS_E", "Total_Pts": 3981, "Valid_Pts": 1561, "Pt_Coverage(%)": 39.21, "Total_POP": 156418.9392, "Valid_POP": 126758.10800000001, "POP_Coverage(%)": 81.04, "CSF_Lower_ppm": -20.0, "CSF_Mean_ppm": 1.7, "CSF_Upper_ppm": 19.9}
+{"meta": "Coverage_Analysis", "Province": "TH.PS_E", "Total_Pts": 15921, "Valid_Pts": 6168, "Pt_Coverage(%)": 38.74, "Total_POP": 156799.5281, "Valid_POP": 127778.39980000001, "POP_Coverage(%)": 81.49, "CSF_Lower_ppm": -20.0, "CSF_Mean_ppm": 1.7, "CSF_Upper_ppm": 20.0}
 --> [TH.PS_E] Step 5: 5_plot_PP_PctPopu.py
 [TH.PS_E] POPU_PLOT found in TOML. Overriding MSL bounds: Upper=550.0, Lower=100.0, Step=20.0
-[TH.PS_E] Starting ProcessPoolExecutor with 23 offsets to compute (Mean MSL: 512.71 m)...
-[TH.PS_E] OFFSET_PP [-412.71] computed successfully.
-[TH.PS_E] OFFSET_PP [-392.71] computed successfully.
-[TH.PS_E] OFFSET_PP [-372.71] computed successfully.
-[TH.PS_E] OFFSET_PP [-352.71] computed successfully.
-[TH.PS_E] OFFSET_PP [-332.71] computed successfully.
-[TH.PS_E] OFFSET_PP [-312.71] computed successfully.
-[TH.PS_E] OFFSET_PP [-292.71] computed successfully.
-[TH.PS_E] OFFSET_PP [-272.71] computed successfully.
-[TH.PS_E] OFFSET_PP [-252.71] computed successfully.
-[TH.PS_E] OFFSET_PP [-232.71] computed successfully.
-[TH.PS_E] OFFSET_PP [-212.71] computed successfully.
-[TH.PS_E] OFFSET_PP [-192.71] computed successfully.
-[TH.PS_E] OFFSET_PP [-172.71] computed successfully.
-[TH.PS_E] OFFSET_PP [-152.71] computed successfully.
-[TH.PS_E] OFFSET_PP [-132.71] computed successfully.
-[TH.PS_E] OFFSET_PP [-112.71] computed successfully.
-[TH.PS_E] OFFSET_PP [-92.71] computed successfully.
-[TH.PS_E] OFFSET_PP [-72.71] computed successfully.
-[TH.PS_E] OFFSET_PP [-52.71] computed successfully.
-[TH.PS_E] OFFSET_PP [-32.71] computed successfully.
-[TH.PS_E] OFFSET_PP [-12.71] computed successfully.
-[TH.PS_E] OFFSET_PP [7.29] computed successfully.
-[TH.PS_E] OFFSET_PP [27.29] computed successfully.
+[TH.PS_E] Starting ProcessPoolExecutor with 23 offsets to compute (Mean MSL: 515.58 m)...
+[TH.PS_E] OFFSET_PP [-415.58] computed successfully.
+[TH.PS_E] OFFSET_PP [-395.58] computed successfully.
+[TH.PS_E] OFFSET_PP [-375.58] computed successfully.
+[TH.PS_E] OFFSET_PP [-355.58] computed successfully.
+[TH.PS_E] OFFSET_PP [-335.58] computed successfully.
+[TH.PS_E] OFFSET_PP [-315.58] computed successfully.
+[TH.PS_E] OFFSET_PP [-295.58] computed successfully.
+[TH.PS_E] OFFSET_PP [-275.58] computed successfully.
+[TH.PS_E] OFFSET_PP [-255.58] computed successfully.
+[TH.PS_E] OFFSET_PP [-235.58] computed successfully.
+[TH.PS_E] OFFSET_PP [-215.58] computed successfully.
+[TH.PS_E] OFFSET_PP [-195.58] computed successfully.
+[TH.PS_E] OFFSET_PP [-175.58] computed successfully.
+[TH.PS_E] OFFSET_PP [-155.58] computed successfully.
+[TH.PS_E] OFFSET_PP [-135.58] computed successfully.
+[TH.PS_E] OFFSET_PP [-115.58] computed successfully.
+[TH.PS_E] OFFSET_PP [-95.58] computed successfully.
+[TH.PS_E] OFFSET_PP [-75.58] computed successfully.
+[TH.PS_E] OFFSET_PP [-55.58] computed successfully.
+[TH.PS_E] OFFSET_PP [-35.58] computed successfully.
+[TH.PS_E] OFFSET_PP [-15.58] computed successfully.
+[TH.PS_E] OFFSET_PP [4.42] computed successfully.
+[TH.PS_E] OFFSET_PP [24.42] computed successfully.
 
 ==================================== LDP Population Coverage Analysis: TH.PS_E ====================================
 |   MSL_PP |   HAE_PP | Province   |   Total_Pts |   Valid_Pts |   Pt_Coverage(%) |   Total_POP |   Valid_POP |   POP_Coverage(%) |   CSF_Lower_ppm |   CSF_Mean_ppm |   CSF_Upper_ppm |
 |---------:|---------:|:-----------|------------:|------------:|-----------------:|------------:|------------:|------------------:|----------------:|---------------:|----------------:|
-|  +100.00 |   +66.92 | TH.PS_E    |        3981 |         938 |            23.56 |     156,419 |     107,336 |             68.62 |           -20.0 |          -12.0 |           +17.2 |
-|  +120.00 |   +86.92 | TH.PS_E    |        3981 |        1026 |            25.77 |     156,419 |     110,146 |             70.42 |           -20.0 |           -9.9 |           +16.4 |
-|  +140.00 |  +106.92 | TH.PS_E    |        3981 |        1130 |            28.38 |     156,419 |     113,418 |             72.51 |           -20.0 |           -8.0 |           +19.4 |
-|  +160.00 |  +126.92 | TH.PS_E    |        3981 |        1238 |            31.10 |     156,419 |     116,427 |             74.43 |           -20.0 |           -6.3 |           +20.0 |
-|  +180.00 |  +146.92 | TH.PS_E    |        3981 |        1336 |            33.56 |     156,419 |     121,625 |             77.76 |           -19.9 |           -4.5 |           +19.8 |
-|  +200.00 |  +166.92 | TH.PS_E    |        3981 |        1397 |            35.09 |     156,419 |     123,211 |             78.77 |           -19.9 |           -2.5 |           +19.7 |
-|  +220.00 |  +186.92 | TH.PS_E    |        3981 |        1459 |            36.65 |     156,419 |     124,874 |             79.83 |           -19.9 |           -0.6 |           +19.7 |
-|  +240.00 |  +206.92 | TH.PS_E    |        3981 |        1561 |            39.21 |     156,419 |     126,758 |             81.04 |           -20.0 |           +1.7 |           +19.9 |
-|  +260.00 |  +226.92 | TH.PS_E    |        3981 |        1565 |            39.31 |     156,419 |     122,027 |             78.01 |           -20.0 |           +2.7 |           +20.0 |
-|  +280.00 |  +246.92 | TH.PS_E    |        3981 |        1568 |            39.39 |     156,419 |     119,956 |             76.69 |           -20.0 |           +2.7 |           +19.9 |
-|  +300.00 |  +266.92 | TH.PS_E    |        3981 |        1531 |            38.46 |     156,419 |     100,919 |             64.52 |           -20.0 |           +2.9 |           +19.9 |
-|  +320.00 |  +286.92 | TH.PS_E    |        3981 |        1534 |            38.53 |     156,419 |      96,204 |             61.50 |           -19.9 |           +3.3 |           +20.0 |
-|  +340.00 |  +306.92 | TH.PS_E    |        3981 |        1342 |            33.71 |     156,419 |      47,245 |             30.20 |           -20.0 |           +1.5 |           +20.0 |
-|  +360.00 |  +326.92 | TH.PS_E    |        3981 |        1238 |            31.10 |     156,419 |      35,098 |             22.44 |           -19.9 |           +0.1 |           +20.0 |
-|  +380.00 |  +346.92 | TH.PS_E    |        3981 |        1210 |            30.39 |     156,419 |      32,500 |             20.78 |           -20.0 |           +0.5 |           +20.0 |
-|  +400.00 |  +366.92 | TH.PS_E    |        3981 |        1195 |            30.02 |     156,419 |      29,706 |             18.99 |           -20.0 |           +0.3 |           +20.0 |
-|  +420.00 |  +386.92 | TH.PS_E    |        3981 |        1150 |            28.89 |     156,419 |      26,949 |             17.23 |           -20.0 |           -0.1 |           +20.0 |
-|  +440.00 |  +406.92 | TH.PS_E    |        3981 |        1133 |            28.46 |     156,419 |      25,505 |             16.31 |           -19.9 |           +0.3 |           +20.0 |
-|  +460.00 |  +426.92 | TH.PS_E    |        3981 |        1136 |            28.54 |     156,419 |      24,342 |             15.56 |           -20.0 |           +0.7 |           +20.0 |
-|  +480.00 |  +446.92 | TH.PS_E    |        3981 |        1130 |            28.38 |     156,419 |      22,651 |             14.48 |           -20.0 |           +1.2 |           +20.0 |
-|  +500.00 |  +466.92 | TH.PS_E    |        3981 |        1113 |            27.96 |     156,419 |      21,330 |             13.64 |           -20.0 |           +1.5 |           +20.0 |
-|  +520.00 |  +486.92 | TH.PS_E    |        3981 |        1101 |            27.66 |     156,419 |      16,542 |             10.58 |           -19.9 |           +1.4 |           +20.0 |
-|  +540.00 |  +506.92 | TH.PS_E    |        3981 |        1073 |            26.95 |     156,419 |      13,137 |              8.40 |           -20.0 |           +0.9 |           +20.0 |
+|  +100.00 |   +66.92 | TH.PS_E    |       15921 |        3692 |            23.19 |     156,800 |     108,886 |             69.44 |           -20.0 |          -11.7 |           +17.7 |
+|  +120.00 |   +86.92 | TH.PS_E    |       15921 |        4103 |            25.77 |     156,800 |     111,527 |             71.13 |           -20.0 |           -9.7 |           +18.3 |
+|  +140.00 |  +106.92 | TH.PS_E    |       15921 |        4490 |            28.20 |     156,800 |     115,040 |             73.37 |           -20.0 |           -7.8 |           +19.9 |
+|  +160.00 |  +126.92 | TH.PS_E    |       15921 |        4884 |            30.68 |     156,800 |     117,325 |             74.83 |           -20.0 |           -6.1 |           +20.0 |
+|  +180.00 |  +146.92 | TH.PS_E    |       15921 |        5287 |            33.21 |     156,800 |     122,556 |             78.16 |           -20.0 |           -4.5 |           +19.9 |
+|  +200.00 |  +166.92 | TH.PS_E    |       15921 |        5542 |            34.81 |     156,800 |     123,961 |             79.06 |           -20.0 |           -2.6 |           +20.0 |
+|  +220.00 |  +186.92 | TH.PS_E    |       15921 |        5814 |            36.52 |     156,800 |     125,041 |             79.75 |           -20.0 |           -0.7 |           +19.9 |
+|  +240.00 |  +206.92 | TH.PS_E    |       15921 |        6168 |            38.74 |     156,800 |     127,778 |             81.49 |           -20.0 |           +1.7 |           +20.0 |
+|  +260.00 |  +226.92 | TH.PS_E    |       15921 |        6187 |            38.86 |     156,800 |     122,044 |             77.83 |           -20.0 |           +2.5 |           +20.0 |
+|  +280.00 |  +246.92 | TH.PS_E    |       15921 |        6234 |            39.16 |     156,800 |     119,132 |             75.98 |           -20.0 |           +2.6 |           +20.0 |
+|  +300.00 |  +266.92 | TH.PS_E    |       15921 |        6110 |            38.38 |     156,800 |     102,995 |             65.69 |           -20.0 |           +2.8 |           +20.0 |
+|  +320.00 |  +286.92 | TH.PS_E    |       15921 |        6081 |            38.19 |     156,800 |      95,643 |             61.00 |           -20.0 |           +3.3 |           +20.0 |
+|  +340.00 |  +306.92 | TH.PS_E    |       15921 |        5333 |            33.50 |     156,800 |      48,205 |             30.74 |           -20.0 |           +1.4 |           +20.0 |
+|  +360.00 |  +326.92 | TH.PS_E    |       15921 |        4977 |            31.26 |     156,800 |      34,390 |             21.93 |           -20.0 |           +0.2 |           +20.0 |
+|  +380.00 |  +346.92 | TH.PS_E    |       15921 |        4867 |            30.57 |     156,800 |      31,364 |             20.00 |           -20.0 |           +0.2 |           +20.0 |
+|  +400.00 |  +366.92 | TH.PS_E    |       15921 |        4801 |            30.16 |     156,800 |      29,092 |             18.55 |           -20.0 |           +0.3 |           +20.0 |
+|  +420.00 |  +386.92 | TH.PS_E    |       15921 |        4662 |            29.28 |     156,800 |      27,470 |             17.52 |           -20.0 |           +0.2 |           +20.0 |
+|  +440.00 |  +406.92 | TH.PS_E    |       15921 |        4535 |            28.48 |     156,800 |      24,346 |             15.53 |           -20.0 |           +0.2 |           +20.0 |
+|  +460.00 |  +426.92 | TH.PS_E    |       15921 |        4535 |            28.48 |     156,800 |      23,689 |             15.11 |           -20.0 |           +0.8 |           +20.0 |
+|  +480.00 |  +446.92 | TH.PS_E    |       15921 |        4528 |            28.44 |     156,800 |      22,879 |             14.59 |           -20.0 |           +1.1 |           +20.0 |
+|  +500.00 |  +466.92 | TH.PS_E    |       15921 |        4504 |            28.29 |     156,800 |      20,579 |             13.12 |           -20.0 |           +1.5 |           +20.0 |
+|  +520.00 |  +486.92 | TH.PS_E    |       15921 |        4401 |            27.64 |     156,800 |      16,776 |             10.70 |           -20.0 |           +1.4 |           +20.0 |
+|  +540.00 |  +506.92 | TH.PS_E    |       15921 |        4265 |            26.79 |     156,800 |      13,398 |              8.54 |           -20.0 |           +1.2 |           +20.0 |
 ==========================================================================================================================
 
  -> Plot saved successfully to: OUTPUT_LDP/TH_PS_E/TH_PS_E_Plot_PP_Popu.svg
@@ -132,5 +132,5 @@ Processing province: TH_PS_E
 [+] TH_PS_E: One-Page Report generated successfully.
 ======================================================================
 Completed province: TH.PS_E
-Finished: 2026-08-16T12:04:46+07:00
+Finished: 2026-08-19T16:49:24+07:00
 ======================================================================

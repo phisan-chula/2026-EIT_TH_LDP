@@ -1,6 +1,6 @@
 ======================================================================
 Processing province: TH.TK_S
-Started: 2026-08-16T12:07:40+07:00
+Started: 2026-08-19T17:00:03+07:00
 ======================================================================
 --> [TH.TK_S] Step 1: 1_fabdem_province.py
 [1/5] Read GADM and select HASC_1=TH.TK_S
@@ -24,11 +24,11 @@ TH.TK_S Tak South    30283.797465 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_
 --> [TH.TK_S] Step 3: 3_generate_sample.py
 [1/4] Select GADM province HASC_1=TH.TK_S
  -> [READ] Loading Vector Dataset: OUTPUT_PROV/gadm41_THA.gpkg (Layer: 'ADM_ADM_1')
-[2/4] Generate 1000.0m grid points
+[2/4] Generate 500.0m grid points
  -> Auto-detected EPSG:32647 for province.
- -> Generated 8,840 bounding box points.
+ -> Generated 34,560 bounding box points.
  -> Clipping points to province boundary...
- -> Computing 7-digit Geohashes...
+ -> Computing 8-digit Geohashes...
 [3/4] Extracting Raster Values (FABDEM MSL & POP2025)...
  -> [READ] Opening Raster File: OUTPUT_FABDEM/TH_TK_S/TH_TK_S_fabdem.tif
  -> [READ] Opening Raster File for Area Sum: OUTPUT_POP2025/TH_TK_S/TH_TK_S_population_2025_100m.tif
@@ -40,7 +40,7 @@ TH.TK_S Tak South    30283.797465 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_
 
 Completed successfully.
  HASC_1  Grid (m)       CRS  Samples             Output POP2025 DOPA_Pop     Diff
-TH.TK_S    1000.0 EPSG:4326     4815 TH_TK_S_SAMPL.gpkg  28,847  704,494 -675,647
+TH.TK_S     500.0 EPSG:4326    19263 TH_TK_S_SAMPL.gpkg  29,053  704,494 -675,441
 --> [TH.TK_S] Step 4: 4_analyse_ldp.py
 LDP                                                [TM, 98:53]
 FALSE_EN                                                  AUTO
@@ -49,106 +49,106 @@ POPU_PLOT                                       [850, 150, 20]
 GPKG         [OUTPUT_SAMPL/TH_TK_S/TH_TK_S_SAMPL.gpkg, samp...
 OFFSET_PP         [0.0, default hPP from average topo or pnts]
 dtype: object
- -> OUTLIER FILTER: Dropped 99 points.
- -> Dropped MSL values: [-9999, -9999, 1038, 639, 1125, 1129, 1157, 1100, 1090, 1182, 1290, 1228, 1257, 1192, 1007, 224, 1193, 280, 927, 963, 1042, 370, 998, 428, 378, 997, 983, 1069, 1072, 1240, 1318, 1304, 1078, 1050, 1076, 1109, 1005, 1512, 1390, 1466, 1446, 989, 1011, 1013, 490, 1086, 969, 1045, 988, 801, 917, 903, 963, 1069, 1110, 1121, 1083, 1126, 1057, 1125, 1053, 972, 1020, 1151, 478, 1010, 435, 1193, 1086, 1559, 1094, 1134, 778, 824, 1071, 793, 957, 899, 1000, 1708, 2045, 1657, 1656, 1735, 1611, 1641, 1793, 1588, 660, 688, 694, 846, 638, 746, 1601, 1541, 1496, 1599, 1496]
+ -> OUTLIER FILTER: Dropped 389 points.
+ -> Dropped MSL values: [-9999, -9999, -9999, 1122, 1148, 1114, 1193, 1193, 1106, 1103, 280, 1034, 292, 1048, 1038, 1086, 949, 1086, 1026, 963, 902, 1084, 1069, 1014, 889, 1082, 1110, 1113, 145, 914, 819, 829, 725, 285, 112, 111, 116, 1000, 1075, 712, 720, 758, 726, 1043, 992, 740, 120, 467, 563, 753, 1045, 345, 357, 360, 607, 659, 615, 639, 366, 1108, 1121, 1083, 1100, 1126, 683, 1106, 832, 705, 800, 917, 906, 726, 903, 741, 702, 722, 906, 929, 866, 873, 895, 1128, 1084, 1080, 1000, 1026, 1023, 1101, 995, 1031, 1118, 1135, 1088, 971, 956, 1285, 1290, 1289, 1266, 1311, 1275, 1093, 1100, 1084, 1077, 977, 1090, 971, 950, 967, 947, 946, 1185, 1188, 1164, 1129, 1132, 1125, 1144, 1243, 224, 237, 883, 1046, 1090, 928, 1020, 1011, 1167, 1167, 1142, 1318, 1304, 1281, 1008, 764, 749, 1045, 1007, 976, 983, 956, 1018, 956, 975, 973, 924, 800, 1065, 770, 343, 310, 309, 335, 1070, 1045, 1010, 1042, 965, 1014, 713, 775, 1046, 765, 1055, 1036, 1008, 1088, 1045, 1053, 1005, 1043, 1007, 991, 962, 955, 1076, 1040, 1063, 1098, 1047, 1078, 1029, 988, 998, 930, 968, 969, 1270, 1072, 1084, 1050, 1078, 1099, 1099, 1071, 1016, 1086, 1068, 1094, 1074, 1106, 1082, 1109, 1057, 1062, 1076, 1060, 1043, 1047, 1077, 1029, 1072, 1058, 1045, 1035, 1047, 1034, 999, 985, 1192, 1203, 1187, 1077, 1087, 995, 984, 996, 1512, 1516, 1555, 1601, 1143, 955, 1196, 1125, 1122, 1091, 995, 677, 903, 893, 880, 932, 944, 920, 1013, 1383, 1469, 1631, 1699, 1634, 1660, 1729, 1708, 1855, 1644, 837, 1041, 771, 715, 718, 779, 792, 427, 1056, 1155, 1073, 1151, 1087, 1166, 1138, 955, 931, 931, 941, 1136, 1050, 997, 1032, 917, 1063, 1193, 1233, 1239, 1086, 1089, 812, 1252, 1252, 1604, 720, 936, 1212, 1211, 660, 714, 688, 651, 694, 634, 668, 785, 813, 846, 686, 714, 655, 867, 915, 910, 1013, 1179, 999, 991, 978, 980, 1159, 1176, 817, 903, 824, 807, 908, 885, 1134, 899, 881, 921, 822, 1748, 721, 446, 921, 926, 1027, 1010, 938, 1040, 1053, 988, 977, 1603, 1570, 1582, 1549, 2002, 2065, 1990, 1995, 2045, 1984, 1513, 877, 662, 712, 687, 731, 822, 795, 867, 792, 902, 638, 497, 1249, 641, 645, 711, 746, 735, 891, 1185, 1338, 1270, 1642, 1601, 1627, 1690, 1564, 1598, 1560, 1599, 1596, 1623, 1251, 684, 1819, 1865]
  -> Using user-defined PP_MSL: 570.000m
  -> AUTO detected FALSE_EN: E: 50000, N: -1200000
 ==================================== LDP TM ====================================
 @ Centroid @     <lng=98°53′>    <lat=15°48′>
 Offset Projection Plane = +0.0 m. <default hPP from average topo or pnts>
 Designed Project Plane : hPP=+534.18 m. / MSL=+570.00 m. tied to k0 = 1.000084
-Points CSF min/mean/max [ppm] : -221.8 / -36.5 / +87.2
-Points MSL min/mean/max [m.]  : +116.0 / +819.3 / +2002.0
+Points CSF min/mean/max [ppm] : -217.9 / -36.9 / +84.4
+Points MSL min/mean/max [m.]  : +123.0 / +821.6 / +1976.0
 |      |      LDP_E |       LDP_N |
 |:-----|-----------:|------------:|
-| min  | 14,484.309 | 479,815.238 |
-| max  | 76,512.459 | 611,878.155 |
-| diff | 62,028.150 | 132,062.918 |
+| min  | 14,484.033 | 479,314.995 |
+| max  | 77,012.152 | 612,876.916 |
+| diff | 62,528.118 | 133,561.921 |
 {"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=0.0 +lon_0=98.88333333 +k_0=1.000084 +x_0=50000 +y_0=-1200000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=0.0 +lon_0=98°53′ +k_0=1.000084 +x_0=50000 +y_0=-1200000 +ellps=WGS84 +units=m +no_defs +type=crs"}
 Writing definition GPKG : OUTPUT_LDP/TH_TK_S/TH_TK_S_LDP.gpkg ...
  -> THINNING: Snapping points to 2 decimal grid for visualization...
- -> THINNING: Plot points reduced from 4716 to 4005.
+ -> THINNING: Plot points reduced from 18874 to 4173.
 Writing definition plot : OUTPUT_LDP/TH_TK_S/TH_TK_S_LDP.svg...
-{"meta": "Coverage_Analysis", "Province": "TH.TK_S", "Total_Pts": 4815, "Valid_Pts": 1195, "Pt_Coverage(%)": 24.82, "Total_POP": 28846.567800000004, "Valid_POP": 20565.7519, "POP_Coverage(%)": 71.29, "CSF_Lower_ppm": -20.0, "CSF_Mean_ppm": -1.4, "CSF_Upper_ppm": 19.8}
+{"meta": "Coverage_Analysis", "Province": "TH.TK_S", "Total_Pts": 19263, "Valid_Pts": 4766, "Pt_Coverage(%)": 24.74, "Total_POP": 29053.2844, "Valid_POP": 20791.1145, "POP_Coverage(%)": 71.56, "CSF_Lower_ppm": -20.0, "CSF_Mean_ppm": -1.3, "CSF_Upper_ppm": 20.0}
 --> [TH.TK_S] Step 5: 5_plot_PP_PctPopu.py
 [TH.TK_S] POPU_PLOT found in TOML. Overriding MSL bounds: Upper=850.0, Lower=150.0, Step=20.0
-[TH.TK_S] Starting ProcessPoolExecutor with 36 offsets to compute (Mean MSL: 819.25 m)...
-[TH.TK_S] OFFSET_PP [-669.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-649.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-629.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-609.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-589.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-569.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-549.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-529.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-509.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-489.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-469.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-449.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-429.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-409.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-389.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-369.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-349.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-329.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-309.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-289.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-269.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-249.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-229.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-209.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-189.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-169.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-149.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-129.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-109.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-89.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-69.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-49.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-29.25] computed successfully.
-[TH.TK_S] OFFSET_PP [-9.25] computed successfully.
-[TH.TK_S] OFFSET_PP [10.75] computed successfully.
-[TH.TK_S] OFFSET_PP [30.75] computed successfully.
+[TH.TK_S] Starting ProcessPoolExecutor with 36 offsets to compute (Mean MSL: 821.55 m)...
+[TH.TK_S] OFFSET_PP [-671.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-651.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-631.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-611.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-591.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-571.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-551.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-531.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-511.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-491.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-471.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-451.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-431.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-411.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-391.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-371.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-351.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-331.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-311.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-291.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-271.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-251.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-231.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-211.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-191.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-171.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-151.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-131.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-111.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-91.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-71.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-51.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-31.55] computed successfully.
+[TH.TK_S] OFFSET_PP [-11.55] computed successfully.
+[TH.TK_S] OFFSET_PP [8.45] computed successfully.
+[TH.TK_S] OFFSET_PP [28.45] computed successfully.
 
 ==================================== LDP Population Coverage Analysis: TH.TK_S ====================================
 |   MSL_PP |   HAE_PP | Province   |   Total_Pts |   Valid_Pts |   Pt_Coverage(%) |   Total_POP |   Valid_POP |   POP_Coverage(%) |   CSF_Lower_ppm |   CSF_Mean_ppm |   CSF_Upper_ppm |
 |---------:|---------:|:-----------|------------:|------------:|-----------------:|------------:|------------:|------------------:|----------------:|---------------:|----------------:|
-|  +150.00 |  +114.18 | TH.TK_S    |        4815 |          54 |             1.12 |      28,847 |       1,151 |              3.99 |           -20.0 |           -0.6 |           +16.3 |
-|  +170.00 |  +134.18 | TH.TK_S    |        4815 |          66 |             1.37 |      28,847 |       1,207 |              4.19 |           -19.9 |           -1.4 |           +19.3 |
-|  +190.00 |  +154.18 | TH.TK_S    |        4815 |          95 |             1.97 |      28,847 |       1,244 |              4.31 |           -20.0 |           -6.3 |           +19.7 |
-|  +210.00 |  +174.18 | TH.TK_S    |        4815 |         140 |             2.91 |      28,847 |       1,489 |              5.16 |           -20.0 |           -9.4 |           +19.9 |
-|  +230.00 |  +194.18 | TH.TK_S    |        4815 |         202 |             4.20 |      28,847 |       1,764 |              6.11 |           -19.8 |          -10.6 |           +19.1 |
-|  +250.00 |  +214.18 | TH.TK_S    |        4815 |         234 |             4.86 |      28,847 |       2,139 |              7.41 |           -19.9 |           -9.4 |           +19.9 |
-|  +270.00 |  +234.18 | TH.TK_S    |        4815 |         264 |             5.48 |      28,847 |       1,986 |              6.88 |           -19.9 |           -9.4 |           +19.6 |
-|  +290.00 |  +254.18 | TH.TK_S    |        4815 |         305 |             6.33 |      28,847 |       2,509 |              8.70 |           -19.9 |           -8.3 |           +19.8 |
-|  +310.00 |  +274.18 | TH.TK_S    |        4815 |         354 |             7.35 |      28,847 |       2,710 |              9.40 |           -19.9 |           -8.0 |           +19.8 |
-|  +330.00 |  +294.18 | TH.TK_S    |        4815 |         394 |             8.18 |      28,847 |       4,965 |             17.21 |           -19.9 |           -6.7 |           +19.8 |
-|  +350.00 |  +314.18 | TH.TK_S    |        4815 |         456 |             9.47 |      28,847 |       8,413 |             29.16 |           -20.0 |           -6.0 |           +19.6 |
-|  +370.00 |  +334.18 | TH.TK_S    |        4815 |         545 |            11.32 |      28,847 |      10,484 |             36.35 |           -19.9 |           -4.8 |           +18.9 |
-|  +390.00 |  +354.18 | TH.TK_S    |        4815 |         633 |            13.15 |      28,847 |      12,098 |             41.94 |           -20.0 |           -4.4 |           +19.1 |
-|  +410.00 |  +374.18 | TH.TK_S    |        4815 |         740 |            15.37 |      28,847 |      13,865 |             48.06 |           -20.0 |           -4.2 |           +19.4 |
-|  +430.00 |  +394.18 | TH.TK_S    |        4815 |         829 |            17.22 |      28,847 |      16,449 |             57.02 |           -20.0 |           -4.1 |           +19.9 |
-|  +450.00 |  +414.18 | TH.TK_S    |        4815 |         892 |            18.53 |      28,847 |      17,821 |             61.78 |           -20.0 |           -3.9 |           +19.9 |
-|  +470.00 |  +434.18 | TH.TK_S    |        4815 |         921 |            19.13 |      28,847 |      18,073 |             62.65 |           -20.0 |           -3.9 |           +20.0 |
-|  +490.00 |  +454.18 | TH.TK_S    |        4815 |         960 |            19.94 |      28,847 |      18,636 |             64.60 |           -20.0 |           -3.6 |           +20.0 |
-|  +510.00 |  +474.18 | TH.TK_S    |        4815 |        1030 |            21.39 |      28,847 |      19,523 |             67.68 |           -20.0 |           -2.9 |           +20.0 |
-|  +530.00 |  +494.18 | TH.TK_S    |        4815 |        1093 |            22.70 |      28,847 |      19,762 |             68.51 |           -20.0 |           -2.3 |           +19.9 |
-|  +550.00 |  +514.18 | TH.TK_S    |        4815 |        1149 |            23.86 |      28,847 |      20,072 |             69.58 |           -20.0 |           -1.7 |           +19.9 |
-|  +570.00 |  +534.18 | TH.TK_S    |        4815 |        1195 |            24.82 |      28,847 |      20,566 |             71.29 |           -20.0 |           -1.4 |           +19.8 |
-|  +590.00 |  +554.18 | TH.TK_S    |        4815 |        1269 |            26.36 |      28,847 |      18,610 |             64.51 |           -20.0 |           -0.9 |           +20.0 |
-|  +610.00 |  +574.18 | TH.TK_S    |        4815 |        1329 |            27.60 |      28,847 |      16,328 |             56.60 |           -20.0 |           -1.3 |           +20.0 |
-|  +630.00 |  +594.18 | TH.TK_S    |        4815 |        1390 |            28.87 |      28,847 |      14,980 |             51.93 |           -20.0 |           -1.0 |           +20.0 |
-|  +650.00 |  +614.18 | TH.TK_S    |        4815 |        1467 |            30.47 |      28,847 |      12,879 |             44.65 |           -20.0 |           -1.7 |           +20.0 |
-|  +670.00 |  +634.18 | TH.TK_S    |        4815 |        1504 |            31.24 |      28,847 |      10,007 |             34.69 |           -20.0 |           -2.1 |           +20.0 |
-|  +690.00 |  +654.18 | TH.TK_S    |        4815 |        1551 |            32.21 |      28,847 |       8,879 |             30.78 |           -20.0 |           -2.4 |           +20.0 |
-|  +710.00 |  +674.18 | TH.TK_S    |        4815 |        1612 |            33.48 |      28,847 |       7,608 |             26.37 |           -20.0 |           -2.3 |           +20.0 |
-|  +730.00 |  +694.18 | TH.TK_S    |        4815 |        1662 |            34.52 |      28,847 |       7,044 |             24.42 |           -20.0 |           -2.0 |           +20.0 |
-|  +750.00 |  +714.18 | TH.TK_S    |        4815 |        1725 |            35.83 |      28,847 |       5,983 |             20.74 |           -20.0 |           -1.8 |           +19.9 |
-|  +770.00 |  +734.18 | TH.TK_S    |        4815 |        1762 |            36.59 |      28,847 |       4,880 |             16.92 |           -20.0 |           -1.4 |           +20.0 |
-|  +790.00 |  +754.18 | TH.TK_S    |        4815 |        1817 |            37.74 |      28,847 |       4,488 |             15.56 |           -19.9 |           -0.8 |           +19.9 |
-|  +810.00 |  +774.18 | TH.TK_S    |        4815 |        1883 |            39.11 |      28,847 |       3,654 |             12.67 |           -19.9 |           -0.6 |           +20.0 |
-|  +830.00 |  +794.18 | TH.TK_S    |        4815 |        1916 |            39.79 |      28,847 |       2,770 |              9.60 |           -20.0 |           -0.4 |           +20.0 |
-|  +850.00 |  +814.18 | TH.TK_S    |        4815 |        1925 |            39.98 |      28,847 |       1,653 |              5.73 |           -20.0 |           -0.1 |           +20.0 |
+|  +150.00 |  +114.18 | TH.TK_S    |       19263 |         227 |             1.18 |      29,053 |       1,255 |              4.32 |           -20.0 |           -1.4 |           +18.4 |
+|  +170.00 |  +134.18 | TH.TK_S    |       19263 |         265 |             1.38 |      29,053 |         993 |              3.42 |           -19.9 |           -1.7 |           +19.5 |
+|  +190.00 |  +154.18 | TH.TK_S    |       19263 |         369 |             1.92 |      29,053 |       1,029 |              3.54 |           -20.0 |           -5.4 |           +19.8 |
+|  +210.00 |  +174.18 | TH.TK_S    |       19263 |         544 |             2.82 |      29,053 |       1,293 |              4.45 |           -20.0 |           -8.7 |           +19.9 |
+|  +230.00 |  +194.18 | TH.TK_S    |       19263 |         790 |             4.10 |      29,053 |       1,784 |              6.14 |           -20.0 |          -10.3 |           +20.0 |
+|  +250.00 |  +214.18 | TH.TK_S    |       19263 |         936 |             4.86 |      29,053 |       2,077 |              7.15 |           -20.0 |           -9.9 |           +19.9 |
+|  +270.00 |  +234.18 | TH.TK_S    |       19263 |        1079 |             5.60 |      29,053 |       2,050 |              7.06 |           -19.9 |           -9.4 |           +19.6 |
+|  +290.00 |  +254.18 | TH.TK_S    |       19263 |        1234 |             6.41 |      29,053 |       2,472 |              8.51 |           -20.0 |           -8.4 |           +19.9 |
+|  +310.00 |  +274.18 | TH.TK_S    |       19263 |        1410 |             7.32 |      29,053 |       2,834 |              9.76 |           -20.0 |           -7.8 |           +19.8 |
+|  +330.00 |  +294.18 | TH.TK_S    |       19263 |        1560 |             8.10 |      29,053 |       3,995 |             13.75 |           -20.0 |           -6.4 |           +20.0 |
+|  +350.00 |  +314.18 | TH.TK_S    |       19263 |        1804 |             9.37 |      29,053 |       8,560 |             29.46 |           -20.0 |           -5.9 |           +19.9 |
+|  +370.00 |  +334.18 | TH.TK_S    |       19263 |        2187 |            11.35 |      29,053 |      11,826 |             40.70 |           -20.0 |           -5.1 |           +19.7 |
+|  +390.00 |  +354.18 | TH.TK_S    |       19263 |        2530 |            13.13 |      29,053 |      13,790 |             47.47 |           -20.0 |           -4.6 |           +19.9 |
+|  +410.00 |  +374.18 | TH.TK_S    |       19263 |        2924 |            15.18 |      29,053 |      15,539 |             53.49 |           -20.0 |           -4.1 |           +19.9 |
+|  +430.00 |  +394.18 | TH.TK_S    |       19263 |        3292 |            17.09 |      29,053 |      16,958 |             58.37 |           -20.0 |           -3.9 |           +20.0 |
+|  +450.00 |  +414.18 | TH.TK_S    |       19263 |        3542 |            18.39 |      29,053 |      18,200 |             62.64 |           -20.0 |           -3.8 |           +20.0 |
+|  +470.00 |  +434.18 | TH.TK_S    |       19263 |        3706 |            19.24 |      29,053 |      18,492 |             63.65 |           -20.0 |           -3.7 |           +20.0 |
+|  +490.00 |  +454.18 | TH.TK_S    |       19263 |        3873 |            20.11 |      29,053 |      18,643 |             64.17 |           -20.0 |           -3.6 |           +20.0 |
+|  +510.00 |  +474.18 | TH.TK_S    |       19263 |        4131 |            21.45 |      29,053 |      19,906 |             68.51 |           -20.0 |           -3.0 |           +20.0 |
+|  +530.00 |  +494.18 | TH.TK_S    |       19263 |        4351 |            22.59 |      29,053 |      20,372 |             70.12 |           -20.0 |           -2.4 |           +20.0 |
+|  +550.00 |  +514.18 | TH.TK_S    |       19263 |        4540 |            23.57 |      29,053 |      20,049 |             69.01 |           -20.0 |           -1.7 |           +20.0 |
+|  +570.00 |  +534.18 | TH.TK_S    |       19263 |        4766 |            24.74 |      29,053 |      20,791 |             71.56 |           -20.0 |           -1.3 |           +20.0 |
+|  +590.00 |  +554.18 | TH.TK_S    |       19263 |        5042 |            26.17 |      29,053 |      19,402 |             66.78 |           -20.0 |           -0.9 |           +20.0 |
+|  +610.00 |  +574.18 | TH.TK_S    |       19263 |        5303 |            27.53 |      29,053 |      16,076 |             55.33 |           -20.0 |           -1.0 |           +20.0 |
+|  +630.00 |  +594.18 | TH.TK_S    |       19263 |        5518 |            28.65 |      29,053 |      13,722 |             47.23 |           -20.0 |           -1.0 |           +20.0 |
+|  +650.00 |  +614.18 | TH.TK_S    |       19263 |        5799 |            30.10 |      29,053 |      11,333 |             39.01 |           -20.0 |           -1.5 |           +20.0 |
+|  +670.00 |  +634.18 | TH.TK_S    |       19263 |        5934 |            30.81 |      29,053 |       9,579 |             32.97 |           -20.0 |           -1.8 |           +20.0 |
+|  +690.00 |  +654.18 | TH.TK_S    |       19263 |        6130 |            31.82 |      29,053 |       8,511 |             29.29 |           -20.0 |           -2.2 |           +20.0 |
+|  +710.00 |  +674.18 | TH.TK_S    |       19263 |        6370 |            33.07 |      29,053 |       7,159 |             24.64 |           -20.0 |           -2.2 |           +20.0 |
+|  +730.00 |  +694.18 | TH.TK_S    |       19263 |        6569 |            34.10 |      29,053 |       6,563 |             22.59 |           -20.0 |           -2.1 |           +20.0 |
+|  +750.00 |  +714.18 | TH.TK_S    |       19263 |        6816 |            35.38 |      29,053 |       6,042 |             20.80 |           -20.0 |           -1.9 |           +20.0 |
+|  +770.00 |  +734.18 | TH.TK_S    |       19263 |        7004 |            36.36 |      29,053 |       4,592 |             15.80 |           -20.0 |           -1.6 |           +20.0 |
+|  +790.00 |  +754.18 | TH.TK_S    |       19263 |        7243 |            37.60 |      29,053 |       3,965 |             13.65 |           -20.0 |           -1.0 |           +20.0 |
+|  +810.00 |  +774.18 | TH.TK_S    |       19263 |        7535 |            39.12 |      29,053 |       3,641 |             12.53 |           -20.0 |           -0.7 |           +20.0 |
+|  +830.00 |  +794.18 | TH.TK_S    |       19263 |        7663 |            39.78 |      29,053 |       2,427 |              8.35 |           -20.0 |           -0.5 |           +20.0 |
+|  +850.00 |  +814.18 | TH.TK_S    |       19263 |        7722 |            40.09 |      29,053 |       1,526 |              5.25 |           -20.0 |           -0.3 |           +20.0 |
 ==========================================================================================================================
 
  -> Plot saved successfully to: OUTPUT_LDP/TH_TK_S/TH_TK_S_Plot_PP_Popu.svg
@@ -158,5 +158,5 @@ Processing province: TH_TK_S
 [+] TH_TK_S: One-Page Report generated successfully.
 ======================================================================
 Completed province: TH.TK_S
-Finished: 2026-08-16T12:12:57+07:00
+Finished: 2026-08-19T17:16:27+07:00
 ======================================================================

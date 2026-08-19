@@ -1,0 +1,152 @@
+======================================================================
+Processing province: TH.MH_C
+Started: 2026-08-19T16:16:26+07:00
+======================================================================
+--> [TH.MH_C] Step 1: 1_fabdem_province.py
+[1/5] Read GADM and select HASC_1=TH.MH_C
+[2/5] Save province and clip FABDEM
+[3/5] Generate contours every 100 m with GDAL 3.10.3
+[4/5] Calculate statistics and write PDF
+[5/5] Write DataFrame summaries
+
+Completed successfully.
+ HASC_1               NAME_1  contours                                                                                      PDF
+TH.MH_C Mae Hong Son Central      4880 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_FABDEM/TH_MH_C/TH_MH_C_fabdem_contours.pdf
+--> [TH.MH_C] Step 2: 2_popu2025_grid.py
+[1/4] Select GADM province HASC_1=TH.MH_C
+[2/4] Save boundary and cut population grid
+[3/4] Calculate population-grid statistics
+[4/4] Write population-grid PDF and summaries
+
+Completed successfully.
+ HASC_1               NAME_1  population_sum                                                                                           grid
+TH.MH_C Mae Hong Son Central    87040.950184 /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_POP2025/TH_MH_C/TH_MH_C_population_2025_100m.tif
+--> [TH.MH_C] Step 3: 3_generate_sample.py
+[1/4] Select GADM province HASC_1=TH.MH_C
+ -> [READ] Loading Vector Dataset: OUTPUT_PROV/gadm41_THA.gpkg (Layer: 'ADM_ADM_1')
+[2/4] Generate 500.0m grid points
+ -> Auto-detected EPSG:32647 for province.
+ -> Generated 37,820 bounding box points.
+ -> Clipping points to province boundary...
+ -> Computing 8-digit Geohashes...
+[3/4] Extracting Raster Values (FABDEM MSL & POP2025)...
+ -> [READ] Opening Raster File: OUTPUT_FABDEM/TH_MH_C/TH_MH_C_fabdem.tif
+ -> [READ] Opening Raster File for Area Sum: OUTPUT_POP2025/TH_MH_C/TH_MH_C_population_2025_100m.tif
+ -> Converting geometries to Lng/Lat (EPSG:4326)...
+[4/4] Save GeoPackage Data...
+ -> [WRITE] Saving Vector File: /mnt/nvme1/Project/2026-EIT_TH_LDP/src/OUTPUT_SAMPL/TH_MH_C/TH_MH_C_SAMPL.gpkg (Layer: 'samples')
+
+[5/5] Comparing POP2025 with DOPA Registration Population...
+
+Completed successfully.
+ HASC_1  Grid (m)       CRS  Samples             Output POP2025 DOPA_Pop     Diff
+TH.MH_C     500.0 EPSG:4326    21449 TH_MH_C_SAMPL.gpkg  84,232  288,757 -204,525
+--> [TH.MH_C] Step 4: 4_analyse_ldp.py
+LDP                                                [TM, 97:58]
+FALSE_EN                                                  AUTO
+PP_MSL                                                     310
+POPU_PLOT                                       [750, 150, 20]
+GPKG         [OUTPUT_SAMPL/TH_MH_C/TH_MH_C_SAMPL.gpkg, samp...
+OFFSET_PP         [0.0, default hPP from average topo or pnts]
+dtype: object
+ -> OUTLIER FILTER: Dropped 434 points.
+ -> Dropped MSL values: [-9999, -9999, -9999, -9999, -9999, 568, 637, 770, 457, 885, 944, 924, 636, 593, 605, 938, 502, 746, 293, 437, 412, 455, 438, 497, 453, 513, 701, 618, 560, 515, 624, 599, 596, 597, 1039, 1081, 671, 1182, 1137, 573, 842, 464, 1018, 1125, 1083, 1058, 854, 846, 854, 993, 952, 1002, 1046, 994, 756, 985, 793, 760, 788, 971, 836, 968, 912, 932, 829, 432, 787, 807, 279, 274, 276, 361, 570, 768, 262, 260, 306, 760, 793, 635, 643, 746, 704, 1411, 1411, 1298, 1183, 1303, 1341, 1637, 1599, 1579, 1558, 780, 756, 725, 979, 750, 728, 735, 1345, 1147, 501, 1184, 1443, 1509, 635, 700, 673, 1691, 1270, 1261, 1217, 1247, 1116, 969, 1539, 1590, 1278, 1339, 1697, 1658, 1297, 1697, 1641, 1658, 1723, 1799, 1300, 1700, 1746, 1868, 1690, 1735, 1699, 1686, 1720, 1933, 1833, 1843, 1845, 1731, 1724, 1582, 1519, 1450, 1523, 1459, 1413, 1332, 1332, 1274, 1347, 1221, 1257, 1339, 1601, 1657, 1123, 1242, 1074, 1383, 1406, 1395, 1413, 1407, 311, 375, 592, 654, 581, 905, 994, 975, 769, 1002, 1010, 1014, 1045, 538, 332, 343, 315, 1050, 343, 428, 412, 445, 463, 461, 987, 1012, 359, 353, 353, 1052, 456, 425, 440, 484, 485, 533, 757, 1039, 457, 524, 504, 638, 587, 401, 575, 651, 644, 700, 718, 727, 735, 662, 726, 495, 484, 584, 573, 606, 618, 514, 517, 568, 1028, 1000, 1011, 932, 960, 1006, 938, 1151, 682, 686, 971, 836, 428, 438, 455, 481, 441, 447, 492, 832, 1148, 1346, 1368, 1342, 1163, 1138, 664, 694, 698, 747, 799, 1038, 993, 586, 620, 999, 597, 593, 611, 529, 535, 874, 886, 707, 732, 713, 401, 633, 590, 576, 507, 567, 651, 653, 634, 625, 679, 627, 743, 1434, 1459, 1460, 1413, 541, 1401, 370, 1462, 1393, 367, 384, 370, 408, 326, 1524, 1627, 1598, 1573, 1631, 1663, 1572, 531, 846, 842, 907, 912, 713, 721, 709, 669, 166, 169, 171, 198, 160, 181, 366, 372, 289, 1395, 434, 506, 295, 275, 296, 226, 273, 628, 643, 999, 643, 656, 170, 755, 709, 897, 947, 922, 928, 1709, 1670, 1758, 1757, 1823, 1877, 1691, 1685, 1721, 407, 386, 391, 499, 448, 367, 510, 466, 483, 555, 533, 660, 633, 1203, 1307, 1323, 997, 1647, 1732, 1115, 1100, 1281, 1275, 1400, 1269, 1378, 1361, 1508, 1322, 1137, 911, 968, 892, 955, 861, 699, 685, 852, 652, 675, 778, 758, 737, 706, 743, 720, 875, 896, 883, 984, 352, 362, 365, 354, 293, 372, 1240, 1229, 287, 338, 282, 1223, 1027, 1223, 1200, 268, 272, 283, 1217, 859, 560, 568, 967, 977, 967, 790, 862, 785, 788]
+ -> Using user-defined PP_MSL: 310.000m
+ -> AUTO detected FALSE_EN: E: 50000, N: -1600000
+==================================== LDP TM ====================================
+@ Centroid @     <lng=97°58′>    <lat=18°56′>
+Offset Projection Plane = +0.0 m. <default hPP from average topo or pnts>
+Designed Project Plane : hPP=+270.22 m. / MSL=+310.00 m. tied to k0 = 1.000042
+Points CSF min/mean/max [ppm] : -213.6 / -64.3 / +23.5
+Points MSL min/mean/max [m.]  : +165.0 / +726.9 / +1696.0
+|      |      LDP_E |       LDP_N |
+|:-----|-----------:|------------:|
+| min  | 19,791.758 | 421,605.687 |
+| max  | 79,702.563 | 572,176.232 |
+| diff | 59,910.805 | 150,570.545 |
+{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=0.0 +lon_0=97.96666667 +k_0=1.000042 +x_0=50000 +y_0=-1600000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=0.0 +lon_0=97°58′ +k_0=1.000042 +x_0=50000 +y_0=-1600000 +ellps=WGS84 +units=m +no_defs +type=crs"}
+Writing definition GPKG : OUTPUT_LDP/TH_MH_C/TH_MH_C_LDP.gpkg ...
+ -> THINNING: Snapping points to 2 decimal grid for visualization...
+ -> THINNING: Plot points reduced from 21015 to 4720.
+Writing definition plot : OUTPUT_LDP/TH_MH_C/TH_MH_C_LDP.svg...
+{"meta": "Coverage_Analysis", "Province": "TH.MH_C", "Total_Pts": 21449, "Valid_Pts": 3853, "Pt_Coverage(%)": 17.96, "Total_POP": 84231.86839999999, "Valid_POP": 53984.2056, "POP_Coverage(%)": 64.09, "CSF_Lower_ppm": -20.0, "CSF_Mean_ppm": -5.9, "CSF_Upper_ppm": 20.0}
+--> [TH.MH_C] Step 5: 5_plot_PP_PctPopu.py
+[TH.MH_C] POPU_PLOT found in TOML. Overriding MSL bounds: Upper=750.0, Lower=150.0, Step=20.0
+[TH.MH_C] Starting ProcessPoolExecutor with 31 offsets to compute (Mean MSL: 726.94 m)...
+[TH.MH_C] OFFSET_PP [-576.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-556.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-536.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-516.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-496.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-476.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-456.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-436.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-416.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-396.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-376.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-356.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-336.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-316.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-296.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-276.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-256.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-236.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-216.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-196.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-176.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-156.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-136.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-116.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-96.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-76.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-56.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-36.94] computed successfully.
+[TH.MH_C] OFFSET_PP [-16.94] computed successfully.
+[TH.MH_C] OFFSET_PP [3.06] computed successfully.
+[TH.MH_C] OFFSET_PP [23.06] computed successfully.
+
+==================================== LDP Population Coverage Analysis: TH.MH_C ====================================
+|   MSL_PP |   HAE_PP | Province   |   Total_Pts |   Valid_Pts |   Pt_Coverage(%) |   Total_POP |   Valid_POP |   POP_Coverage(%) |   CSF_Lower_ppm |   CSF_Mean_ppm |   CSF_Upper_ppm |
+|---------:|---------:|:-----------|------------:|------------:|-----------------:|------------:|------------:|------------------:|----------------:|---------------:|----------------:|
+|  +150.00 |  +110.22 | TH.MH_C    |       21449 |         674 |             3.14 |      84,232 |      29,929 |             35.53 |           -20.0 |          -14.1 |            -1.5 |
+|  +170.00 |  +130.22 | TH.MH_C    |       21449 |         896 |             4.18 |      84,232 |      35,995 |             42.73 |           -20.0 |          -12.9 |            +1.5 |
+|  +190.00 |  +150.22 | TH.MH_C    |       21449 |        1276 |             5.95 |      84,232 |      41,135 |             48.83 |           -20.0 |          -11.6 |            +5.5 |
+|  +210.00 |  +170.22 | TH.MH_C    |       21449 |        1625 |             7.58 |      84,232 |      43,902 |             52.12 |           -20.0 |          -10.8 |            +8.5 |
+|  +230.00 |  +190.22 | TH.MH_C    |       21449 |        1993 |             9.29 |      84,232 |      47,641 |             56.56 |           -20.0 |           -9.8 |           +11.5 |
+|  +250.00 |  +210.22 | TH.MH_C    |       21449 |        2430 |            11.33 |      84,232 |      49,264 |             58.49 |           -20.0 |           -8.9 |           +14.5 |
+|  +270.00 |  +230.22 | TH.MH_C    |       21449 |        2872 |            13.39 |      84,232 |      50,860 |             60.38 |           -20.0 |           -7.8 |           +17.5 |
+|  +290.00 |  +250.22 | TH.MH_C    |       21449 |        3350 |            15.62 |      84,232 |      52,313 |             62.11 |           -20.0 |           -6.8 |           +19.6 |
+|  +310.00 |  +270.22 | TH.MH_C    |       21449 |        3853 |            17.96 |      84,232 |      53,984 |             64.09 |           -20.0 |           -5.9 |           +20.0 |
+|  +330.00 |  +290.22 | TH.MH_C    |       21449 |        4448 |            20.74 |      84,232 |      52,652 |             62.51 |           -20.0 |           -4.7 |           +20.0 |
+|  +350.00 |  +310.22 | TH.MH_C    |       21449 |        4924 |            22.96 |      84,232 |      48,926 |             58.08 |           -20.0 |           -4.2 |           +20.0 |
+|  +370.00 |  +330.22 | TH.MH_C    |       21449 |        5340 |            24.90 |      84,232 |      43,956 |             52.18 |           -20.0 |           -3.6 |           +20.0 |
+|  +390.00 |  +350.22 | TH.MH_C    |       21449 |        5724 |            26.69 |      84,232 |      34,580 |             41.05 |           -20.0 |           -3.2 |           +20.0 |
+|  +410.00 |  +370.22 | TH.MH_C    |       21449 |        6105 |            28.46 |      84,232 |      29,806 |             35.39 |           -20.0 |           -2.7 |           +20.0 |
+|  +430.00 |  +390.22 | TH.MH_C    |       21449 |        6401 |            29.84 |      84,232 |      24,972 |             29.65 |           -20.0 |           -2.0 |           +20.0 |
+|  +450.00 |  +410.22 | TH.MH_C    |       21449 |        6643 |            30.97 |      84,232 |      22,779 |             27.04 |           -20.0 |           -1.5 |           +20.0 |
+|  +470.00 |  +430.22 | TH.MH_C    |       21449 |        6923 |            32.28 |      84,232 |      20,773 |             24.66 |           -20.0 |           -1.0 |           +20.0 |
+|  +490.00 |  +450.22 | TH.MH_C    |       21449 |        7084 |            33.03 |      84,232 |      20,000 |             23.74 |           -20.0 |           -0.6 |           +20.0 |
+|  +510.00 |  +470.22 | TH.MH_C    |       21449 |        7150 |            33.33 |      84,232 |      18,941 |             22.49 |           -20.0 |           -0.3 |           +20.0 |
+|  +530.00 |  +490.22 | TH.MH_C    |       21449 |        7144 |            33.31 |      84,232 |      17,694 |             21.01 |           -20.0 |           +0.0 |           +20.0 |
+|  +550.00 |  +510.22 | TH.MH_C    |       21449 |        7115 |            33.17 |      84,232 |      16,224 |             19.26 |           -20.0 |           +0.4 |           +20.0 |
+|  +570.00 |  +530.22 | TH.MH_C    |       21449 |        7066 |            32.94 |      84,232 |      14,975 |             17.78 |           -20.0 |           +0.6 |           +20.0 |
+|  +590.00 |  +550.22 | TH.MH_C    |       21449 |        7021 |            32.73 |      84,232 |      14,335 |             17.02 |           -20.0 |           +0.9 |           +20.0 |
+|  +610.00 |  +570.22 | TH.MH_C    |       21449 |        6876 |            32.06 |      84,232 |      12,673 |             15.05 |           -20.0 |           +1.1 |           +20.0 |
+|  +630.00 |  +590.22 | TH.MH_C    |       21449 |        6711 |            31.29 |      84,232 |      11,788 |             13.99 |           -20.0 |           +1.1 |           +20.0 |
+|  +650.00 |  +610.22 | TH.MH_C    |       21449 |        6572 |            30.64 |      84,232 |      10,782 |             12.80 |           -20.0 |           +1.1 |           +20.0 |
+|  +670.00 |  +630.22 | TH.MH_C    |       21449 |        6422 |            29.94 |      84,232 |      10,023 |             11.90 |           -20.0 |           +1.1 |           +20.0 |
+|  +690.00 |  +650.22 | TH.MH_C    |       21449 |        6249 |            29.13 |      84,232 |       9,144 |             10.86 |           -20.0 |           +1.3 |           +20.0 |
+|  +710.00 |  +670.22 | TH.MH_C    |       21449 |        6052 |            28.22 |      84,232 |       8,308 |              9.86 |           -20.0 |           +1.3 |           +20.0 |
+|  +730.00 |  +690.22 | TH.MH_C    |       21449 |        5754 |            26.83 |      84,232 |       7,070 |              8.39 |           -20.0 |           +1.4 |           +20.0 |
+|  +750.00 |  +710.22 | TH.MH_C    |       21449 |        5585 |            26.04 |      84,232 |       5,021 |              5.96 |           -20.0 |           +1.5 |           +20.0 |
+==========================================================================================================================
+
+ -> Plot saved successfully to: OUTPUT_LDP/TH_MH_C/TH_MH_C_Plot_PP_Popu.svg
+
+--> [TH.MH_C] Step 6: 6_LDP_OnePage.py
+Processing province: TH_MH_C
+[+] TH_MH_C: One-Page Report generated successfully.
+======================================================================
+Completed province: TH.MH_C
+Finished: 2026-08-19T16:34:27+07:00
+======================================================================

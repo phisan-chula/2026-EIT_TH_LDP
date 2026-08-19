@@ -63,7 +63,7 @@ run_python_step() {
             ;;
         3)
             printf '%s\n' "--> [$province] Step 3: $SCRIPT_3"
-            "$PYTHON_BIN" "$SCRIPT_3" -p "$province" --grid 1000 --overwrite
+            "$PYTHON_BIN" "$SCRIPT_3" -p "$province" --grid 500 --overwrite
             ;;
         4)
             printf '%s\n' "--> [$province] Step 4: $SCRIPT_4"
