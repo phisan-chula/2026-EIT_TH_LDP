@@ -35,22 +35,19 @@ class ProvinceReport:
             "svg_ldp": f"OUTPUT_LDP/{self.hasc}/{self.hasc}_LDP.svg",
             "log": f"OUTPUT_SAMPL/{self.hasc}/{self.hasc}_pipeline.log",
             "out_pdf": f"OUTPUT_LDP/{self.hasc}/{self.hasc}_OnePage.pdf",
-            "prov_csv": "OUTPUT_PROV/gadm41_THA.csv",
-            "ldp_csv": "OUTPUT_LDP/ProvinceLDP.csv"  # New path for sampling points
+            "prov_csv": "OUTPUT_PROV/gadm41_THA.csv"  # New path for the CSV metadata
         }
 
     def _get_suptitle_text(self) -> str:
-        """Reads the summary CSVs and extracts metadata for the title."""
-        line1 = f"LDP Analysis Report: {self.hasc}"
-        line2 = "Number of sampling points : N/A"
-        
-        # 1. Read province metadata for Line 1
+        """Reads the summary CSV and extracts metadata for the title."""
+        default_title = f"LDP Analysis Report: {self.hasc}"
         try:
             if os.path.exists(self.paths["prov_csv"]):
-                df_prov = pd.read_csv(self.paths["prov_csv"])
+                df = pd.read_csv(self.paths["prov_csv"])
                 
                 # The class 'hasc' uses underscores (TH_AC). 
-                match = df_prov[df_prov['HASC_1'].astype(str).str.replace('.', '_') == self.hasc]
+                # We replace dots with underscores in the DF to guarantee a match.
+                match = df[df['HASC_1'].astype(str).str.replace('.', '_') == self.hasc]
                 
                 if not match.empty:
                     row = match.iloc[0]
@@ -61,41 +58,17 @@ class ProvinceReport:
                     ew = row.get('EW_km', 0)
                     ns = row.get('NS_km', 0)
                     
-                    line1 = f"{iso} | {hasc} | {name} | Area: {area:,} sq.km | Extent: {ew}km (E-W) x {ns}km (N-S)"
+                    return f"{iso} | {hasc} | {name} | Area: {area:,} sq.km | Extent: {ew}km (E-W) x {ns}km (N-S)"
         except Exception as e:
-            print(f"[-] Warning: Failed to read prov_csv for suptitle: {e}")
+            print(f"[-] Warning: Failed to read metadata for suptitle: {e}")
             
-        # 2. Read sampling points from ProvinceLDP.csv for Line 2
-        try:
-            if os.path.exists(self.paths["ldp_csv"]):
-                df_ldp = pd.read_csv(self.paths["ldp_csv"])
-                
-                # Locate the row for the current province (checking HASC_1 first, then fallback to other string columns)
-                match_ldp = pd.DataFrame()
-                if 'HASC_1' in df_ldp.columns:
-                    match_ldp = df_ldp[df_ldp['HASC_1'].astype(str).str.replace('.', '_') == self.hasc]
-                else:
-                    for col in df_ldp.select_dtypes(include=[object]):
-                        temp_match = df_ldp[df_ldp[col].astype(str).str.replace('.', '_') == self.hasc]
-                        if not temp_match.empty:
-                            match_ldp = temp_match
-                            break
-
-                if not match_ldp.empty and 'Samples' in df_ldp.columns:
-                    sample_val = match_ldp.iloc[0]['Samples']
-                    if pd.notna(sample_val):
-                        # Treat Sample as text and paste directly
-                        line2 = f"number of sampling points : {sample_val}"
-        except Exception as e:
-            print(f"[-] Warning: Failed to read ldp_csv for suptitle: {e}")
-            
-        return f"{line1}\n{line2}"
+        return default_title
 
     def _setup_canvas(self):
         """Initializes the strictly A4 Matplotlib canvas and custom GridSpec layout."""
         self.fig = plt.figure(figsize=(8.27, 11.69))
         
-        # Apply the dynamic Suptitle (now contains \n for two lines)
+        # Apply the dynamic Suptitle
         title_text = self._get_suptitle_text()
         self.fig.suptitle(title_text, fontsize=10, fontweight='bold', y=0.98)
         
@@ -135,12 +108,8 @@ class ProvinceReport:
         
         im = ax.imshow(dem, cmap=cmap, extent=extent)
         ax.grid(True, color='gray', linestyle='-', linewidth=0.5, alpha=0.5)
-        ax.set_title("Elevation (MSL)", fontsize=8)
-        
-        # Update colorbar font sizes
-        cbar = self.fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
-        cbar.set_label("Elevation (m)", fontsize=8)
-        cbar.ax.tick_params(labelsize=6)
+        ax.set_title("Elevation (MSL)", fontsize=10)
+        self.fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04, label="Elevation (m)")
 
     def _render_population(self):
         """Plots the Population raster with log scaling, styled like the reference image."""
@@ -155,16 +124,12 @@ class ProvinceReport:
         cmap.set_bad(color='white') 
         
         im = ax.imshow(pop_log, cmap=cmap, extent=extent)
-        ax.set_title("Grid Population 2025", fontsize=8)
+        ax.set_title("Grid Population 2025", fontsize=10)
         ax.grid(True, color='gray', linestyle='-', linewidth=0.5, alpha=0.5)
-        
-        # Update colorbar font sizes
-        cbar = self.fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
-        cbar.set_label("log(1 + population)", fontsize=8)
-        cbar.ax.tick_params(labelsize=6)
+        self.fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04, label="log(1 + population)")
 
-    def _render_svg(self, ax_key: str, path_key: str, title: str, zoom: float = 1.0, shift_x_ratio: float = 0.0):
-        """Rasterizes and plots an SVG into the specified axis at 600 DPI, with optional zoom and x-axis panning."""
+    def _render_svg(self, ax_key: str, path_key: str, title: str, zoom: float = 1.0):
+        """Rasterizes and plots an SVG into the specified axis at 600 DPI, with optional zoom."""
         svg_path = self.paths[path_key]
         png_data = cairosvg.svg2png(url=svg_path, dpi=600)
         img = mpimg.imread(io.BytesIO(png_data))
@@ -172,10 +137,9 @@ class ProvinceReport:
         ax = self.axes[ax_key]
         ax.imshow(img)
         
-        if zoom != 1.0 or shift_x_ratio != 0.0:
+        if zoom != 1.0:
             h, w = img.shape[:2]
-            # Shift the center of the crop window to reveal cropped edges
-            center_x, center_y = (w / 2) + (w * shift_x_ratio), h / 2
+            center_x, center_y = w / 2, h / 2
             new_w = w / zoom
             new_h = h / zoom
             ax.set_xlim(center_x - new_w / 2, center_x + new_w / 2)
@@ -263,8 +227,7 @@ class ProvinceReport:
         try:
             self._render_dem()
             self._render_population()
-            # Added a negative shift to reveal the left side of the zoomed image
-            self._render_svg("svg_pp", "svg_pp", "Optimize Max Popu.", zoom=1.05, shift_x_ratio=-0.025)
+            self._render_svg("svg_pp", "svg_pp", "Plot PP Popu", zoom=1.05)
             self._render_svg("svg_ldp", "svg_ldp", "LDP Map", zoom=1.1)
             self._render_log_text()
         except FileNotFoundError as e:
