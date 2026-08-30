@@ -15,10 +15,10 @@ This report provides a comparative analysis of distances calculated across vario
 
 ### Max Magnitudes
 
-| Projection | Maximum Value |
+| Parameter | Maximum Value |
 |:---|:---|
-| P?_UTM_gamma | -47' 52.59" |
-| P?_LDP_gamma | -7' 35.57" |
+| P?_UTM_γ| -47' 52.59" |
+| P?_LDP_γ | -7' 35.57" |
 | P?_UTM_CSF | +823.0 ppm |
 
 ---

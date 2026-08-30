@@ -279,10 +279,10 @@ This report provides a comparative analysis of distances calculated across vario
 
 ### Max Magnitudes
 
-| Projection | Maximum Value |
+| Parameter | Maximum Value |
 |:---|:---|
-| P?_UTM_gamma | {format_dms(max_utm_g_val)} |
-| P?_LDP_gamma | {format_dms(max_ldp_g_val)} |
+| P?_UTM_γ| {format_dms(max_utm_g_val)} |
+| P?_LDP_γ | {format_dms(max_ldp_g_val)} |
 | P?_UTM_CSF | {max_utm_csf_str} |
 """
         
