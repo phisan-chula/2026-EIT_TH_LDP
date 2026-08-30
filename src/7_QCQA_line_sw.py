@@ -268,6 +268,13 @@ class LDPValidator:
         max_utm_csf_ppm = all_utm_csf_ppm.iloc[all_utm_csf_ppm.abs().argmax()] if not all_utm_csf_ppm.empty else np.nan
         max_utm_csf_str = f"{max_utm_csf_ppm:+.1f} ppm" if pd.notna(max_utm_csf_ppm) else "NaN"
 
+        # Calculate maximum magnitude for LDP CSF in ppm (deviation from 1.0)
+        ldp_csf1_ppm_series = (df_results['LDP_CSF1'] - 1.0) * 1e6
+        ldp_csf2_ppm_series = (df_results['LDP_CSF2'] - 1.0) * 1e6
+        all_ldp_csf_ppm = pd.concat([ldp_csf1_ppm_series, ldp_csf2_ppm_series]).dropna()
+        max_ldp_csf_ppm = all_ldp_csf_ppm.iloc[all_ldp_csf_ppm.abs().argmax()] if not all_ldp_csf_ppm.empty else np.nan
+        max_ldp_csf_str = f"{max_ldp_csf_ppm:+.1f} ppm" if pd.notna(max_ldp_csf_ppm) else "NaN"
+
         # Build header text with an HTML table wrapper for two-pane layout
         header_md = f"""# LDP Quality Control & Validation Summary
 
@@ -281,13 +288,14 @@ This report provides a comparative analysis of distances calculated across vario
 
 {df_line_descr.to_markdown(index=False)}
 
-### Max Magnitudes
+### Maximum Magnitudes
 
 | Projection | Maximum Value |
 |:---|:---|
 | P?_UTM_γ | {format_dms(max_utm_g_val)} |
 | P?_LDP_γ | {format_dms(max_ldp_g_val)} |
 | P?_UTM_CSF | {max_utm_csf_str} |
+| P?_LDP_CSF | {max_ldp_csf_str} |
 
 </td>
 <td valign="top" width="70%">

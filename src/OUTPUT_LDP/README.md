@@ -17,13 +17,14 @@ This report provides a comparative analysis of distances calculated across vario
 | L5     | on the UTM grid (CSF applied)         |
 | L6     | on the LDP grid                       |
 
-### Max Magnitudes
+### Maximum Magnitudes
 
 | Projection | Maximum Value |
 |:---|:---|
 | P?_UTM_γ | -47' 52.59" |
 | P?_LDP_γ | -7' 35.57" |
 | P?_UTM_CSF | +823.0 ppm |
+| P?_LDP_CSF | +74.5 ppm |
 
 </td>
 <td valign="top" width="70%">
