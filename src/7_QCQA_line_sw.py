@@ -49,6 +49,21 @@ def extract_ldp_definitions(sampl_dir: Path, out_dir: Path) -> None:
     print(f"Verified {len(pj4_files)} LDP definitions ready for use.\n")
 
 
+def format_dms(deg_val: float) -> str:
+    """Format decimal degrees into +/- D° M' S.ss\" or +/- M' S.ss\" if D is 0."""
+    if pd.isna(deg_val):
+        return "NaN"
+    sign = "-" if deg_val < 0 else "+"
+    val = abs(deg_val)
+    d = int(val)
+    m = int((val - d) * 60)
+    s = (val - d - m / 60.0) * 3600.0
+    
+    if d == 0:
+        return f"{sign}{m}' {s:.2f}\""
+    return f"{sign}{d}° {m}' {s:.2f}\""
+
+
 class LDPValidator:
     def __init__(self, config: Config, force_points: Optional[Dict[str, Point]] = None):
         """Initialize the validator with configs, geodesic models, and forced points."""
@@ -82,7 +97,7 @@ class LDPValidator:
             raise ValueError(f"DEM sampling failed: {e}")
 
     def _calc_utm_parameters(self, lon1: float, lat1: float, lon2: float, lat2: float) -> Tuple:
-        """Calculate UTM grid distance, average PSF, individual PSFs, and the EPSG zone."""
+        """Calculate UTM grid distance, average PSF, individual PSFs, gammas, and the EPSG zone."""
         utm_crs_info = pyproj.database.query_utm_crs_info(
             datum_name="WGS 84", 
             area_of_interest=pyproj.aoi.AreaOfInterest(lon1, lat1, lon1, lat1)
@@ -97,19 +112,25 @@ class LDPValidator:
         L3_UTM = math.hypot(utm2_e - utm1_e, utm2_n - utm1_n)
         
         utm_proj_obj = pyproj.Proj(utm_proj)
-        psf1 = utm_proj_obj.get_factors(lon1, lat1).meridional_scale
-        psf2 = utm_proj_obj.get_factors(lon2, lat2).meridional_scale
+        fac1 = utm_proj_obj.get_factors(lon1, lat1)
+        fac2 = utm_proj_obj.get_factors(lon2, lat2)
+        
+        psf1 = fac1.meridional_scale
+        psf2 = fac2.meridional_scale
         psf_avg = (psf1 + psf2) / 2.0
         
-        return L3_UTM, psf_avg, psf1, psf2, utm_zone_number, (utm1_e, utm1_n), (utm2_e, utm2_n)
+        gamma1 = fac1.meridian_convergence
+        gamma2 = fac2.meridian_convergence
+        
+        return L3_UTM, psf_avg, psf1, psf2, gamma1, gamma2, utm_zone_number, (utm1_e, utm1_n), (utm2_e, utm2_n)
 
     def _calc_ldp_parameters(self, hasc_safe: str, lon1: float, lat1: float, lon2: float, lat2: float) -> Tuple:
-        """Calculate LDP grid distance, point scale factors, definition, and coordinates."""
+        """Calculate LDP grid distance, point scale factors, gammas, definition, and coordinates."""
         pj4_path = self.cfg.OUT_DIR / hasc_safe / f"{hasc_safe}_LDP_CRS.PJ4"
         
         if not pj4_path.exists():
             print(f"  -> WARNING: {pj4_path} not found. L6 will be NaN.")
-            return (np.nan, np.nan, np.nan, np.nan, "Not found", (np.nan, np.nan), (np.nan, np.nan))
+            return (np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, "Not found", (np.nan, np.nan), (np.nan, np.nan))
             
         ldp_proj_str = pj4_path.read_text(encoding='utf-8').strip()
         ldp_crs = pyproj.CRS(ldp_proj_str)
@@ -121,12 +142,18 @@ class LDPValidator:
         ldp_distance = math.hypot(ldp2_e - ldp1_e, ldp2_n - ldp1_n)
         ldp_proj_obj = pyproj.Proj(ldp_crs)
         
-        ldp_psf1 = ldp_proj_obj.get_factors(lon1, lat1).meridional_scale
-        ldp_psf2 = ldp_proj_obj.get_factors(lon2, lat2).meridional_scale
+        fac1 = ldp_proj_obj.get_factors(lon1, lat1)
+        fac2 = ldp_proj_obj.get_factors(lon2, lat2)
+        
+        ldp_psf1 = fac1.meridional_scale
+        ldp_psf2 = fac2.meridional_scale
         ldp_psf_avg = (ldp_psf1 + ldp_psf2) / 2.0
+        
+        gamma1 = fac1.meridian_convergence
+        gamma2 = fac2.meridian_convergence
 
         return (
-            ldp_distance, ldp_psf_avg, ldp_psf1, ldp_psf2,
+            ldp_distance, ldp_psf_avg, ldp_psf1, ldp_psf2, gamma1, gamma2,
             ldp_proj_str, (ldp1_e, ldp1_n), (ldp2_e, ldp2_n)
         )
 
@@ -179,14 +206,14 @@ class LDPValidator:
         L2 = L1 / HSF
         
         # 5. UTM Distance & Combined Scale Factors
-        L3, PSF_avg, PSF1, PSF2, utm_zone, p1_utm, p2_utm = self._calc_utm_parameters(lon1, lat1, lon2, lat2)
+        L3, PSF_avg, PSF1, PSF2, utm_g1, utm_g2, utm_zone, p1_utm, p2_utm = self._calc_utm_parameters(lon1, lat1, lon2, lat2)
         L4 = L3 / PSF_avg
         UTM_CSF_avg = PSF_avg * HSF
         L5 = L3 / UTM_CSF_avg
 
         # 6. LDP Parameters
         (
-            L6, LDP_PSF_avg, LDP_PSF1, LDP_PSF2,
+            L6, LDP_PSF_avg, LDP_PSF1, LDP_PSF2, ldp_g1, ldp_g2,
             ldp_def, p1_ldp, p2_ldp
         ) = self._calc_ldp_parameters(hasc_safe, lon1, lat1, lon2, lat2)
 
@@ -200,8 +227,10 @@ class LDPValidator:
             'H_Orthometric': H_avg, 'N_Undulation': N_avg, 'h_Ellipsoidal': h_avg, 'HSF': HSF,
             'UTM_Zone': utm_zone, 'UTM_PSF': PSF_avg, 'UTM_CSF': UTM_CSF_avg,
             'UTM_CSF1': PSF1 * HSF1, 'UTM_CSF2': PSF2 * HSF2, 'P1_UTM': p1_utm, 'P2_UTM': p2_utm,
+            'UTM_Gamma1': utm_g1, 'UTM_Gamma2': utm_g2,
             'LDP_PSF': LDP_PSF_avg, 'LDP_PSF1': LDP_PSF1, 'LDP_PSF2': LDP_PSF2,
             'LDP_CSF': LDP_CSF_avg, 'LDP_CSF1': LDP_CSF1, 'LDP_CSF2': LDP_CSF2,
+            'LDP_Gamma1': ldp_g1, 'LDP_Gamma2': ldp_g2,
             'L1_Ellps': L1, 'L2_Grnd': L2, 'L3_UTM': L3, 'L4_UTM2Ellps': L4, 'L5_UTM2Grnd': L5, 'L6_LDP': L6,
             'LDP_Def': ldp_def, 'P1_LDP': p1_ldp, 'P2_LDP': p2_ldp,
             'diff_L1': L1 - L2, 'diff_L2': 0.000, 'diff_L3': L3 - L2,
@@ -249,6 +278,10 @@ class LDPValidator:
             p1_ldp_str = "(NaN, NaN)" if pd.isna(p1_ldp[0]) else f"({p1_ldp[0]:.3f}, {p1_ldp[1]:.3f})"
             p2_ldp_str = "(NaN, NaN)" if pd.isna(p2_ldp[0]) else f"({p2_ldp[0]:.3f}, {p2_ldp[1]:.3f})"
             
+            # Format Gamma Values
+            ldp_g1_str, ldp_g2_str = format_dms(res['LDP_Gamma1']), format_dms(res['LDP_Gamma2'])
+            utm_g1_str, utm_g2_str = format_dms(res['UTM_Gamma1']), format_dms(res['UTM_Gamma2'])
+            
             # Format Scale Factors
             csf1_ppm, csf2_ppm = (res['LDP_CSF1'] - 1.0) * 1e6, (res['LDP_CSF2'] - 1.0) * 1e6
             flag1, flag2 = (" ❗" if abs(csf1_ppm) > 20 else ""), (" ❗" if abs(csf2_ppm) > 20 else "")
@@ -278,6 +311,8 @@ class LDPValidator:
 | MSL | {msl_val} | HAE | {hae_val} |
 | P1_{u_zone_label} | {p1_utm_str} | P2_{u_zone_label} | {p2_utm_str} |
 | P1_LDP | {p1_ldp_str} | P2_LDP | {p2_ldp_str} |
+| P1_{u_zone_label}_γ | {utm_g1_str} | P2_{u_zone_label}_γ | {utm_g2_str} |
+| P1_LDP_γ | {ldp_g1_str} | P2_LDP_γ | {ldp_g2_str} |
 | P1_LDP_CSF | {csf1_ppm:+.1f} ppm{flag1} | P2_LDP_CSF | {csf2_ppm:+.1f} ppm{flag2} |
 | P1_{u_zone_label}_CSF | {utm_csf1_ppm:+.1f} ppm | P2_{u_zone_label}_CSF | {utm_csf2_ppm:+.1f} ppm |
 
