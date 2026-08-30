@@ -62,6 +62,7 @@ class LDPValidator:
         # Store forced geometries and track which ones were utilized
         self.force_points: Dict[str, Point] = force_points or {}
         self.used_force_points: set = set()
+        self.force_point_counter = 0
         
     def _init_geoid(self) -> pgd.geoids.GeoidKarney:
         """Initialize the TGM2017 Geoid model, falling back to local path if needed."""
@@ -80,7 +81,7 @@ class LDPValidator:
         except Exception as e:
             raise ValueError(f"DEM sampling failed: {e}")
 
-    def _calc_utm_parameters(self, lon1: float, lat1: float, lon2: float, lat2: float) -> Tuple[float, float, float, float, str]:
+    def _calc_utm_parameters(self, lon1: float, lat1: float, lon2: float, lat2: float) -> Tuple:
         """Calculate UTM grid distance, average PSF, individual PSFs, and the EPSG zone."""
         utm_crs_info = pyproj.database.query_utm_crs_info(
             datum_name="WGS 84", 
@@ -100,7 +101,7 @@ class LDPValidator:
         psf2 = utm_proj_obj.get_factors(lon2, lat2).meridional_scale
         psf_avg = (psf1 + psf2) / 2.0
         
-        return L3_UTM, psf_avg, psf1, psf2, utm_zone_number
+        return L3_UTM, psf_avg, psf1, psf2, utm_zone_number, (utm1_e, utm1_n), (utm2_e, utm2_n)
 
     def _calc_ldp_parameters(self, hasc_safe: str, lon1: float, lat1: float, lon2: float, lat2: float) -> Tuple:
         """Calculate LDP grid distance, point scale factors, definition, and coordinates."""
@@ -142,8 +143,9 @@ class LDPValidator:
         if hasc in self.force_points:
             p1_geom = self.force_points[hasc]
             self.used_force_points.add(hasc)
+            self.force_point_counter += 1
             lon1, lat1 = p1_geom.x, p1_geom.y
-            print(f"  -> 🎯 ForcePoint overridden for {hasc_safe} ({name_1}) at ({lon1:.6f}, {lat1:.6f})")
+            print(f"  {self.force_point_counter} -> 🎯 ForcePoint overridden for {hasc_safe} ({name_1}) at ({lon1:.6f}, {lat1:.6f})")
         else:
             with warnings.catch_warnings():
                 warnings.simplefilter("ignore", UserWarning)
@@ -177,7 +179,7 @@ class LDPValidator:
         L2 = L1 / HSF
         
         # 5. UTM Distance & Combined Scale Factors
-        L3, PSF_avg, PSF1, PSF2, utm_zone = self._calc_utm_parameters(lon1, lat1, lon2, lat2)
+        L3, PSF_avg, PSF1, PSF2, utm_zone, p1_utm, p2_utm = self._calc_utm_parameters(lon1, lat1, lon2, lat2)
         L4 = L3 / PSF_avg
         UTM_CSF_avg = PSF_avg * HSF
         L5 = L3 / UTM_CSF_avg
@@ -197,7 +199,7 @@ class LDPValidator:
             'lat1': lat1, 'lon1': lon1, 'lat2': lat2, 'lon2': lon2,
             'H_Orthometric': H_avg, 'N_Undulation': N_avg, 'h_Ellipsoidal': h_avg, 'HSF': HSF,
             'UTM_Zone': utm_zone, 'UTM_PSF': PSF_avg, 'UTM_CSF': UTM_CSF_avg,
-            'UTM_CSF1': PSF1 * HSF1, 'UTM_CSF2': PSF2 * HSF2,
+            'UTM_CSF1': PSF1 * HSF1, 'UTM_CSF2': PSF2 * HSF2, 'P1_UTM': p1_utm, 'P2_UTM': p2_utm,
             'LDP_PSF': LDP_PSF_avg, 'LDP_PSF1': LDP_PSF1, 'LDP_PSF2': LDP_PSF2,
             'LDP_CSF': LDP_CSF_avg, 'LDP_CSF1': LDP_CSF1, 'LDP_CSF2': LDP_CSF2,
             'L1_Ellps': L1, 'L2_Grnd': L2, 'L3_UTM': L3, 'L4_UTM2Ellps': L4, 'L5_UTM2Grnd': L5, 'L6_LDP': L6,
@@ -237,6 +239,11 @@ class LDPValidator:
             p1_str, p2_str = f"({res['lat1']:.9f}, {res['lon1']:.9f})", f"({res['lat2']:.9f}, {res['lon2']:.9f})"
             msl_val, hae_val = int(round(res['H_Orthometric'])), int(round(res['h_Ellipsoidal']))
             
+            p1_utm = res.get('P1_UTM', (np.nan, np.nan))
+            p2_utm = res.get('P2_UTM', (np.nan, np.nan))
+            p1_utm_str = "(NaN, NaN)" if pd.isna(p1_utm[0]) else f"({p1_utm[0]:.3f}, {p1_utm[1]:.3f})"
+            p2_utm_str = "(NaN, NaN)" if pd.isna(p2_utm[0]) else f"({p2_utm[0]:.3f}, {p2_utm[1]:.3f})"
+
             p1_ldp = res.get('P1_LDP', (np.nan, np.nan))
             p2_ldp = res.get('P2_LDP', (np.nan, np.nan))
             p1_ldp_str = "(NaN, NaN)" if pd.isna(p1_ldp[0]) else f"({p1_ldp[0]:.3f}, {p1_ldp[1]:.3f})"
@@ -269,6 +276,7 @@ class LDPValidator:
 | P1 | {p1_str} | P2 | {p2_str} |
 |:---|:---|:---|:---|
 | MSL | {msl_val} | HAE | {hae_val} |
+| P1_{u_zone_label} | {p1_utm_str} | P2_{u_zone_label} | {p2_utm_str} |
 | P1_LDP | {p1_ldp_str} | P2_LDP | {p2_ldp_str} |
 | P1_LDP_CSF | {csf1_ppm:+.1f} ppm{flag1} | P2_LDP_CSF | {csf2_ppm:+.1f} ppm{flag2} |
 | P1_{u_zone_label}_CSF | {utm_csf1_ppm:+.1f} ppm | P2_{u_zone_label}_CSF | {utm_csf2_ppm:+.1f} ppm |
