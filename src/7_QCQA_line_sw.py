@@ -268,10 +268,14 @@ class LDPValidator:
         max_utm_csf_ppm = all_utm_csf_ppm.iloc[all_utm_csf_ppm.abs().argmax()] if not all_utm_csf_ppm.empty else np.nan
         max_utm_csf_str = f"{max_utm_csf_ppm:+.1f} ppm" if pd.notna(max_utm_csf_ppm) else "NaN"
 
-        # Build header text as a single string to avoid newline splitting inside tables
+        # Build header text with an HTML table wrapper for two-pane layout
         header_md = f"""# LDP Quality Control & Validation Summary
 
 This report provides a comparative analysis of distances calculated across various map projections and surfaces. By establishing the **Ground Distance (L2)** as the true baseline of length 1,000.000 meter, we measure the linear distortion introduced by standard UTM grids against the custom Low Distortion Projections (LDP).
+
+<table>
+<tr>
+<td valign="top" width="55%">
 
 ## --- Distance Description ---
 
@@ -279,11 +283,20 @@ This report provides a comparative analysis of distances calculated across vario
 
 ### Max Magnitudes
 
-| Parameter | Maximum Value |
+| Projection | Maximum Value |
 |:---|:---|
-| P?_UTM_γ| {format_dms(max_utm_g_val)} |
-| P?_LDP_γ | {format_dms(max_ldp_g_val)} |
+| P?_UTM_gamma | {format_dms(max_utm_g_val)} |
+| P?_LDP_gamma | {format_dms(max_ldp_g_val)} |
 | P?_UTM_CSF | {max_utm_csf_str} |
+
+</td>
+<td valign="top" width="45%">
+
+<img src="https://github.com/phisan-chula/2026-EIT_TH_LDP/blob/main/Publication/Line1km.png?raw=true" alt="1km Line Infographic" width="100%">
+
+</td>
+</tr>
+</table>
 """
         
         md_content = [header_md]
