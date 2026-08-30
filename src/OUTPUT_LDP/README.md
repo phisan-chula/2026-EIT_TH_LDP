@@ -2,7 +2,7 @@
 
 This report provides a comparative analysis of distances calculated across various map projections and surfaces. By establishing the **Ground Distance (L2)** as the true baseline of length 1,000.000 meter, we measure the linear distortion introduced by standard UTM grids against the custom Low Distortion Projections (LDP).
 
-## --- Distance Definitions ---
+## --- Distance Description ---
 
 | Line   | Line Description                      |
 |:-------|:--------------------------------------|
@@ -12,6 +12,20 @@ This report provides a comparative analysis of distances calculated across vario
 | L4     | on the UTM grid (PSF applied)         |
 | L5     | on the UTM grid (CSF applied)         |
 | L6     | on the LDP grid                       |
+
+
+### Max Magnitudes
+
+| Projection | Maximum Value |
+
+|:---|:---|
+
+| P?_UTM_gamma | -47' 52.59" |
+
+| P?_LDP_gamma | -7' 35.57" |
+
+| P?_UTM_CSF | +823.0 ppm |
+
 
 ---
 
@@ -27,8 +41,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (47923.528, 149595.508) | P2_LDP | (47923.621, 150595.524) |
 | P1_U48_γ | -4' 25.84" | P2_U48_γ | -4' 25.98" |
 | P1_LDP_γ | -0' 19.13" | P2_LDP_γ | -0' 19.15" |
-| P1_LDP_CSF | -9.8 ppm | P2_LDP_CSF | -9.4 ppm |
 | P1_U48_CSF | -415.5 ppm | P2_U48_CSF | -415.2 ppm |
+| P1_LDP_CSF | -9.8 ppm | P2_LDP_CSF | -9.4 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -48,8 +62,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (50401.820, 146745.925) | P2_LDP | (50401.804, 147745.922) |
 | P1_U47_γ | +20' 30.16" | P2_U47_γ | +20' 30.91" |
 | P1_LDP_γ | +0' 3.39" | P2_LDP_γ | +0' 3.39" |
-| P1_LDP_CSF | +1.0 ppm | P2_LDP_CSF | +1.1 ppm |
 | P1_U47_CSF | -133.1 ppm | P2_U47_CSF | -133.0 ppm |
+| P1_LDP_CSF | +1.0 ppm | P2_LDP_CSF | +1.1 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -69,8 +83,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (148730.927, 45246.777) | P2_LDP | (148730.992, 46246.800) |
 | P1_U48_γ | -24' 9.51" | P2_U48_γ | -24' 10.21" |
 | P1_LDP_γ | -0' 13.45" | P2_LDP_γ | -0' 13.45" |
-| P1_LDP_CSF | -0.2 ppm | P2_LDP_CSF | -1.6 ppm |
 | P1_U48_CSF | -190.3 ppm | P2_U48_CSF | -191.6 ppm |
+| P1_LDP_CSF | -0.2 ppm | P2_LDP_CSF | -1.6 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -90,8 +104,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (260650.673, 744788.437) | P2_LDP | (260650.227, 745788.450) |
 | P1_U48_γ | -29' 58.47" | P2_U48_γ | -29' 59.53" |
 | P1_LDP_γ | +1' 32.02" | P2_LDP_γ | +1' 32.08" |
-| P1_LDP_CSF | -7.9 ppm | P2_LDP_CSF | -7.2 ppm |
 | P1_U48_CSF | +114.0 ppm | P2_U48_CSF | +114.6 ppm |
+| P1_LDP_CSF | -7.9 ppm | P2_LDP_CSF | -7.2 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -111,8 +125,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (42866.957, 548386.310) | P2_LDP | (42866.852, 549386.307) |
 | P1_U47_γ | +30' 17.06" | P2_U47_γ | +30' 18.29" |
 | P1_LDP_γ | +0' 21.57" | P2_LDP_γ | +0' 21.58" |
-| P1_LDP_CSF | -14.6 ppm | P2_LDP_CSF | -14.5 ppm |
 | P1_U47_CSF | +309.2 ppm | P2_U47_CSF | +309.2 ppm |
+| P1_LDP_CSF | -14.6 ppm | P2_LDP_CSF | -14.5 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -132,8 +146,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (514170.956, 47403.980) | P2_LDP | (514170.418, 48403.976) |
 | P1_U47_γ | +36' 8.40" | P2_U47_γ | +36' 9.81" |
 | P1_LDP_γ | +1' 50.84" | P2_LDP_γ | +1' 50.84" |
-| P1_LDP_CSF | -5.1 ppm | P2_LDP_CSF | -5.8 ppm |
 | P1_U47_CSF | +551.5 ppm | P2_U47_CSF | +550.8 ppm |
+| P1_LDP_CSF | -5.1 ppm | P2_LDP_CSF | -5.8 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -153,8 +167,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (536566.751, 509328.935) | P2_LDP | (536564.810, 510328.978) |
 | P1_U47_γ | -0' 3.68" | P2_U47_γ | -0' 3.68" |
 | P1_LDP_γ | +6' 40.31" | P2_LDP_γ | +6' 40.31" |
-| P1_LDP_CSF | +1.9 ppm | P2_LDP_CSF | +2.0 ppm |
 | P1_U47_CSF | -442.2 ppm | P2_U47_CSF | -442.3 ppm |
+| P1_LDP_CSF | +1.9 ppm | P2_LDP_CSF | +2.0 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -174,8 +188,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (489845.984, 465032.369) | P2_LDP | (489846.550, 466032.433) |
 | P1_U47_γ | -1' 36.59" | P2_U47_γ | -1' 36.64" |
 | P1_LDP_γ | -1' 56.69" | P2_LDP_γ | -1' 56.74" |
-| P1_LDP_CSF | -8.9 ppm | P2_LDP_CSF | -18.4 ppm |
 | P1_U47_CSF | -472.2 ppm | P2_U47_CSF | -481.7 ppm |
+| P1_LDP_CSF | -8.9 ppm | P2_LDP_CSF | -18.4 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -195,8 +209,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (38793.831, 466671.173) | P2_LDP | (38794.394, 467671.314) |
 | P1_U47_γ | -12' 19.05" | P2_U47_γ | -12' 19.41" |
 | P1_LDP_γ | -1' 56.15" | P2_LDP_γ | -1' 56.20" |
-| P1_LDP_CSF | -20.5 ppm ❗ | P2_LDP_CSF | +2.6 ppm |
 | P1_U47_CSF | -498.2 ppm | P2_U47_CSF | -475.1 ppm |
+| P1_LDP_CSF | -20.5 ppm ❗ | P2_LDP_CSF | +2.6 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -216,8 +230,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (150564.955, 52923.643) | P2_LDP | (150564.931, 53923.642) |
 | P1_U47_γ | +16' 17.87" | P2_U47_γ | +16' 18.44" |
 | P1_LDP_γ | +0' 4.94" | P2_LDP_γ | +0' 4.94" |
-| P1_LDP_CSF | +1.9 ppm | P2_LDP_CSF | +2.0 ppm |
 | P1_U47_CSF | -243.2 ppm | P2_U47_CSF | -243.3 ppm |
+| P1_LDP_CSF | +1.9 ppm | P2_LDP_CSF | +2.0 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -237,8 +251,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (62672.395, 560644.781) | P2_LDP | (62672.026, 561644.785) |
 | P1_U47_γ | +1' 59.63" | P2_U47_γ | +1' 59.73" |
 | P1_LDP_γ | +1' 15.91" | P2_LDP_γ | +1' 15.98" |
-| P1_LDP_CSF | +8.6 ppm | P2_LDP_CSF | +8.6 ppm |
 | P1_U47_CSF | -391.4 ppm | P2_U47_CSF | -391.5 ppm |
+| P1_LDP_CSF | +8.6 ppm | P2_LDP_CSF | +8.6 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -258,8 +272,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (251895.405, 732646.299) | P2_LDP | (251895.298, 733646.350) |
 | P1_U47_γ | +17' 55.35" | P2_U47_γ | +17' 55.83" |
 | P1_LDP_γ | +0' 21.97" | P2_LDP_γ | +0' 21.98" |
-| P1_LDP_CSF | -10.0 ppm | P2_LDP_CSF | -17.3 ppm |
 | P1_U47_CSF | -354.8 ppm | P2_U47_CSF | -362.1 ppm |
+| P1_LDP_CSF | -10.0 ppm | P2_LDP_CSF | -17.3 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -279,8 +293,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (47404.374, 494215.905) | P2_LDP | (47404.465, 495215.911) |
 | P1_U48_γ | -37' 53.07" | P2_U48_γ | -37' 54.67" |
 | P1_LDP_γ | -0' 18.77" | P2_LDP_γ | -0' 18.78" |
-| P1_LDP_CSF | +8.7 ppm | P2_LDP_CSF | +8.1 ppm |
 | P1_U48_CSF | +823.0 ppm | P2_U48_CSF | +822.4 ppm |
+| P1_LDP_CSF | +8.7 ppm | P2_LDP_CSF | +8.1 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -300,8 +314,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (252747.420, 702099.720) | P2_LDP | (252747.297, 703099.737) |
 | P1_U47_γ | +47' 6.38" | P2_U47_γ | +47' 7.93" |
 | P1_LDP_γ | +0' 25.51" | P2_LDP_γ | +0' 25.52" |
-| P1_LDP_CSF | -15.3 ppm | P2_LDP_CSF | -15.5 ppm |
 | P1_U47_CSF | +712.0 ppm | P2_U47_CSF | +711.6 ppm |
+| P1_LDP_CSF | -15.3 ppm | P2_LDP_CSF | -15.5 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -321,8 +335,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (53347.795, 147158.507) | P2_LDP | (53347.666, 148158.496) |
 | P1_U47_γ | +23' 21.77" | P2_U47_γ | +23' 22.67" |
 | P1_LDP_γ | +0' 26.61" | P2_LDP_γ | +0' 26.62" |
-| P1_LDP_CSF | -6.4 ppm | P2_LDP_CSF | -6.5 ppm |
 | P1_U47_CSF | -11.1 ppm | P2_U47_CSF | -11.2 ppm |
+| P1_LDP_CSF | -6.4 ppm | P2_LDP_CSF | -6.5 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -342,8 +356,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (260234.679, 759406.410) | P2_LDP | (260234.208, 760406.421) |
 | P1_U48_γ | -39' 14.50" | P2_U48_γ | -39' 15.76" |
 | P1_LDP_γ | +1' 37.13" | P2_LDP_γ | +1' 37.18" |
-| P1_LDP_CSF | -10.7 ppm | P2_LDP_CSF | -10.1 ppm |
 | P1_U48_CSF | +338.2 ppm | P2_U48_CSF | +338.7 ppm |
+| P1_LDP_CSF | -10.7 ppm | P2_LDP_CSF | -10.1 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -363,8 +377,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (757374.367, 250724.101) | P2_LDP | (757374.021, 251724.111) |
 | P1_U48_γ | -22' 35.02" | P2_U48_γ | -22' 35.73" |
 | P1_LDP_γ | +1' 11.23" | P2_LDP_γ | +1' 11.23" |
-| P1_LDP_CSF | -16.1 ppm | P2_LDP_CSF | -17.8 ppm |
 | P1_U48_CSF | -183.1 ppm | P2_U48_CSF | -184.9 ppm |
+| P1_LDP_CSF | -16.1 ppm | P2_LDP_CSF | -17.8 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -384,8 +398,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (235459.763, 740556.236) | P2_LDP | (235460.363, 741556.252) |
 | P1_U47_γ | -5' 37.48" | P2_U47_γ | -5' 37.68" |
 | P1_LDP_γ | -2' 3.71" | P2_LDP_γ | -2' 3.78" |
-| P1_LDP_CSF | +5.6 ppm | P2_LDP_CSF | +8.8 ppm |
 | P1_U47_CSF | -390.6 ppm | P2_U47_CSF | -387.3 ppm |
+| P1_LDP_CSF | +5.6 ppm | P2_LDP_CSF | +8.8 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -405,8 +419,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (249007.041, 779877.177) | P2_LDP | (249007.081, 780877.172) |
 | P1_U47_γ | +6' 31.56" | P2_U47_γ | +6' 31.80" |
 | P1_LDP_γ | -0' 8.17" | P2_LDP_γ | -0' 8.18" |
-| P1_LDP_CSF | -15.1 ppm | P2_LDP_CSF | -16.6 ppm |
 | P1_U47_CSF | -382.2 ppm | P2_U47_CSF | -383.6 ppm |
+| P1_LDP_CSF | -15.1 ppm | P2_LDP_CSF | -16.6 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -426,8 +440,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (247650.952, 761911.614) | P2_LDP | (247651.060, 762911.609) |
 | P1_U47_γ | +8' 39.21" | P2_U47_γ | +8' 39.48" |
 | P1_LDP_γ | -0' 22.33" | P2_LDP_γ | -0' 22.34" |
-| P1_LDP_CSF | -14.4 ppm | P2_LDP_CSF | -12.2 ppm |
 | P1_U47_CSF | -371.6 ppm | P2_U47_CSF | -369.4 ppm |
+| P1_LDP_CSF | -14.4 ppm | P2_LDP_CSF | -12.2 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -447,8 +461,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (50499.783, 503104.781) | P2_LDP | (50499.772, 504104.781) |
 | P1_U47_γ | +0' 10.84" | P2_U47_γ | +0' 10.85" |
 | P1_LDP_γ | +0' 2.32" | P2_LDP_γ | +0' 2.32" |
-| P1_LDP_CSF | -4.8 ppm | P2_LDP_CSF | -12.5 ppm |
 | P1_U47_CSF | -404.7 ppm | P2_U47_CSF | -412.4 ppm |
+| P1_LDP_CSF | -4.8 ppm | P2_LDP_CSF | -12.5 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -468,8 +482,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (222710.848, 708442.118) | P2_LDP | (222711.980, 709442.117) |
 | P1_U47_γ | +25' 15.94" | P2_U47_γ | +25' 16.85" |
 | P1_LDP_γ | -3' 53.36" | P2_LDP_γ | -3' 53.50" |
-| P1_LDP_CSF | +1.4 ppm | P2_LDP_CSF | +1.2 ppm |
 | P1_U47_CSF | -9.6 ppm | P2_U47_CSF | -9.7 ppm |
+| P1_LDP_CSF | +1.4 ppm | P2_LDP_CSF | +1.2 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -489,8 +503,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (251223.033, 763964.051) | P2_LDP | (251222.973, 764964.084) |
 | P1_U47_γ | +47' 42.54" | P2_U47_γ | +47' 43.98" |
 | P1_LDP_γ | +0' 12.45" | P2_LDP_γ | +0' 12.46" |
-| P1_LDP_CSF | -6.9 ppm | P2_LDP_CSF | -5.7 ppm |
 | P1_U47_CSF | +535.6 ppm | P2_U47_CSF | +536.7 ppm |
+| P1_LDP_CSF | -6.9 ppm | P2_LDP_CSF | -5.7 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -510,8 +524,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (46287.763, 496241.607) | P2_LDP | (46287.963, 497241.652) |
 | P1_U47_γ | +12' 57.19" | P2_U47_γ | +12' 57.54" |
 | P1_LDP_γ | -0' 41.20" | P2_LDP_γ | -0' 41.22" |
-| P1_LDP_CSF | -11.3 ppm | P2_LDP_CSF | -8.5 ppm |
 | P1_U47_CSF | -395.9 ppm | P2_U47_CSF | -393.1 ppm |
+| P1_LDP_CSF | -11.3 ppm | P2_LDP_CSF | -8.5 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -531,8 +545,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (490677.558, 484406.378) | P2_LDP | (490678.031, 485406.406) |
 | P1_U47_γ | +5' 45.98" | P2_U47_γ | +5' 46.15" |
 | P1_LDP_γ | -1' 37.58" | P2_LDP_γ | -1' 37.62" |
-| P1_LDP_CSF | -2.7 ppm | P2_LDP_CSF | -8.9 ppm |
 | P1_U47_CSF | -417.2 ppm | P2_U47_CSF | -423.5 ppm |
+| P1_LDP_CSF | -2.7 ppm | P2_LDP_CSF | -8.9 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -552,8 +566,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (57017.921, 554418.213) | P2_LDP | (57017.551, 555418.265) |
 | P1_U47_γ | +0' 18.90" | P2_U47_γ | +0' 18.91" |
 | P1_LDP_γ | +1' 16.23" | P2_LDP_γ | +1' 16.26" |
-| P1_LDP_CSF | +12.5 ppm | P2_LDP_CSF | +12.6 ppm |
 | P1_U47_CSF | -440.1 ppm | P2_U47_CSF | -439.9 ppm |
+| P1_LDP_CSF | +12.5 ppm | P2_LDP_CSF | +12.6 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -573,8 +587,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (56846.675, 144573.472) | P2_LDP | (56846.355, 145573.502) |
 | P1_U48_γ | -10' 2.06" | P2_U48_γ | -10' 2.38" |
 | P1_LDP_γ | +1' 5.93" | P2_LDP_γ | +1' 5.96" |
-| P1_LDP_CSF | +7.1 ppm | P2_LDP_CSF | +6.4 ppm |
 | P1_U48_CSF | -375.1 ppm | P2_U48_CSF | -375.9 ppm |
+| P1_LDP_CSF | +7.1 ppm | P2_LDP_CSF | +6.4 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -594,8 +608,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (43118.081, 145576.795) | P2_LDP | (43118.401, 146576.820) |
 | P1_U48_γ | -6' 46.85" | P2_U48_γ | -6' 47.07" |
 | P1_LDP_γ | -1' 5.93" | P2_LDP_γ | -1' 5.96" |
-| P1_LDP_CSF | +0.9 ppm | P2_LDP_CSF | +2.4 ppm |
 | P1_U48_CSF | -402.4 ppm | P2_U48_CSF | -400.9 ppm |
+| P1_LDP_CSF | +0.9 ppm | P2_LDP_CSF | +2.4 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -615,8 +629,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (47380.443, 496797.394) | P2_LDP | (47380.584, 497797.437) |
 | P1_U47_γ | -20' 37.58" | P2_U47_γ | -20' 38.14" |
 | P1_LDP_γ | -0' 29.08" | P2_LDP_γ | -0' 29.10" |
-| P1_LDP_CSF | -35.7 ppm ❗ | P2_LDP_CSF | -22.5 ppm ❗ |
 | P1_U47_CSF | -324.3 ppm | P2_U47_CSF | -311.1 ppm |
+| P1_LDP_CSF | -35.7 ppm ❗ | P2_LDP_CSF | -22.5 ppm ❗ |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -636,8 +650,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (9773.315, 235087.994) | P2_LDP | (9775.523, 236088.099) |
 | P1_U47_γ | -20' 28.87" | P2_U47_γ | -20' 29.43" |
 | P1_LDP_γ | -7' 35.36" | P2_LDP_γ | -7' 35.57" |
-| P1_LDP_CSF | +74.4 ppm ❗ | P2_LDP_CSF | +74.5 ppm ❗ |
 | P1_U47_CSF | -288.1 ppm | P2_U47_CSF | -288.0 ppm |
+| P1_LDP_CSF | +74.4 ppm ❗ | P2_LDP_CSF | +74.5 ppm ❗ |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -657,8 +671,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (58487.149, 503706.941) | P2_LDP | (58486.714, 504706.978) |
 | P1_U47_γ | -19' 57.56" | P2_U47_γ | -19' 58.13" |
 | P1_LDP_γ | +1' 29.75" | P2_LDP_γ | +1' 29.80" |
-| P1_LDP_CSF | +13.0 ppm | P2_LDP_CSF | +12.4 ppm |
 | P1_U47_CSF | -265.5 ppm | P2_U47_CSF | -266.1 ppm |
+| P1_LDP_CSF | +13.0 ppm | P2_LDP_CSF | +12.4 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -678,8 +692,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (51445.539, 502248.782) | P2_LDP | (51445.474, 503248.796) |
 | P1_U48_γ | -30' 8.94" | P2_U48_γ | -30' 9.93" |
 | P1_LDP_γ | +0' 13.42" | P2_LDP_γ | +0' 13.43" |
-| P1_LDP_CSF | -9.6 ppm | P2_LDP_CSF | -8.5 ppm |
 | P1_U48_CSF | +45.3 ppm | P2_U48_CSF | +46.3 ppm |
+| P1_LDP_CSF | -9.6 ppm | P2_LDP_CSF | -8.5 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -699,8 +713,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (246016.730, 752004.270) | P2_LDP | (246016.943, 753004.312) |
 | P1_U47_γ | +34' 46.04" | P2_U47_γ | +34' 47.00" |
 | P1_LDP_γ | -0' 43.89" | P2_LDP_γ | -0' 43.91" |
-| P1_LDP_CSF | +11.5 ppm | P2_LDP_CSF | +12.8 ppm |
 | P1_U47_CSF | +11.9 ppm | P2_U47_CSF | +13.1 ppm |
+| P1_LDP_CSF | +11.5 ppm | P2_LDP_CSF | +12.8 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -720,8 +734,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (50856.386, 494866.157) | P2_LDP | (50856.345, 495866.187) |
 | P1_U48_γ | -47' 51.13" | P2_U48_γ | -47' 52.59" |
 | P1_LDP_γ | +0' 8.58" | P2_LDP_γ | +0' 8.59" |
-| P1_LDP_CSF | -0.9 ppm | P2_LDP_CSF | -0.6 ppm |
 | P1_U48_CSF | +582.7 ppm | P2_U48_CSF | +582.8 ppm |
+| P1_LDP_CSF | -0.9 ppm | P2_LDP_CSF | -0.6 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -741,8 +755,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (67911.288, 525135.899) | P2_LDP | (67910.408, 526135.915) |
 | P1_U48_γ | -7' 8.69" | P2_U48_γ | -7' 8.91" |
 | P1_LDP_γ | +3' 1.52" | P2_LDP_γ | +3' 1.61" |
-| P1_LDP_CSF | -8.0 ppm | P2_LDP_CSF | -8.9 ppm |
 | P1_U48_CSF | -401.9 ppm | P2_U48_CSF | -402.8 ppm |
+| P1_LDP_CSF | -8.0 ppm | P2_LDP_CSF | -8.9 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -762,8 +776,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (530541.826, 51514.095) | P2_LDP | (530540.277, 52514.113) |
 | P1_U48_γ | -34' 44.33" | P2_U48_γ | -34' 45.34" |
 | P1_LDP_γ | +5' 19.57" | P2_LDP_γ | +5' 19.57" |
-| P1_LDP_CSF | -2.3 ppm | P2_LDP_CSF | -3.7 ppm |
 | P1_U48_CSF | +68.0 ppm | P2_U48_CSF | +66.5 ppm |
+| P1_LDP_CSF | -2.3 ppm | P2_LDP_CSF | -3.7 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -783,8 +797,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (49683.790, 154362.531) | P2_LDP | (49683.803, 155362.534) |
 | P1_U47_γ | +31' 56.31" | P2_U47_γ | +31' 57.50" |
 | P1_LDP_γ | -0' 2.59" | P2_LDP_γ | -0' 2.60" |
-| P1_LDP_CSF | +6.6 ppm | P2_LDP_CSF | +6.4 ppm |
 | P1_U47_CSF | +277.9 ppm | P2_U47_CSF | +277.6 ppm |
+| P1_LDP_CSF | +6.6 ppm | P2_LDP_CSF | +6.4 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -804,8 +818,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (49742.575, 150316.890) | P2_LDP | (49742.585, 151316.883) |
 | P1_U47_γ | +15' 51.20" | P2_U47_γ | +15' 51.80" |
 | P1_LDP_γ | -0' 2.06" | P2_LDP_γ | -0' 2.07" |
-| P1_LDP_CSF | -2.6 ppm | P2_LDP_CSF | -2.5 ppm |
 | P1_U47_CSF | -221.7 ppm | P2_U47_CSF | -221.6 ppm |
+| P1_LDP_CSF | -2.6 ppm | P2_LDP_CSF | -2.5 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -825,8 +839,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (249548.694, 733476.969) | P2_LDP | (249548.714, 734476.982) |
 | P1_U48_γ | -39' 28.30" | P2_U48_γ | -39' 29.68" |
 | P1_LDP_γ | -0' 3.97" | P2_LDP_γ | -0' 3.97" |
-| P1_LDP_CSF | -7.3 ppm | P2_LDP_CSF | -6.9 ppm |
 | P1_U48_CSF | +474.9 ppm | P2_U48_CSF | +475.1 ppm |
+| P1_LDP_CSF | -7.3 ppm | P2_LDP_CSF | -6.9 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -846,8 +860,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (268259.829, 765866.619) | P2_LDP | (268259.064, 766866.641) |
 | P1_U48_γ | -45' 11.89" | P2_U48_γ | -45' 13.49" |
 | P1_LDP_γ | +2' 37.87" | P2_LDP_γ | +2' 37.97" |
-| P1_LDP_CSF | -1.9 ppm | P2_LDP_CSF | -1.2 ppm |
 | P1_U48_CSF | +789.9 ppm | P2_U48_CSF | +790.5 ppm |
+| P1_LDP_CSF | -1.9 ppm | P2_LDP_CSF | -1.2 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -867,8 +881,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (304903.507, 743590.254) | P2_LDP | (304902.412, 744590.252) |
 | P1_U47_γ | +22' 20.52" | P2_U47_γ | +22' 21.28" |
 | P1_LDP_γ | +3' 46.01" | P2_LDP_γ | +3' 46.01" |
-| P1_LDP_CSF | -0.7 ppm | P2_LDP_CSF | -0.7 ppm |
 | P1_U47_CSF | -127.6 ppm | P2_U47_CSF | -127.5 ppm |
+| P1_LDP_CSF | -0.7 ppm | P2_LDP_CSF | -0.7 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -888,8 +902,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (270029.942, 742829.474) | P2_LDP | (270029.476, 743829.466) |
 | P1_U47_γ | +8' 29.80" | P2_U47_γ | +8' 30.34" |
 | P1_LDP_γ | +1' 36.06" | P2_LDP_γ | +1' 36.16" |
-| P1_LDP_CSF | -5.7 ppm | P2_LDP_CSF | -5.5 ppm |
 | P1_U47_CSF | -257.9 ppm | P2_U47_CSF | -257.7 ppm |
+| P1_LDP_CSF | -5.7 ppm | P2_LDP_CSF | -5.5 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -909,8 +923,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (51678.845, 154087.649) | P2_LDP | (51678.816, 155087.648) |
 | P1_U47_γ | +17' 40.63" | P2_U47_γ | +17' 42.17" |
 | P1_LDP_γ | +0' 5.88" | P2_LDP_γ | +0' 5.89" |
-| P1_LDP_CSF | -5.3 ppm | P2_LDP_CSF | -4.5 ppm |
 | P1_U47_CSF | +727.2 ppm | P2_U47_CSF | +728.0 ppm |
+| P1_LDP_CSF | -5.3 ppm | P2_LDP_CSF | -4.5 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -930,8 +944,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (50400.184, 151661.431) | P2_LDP | (50400.168, 152661.420) |
 | P1_U47_γ | +22' 55.63" | P2_U47_γ | +22' 56.47" |
 | P1_LDP_γ | +0' 3.32" | P2_LDP_γ | +0' 3.32" |
-| P1_LDP_CSF | -6.8 ppm | P2_LDP_CSF | -6.8 ppm |
 | P1_U47_CSF | -56.1 ppm | P2_U47_CSF | -56.2 ppm |
+| P1_LDP_CSF | -6.8 ppm | P2_LDP_CSF | -6.8 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -951,8 +965,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (241816.947, 750680.095) | P2_LDP | (241817.267, 751680.084) |
 | P1_U47_γ | +37' 26.75" | P2_U47_γ | +37' 28.17" |
 | P1_LDP_γ | -1' 6.07" | P2_LDP_γ | -1' 6.11" |
-| P1_LDP_CSF | -9.6 ppm | P2_LDP_CSF | -9.3 ppm |
 | P1_U47_CSF | +558.0 ppm | P2_U47_CSF | +558.2 ppm |
+| P1_LDP_CSF | -9.6 ppm | P2_LDP_CSF | -9.3 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -972,8 +986,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (49648.320, 150413.441) | P2_LDP | (49648.337, 151413.433) |
 | P1_U47_γ | +22' 39.18" | P2_U47_γ | +22' 39.91" |
 | P1_LDP_γ | -0' 3.32" | P2_LDP_γ | -0' 3.32" |
-| P1_LDP_CSF | -7.9 ppm | P2_LDP_CSF | -8.0 ppm |
 | P1_U47_CSF | -143.9 ppm | P2_U47_CSF | -144.0 ppm |
+| P1_LDP_CSF | -7.9 ppm | P2_LDP_CSF | -8.0 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -993,8 +1007,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (748467.435, 249069.633) | P2_LDP | (748467.490, 250069.625) |
 | P1_U47_γ | +8' 5.82" | P2_U47_γ | +8' 6.15" |
 | P1_LDP_γ | -0' 11.39" | P2_LDP_γ | -0' 11.39" |
-| P1_LDP_CSF | -18.0 ppm | P2_LDP_CSF | -18.0 ppm |
 | P1_U47_CSF | -357.2 ppm | P2_U47_CSF | -357.2 ppm |
+| P1_LDP_CSF | -18.0 ppm | P2_LDP_CSF | -18.0 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1014,8 +1028,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (50233.995, 516404.897) | P2_LDP | (50233.989, 517404.901) |
 | P1_U47_γ | -5' 17.91" | P2_U47_γ | -5' 18.24" |
 | P1_LDP_γ | +0' 1.16" | P2_LDP_γ | +0' 1.16" |
-| P1_LDP_CSF | +6.0 ppm | P2_LDP_CSF | +6.6 ppm |
 | P1_U47_CSF | -347.4 ppm | P2_U47_CSF | -346.9 ppm |
+| P1_LDP_CSF | +6.0 ppm | P2_LDP_CSF | +6.6 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1035,8 +1049,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (250443.473, 765689.595) | P2_LDP | (250443.452, 766689.606) |
 | P1_U47_γ | +36' 32.58" | P2_U47_γ | +36' 33.75" |
 | P1_LDP_γ | +0' 4.22" | P2_LDP_γ | +0' 4.23" |
-| P1_LDP_CSF | -2.6 ppm | P2_LDP_CSF | -2.8 ppm |
 | P1_U47_CSF | +240.9 ppm | P2_U47_CSF | +240.6 ppm |
+| P1_LDP_CSF | -2.6 ppm | P2_LDP_CSF | -2.8 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1056,8 +1070,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (146885.037, 51912.037) | P2_LDP | (146885.094, 52912.035) |
 | P1_U47_γ | +16' 23.08" | P2_U47_γ | +16' 24.39" |
 | P1_LDP_γ | -0' 11.89" | P2_LDP_γ | -0' 11.89" |
-| P1_LDP_CSF | -1.6 ppm | P2_LDP_CSF | -1.7 ppm |
 | P1_U47_CSF | +415.7 ppm | P2_U47_CSF | +415.5 ppm |
+| P1_LDP_CSF | -1.6 ppm | P2_LDP_CSF | -1.7 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1077,8 +1091,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (69931.874, 505371.206) | P2_LDP | (69931.549, 506371.205) |
 | P1_U47_γ | +8' 53.54" | P2_U47_γ | +8' 53.94" |
 | P1_LDP_γ | +1' 7.11" | P2_LDP_γ | +1' 7.16" |
-| P1_LDP_CSF | -5.2 ppm | P2_LDP_CSF | -6.0 ppm |
 | P1_U47_CSF | -327.4 ppm | P2_U47_CSF | -328.1 ppm |
+| P1_LDP_CSF | -5.2 ppm | P2_LDP_CSF | -6.0 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1098,8 +1112,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (48345.279, 148413.203) | P2_LDP | (48345.313, 149413.200) |
 | P1_U47_γ | +8' 13.68" | P2_U47_γ | +8' 14.27" |
 | P1_LDP_γ | -0' 7.04" | P2_LDP_γ | -0' 7.05" |
-| P1_LDP_CSF | -3.7 ppm | P2_LDP_CSF | -3.0 ppm |
 | P1_U47_CSF | -234.1 ppm | P2_U47_CSF | -233.4 ppm |
+| P1_LDP_CSF | -3.7 ppm | P2_LDP_CSF | -3.0 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1119,8 +1133,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (261079.863, 750750.188) | P2_LDP | (261079.290, 751750.201) |
 | P1_U47_γ | +22' 2.15" | P2_U47_γ | +22' 2.78" |
 | P1_LDP_γ | +1' 58.24" | P2_LDP_γ | +1' 58.30" |
-| P1_LDP_CSF | -6.7 ppm | P2_LDP_CSF | -6.7 ppm |
 | P1_U47_CSF | -230.6 ppm | P2_U47_CSF | -230.6 ppm |
+| P1_LDP_CSF | -6.7 ppm | P2_LDP_CSF | -6.7 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1140,8 +1154,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (55769.208, 492273.462) | P2_LDP | (55768.929, 493273.495) |
 | P1_U47_γ | +32' 26.57" | P2_U47_γ | +32' 27.57" |
 | P1_LDP_γ | +0' 57.41" | P2_LDP_γ | +0' 57.43" |
-| P1_LDP_CSF | +7.1 ppm | P2_LDP_CSF | +6.1 ppm |
 | P1_U47_CSF | +46.3 ppm | P2_U47_CSF | +45.3 ppm |
+| P1_LDP_CSF | +7.1 ppm | P2_LDP_CSF | +6.1 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1161,8 +1175,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (249590.162, 763531.855) | P2_LDP | (249590.182, 764531.846) |
 | P1_U47_γ | +24' 17.07" | P2_U47_γ | +24' 17.82" |
 | P1_LDP_γ | -0' 4.01" | P2_LDP_γ | -0' 4.01" |
-| P1_LDP_CSF | -12.3 ppm | P2_LDP_CSF | -11.3 ppm |
 | P1_U47_CSF | -129.7 ppm | P2_U47_CSF | -128.8 ppm |
+| P1_LDP_CSF | -12.3 ppm | P2_LDP_CSF | -11.3 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1182,8 +1196,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (54106.463, 153017.702) | P2_LDP | (54106.694, 154017.694) |
 | P1_U47_γ | +23' 48.21" | P2_U47_γ | +23' 49.11" |
 | P1_LDP_γ | -0' 47.75" | P2_LDP_γ | -0' 47.75" |
-| P1_LDP_CSF | -3.6 ppm | P2_LDP_CSF | -3.4 ppm |
 | P1_U47_CSF | -13.3 ppm | P2_U47_CSF | -13.2 ppm |
+| P1_LDP_CSF | -3.6 ppm | P2_LDP_CSF | -3.4 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1203,8 +1217,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (48399.777, 152332.043) | P2_LDP | (48399.812, 153332.048) |
 | P1_U47_γ | -5' 32.08" | P2_U47_γ | -5' 32.46" |
 | P1_LDP_γ | -0' 7.25" | P2_LDP_γ | -0' 7.26" |
-| P1_LDP_CSF | +5.4 ppm | P2_LDP_CSF | +6.7 ppm |
 | P1_U47_CSF | -333.2 ppm | P2_U47_CSF | -332.0 ppm |
+| P1_LDP_CSF | +5.4 ppm | P2_LDP_CSF | +6.7 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1224,8 +1238,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (247134.955, 751507.639) | P2_LDP | (247135.112, 752507.692) |
 | P1_U47_γ | +22' 53.58" | P2_U47_γ | +22' 54.20" |
 | P1_LDP_γ | -0' 32.38" | P2_LDP_γ | -0' 32.39" |
-| P1_LDP_CSF | -15.9 ppm | P2_LDP_CSF | -15.4 ppm |
 | P1_U47_CSF | -286.5 ppm | P2_U47_CSF | -286.0 ppm |
+| P1_LDP_CSF | -15.9 ppm | P2_LDP_CSF | -15.4 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1245,8 +1259,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (243862.780, 502703.646) | P2_LDP | (243863.055, 503703.652) |
 | P1_U48_γ | -20' 26.57" | P2_U48_γ | -20' 27.25" |
 | P1_LDP_γ | -0' 56.66" | P2_LDP_γ | -0' 56.69" |
-| P1_LDP_CSF | -12.2 ppm | P2_LDP_CSF | -12.1 ppm |
 | P1_U48_CSF | -199.6 ppm | P2_U48_CSF | -199.6 ppm |
+| P1_LDP_CSF | -12.2 ppm | P2_LDP_CSF | -12.1 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1266,8 +1280,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (41725.144, 500686.323) | P2_LDP | (41725.371, 501686.327) |
 | P1_U47_γ | -3' 53.63" | P2_U47_γ | -3' 53.84" |
 | P1_LDP_γ | -0' 46.96" | P2_LDP_γ | -0' 47.00" |
-| P1_LDP_CSF | +7.7 ppm | P2_LDP_CSF | +7.9 ppm |
 | P1_U47_CSF | -375.1 ppm | P2_U47_CSF | -374.9 ppm |
+| P1_LDP_CSF | +7.7 ppm | P2_LDP_CSF | +7.9 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1287,8 +1301,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (53642.292, 148316.464) | P2_LDP | (53642.154, 149316.456) |
 | P1_U47_γ | +8' 40.34" | P2_U47_γ | +8' 40.68" |
 | P1_LDP_γ | +0' 28.38" | P2_LDP_γ | +0' 28.40" |
-| P1_LDP_CSF | -14.9 ppm | P2_LDP_CSF | -15.4 ppm |
 | P1_U47_CSF | -351.9 ppm | P2_U47_CSF | -352.5 ppm |
+| P1_LDP_CSF | -14.9 ppm | P2_LDP_CSF | -15.4 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1308,8 +1322,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (151660.410, 52537.898) | P2_LDP | (151660.351, 53537.900) |
 | P1_U47_γ | +32' 45.07" | P2_U47_γ | +32' 46.42" |
 | P1_LDP_γ | +0' 12.25" | P2_LDP_γ | +0' 12.25" |
-| P1_LDP_CSF | -11.5 ppm | P2_LDP_CSF | -7.9 ppm |
 | P1_U47_CSF | +460.1 ppm | P2_U47_CSF | +463.5 ppm |
+| P1_LDP_CSF | -11.5 ppm | P2_LDP_CSF | -7.9 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1329,8 +1343,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (56711.157, 148367.489) | P2_LDP | (56711.032, 149367.493) |
 | P1_U47_γ | +7' 15.90" | P2_U47_γ | +7' 16.48" |
 | P1_LDP_γ | +0' 25.75" | P2_LDP_γ | +0' 25.79" |
-| P1_LDP_CSF | +4.6 ppm | P2_LDP_CSF | +4.2 ppm |
 | P1_U47_CSF | -240.4 ppm | P2_U47_CSF | -240.8 ppm |
+| P1_LDP_CSF | +4.6 ppm | P2_LDP_CSF | +4.2 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1350,8 +1364,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (45613.934, 149096.459) | P2_LDP | (45614.117, 150096.454) |
 | P1_U47_γ | +20' 12.98" | P2_U47_γ | +20' 13.70" |
 | P1_LDP_γ | -0' 37.76" | P2_LDP_γ | -0' 37.78" |
-| P1_LDP_CSF | -1.4 ppm | P2_LDP_CSF | -1.4 ppm |
 | P1_U47_CSF | -151.4 ppm | P2_U47_CSF | -151.4 ppm |
+| P1_LDP_CSF | -1.4 ppm | P2_LDP_CSF | -1.4 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1371,8 +1385,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (229685.751, 756558.711) | P2_LDP | (229686.148, 757558.707) |
 | P1_U47_γ | +10' 9.10" | P2_U47_γ | +10' 9.87" |
 | P1_LDP_γ | -1' 21.98" | P2_LDP_γ | -1' 22.08" |
-| P1_LDP_CSF | -4.4 ppm | P2_LDP_CSF | -3.9 ppm |
 | P1_U47_CSF | -118.8 ppm | P2_U47_CSF | -118.4 ppm |
+| P1_LDP_CSF | -4.4 ppm | P2_LDP_CSF | -3.9 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1392,8 +1406,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (262256.236, 761366.704) | P2_LDP | (262255.736, 762366.701) |
 | P1_U47_γ | +15' 18.13" | P2_U47_γ | +15' 18.69" |
 | P1_LDP_γ | +1' 43.00" | P2_LDP_γ | +1' 43.06" |
-| P1_LDP_CSF | +1.8 ppm | P2_LDP_CSF | +1.8 ppm |
 | P1_U47_CSF | -248.5 ppm | P2_U47_CSF | -248.6 ppm |
+| P1_LDP_CSF | +1.8 ppm | P2_LDP_CSF | +1.8 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1413,8 +1427,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (245838.183, 753995.292) | P2_LDP | (245838.357, 754995.300) |
 | P1_U48_γ | -10' 24.34" | P2_U48_γ | -10' 24.70" |
 | P1_LDP_γ | -0' 35.94" | P2_LDP_γ | -0' 35.96" |
-| P1_LDP_CSF | -8.7 ppm | P2_LDP_CSF | -8.6 ppm |
 | P1_U48_CSF | -352.3 ppm | P2_U48_CSF | -352.2 ppm |
+| P1_LDP_CSF | -8.7 ppm | P2_LDP_CSF | -8.6 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1434,8 +1448,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (245711.233, 746883.095) | P2_LDP | (245711.397, 747883.094) |
 | P1_U48_γ | -38' 45.95" | P2_U48_γ | -38' 47.45" |
 | P1_LDP_γ | -0' 33.84" | P2_LDP_γ | -0' 33.87" |
-| P1_LDP_CSF | -10.0 ppm | P2_LDP_CSF | -9.9 ppm |
 | P1_U48_CSF | +663.9 ppm | P2_U48_CSF | +663.9 ppm |
+| P1_LDP_CSF | -10.0 ppm | P2_LDP_CSF | -9.9 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1455,8 +1469,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (22528.264, 74695.574) | P2_LDP | (22528.356, 75695.569) |
 | P1_U47_γ | +12' 52.45" | P2_U47_γ | +12' 52.96" |
 | P1_LDP_γ | -0' 19.01" | P2_LDP_γ | -0' 19.02" |
-| P1_LDP_CSF | -0.8 ppm | P2_LDP_CSF | -0.9 ppm |
 | P1_U47_CSF | -271.2 ppm | P2_U47_CSF | -271.3 ppm |
+| P1_LDP_CSF | -0.8 ppm | P2_LDP_CSF | -0.9 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1476,8 +1490,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (231700.864, 757860.433) | P2_LDP | (231701.764, 758860.445) |
 | P1_U48_γ | -24' 4.01" | P2_U48_γ | -24' 4.73" |
 | P1_LDP_γ | -3' 5.73" | P2_LDP_γ | -3' 5.82" |
-| P1_LDP_CSF | -9.0 ppm | P2_LDP_CSF | -9.7 ppm |
 | P1_U48_CSF | -171.2 ppm | P2_U48_CSF | -171.8 ppm |
+| P1_LDP_CSF | -9.0 ppm | P2_LDP_CSF | -9.7 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1497,8 +1511,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (49334.225, 508006.585) | P2_LDP | (49334.257, 509006.584) |
 | P1_U47_γ | +12' 38.44" | P2_U47_γ | +12' 38.83" |
 | P1_LDP_γ | -0' 6.68" | P2_LDP_γ | -0' 6.69" |
-| P1_LDP_CSF | -4.9 ppm | P2_LDP_CSF | -11.0 ppm |
 | P1_U47_CSF | -333.4 ppm | P2_U47_CSF | -339.5 ppm |
+| P1_LDP_CSF | -4.9 ppm | P2_LDP_CSF | -11.0 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1518,8 +1532,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (37566.501, 149565.605) | P2_LDP | (37567.010, 150565.603) |
 | P1_U47_γ | +28' 50.95" | P2_U47_γ | +28' 51.99" |
 | P1_LDP_γ | -1' 45.04" | P2_LDP_γ | -1' 45.11" |
-| P1_LDP_CSF | -2.7 ppm | P2_LDP_CSF | -3.5 ppm |
 | P1_U47_CSF | +117.0 ppm | P2_U47_CSF | +116.2 ppm |
+| P1_LDP_CSF | -2.7 ppm | P2_LDP_CSF | -3.5 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1539,8 +1553,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (149587.147, 51376.791) | P2_LDP | (149587.162, 52376.787) |
 | P1_U47_γ | +17' 5.29" | P2_U47_γ | +17' 5.96" |
 | P1_LDP_γ | -0' 3.22" | P2_LDP_γ | -0' 3.22" |
-| P1_LDP_CSF | -0.4 ppm | P2_LDP_CSF | -0.3 ppm |
 | P1_U47_CSF | -182.4 ppm | P2_U47_CSF | -182.4 ppm |
+| P1_LDP_CSF | -0.4 ppm | P2_LDP_CSF | -0.3 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1560,8 +1574,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (287229.343, 791888.149) | P2_LDP | (287228.374, 792888.161) |
 | P1_U47_γ | +1' 51.37" | P2_U47_γ | +1' 51.47" |
 | P1_LDP_γ | +3' 19.77" | P2_LDP_γ | +3' 19.96" |
-| P1_LDP_CSF | +15.5 ppm | P2_LDP_CSF | +15.6 ppm |
 | P1_U47_CSF | -392.3 ppm | P2_U47_CSF | -392.2 ppm |
+| P1_LDP_CSF | +15.5 ppm | P2_LDP_CSF | +15.6 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1581,8 +1595,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (503397.478, 508055.715) | P2_LDP | (503397.393, 509055.707) |
 | P1_U47_γ | +3' 8.74" | P2_U47_γ | +3' 8.92" |
 | P1_LDP_γ | +0' 17.63" | P2_LDP_γ | +0' 17.65" |
-| P1_LDP_CSF | -4.7 ppm | P2_LDP_CSF | -4.7 ppm |
 | P1_U47_CSF | -380.5 ppm | P2_U47_CSF | -380.4 ppm |
+| P1_LDP_CSF | -4.7 ppm | P2_LDP_CSF | -4.7 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1602,8 +1616,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (250394.927, 748528.971) | P2_LDP | (250394.911, 749528.981) |
 | P1_U48_γ | -20' 31.48" | P2_U48_γ | -20' 32.21" |
 | P1_LDP_γ | +0' 3.40" | P2_LDP_γ | +0' 3.40" |
-| P1_LDP_CSF | -9.5 ppm | P2_LDP_CSF | -9.9 ppm |
 | P1_U48_CSF | -166.5 ppm | P2_U48_CSF | -166.9 ppm |
+| P1_LDP_CSF | -9.5 ppm | P2_LDP_CSF | -9.9 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1623,8 +1637,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (47624.573, 533888.023) | P2_LDP | (47624.623, 534888.022) |
 | P1_U47_γ | +4' 33.31" | P2_U47_γ | +4' 33.64" |
 | P1_LDP_γ | -0' 10.17" | P2_LDP_γ | -0' 10.18" |
-| P1_LDP_CSF | +1.4 ppm | P2_LDP_CSF | +1.4 ppm |
 | P1_U47_CSF | -347.2 ppm | P2_U47_CSF | -347.3 ppm |
+| P1_LDP_CSF | +1.4 ppm | P2_LDP_CSF | +1.4 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1644,8 +1658,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (256555.628, 699438.456) | P2_LDP | (256555.319, 700438.488) |
 | P1_U47_γ | -7' 16.94" | P2_U47_γ | -7' 17.17" |
 | P1_LDP_γ | +1' 3.67" | P2_LDP_γ | +1' 3.70" |
-| P1_LDP_CSF | +5.1 ppm | P2_LDP_CSF | +3.6 ppm |
 | P1_U47_CSF | -402.5 ppm | P2_U47_CSF | -404.0 ppm |
+| P1_LDP_CSF | +5.1 ppm | P2_LDP_CSF | +3.6 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1665,8 +1679,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (508997.912, 496576.034) | P2_LDP | (508997.477, 497576.045) |
 | P1_U47_γ | +1' 29.75" | P2_U47_γ | +1' 29.80" |
 | P1_LDP_γ | +1' 29.75" | P2_LDP_γ | +1' 29.80" |
-| P1_LDP_CSF | -3.5 ppm | P2_LDP_CSF | -3.7 ppm |
 | P1_U47_CSF | -413.5 ppm | P2_U47_CSF | -413.7 ppm |
+| P1_LDP_CSF | -3.5 ppm | P2_LDP_CSF | -3.7 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1686,8 +1700,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (47891.480, 571902.113) | P2_LDP | (47891.575, 572902.197) |
 | P1_U47_γ | -2' 15.47" | P2_U47_γ | -2' 15.55" |
 | P1_LDP_γ | -0' 19.57" | P2_LDP_γ | -0' 19.58" |
-| P1_LDP_CSF | +16.9 ppm | P2_LDP_CSF | +10.9 ppm |
 | P1_U47_CSF | -464.5 ppm | P2_U47_CSF | -470.5 ppm |
+| P1_LDP_CSF | +16.9 ppm | P2_LDP_CSF | +10.9 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1707,8 +1721,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (27599.300, 549467.510) | P2_LDP | (27599.721, 550467.509) |
 | P1_U48_γ | -32' 44.92" | P2_U48_γ | -32' 46.36" |
 | P1_LDP_γ | -1' 26.71" | P2_LDP_γ | -1' 26.77" |
-| P1_LDP_CSF | -2.9 ppm | P2_LDP_CSF | -2.0 ppm |
 | P1_U48_CSF | +573.8 ppm | P2_U48_CSF | +574.7 ppm |
+| P1_LDP_CSF | -2.9 ppm | P2_LDP_CSF | -2.0 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1728,8 +1742,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (153555.757, 50485.609) | P2_LDP | (153556.082, 51485.632) |
 | P1_U47_γ | +29' 12.93" | P2_U47_γ | +29' 13.79" |
 | P1_LDP_γ | -1' 7.02" | P2_LDP_γ | -1' 7.02" |
-| P1_LDP_CSF | +4.3 ppm | P2_LDP_CSF | +5.8 ppm |
 | P1_U47_CSF | -68.1 ppm | P2_U47_CSF | -66.6 ppm |
+| P1_LDP_CSF | +4.3 ppm | P2_LDP_CSF | +5.8 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1749,8 +1763,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (52271.059, 146532.631) | P2_LDP | (52270.942, 147532.701) |
 | P1_U47_γ | +39' 1.28" | P2_U47_γ | +39' 2.41" |
 | P1_LDP_γ | +0' 24.05" | P2_LDP_γ | +0' 24.06" |
-| P1_LDP_CSF | +8.3 ppm | P2_LDP_CSF | +1.9 ppm |
 | P1_U47_CSF | +141.6 ppm | P2_U47_CSF | +135.2 ppm |
+| P1_LDP_CSF | +8.3 ppm | P2_LDP_CSF | +1.9 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1770,8 +1784,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (144400.967, 46806.722) | P2_LDP | (144400.749, 47806.736) |
 | P1_U47_γ | +22' 6.81" | P2_U47_γ | +22' 7.47" |
 | P1_LDP_γ | +0' 44.89" | P2_LDP_γ | +0' 44.91" |
-| P1_LDP_CSF | +5.6 ppm | P2_LDP_CSF | +4.8 ppm |
 | P1_U47_CSF | -198.6 ppm | P2_U47_CSF | -199.4 ppm |
+| P1_LDP_CSF | +5.6 ppm | P2_LDP_CSF | +4.8 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1791,8 +1805,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (746537.685, 252747.635) | P2_LDP | (746537.855, 253747.644) |
 | P1_U48_γ | -38' 58.14" | P2_U48_γ | -38' 59.31" |
 | P1_LDP_γ | -0' 35.12" | P2_LDP_γ | -0' 35.12" |
-| P1_LDP_CSF | -13.2 ppm | P2_LDP_CSF | -13.0 ppm |
 | P1_U48_CSF | +232.1 ppm | P2_U48_CSF | +232.1 ppm |
+| P1_LDP_CSF | -13.2 ppm | P2_LDP_CSF | -13.0 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1812,8 +1826,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (26982.844, 146662.607) | P2_LDP | (26983.853, 147662.626) |
 | P1_U48_γ | +0' 34.26" | P2_U48_γ | +0' 34.28" |
 | P1_LDP_γ | -3' 27.93" | P2_LDP_γ | -3' 28.05" |
-| P1_LDP_CSF | +0.5 ppm | P2_LDP_CSF | +1.0 ppm |
 | P1_U48_CSF | -417.9 ppm | P2_U48_CSF | -417.4 ppm |
+| P1_LDP_CSF | +0.5 ppm | P2_LDP_CSF | +1.0 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1833,8 +1847,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (257618.884, 743294.045) | P2_LDP | (257618.565, 744294.054) |
 | P1_U48_γ | +1' 52.20" | P2_U48_γ | +1' 52.26" |
 | P1_LDP_γ | +1' 5.77" | P2_LDP_γ | +1' 5.81" |
-| P1_LDP_CSF | -8.0 ppm | P2_LDP_CSF | -11.7 ppm |
 | P1_U48_CSF | -414.6 ppm | P2_U48_CSF | -418.3 ppm |
+| P1_LDP_CSF | -8.0 ppm | P2_LDP_CSF | -11.7 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1854,8 +1868,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (508337.567, 51868.156) | P2_LDP | (508337.208, 52868.166) |
 | P1_U47_γ | +8' 55.20" | P2_U47_γ | +8' 55.50" |
 | P1_LDP_γ | +1' 14.00" | P2_LDP_γ | +1' 14.00" |
-| P1_LDP_CSF | -2.8 ppm | P2_LDP_CSF | -3.1 ppm |
 | P1_U47_CSF | -368.0 ppm | P2_U47_CSF | -368.4 ppm |
+| P1_LDP_CSF | -2.8 ppm | P2_LDP_CSF | -3.1 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1875,8 +1889,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (53317.862, 516353.416) | P2_LDP | (53317.803, 517353.424) |
 | P1_U47_γ | +15' 19.77" | P2_U47_γ | +15' 21.05" |
 | P1_LDP_γ | +0' 12.18" | P2_LDP_γ | +0' 12.20" |
-| P1_LDP_CSF | +5.3 ppm | P2_LDP_CSF | +6.3 ppm |
 | P1_U47_CSF | +372.8 ppm | P2_U47_CSF | +373.7 ppm |
+| P1_LDP_CSF | +5.3 ppm | P2_LDP_CSF | +6.3 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -1896,8 +1910,8 @@ This report provides a comparative analysis of distances calculated across vario
 | P1_LDP | (282013.565, 749529.352) | P2_LDP | (282013.920, 750529.366) |
 | P1_U48_γ | -11' 51.03" | P2_U48_γ | -11' 51.43" |
 | P1_LDP_γ | -1' 13.15" | P2_LDP_γ | -1' 13.19" |
-| P1_LDP_CSF | -5.5 ppm | P2_LDP_CSF | -4.8 ppm |
 | P1_U48_CSF | -344.8 ppm | P2_U48_CSF | -344.1 ppm |
+| P1_LDP_CSF | -5.5 ppm | P2_LDP_CSF | -4.8 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|

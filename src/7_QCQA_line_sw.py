@@ -254,11 +254,31 @@ class LDPValidator:
         print("Generating Summary in OUTPUT_LDP/README.md ...")
         md_path = self.cfg.OUT_DIR / 'README.md'
         
+        # Calculate maximum magnitude values for gammas
+        all_utm_g = pd.concat([df_results['UTM_Gamma1'], df_results['UTM_Gamma2']]).dropna()
+        all_ldp_g = pd.concat([df_results['LDP_Gamma1'], df_results['LDP_Gamma2']]).dropna()
+        
+        max_utm_g_val = all_utm_g.iloc[all_utm_g.abs().argmax()] if not all_utm_g.empty else np.nan
+        max_ldp_g_val = all_ldp_g.iloc[all_ldp_g.abs().argmax()] if not all_ldp_g.empty else np.nan
+        
+        # Calculate maximum magnitude for UTM CSF in ppm (deviation from 1.0)
+        utm_csf1_ppm_series = (df_results['UTM_CSF1'] - 1.0) * 1e6
+        utm_csf2_ppm_series = (df_results['UTM_CSF2'] - 1.0) * 1e6
+        all_utm_csf_ppm = pd.concat([utm_csf1_ppm_series, utm_csf2_ppm_series]).dropna()
+        max_utm_csf_ppm = all_utm_csf_ppm.iloc[all_utm_csf_ppm.abs().argmax()] if not all_utm_csf_ppm.empty else np.nan
+        max_utm_csf_str = f"{max_utm_csf_ppm:+.1f} ppm" if pd.notna(max_utm_csf_ppm) else "NaN"
+
         md_content = [
             "# LDP Quality Control & Validation Summary\n",
             "This report provides a comparative analysis of distances calculated across various map projections and surfaces. By establishing the **Ground Distance (L2)** as the true baseline of length 1,000.000 meter, we measure the linear distortion introduced by standard UTM grids against the custom Low Distortion Projections (LDP).\n",
-            "## --- Distance Definitions ---\n",
-            f"{df_line_descr.to_markdown(index=False)}\n"
+            "## --- Distance Description ---\n",
+            f"{df_line_descr.to_markdown(index=False)}\n\n",
+            "### Max Magnitudes\n",
+            "| Projection | Maximum Value |\n",
+            "|:---|:---|\n",
+            f"| P?_UTM_gamma | {format_dms(max_utm_g_val)} |\n",
+            f"| P?_LDP_gamma | {format_dms(max_ldp_g_val)} |\n",
+            f"| P?_UTM_CSF | {max_utm_csf_str} |\n\n"
         ]
 
         for _, res in df_results.iterrows():
@@ -313,8 +333,8 @@ class LDPValidator:
 | P1_LDP | {p1_ldp_str} | P2_LDP | {p2_ldp_str} |
 | P1_{u_zone_label}_γ | {utm_g1_str} | P2_{u_zone_label}_γ | {utm_g2_str} |
 | P1_LDP_γ | {ldp_g1_str} | P2_LDP_γ | {ldp_g2_str} |
-| P1_LDP_CSF | {csf1_ppm:+.1f} ppm{flag1} | P2_LDP_CSF | {csf2_ppm:+.1f} ppm{flag2} |
 | P1_{u_zone_label}_CSF | {utm_csf1_ppm:+.1f} ppm | P2_{u_zone_label}_CSF | {utm_csf2_ppm:+.1f} ppm |
+| P1_LDP_CSF | {csf1_ppm:+.1f} ppm{flag1} | P2_LDP_CSF | {csf2_ppm:+.1f} ppm{flag2} |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
