@@ -4,7 +4,7 @@ This report provides a comparative analysis of distances calculated across vario
 
 <table>
 <tr>
-<td valign="top" width="55%">
+<td valign="top" width="30%">
 
 ## --- Distance Description ---
 
@@ -21,12 +21,12 @@ This report provides a comparative analysis of distances calculated across vario
 
 | Projection | Maximum Value |
 |:---|:---|
-| P?_UTM_gamma | -47' 52.59" |
-| P?_LDP_gamma | -7' 35.57" |
+| P?_UTM_γ | -47' 52.59" |
+| P?_LDP_γ | -7' 35.57" |
 | P?_UTM_CSF | +823.0 ppm |
 
 </td>
-<td valign="top" width="45%">
+<td valign="top" width="70%">
 
 <img src="https://github.com/phisan-chula/2026-EIT_TH_LDP/blob/main/Publication/Line1km.png?raw=true" alt="1km Line Infographic" width="100%">
 

@@ -275,7 +275,7 @@ This report provides a comparative analysis of distances calculated across vario
 
 <table>
 <tr>
-<td valign="top" width="55%">
+<td valign="top" width="30%">
 
 ## --- Distance Description ---
 
@@ -285,12 +285,12 @@ This report provides a comparative analysis of distances calculated across vario
 
 | Projection | Maximum Value |
 |:---|:---|
-| P?_UTM_gamma | {format_dms(max_utm_g_val)} |
-| P?_LDP_gamma | {format_dms(max_ldp_g_val)} |
+| P?_UTM_γ | {format_dms(max_utm_g_val)} |
+| P?_LDP_γ | {format_dms(max_ldp_g_val)} |
 | P?_UTM_CSF | {max_utm_csf_str} |
 
 </td>
-<td valign="top" width="45%">
+<td valign="top" width="70%">
 
 <img src="https://github.com/phisan-chula/2026-EIT_TH_LDP/blob/main/Publication/Line1km.png?raw=true" alt="1km Line Infographic" width="100%">
 
