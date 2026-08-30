@@ -268,18 +268,25 @@ class LDPValidator:
         max_utm_csf_ppm = all_utm_csf_ppm.iloc[all_utm_csf_ppm.abs().argmax()] if not all_utm_csf_ppm.empty else np.nan
         max_utm_csf_str = f"{max_utm_csf_ppm:+.1f} ppm" if pd.notna(max_utm_csf_ppm) else "NaN"
 
-        md_content = [
-            "# LDP Quality Control & Validation Summary\n",
-            "This report provides a comparative analysis of distances calculated across various map projections and surfaces. By establishing the **Ground Distance (L2)** as the true baseline of length 1,000.000 meter, we measure the linear distortion introduced by standard UTM grids against the custom Low Distortion Projections (LDP).\n",
-            "## --- Distance Description ---\n",
-            f"{df_line_descr.to_markdown(index=False)}\n\n",
-            "### Max Magnitudes\n",
-            "| Projection | Maximum Value |\n",
-            "|:---|:---|\n",
-            f"| P?_UTM_gamma | {format_dms(max_utm_g_val)} |\n",
-            f"| P?_LDP_gamma | {format_dms(max_ldp_g_val)} |\n",
-            f"| P?_UTM_CSF | {max_utm_csf_str} |\n\n"
-        ]
+        # Build header text as a single string to avoid newline splitting inside tables
+        header_md = f"""# LDP Quality Control & Validation Summary
+
+This report provides a comparative analysis of distances calculated across various map projections and surfaces. By establishing the **Ground Distance (L2)** as the true baseline of length 1,000.000 meter, we measure the linear distortion introduced by standard UTM grids against the custom Low Distortion Projections (LDP).
+
+## --- Distance Description ---
+
+{df_line_descr.to_markdown(index=False)}
+
+### Max Magnitudes
+
+| Projection | Maximum Value |
+|:---|:---|
+| P?_UTM_gamma | {format_dms(max_utm_g_val)} |
+| P?_LDP_gamma | {format_dms(max_ldp_g_val)} |
+| P?_UTM_CSF | {max_utm_csf_str} |
+"""
+        
+        md_content = [header_md]
 
         for _, res in df_results.iterrows():
             hasc_safe = res['Province_Code']
