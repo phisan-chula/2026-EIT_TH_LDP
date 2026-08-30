@@ -22,9 +22,9 @@ This report provides a comparative analysis of distances calculated across vario
 | Projection | Maximum Value |
 |:---|:---|
 | P?_UTM_γ | -47' 52.59" |
-| P?_LDP_γ | -7' 35.57" |
+| P?_LDP_γ | +6' 40.31" |
 | P?_UTM_CSF | +823.0 ppm |
-| P?_LDP_CSF | +74.5 ppm |
+| P?_LDP_CSF | -35.7 ppm |
 
 </td>
 <td valign="top" width="70%">
@@ -651,19 +651,19 @@ This report provides a comparative analysis of distances calculated across vario
 > **TH.MH_N LDP :**
 > `+proj=tmerc +lat_0=0.0 +lon_0=98.35000000 +k_0=1.000088 +x_0=50000 +y_0=-1900000 +ellps=WGS84 +units=m +no_defs +type=crs`
 
-| P1 | (19.299814291, 97.967296424) | P2 | (19.308848063, 97.967296424) |
+| P1 | (19.358857921, 98.439331403) | P2 | (19.367891634, 98.439331403) |
 |:---|:---|:---|:---|
-| MSL | 254 | HAE | 213 |
-| P1_U47 | (391499.585, 2134324.983) | P2_U47 | (391505.542, 2135324.711) |
-| P1_LDP | (9773.315, 235087.994) | P2_LDP | (9775.523, 236088.099) |
-| P1_U47_γ | -20' 28.87" | P2_U47_γ | -20' 29.43" |
-| P1_LDP_γ | -7' 35.36" | P2_LDP_γ | -7' 35.57" |
-| P1_U47_CSF | -288.1 ppm | P2_U47_CSF | -288.0 ppm |
-| P1_LDP_CSF | +74.4 ppm ❗ | P2_LDP_CSF | +74.5 ppm ❗ |
+| MSL | 505 | HAE | 466 |
+| P1_U47 | (441116.605, 2140630.566) | P2_U47 | (441119.848, 2141630.203) |
+| P1_LDP | (59386.365, 241582.487) | P2_LDP | (59385.848, 242582.576) |
+| P1_U47_γ | -11' 9.09" | P2_U47_γ | -11' 9.39" |
+| P1_LDP_γ | +1' 46.60" | P2_LDP_γ | +1' 46.65" |
+| P1_U47_CSF | -430.6 ppm | P2_U47_CSF | -430.0 ppm |
+| P1_LDP_CSF | +15.6 ppm | P2_LDP_CSF | +16.2 ppm |
 
 | ΔL1_ELLP | ΔL2_GRND | ΔL3_UTM | ΔL4_UTM_PSF | ΔL5_UTM_CSF | ΔL6_LDP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
-| -0.034 | *0.000 | -0.288 | -0.034 | -0.000 | +0.074 |
+| -0.073 | *0.000 | -0.430 | -0.073 | -0.000 | +0.016 |
 
 ---
 
