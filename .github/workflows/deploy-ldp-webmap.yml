@@ -1,0 +1,41 @@
+name: Deploy Thailand LDP Web Map
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/OUTPUT_PROV/gadm41_THA.gpkg'
+      - 'EIT_LDP_Rust_WebMap/**'
+      - '.github/workflows/deploy-ldp-webmap.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install GDAL
+        run: sudo apt-get update && sudo apt-get install -y gdal-bin
+      - name: Simplify GeoPackage (250 m)
+        run: python3 EIT_LDP_Rust_WebMap/scripts/01_simplify.py
+      - name: Prepare Pages directory
+        run: |
+          mkdir -p _site/EIT_LDP_Rust_WebMap
+          cp EIT_LDP_Rust_WebMap/index.html EIT_LDP_Rust_WebMap/provinces.geojson _site/EIT_LDP_Rust_WebMap/
+          touch _site/.nojekyll
+          printf '%s\n' '<meta http-equiv="refresh" content="0;url=EIT_LDP_Rust_WebMap/">' > _site/index.html
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
