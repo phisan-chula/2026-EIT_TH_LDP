@@ -1,10 +1,10 @@
-name: Deploy Thailand LDP Web Map
+name: Deploy Thailand LDP Static JS Map
 on:
   push:
     branches: [main]
     paths:
+      - 'TH_LDP_Static_JS/**'
       - 'src/OUTPUT_PROV/gadm41_THA.gpkg'
-      - 'EIT_LDP_Rust_WebMap/**'
       - '.github/workflows/deploy-ldp-webmap.yml'
   workflow_dispatch:
 permissions:
@@ -24,14 +24,14 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install GDAL
         run: sudo apt-get update && sudo apt-get install -y gdal-bin
-      - name: Simplify GeoPackage (250 m)
-        run: python3 EIT_LDP_Rust_WebMap/scripts/01_simplify.py
-      - name: Prepare Pages directory
+      - name: Generate 250m province GeoJSON
+        run: python3 TH_LDP_Static_JS/scripts/01_simplify.py
+      - name: Assemble site
         run: |
-          mkdir -p _site/EIT_LDP_Rust_WebMap
-          cp EIT_LDP_Rust_WebMap/index.html EIT_LDP_Rust_WebMap/provinces.geojson _site/EIT_LDP_Rust_WebMap/
+          mkdir -p _site/TH_LDP_Static_JS
+          cp -r TH_LDP_Static_JS/web/. _site/TH_LDP_Static_JS/
           touch _site/.nojekyll
-          printf '%s\n' '<meta http-equiv="refresh" content="0;url=EIT_LDP_Rust_WebMap/">' > _site/index.html
+          printf '%s\n' '<meta http-equiv="refresh" content="0;url=TH_LDP_Static_JS/">' > _site/index.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
