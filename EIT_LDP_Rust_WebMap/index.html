@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Thailand Low Distortion Projection Map</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+html,body,#map{margin:0;height:100%;width:100%;font-family:system-ui,sans-serif}
+#banner{position:absolute;top:12px;left:50px;z-index:900;background:white;border-radius:9px;padding:10px 14px;box-shadow:0 2px 12px #0003;max-width:min(85vw,460px)}
+#banner strong{font-size:16px}#banner small{display:block;color:#555}
+.badge{font-size:17px;font-weight:bold}.links{display:flex;gap:8px;margin-top:10px}.links a{padding:7px;border:1px solid #bbc6d2;border-radius:6px;text-decoration:none;color:#174677}
+#status{font-size:12px;color:#555;margin-top:5px}
+</style></head><body><div id="banner"><strong>Thailand Low Distortion Projection</strong><small>Click or hover over a province/region to inspect HASC_1</small><div id="status">Loading province polygons…</div></div><div id="map"></div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const map=L.map('map').setView([15.2,101],6),status=document.getElementById('status');
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors',maxZoom:18}).addTo(map);
+const base={color:'#556d81',weight:1,fillColor:'#67a9ca',fillOpacity:.32};
+let selected=null, polygons;
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','&#39;'}[c]));}
+function links(props){
+  const code=String(props.HASC_1||''), slug=code.replaceAll('.','_'), safe=/^TH_[A-Z0-9_]+$/.test(slug);
+  const root='https://github.com/phisan-chula/2026-EIT_TH_LDP';
+  const doc=root+'/tree/main/src/OUTPUT_LDP#-'+slug.toLowerCase().replaceAll('_','')+'--wkt---proj4';
+  const pdf=root+'/blob/main/src/OUTPUT_LDP/'+encodeURIComponent(slug)+'/'+encodeURIComponent(slug+'_OnePage.pdf');
+  return '<div><div class="badge">'+esc(code)+'</div><div>'+esc(props.NAME_1)+'</div>'+
+  (safe?'<div class="links"><a target="_blank" rel="noopener noreferrer" href="'+doc+'">📏 TestLine ↗</a><a target="_blank" rel="noopener noreferrer" href="'+pdf+'">📄 OnePage ↗</a></div>':'')+'</div>';
+}
+fetch('./provinces.geojson').then(r=>{if(!r.ok)throw Error('GeoJSON is missing');return r.json();}).then(g=>{
+ polygons=L.geoJSON(g,{style:()=>({...base}),onEachFeature:(f,l)=>{
+  l.bindTooltip(String(f.properties.HASC_1||''),{sticky:true});
+  l.on('click',e=>{
+   if(selected)polygons.resetStyle(selected);
+   selected=l;l.setStyle({fillColor:'#ef9d47',fillOpacity:.6,color:'#a45e12',weight:2});
+   L.popup().setLatLng(e.latlng).setContent(links(f.properties)).openOn(map);
+  });
+ }}).addTo(map);
+ if(polygons.getLayers().length)map.fitBounds(polygons.getBounds(),{padding:[16,16]});
+ status.textContent=g.features.length+' administrative regions • Simplification tolerance: 250 m';
+}).catch(e=>{status.textContent='Could not load map data: '+e.message;console.error(e)});
+</script></body></html>
