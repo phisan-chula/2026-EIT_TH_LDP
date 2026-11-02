@@ -1,6 +1,6 @@
 ======================================================================
 Processing province: TH.KN_S
-Started: 2026-08-27T20:53:41+07:00
+Started: 2026-11-01T23:04:53+07:00
 ======================================================================
 --> [TH.KN_S] Step 1: 1_fabdem_province.py
 [1/5] Read GADM and select HASC_1=TH.KN_S
@@ -43,7 +43,7 @@ Completed successfully.
 TH.KN_S     500.0 EPSG:4326    31299 TH_KN_S_SAMPL.gpkg 696,976  896,673 -199,697
 --> [TH.KN_S] Step 4: 4_analyse_ldp.py
 LDP                                                [TM, 99:27]
-FALSE_EN                                     [250000, -800000]
+FALSE_EN                                      [333000, 769000]
 PP_MSL                                                       0
 POPU_PLOT                                      [250, -100, 20]
 GPKG         [OUTPUT_SAMPL/TH_KN_S/TH_KN_S_SAMPL.gpkg, samp...
@@ -60,10 +60,10 @@ Points CSF min/mean/max [ppm] : -161.8 / -15.0 / +24.6
 Points MSL min/mean/max [m.]  : +5.0 / +142.0 / +1047.0
 |      |       LDP_E |       LDP_N |
 |:-----|------------:|------------:|
-| min  | 188,905.423 | 718,604.188 |
-| max  | 295,909.148 | 841,643.839 |
+| min  | 271,905.423 | 713,450.330 |
+| max  | 378,909.148 | 836,489.981 |
 | diff | 107,003.724 | 123,039.651 |
-{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=0.0 +lon_0=99.45000000 +k_0=0.999995 +x_0=250000 +y_0=-800000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=0.0 +lon_0=99°27′ +k_0=0.999995 +x_0=250000 +y_0=-800000 +ellps=WGS84 +units=m +no_defs +type=crs"}
+{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=14.23333333 +lon_0=99.45000000 +k_0=0.999995 +x_0=333000 +y_0=769000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=14°14′ +lon_0=99°27′ +k_0=0.999995 +x_0=333000 +y_0=769000 +ellps=WGS84 +units=m +no_defs +type=crs"}
 Writing definition GPKG : OUTPUT_LDP/TH_KN_S/TH_KN_S_LDP.gpkg ...
  -> THINNING: Snapping points to 2 decimal grid for visualization...
  -> THINNING: Plot points reduced from 30663 to 6703.
@@ -121,5 +121,5 @@ Processing province: TH_KN_S
 [+] TH_KN_S: One-Page Report generated successfully.
 ======================================================================
 Completed province: TH.KN_S
-Finished: 2026-08-27T21:19:03+07:00
+Finished: 2026-11-01T23:30:04+07:00
 ======================================================================

@@ -1,6 +1,6 @@
 ======================================================================
 Processing province: TH.KK
-Started: 2026-08-27T20:50:48+07:00
+Started: 2026-11-01T23:02:00+07:00
 ======================================================================
 --> [TH.KK] Step 1: 1_fabdem_province.py
 [1/5] Read GADM and select HASC_1=TH.KK
@@ -43,7 +43,7 @@ HASC_1  Grid (m)       CRS  Samples           Output   POP2025  DOPA_Pop    Diff
  TH.KK     500.0 EPSG:4326    42450 TH_KK_SAMPL.gpkg 1,689,901 1,765,967 -76,066
 --> [TH.KK] Step 4: 4_analyse_ldp.py
 LDP                                            [TM, 102:35]
-FALSE_EN                                 [250000, -1050000]
+FALSE_EN                                   [337000, 779000]
 PP_MSL                                                   90
 GPKG         [OUTPUT_SAMPL/TH_KK/TH_KK_SAMPL.gpkg, samples]
 OFFSET_PP      [0.0, default hPP from average topo or pnts]
@@ -59,10 +59,10 @@ Points CSF min/mean/max [ppm] : -80.5 / -6.8 / +69.7
 Points MSL min/mean/max [m.]  : +146.0 / +213.0 / +752.0
 |      |       LDP_E |       LDP_N |
 |:-----|------------:|------------:|
-| min  | 161,305.370 | 679,009.848 |
-| max  | 314,079.564 | 839,844.057 |
+| min  | 248,305.370 | 694,084.172 |
+| max  | 401,079.564 | 854,918.380 |
 | diff | 152,774.194 | 160,834.209 |
-{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=0.0 +lon_0=102.58333333 +k_0=1.000010 +x_0=250000 +y_0=-1050000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=0.0 +lon_0=102°35′ +k_0=1.000010 +x_0=250000 +y_0=-1050000 +ellps=WGS84 +units=m +no_defs +type=crs"}
+{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=16.40000000 +lon_0=102.58333333 +k_0=1.000010 +x_0=337000 +y_0=779000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=16°24′ +lon_0=102°35′ +k_0=1.000010 +x_0=337000 +y_0=779000 +ellps=WGS84 +units=m +no_defs +type=crs"}
 Writing definition GPKG : OUTPUT_LDP/TH_KK/TH_KK_LDP.gpkg ...
  -> THINNING: Snapping points to 2 decimal grid for visualization...
  -> THINNING: Plot points reduced from 41584 to 9171.
@@ -115,5 +115,5 @@ Processing province: TH_KK
 [+] TH_KK: One-Page Report generated successfully.
 ======================================================================
 Completed province: TH.KK
-Finished: 2026-08-27T21:12:07+07:00
+Finished: 2026-11-01T23:23:18+07:00
 ======================================================================

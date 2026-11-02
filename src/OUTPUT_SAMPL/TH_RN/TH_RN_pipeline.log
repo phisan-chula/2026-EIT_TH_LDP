@@ -1,6 +1,6 @@
 ======================================================================
 Processing province: TH.RN
-Started: 2026-08-27T21:35:36+07:00
+Started: 2026-11-01T23:46:57+07:00
 ======================================================================
 --> [TH.RN] Step 1: 1_fabdem_province.py
 [1/5] Read GADM and select HASC_1=TH.RN
@@ -43,7 +43,7 @@ HASC_1  Grid (m)       CRS  Samples           Output POP2025 DOPA_Pop    Diff
  TH.RN     500.0 EPSG:4326    12263 TH_RN_SAMPL.gpkg 342,902  192,487 150,415
 --> [TH.RN] Step 4: 4_analyse_ldp.py
 LDP                                             [TM, 98:42]
-FALSE_EN                                               AUTO
+FALSE_EN                                    [57000, 316000]
 PP_MSL                                                   50
 GPKG         [OUTPUT_SAMPL/TH_RN/TH_RN_SAMPL.gpkg, samples]
 OFFSET_PP      [0.0, default hPP from average topo or pnts]
@@ -51,7 +51,6 @@ dtype: object
  -> OUTLIER FILTER: Dropped 271 points.
  -> Dropped MSL values: [-9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, 620, 495, 1280, 1041, 1283, 407, 373, 401, 443, 468, 461, 731, 667, 509, 524, 526, 464, 480, 498, 509, 490, 508, 541, 503, 523, 499, 585, 610, 998, 1005, 992, 821, 618, 642, 918, 648, 664, 649, 529, 553, 645, 43, 26, 555, 560, 538, 590, 36, 38, 35, 554, 56, 56, 28, 36, 49, 27, 22, 55, 107, 32, 67, 28, 107, 36, 27, 16, 41, 38, 64, 15, 357, 182, 144, 291, 286, 3, 278, 291, 2, 1, 291, 11, 1, 3, 3, 0, 32, 5, 4, 389, 294, 439, 429, 561, 669, 578, 601, 599, 479, 492, 84, 592, 258, 265, 245, 620, 635, 46, 400, 496, 510, 509, 120, 422, 518, 442, 411, 568, 587, 513, 87, 77, 64, 69, 89, 1182, 1061, 663, 651, 1295, 1028, 47, 43, 20, 19, 31, 39, 31, 116, 153, 136, 29, 2, 2, 173, 254, 56, 57, 40, 49, 271, 264, 99, 40, 34, 21, 28, 24, 191, 167, 41, 62, 41, 174, 111, 33, 60, 181, 48, 51, 31, 40, 0, 12, 1, 46, 42, 34, 31, 45, 37, 2, 1, 40, 45, 13, 37, 43, 72, 21, 77, 41, 28, 32, 742, 558, 583, 30, 857, 42, 43, 19, 53, 28, 2, 67, 284, 56, 255, 302, 64, 184, 66, 147, 177, 181, 4, 15, 6, 12, 247, 335, 239, 267, 241, 175, 141, 499, 397, 79, 86, 372, 379, 424, 383, 110, 69, 73, 326, 542, 518, 676, 700, 128]
  -> Using user-defined PP_MSL: 50.000m
- -> AUTO detected FALSE_EN: E: 50000, N: -600000
 ==================================== LDP TM ====================================
 @ Centroid @     <lng=98°42′>    <lat=09°58′>
 Offset Projection Plane = +0.0 m. <default hPP from average topo or pnts>
@@ -60,10 +59,10 @@ Points CSF min/mean/max [ppm] : -185.6 / -18.1 / +21.3
 Points MSL min/mean/max [m.]  : -1.0 / +178.8 / +1231.0
 |      |      LDP_E |       LDP_N |
 |:-----|-----------:|------------:|
-| min  | 16,428.628 | 429,380.515 |
-| max  | 78,828.020 | 592,483.899 |
+| min  | 23,428.628 | 243,209.297 |
+| max  | 85,828.020 | 406,312.680 |
 | diff | 62,399.392 | 163,103.384 |
-{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=0.0 +lon_0=98.70000000 +k_0=1.000003 +x_0=50000 +y_0=-600000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=0.0 +lon_0=98°42′ +k_0=1.000003 +x_0=50000 +y_0=-600000 +ellps=WGS84 +units=m +no_defs +type=crs"}
+{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=9.96666667 +lon_0=98.70000000 +k_0=1.000003 +x_0=57000 +y_0=316000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=09°58′ +lon_0=98°42′ +k_0=1.000003 +x_0=57000 +y_0=316000 +ellps=WGS84 +units=m +no_defs +type=crs"}
 Writing definition GPKG : OUTPUT_LDP/TH_RN/TH_RN_LDP.gpkg ...
  -> THINNING: Snapping points to 2 decimal grid for visualization...
  -> THINNING: Plot points reduced from 11992 to 2703.
@@ -116,5 +115,5 @@ Processing province: TH_RN
 [+] TH_RN: One-Page Report generated successfully.
 ======================================================================
 Completed province: TH.RN
-Finished: 2026-08-27T21:43:40+07:00
+Finished: 2026-11-01T23:54:49+07:00
 ======================================================================

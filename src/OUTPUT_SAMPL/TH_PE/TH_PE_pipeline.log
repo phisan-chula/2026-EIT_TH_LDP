@@ -1,6 +1,6 @@
 ======================================================================
 Processing province: TH.PE
-Started: 2026-08-27T21:27:16+07:00
+Started: 2026-11-01T23:37:57+07:00
 ======================================================================
 --> [TH.PE] Step 1: 1_fabdem_province.py
 [1/5] Read GADM and select HASC_1=TH.PE
@@ -43,7 +43,7 @@ HASC_1  Grid (m)       CRS  Samples           Output POP2025 DOPA_Pop   Diff
  TH.PE     500.0 EPSG:4326    24697 TH_PE_SAMPL.gpkg 475,548  484,127 -8,579
 --> [TH.PE] Step 4: 4_analyse_ldp.py
 LDP                                            [LCC, 12:57]
-FALSE_EN                                   [750000, 250000]
+FALSE_EN                                   [327000, 776000]
 PP_MSL                                                  -20
 POPU_PLOT                                   [300, -100, 20]
 GPKG         [OUTPUT_SAMPL/TH_PE/TH_PE_SAMPL.gpkg, samples]
@@ -60,10 +60,10 @@ Points CSF min/mean/max [ppm] : -193.4 / -41.5 / +18.8
 Points MSL min/mean/max [m.]  : +0.0 / +275.3 / +1223.0
 |      |       LDP_E |       LDP_N |
 |:-----|------------:|------------:|
-| min  | 694,126.126 | 204,797.177 |
-| max  | 802,156.565 | 293,288.780 |
+| min  | 271,126.126 | 730,797.177 |
+| max  | 379,156.565 | 819,288.780 |
 | diff | 108,030.439 |  88,491.603 |
-{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=lcc +lat_1=12.95000000 +lat_0=12.95000000 +lon_0=99.61666667 +k_0=0.999992 +x_0=750000 +y_0=250000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=lcc +lat_1=12°57′ +lat_0=12°57′ +lon_0=99°37′ +k_0=0.999992 +x_0=750000 +y_0=250000 +ellps=WGS84 +units=m +no_defs +type=crs"}
+{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=lcc +lat_1=12.95000000 +lat_0=12.95000000 +lon_0=99.61666667 +k_0=0.999992 +x_0=327000 +y_0=776000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=lcc +lat_1=12°57′ +lat_0=12°57′ +lon_0=99°37′ +k_0=0.999992 +x_0=327000 +y_0=776000 +ellps=WGS84 +units=m +no_defs +type=crs"}
 Writing definition GPKG : OUTPUT_LDP/TH_PE/TH_PE_LDP.gpkg ...
  -> THINNING: Snapping points to 2 decimal grid for visualization...
  -> THINNING: Plot points reduced from 24197 to 5259.
@@ -127,5 +127,5 @@ Processing province: TH_PE
 [+] TH_PE: One-Page Report generated successfully.
 ======================================================================
 Completed province: TH.PE
-Finished: 2026-08-27T21:41:59+07:00
+Finished: 2026-11-01T23:52:22+07:00
 ======================================================================

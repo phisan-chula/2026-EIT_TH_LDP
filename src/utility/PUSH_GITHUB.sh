@@ -1,25 +1,30 @@
+#!/bin/bash
+set -e
 set -x
 
-# 1. Stage the files (Note the added \ after './src/*')
-git add -- \
-  './src/*' \
-  './README.md' \
-  './OUTPUT_LDP/README.md' \
-  './src/OUTPUT_LDP/TH_*/TH_*_OnePage.pdf' \
-  './src/OUTPUT_LDP/TH_*/TH_*_LDP.gpkg' \
-  './src/OUTPUT_SAMPL/TH_*/TH_*_pipeline.log' \
-  './src/OUTPUT_LDP/TH_AT/TH_AT_LDP_CRS.WKT' \
-  './src/OUTPUT_PROV/' \
-  './src/DATA/'
+# Normal files in current directory only
+find . -maxdepth 1 -type f -print0 | xargs -0 git add --
 
-# 2. Verify what was actually staged (crucial when using wildcards)
+# README.md one level above
+git add -- '../README.md'
+
+# Selected outputs/subdirectories
+git add -- \
+  './OUTPUT_LDP/README.md' \
+  './OUTPUT_LDP/TH_*/TH_*_OnePage.pdf' \
+  './OUTPUT_LDP/TH_*/TH_*_LDP.gpkg' \
+  './OUTPUT_SAMPL/TH_*/TH_*_pipeline.log' \
+  './OUTPUT_LDP/TH_AT/TH_AT_LDP_CRS.WKT' \
+  './OUTPUT_PROV/' \
+  './DATA/'
+
 git status
 
-# 3. Commit the changes with a descriptive message
-git commit -m "docs: expose LDP source code, update README, and add GeoPackage/WKT outputs"
+if ! git diff --cached --quiet; then
+    git commit -m "docs: update LDP source and outputs"
+fi
 
-# 4. Push to your remote repository (assuming your branch is 'main')
+git pull --rebase origin main
 git push origin main
 
-# Turn off bash debugging
 set +x

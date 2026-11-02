@@ -1,6 +1,6 @@
 ======================================================================
 Processing province: TH.SG
-Started: 2026-08-27T21:43:09+07:00
+Started: 2026-11-01T23:53:43+07:00
 ======================================================================
 --> [TH.SG] Step 1: 1_fabdem_province.py
 [1/5] Read GADM and select HASC_1=TH.SG
@@ -43,7 +43,7 @@ HASC_1  Grid (m)       CRS  Samples           Output   POP2025  DOPA_Pop    Diff
  TH.SG     500.0 EPSG:4326    30431 TH_SG_SAMPL.gpkg 1,619,969 1,429,125 190,844
 --> [TH.SG] Step 4: 4_analyse_ldp.py
 LDP                                            [TM, 100:33]
-FALSE_EN                                   [250000, -30000]
+FALSE_EN                                   [321000, 755000]
 PP_MSL                                                  -40
 GPKG         [OUTPUT_SAMPL/TH_SG/TH_SG_SAMPL.gpkg, samples]
 OFFSET_PP      [0.0, default hPP from average topo or pnts]
@@ -59,10 +59,10 @@ Points CSF min/mean/max [ppm] : -115.4 / -9.9 / +32.4
 Points MSL min/mean/max [m.]  : +0.0 / +80.1 / +785.0
 |      |       LDP_E |       LDP_N |
 |:-----|------------:|------------:|
-| min  | 195,804.468 | 665,916.851 |
-| max  | 311,631.201 | 847,620.592 |
+| min  | 266,804.468 | 684,237.970 |
+| max  | 382,631.201 | 865,941.711 |
 | diff | 115,826.733 | 181,703.742 |
-{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=0.0 +lon_0=100.55000000 +k_0=0.999991 +x_0=250000 +y_0=-30000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=0.0 +lon_0=100°33′ +k_0=0.999991 +x_0=250000 +y_0=-30000 +ellps=WGS84 +units=m +no_defs +type=crs"}
+{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=6.93333333 +lon_0=100.55000000 +k_0=0.999991 +x_0=321000 +y_0=755000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=06°56′ +lon_0=100°33′ +k_0=0.999991 +x_0=321000 +y_0=755000 +ellps=WGS84 +units=m +no_defs +type=crs"}
 Writing definition GPKG : OUTPUT_LDP/TH_SG/TH_SG_LDP.gpkg ...
  -> THINNING: Snapping points to 2 decimal grid for visualization...
  -> THINNING: Plot points reduced from 29814 to 6429.
@@ -115,5 +115,5 @@ Processing province: TH_SG
 [+] TH_SG: One-Page Report generated successfully.
 ======================================================================
 Completed province: TH.SG
-Finished: 2026-08-27T21:59:32+07:00
+Finished: 2026-11-02T00:09:28+07:00
 ======================================================================

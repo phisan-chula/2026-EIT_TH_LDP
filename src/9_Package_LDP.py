@@ -46,10 +46,10 @@ PJ4_GLOB = "**/*.PJ4"
 WKT_GLOB = "**/*.WKT"
 
 # Output ZIP
-OUTPUT_ZIP = Path("EIT_LDP_SEP2569.zip")
+OUTPUT_ZIP = Path("TH_LDP_NOV2569.zip")
 
 # WKT naming rules
-PROJCRS_PREFIX = "EIT_"        # TH_GBKK -> EIT_TH_GBKK
+PROJCRS_PREFIX = "LDP_"        # TH_GBKK -> LDP_TH_GBKK
 BASEGEOGCRS_NAME = "WGS 84"
 
 # ZIP layout

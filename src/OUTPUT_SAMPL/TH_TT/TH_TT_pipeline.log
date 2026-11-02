@@ -1,6 +1,6 @@
 ======================================================================
 Processing province: TH.TT
-Started: 2026-08-27T21:54:32+07:00
+Started: 2026-11-02T00:05:35+07:00
 ======================================================================
 --> [TH.TT] Step 1: 1_fabdem_province.py
 [1/5] Read GADM and select HASC_1=TH.TT
@@ -43,7 +43,7 @@ HASC_1  Grid (m)       CRS  Samples           Output POP2025 DOPA_Pop  Diff
  TH.TT     500.0 EPSG:4326    10006 TH_TT_SAMPL.gpkg 234,549  225,591 8,958
 --> [TH.TT] Step 4: 4_analyse_ldp.py
 LDP                                            [TM, 102:32]
-FALSE_EN                                               AUTO
+FALSE_EN                                    [49000, 343000]
 PP_MSL                                                    0
 GPKG         [OUTPUT_SAMPL/TH_TT/TH_TT_SAMPL.gpkg, samples]
 OFFSET_PP      [0.0, default hPP from average topo or pnts]
@@ -51,7 +51,6 @@ dtype: object
  -> OUTLIER FILTER: Dropped 212 points.
  -> Dropped MSL values: [-9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, -9999, 8, 178, 9, 186, 228, 256, 314, 47, 42, 24, 52, 37, 26, 27, 27, 20, 18, 25, 48, 19, 61, 32, 252, 27, 65, 33, 26, 31, 26, 56, 0, 3, 51, 227, 239, 240, 45, 228, 190, 243, 210, 448, 490, 420, 478, 460, 420, 420, 516, 57, 37, 67, 45, 21, 93, 94, 60, 18, 21, 34, 49, 47, 197, 184, 130, 65, 213, 184, 196, 52, 50, 84, 93, 53, 55, 57, 90, 54, 57, 72, 59, 63, 44, 36, 25, 25, 49, 25, 20, 20, 39, 73, 144, 191, 187, 69, 66, 981, 962, 1041, 936, 865, 800, 195, 57, 132, 74, 185, 190, 156, 144, 823, 107, 73, 57, 62, 209, 194, 191, 173, 115, 66, 60, 58, 41, 12, 27, 22, 55, 20, 27, 26, 57, 73, 83, 63, 65, 30, 19, 36, 36, 22, 35, 104, 79, 87, 74, 54, 79, 36, 41, 80, 64, 65, 75, 59, 54, 54, 35, 64, 60, 70, 174, 60, 46, 95, 87, 78, 184, 84, 80, 102, 34, 39, 40, 32, 38, 35, 40, 40, 49, 42, 62, 45, 96, 76, 45, 886, 824, 89, 75, 75, 83, 138, 254, 268, 273, 320, 49, 252]
  -> Using user-defined PP_MSL: 0.000m
- -> AUTO detected FALSE_EN: E: 40000, N: -800000
 ==================================== LDP TM ====================================
 @ Centroid @     <lng=102°32′>    <lat=12°22′>
 Offset Projection Plane = +0.0 m. <default hPP from average topo or pnts>
@@ -60,10 +59,10 @@ Points CSF min/mean/max [ppm] : -124.1 / -6.8 / +20.1
 Points MSL min/mean/max [m.]  : +0.0 / +60.0 / +793.0
 |      |      LDP_E |       LDP_N |
 |:-----|-----------:|------------:|
-| min  | 10,821.623 | 488,702.270 |
-| max  | 81,421.054 | 610,256.581 |
+| min  | 19,821.623 | 264,059.861 |
+| max  | 90,421.054 | 385,614.172 |
 | diff | 70,599.431 | 121,554.311 |
-{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=0.0 +lon_0=102.53333333 +k_0=0.999997 +x_0=40000 +y_0=-800000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=0.0 +lon_0=102°32′ +k_0=0.999997 +x_0=40000 +y_0=-800000 +ellps=WGS84 +units=m +no_defs +type=crs"}
+{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=12.36666667 +lon_0=102.53333333 +k_0=0.999997 +x_0=49000 +y_0=343000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=12°22′ +lon_0=102°32′ +k_0=0.999997 +x_0=49000 +y_0=343000 +ellps=WGS84 +units=m +no_defs +type=crs"}
 Writing definition GPKG : OUTPUT_LDP/TH_TT/TH_TT_LDP.gpkg ...
  -> THINNING: Snapping points to 2 decimal grid for visualization...
  -> THINNING: Plot points reduced from 9794 to 2191.
@@ -116,5 +115,5 @@ Processing province: TH_TT
 [+] TH_TT: One-Page Report generated successfully.
 ======================================================================
 Completed province: TH.TT
-Finished: 2026-08-27T22:01:51+07:00
+Finished: 2026-11-02T00:12:20+07:00
 ======================================================================

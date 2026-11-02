@@ -1,6 +1,6 @@
 ======================================================================
 Processing province: TH.PS_W
-Started: 2026-08-27T21:30:56+07:00
+Started: 2026-11-01T23:42:28+07:00
 ======================================================================
 --> [TH.PS_W] Step 1: 1_fabdem_province.py
 [1/5] Read GADM and select HASC_1=TH.PS_W
@@ -43,7 +43,7 @@ Completed successfully.
 TH.PS_W     500.0 EPSG:4326    26464 TH_PS_W_SAMPL.gpkg 817,951  835,480 -17,529
 --> [TH.PS_W] Step 4: 4_analyse_ldp.py
 LDP                                               [TM, 100:24]
-FALSE_EN                                    [250000, -1100000]
+FALSE_EN                                      [326000, 773000]
 PP_MSL                                                     -20
 POPU_PLOT                                      [200, -100, 20]
 GPKG         [OUTPUT_SAMPL/TH_PS_W/TH_PS_W_SAMPL.gpkg, samp...
@@ -60,10 +60,10 @@ Points CSF min/mean/max [ppm] : -133.5 / -20.0 / +30.0
 Points MSL min/mean/max [m.]  : +33.0 / +158.9 / +954.0
 |      |       LDP_E |       LDP_N |
 |:-----|------------:|------------:|
-| min  | 192,245.889 | 704,527.833 |
-| max  | 306,742.435 | 822,761.617 |
+| min  | 268,245.889 | 715,682.157 |
+| max  | 382,742.435 | 833,915.942 |
 | diff | 114,496.546 | 118,233.784 |
-{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=0.0 +lon_0=100.40000000 +k_0=0.999991 +x_0=250000 +y_0=-1100000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=0.0 +lon_0=100°24′ +k_0=0.999991 +x_0=250000 +y_0=-1100000 +ellps=WGS84 +units=m +no_defs +type=crs"}
+{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=16.83333333 +lon_0=100.40000000 +k_0=0.999991 +x_0=326000 +y_0=773000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=16°50′ +lon_0=100°24′ +k_0=0.999991 +x_0=326000 +y_0=773000 +ellps=WGS84 +units=m +no_defs +type=crs"}
 Writing definition GPKG : OUTPUT_LDP/TH_PS_W/TH_PS_W_LDP.gpkg ...
  -> THINNING: Snapping points to 2 decimal grid for visualization...
  -> THINNING: Plot points reduced from 25921 to 5751.
@@ -117,5 +117,5 @@ Processing province: TH_PS_W
 [+] TH_PS_W: One-Page Report generated successfully.
 ======================================================================
 Completed province: TH.PS_W
-Finished: 2026-08-27T21:48:17+07:00
+Finished: 2026-11-01T23:59:35+07:00
 ======================================================================

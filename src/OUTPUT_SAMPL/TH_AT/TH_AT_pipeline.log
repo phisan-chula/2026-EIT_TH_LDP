@@ -1,6 +1,6 @@
 ======================================================================
 Processing province: TH.AT
-Started: 2026-08-27T20:50:48+07:00
+Started: 2026-11-01T23:02:00+07:00
 ======================================================================
 --> [TH.AT] Step 1: 1_fabdem_province.py
 [1/5] Read GADM and select HASC_1=TH.AT
@@ -43,7 +43,7 @@ HASC_1  Grid (m)       CRS  Samples           Output POP2025 DOPA_Pop    Diff
  TH.AT     500.0 EPSG:4326     3813 TH_AT_SAMPL.gpkg 223,643  266,923 -43,280
 --> [TH.AT] Step 4: 4_analyse_ldp.py
 LDP                                            [TM, 100:21]
-FALSE_EN                                  [50000, -1470000]
+FALSE_EN                                     [32000, 77000]
 PP_MSL                                                   10
 GPKG         [OUTPUT_SAMPL/TH_AT/TH_AT_SAMPL.gpkg, samples]
 OFFSET_PP      [0.0, default hPP from average topo or pnts]
@@ -57,12 +57,12 @@ Offset Projection Plane = +0.0 m. <default hPP from average topo or pnts>
 Designed Project Plane : hPP=-21.90 m. / MSL=+10.00 m. tied to k0 = 0.999997
 Points CSF min/mean/max [ppm] : +0.6 / +2.0 / +5.0
 Points MSL min/mean/max [m.]  : +0.0 / +6.1 / +12.0
-|      |      LDP_E |       LDP_N |
-|:-----|-----------:|------------:|
-| min  | 33,554.635 | 126,644.832 |
-| max  | 67,638.857 | 166,726.281 |
-| diff | 34,084.222 |  40,081.449 |
-{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=0.0 +lon_0=100.35000000 +k_0=0.999997 +x_0=50000 +y_0=-1470000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=0.0 +lon_0=100°21′ +k_0=0.999997 +x_0=50000 +y_0=-1470000 +ellps=WGS84 +units=m +no_defs +type=crs"}
+|      |      LDP_E |      LDP_N |
+|:-----|-----------:|-----------:|
+| min  | 15,554.635 | 57,074.718 |
+| max  | 49,638.857 | 97,156.167 |
+| diff | 34,084.222 | 40,081.449 |
+{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=14.61666667 +lon_0=100.35000000 +k_0=0.999997 +x_0=32000 +y_0=77000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=14°37′ +lon_0=100°21′ +k_0=0.999997 +x_0=32000 +y_0=77000 +ellps=WGS84 +units=m +no_defs +type=crs"}
 Writing definition GPKG : OUTPUT_LDP/TH_AT/TH_AT_LDP.gpkg ...
  -> THINNING: Snapping points to 2 decimal grid for visualization...
  -> THINNING: Plot points reduced from 3732 to 838.
@@ -115,5 +115,5 @@ Processing province: TH_AT
 [+] TH_AT: One-Page Report generated successfully.
 ======================================================================
 Completed province: TH.AT
-Finished: 2026-08-27T20:51:36+07:00
+Finished: 2026-11-01T23:02:47+07:00
 ======================================================================

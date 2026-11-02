@@ -1,6 +1,6 @@
 ======================================================================
 Processing province: TH.TK_C
-Started: 2026-08-27T21:52:06+07:00
+Started: 2026-11-02T00:03:09+07:00
 ======================================================================
 --> [TH.TK_C] Step 1: 1_fabdem_province.py
 [1/5] Read GADM and select HASC_1=TH.TK_C
@@ -43,7 +43,7 @@ Completed successfully.
 TH.TK_C     500.0 EPSG:4326    24786 TH_TK_C_SAMPL.gpkg 294,697  704,494 -409,797
 --> [TH.TK_C] Step 4: 4_analyse_ldp.py
 LDP                                                [TM, 98:31]
-FALSE_EN                                    [250000, -1150000]
+FALSE_EN                                      [338000, 769000]
 PP_MSL                                                     240
 POPU_PLOT                                       [600, 100, 20]
 GPKG         [OUTPUT_SAMPL/TH_TK_C/TH_TK_C_SAMPL.gpkg, samp...
@@ -60,10 +60,10 @@ Points CSF min/mean/max [ppm] : -195.4 / -37.7 / +109.8
 Points MSL min/mean/max [m.]  : +63.0 / +567.9 / +1638.0
 |      |       LDP_E |       LDP_N |
 |:-----|------------:|------------:|
-| min  | 168,202.103 | 649,762.868 |
-| max  | 305,108.251 | 826,137.827 |
+| min  | 256,202.103 | 686,550.991 |
+| max  | 393,108.251 | 862,925.950 |
 | diff | 136,906.148 | 176,374.959 |
-{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=0.0 +lon_0=98.51666667 +k_0=1.000032 +x_0=250000 +y_0=-1150000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=0.0 +lon_0=98°31′ +k_0=1.000032 +x_0=250000 +y_0=-1150000 +ellps=WGS84 +units=m +no_defs +type=crs"}
+{"meta": "LDP_Definition", "PROJ_String_Decimal": "+proj=tmerc +lat_0=17.01666667 +lon_0=98.51666667 +k_0=1.000032 +x_0=338000 +y_0=769000 +ellps=WGS84 +units=m +no_defs +type=crs", "PROJ_String_DMS": "+proj=tmerc +lat_0=17°01′ +lon_0=98°31′ +k_0=1.000032 +x_0=338000 +y_0=769000 +ellps=WGS84 +units=m +no_defs +type=crs"}
 Writing definition GPKG : OUTPUT_LDP/TH_TK_C/TH_TK_C_LDP.gpkg ...
  -> THINNING: Snapping points to 2 decimal grid for visualization...
  -> THINNING: Plot points reduced from 24284 to 5461.
@@ -137,5 +137,5 @@ Processing province: TH_TK_C
 [+] TH_TK_C: One-Page Report generated successfully.
 ======================================================================
 Completed province: TH.TK_C
-Finished: 2026-08-27T22:10:22+07:00
+Finished: 2026-11-02T00:21:21+07:00
 ======================================================================

@@ -26,7 +26,7 @@ import matplotlib.colors as mcolors
 import matplotlib.ticker as ticker
 import argparse
 
-TM =( '+proj=tmerc +lat_0=0.0 +lon_0={lon_0:.8f} +k_0={k_0:.6f} '
+TM =( '+proj=tmerc +lat_0={lat_0:.8f} +lon_0={lon_0:.8f} +k_0={k_0:.6f} '
       '+x_0={x_0} +y_0={y_0} +ellps=WGS84 +units=m +no_defs' )
 
 LCC =( '+proj=lcc +lat_1={lat_0:.8f} +lat_0={lat_0:.8f} +lon_0={lon_0:.8f} '
@@ -90,7 +90,7 @@ class LDP_Design:
             
         # Handle LDP = 'AUTO' to automatically set TM projection via centroid
         if self.DATA['LDP'] == 'AUTO':
-            cen_lng = self.dfPP.lng.mean()
+            cen_lng = round(self.dfPP.lng.mean() * 60.0) / 60.0
             cm_str = pgd.dms.toDMS(cen_lng, prec=5, sep=':')
             self.DATA['LDP'] = ['TM', cm_str]
             print(f" -> AUTO detected: using TM with Central Meridian {cm_str}")
@@ -226,7 +226,11 @@ class LDP_Design:
 
     def CreateLDP(self, FalseE, FalseN):
         if self.DATA.LDP[0] == 'TM':
-            LDP_STR = TM.format( lon_0=parse_dms(self.DATA.LDP[1]), k_0=self.k0, x_0=FalseE, y_0=FalseN )
+            # TM origin: latitude and longitude centroids rounded to the nearest arc-minute.
+            lat_0_dd = round(self.dfPP.lat.mean() * 60.0) / 60.0
+            lon_0_dd = round(self.dfPP.lng.mean() * 60.0) / 60.0
+            LDP_STR = TM.format(lat_0=lat_0_dd, lon_0=lon_0_dd,
+                                k_0=self.k0, x_0=FalseE, y_0=FalseN)
         elif self.DATA.LDP[0] == 'LCC':
             # Mathematically round to the nearest minute as pure decimal degrees for pyproj
             lat_0_dd = round(self.dfPP.lat.mean() * 60) / 60.0
@@ -304,8 +308,10 @@ class LDP_Design:
         
         # Extract direct parameters for exact matching output
         if self.DATA.LDP[0] == 'TM':
-            ll_dm = dd2DM(parm['lon_0'])
-            LDP_DEF_ = re.sub(r'\+lon_0=[^\s]+', f'+lon_0={ll_dm}', LDP_DEF)
+                lat_dm = dd2DM(parm['lat_0'])
+                lon_dm = dd2DM(parm['lon_0'])
+                LDP_DEF_ = re.sub(r'\+lat_0=[^\s]+', f'+lat_0={lat_dm}', LDP_DEF)
+                LDP_DEF_ = re.sub(r'\+lon_0=[^\s]+', f'+lon_0={lon_dm}', LDP_DEF_)
         elif self.DATA.LDP[0] == 'LCC':
             lat_dm = dd2DM(parm['lat_0'])
             lon_dm = dd2DM(parm['lon_0'])
