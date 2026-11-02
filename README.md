@@ -7,7 +7,7 @@
     </td>
     <td align="center" width="70%">
       <h2>Thailand Low Distortion Map Coordinate System (TH-LDP)</h2>
-      <h4><b>Release Candidate 1 (RC-1, Aug 2026)</b></h4>
+      <h4><b>EIT/COE Release Candidate 2 (RC-2, Nov 2026)</b></h4>
       <i>A collaborative initiative by <b>SMST</b> & <b>APAC</b></i>
     </td>
     <td align="center" width="15%">
